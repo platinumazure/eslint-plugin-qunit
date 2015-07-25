@@ -42,56 +42,56 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
         {
             code: "asyncTest('name', function () {});",
             errors: [{
-                message: "Need 1 more start() calls",
+                message: "Need 1 more start() call",
                 type: "CallExpression"
             }]
         },
         {
             code: "test('name', function () { stop(); });",
             errors: [{
-                message: "Need 1 more start() calls",
+                message: "Need 1 more start() call",
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.asyncTest('name', function () {});",
             errors: [{
-                message: "Need 1 more start() calls",
+                message: "Need 1 more start() call",
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.test('name', function () { stop(); });",
             errors: [{
-                message: "Need 1 more start() calls",
+                message: "Need 1 more start() call",
                 type: "CallExpression"
             }]
         },
         {
             code: "asyncTest('name', function () {});",
             errors: [{
-                message: "Need 1 more start() calls",
+                message: "Need 1 more start() call",
                 type: "CallExpression"
             }]
         },
         {
             code: "test('name', function () { QUnit.stop(); });",
             errors: [{
-                message: "Need 1 more start() calls",
+                message: "Need 1 more start() call",
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.asyncTest('name', function () {});",
             errors: [{
-                message: "Need 1 more start() calls",
+                message: "Need 1 more start() call",
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.test('name', function () { QUnit.stop(); });",
             errors: [{
-                message: "Need 1 more start() calls",
+                message: "Need 1 more start() call",
                 type: "CallExpression"
             }]
         },
