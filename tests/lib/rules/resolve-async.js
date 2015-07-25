@@ -20,10 +20,17 @@ var eslintTester = new ESLintTester(eslint);
 eslintTester.addRuleTest("lib/rules/resolve-async", {
 
     valid: [
+        // stop()/start()
         "test('name', function () { stop(); start(); });",
         "asyncTest('name', function () { start(); });",
         "QUnit.test('name', function () { stop(); start(); });",
         "QUnit.asyncTest('name', function () { start(); });",
+        "test('name', function () { QUnit.stop(); QUnit.start(); });",
+        "asyncTest('name', function () { QUnit.start(); });",
+        "QUnit.test('name', function () { QUnit.stop(); QUnit.start(); });",
+        "QUnit.asyncTest('name', function () { QUnit.start(); });",
+
+        // assert.async()
         "test('name', function (assert) { var done = assert.async(); done(); });",
         "QUnit.test('name', function (assert) { var done = assert.async(); done(); });",
         "test('name', function (assert) { var done; done = assert.async(); done(); });",
@@ -31,6 +38,7 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
     ],
 
     invalid: [
+        // stop()/start()
         {
             code: "asyncTest('name', function () {});",
             errors: [{
@@ -59,6 +67,36 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
                 type: "CallExpression"
             }]
         },
+        {
+            code: "asyncTest('name', function () {});",
+            errors: [{
+                message: "Need 1 more start() calls",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "test('name', function () { QUnit.stop(); });",
+            errors: [{
+                message: "Need 1 more start() calls",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.asyncTest('name', function () {});",
+            errors: [{
+                message: "Need 1 more start() calls",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('name', function () { QUnit.stop(); });",
+            errors: [{
+                message: "Need 1 more start() calls",
+                type: "CallExpression"
+            }]
+        },
+
+        // assert.async()
         {
             code: "test('name', function (assert) { var done = assert.async(); });",
             errors: [{
