@@ -1,0 +1,27 @@
+{
+  "name": "eslint-plugin-qunit",
+  "version": "0.1.0",
+  "description": "ESLint plugin containing rules useful for QUnit tests.",
+  "main": "index.js",
+  "private": true,
+  "peerDepencencies": {
+    "eslint": ">=0.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/platinumazure/eslint-plugin-qunit.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintplugin"
+  ],
+  "author": "Kevin Partington <kevin@kernelpanicstudios.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/platinumazure/eslint-plugin-qunit/issues"
+  },
+  "homepage": "https://github.com/platinumazure/eslint-plugin-qunit"
+}
