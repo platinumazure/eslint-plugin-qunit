@@ -196,6 +196,76 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
                 message: "Async callback \"done\" is not called",
                 type: "CallExpression"
             }]
+        },
+
+        // Multiple assert.async() calls
+        {
+            code: "test('name', function (assert) { var done1 = assert.async(), done2 = assert.async(); done1(); });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "test('name', function (assert) { var done1 = assert.async(), done2 = assert.async(); });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "CallExpression"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('name', function (assert) { var done1 = assert.async(), done2 = assert.async(); done1(); });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('name', function (assert) { var done1 = assert.async(), done2 = assert.async(); });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "CallExpression"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "test('name', function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); done1(); });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "test('name', function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "CallExpression"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('name', function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); done1(); });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('name', function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "CallExpression"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
         }
     ]
 
