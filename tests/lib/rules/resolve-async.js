@@ -34,7 +34,30 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
         "test('name', function (assert) { var done = assert.async(); done(); });",
         "QUnit.test('name', function (assert) { var done = assert.async(); done(); });",
         "test('name', function (assert) { var done; done = assert.async(); done(); });",
-        "QUnit.test('name', function (assert) { var done; done = assert.async(); done(); });"
+        "QUnit.test('name', function (assert) { var done; done = assert.async(); done(); });",
+
+        // start/stop calls outside of test context should not affect count
+        "start(); test('name', function () { stop(); start(); });",
+        "stop(); test('name', function () { stop(); start(); });",
+        "start(); asyncTest('name', function () { start(); });",
+        "stop(); asyncTest('name', function () { start(); });",
+        "start(); QUnit.test('name', function () { stop(); start(); });",
+        "stop(); QUnit.test('name', function () { stop(); start(); });",
+        "start(); QUnit.asyncTest('name', function () { start(); });",
+        "stop(); QUnit.asyncTest('name', function () { start(); });",
+        "QUnit.start(); test('name', function () { QUnit.stop(); QUnit.start(); });",
+        "QUnit.stop(); test('name', function () { QUnit.stop(); QUnit.start(); });",
+        "QUnit.start(); asyncTest('name', function () { QUnit.start(); });",
+        "QUnit.stop(); asyncTest('name', function () { QUnit.start(); });",
+        "QUnit.start(); QUnit.test('name', function () { QUnit.stop(); QUnit.start(); });",
+        "QUnit.stop(); QUnit.test('name', function () { QUnit.stop(); QUnit.start(); });",
+        "QUnit.start(); QUnit.asyncTest('name', function () { QUnit.start(); });",
+        "QUnit.stop(); QUnit.asyncTest('name', function () { QUnit.start(); });",
+
+        // assert.async() calls outside of test context should not matter
+        "var done = assert.async(); QUnit.test('name', function (assert) {});",
+        "var done = assert.async(); QUnit.test('name', function (assert) { done(); });",
+        "var done1 = assert.async(); QUnit.test('name', function (assert) { var done2 = assert.async(); done2(); });"
     ],
 
     invalid: [
@@ -263,6 +286,52 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
                 message: "Async callback \"done1\" is not called",
                 type: "CallExpression"
             }, {
+                message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+
+        // start/stop calls outside of test context should not affect count
+        {
+            code: "start(); asyncTest('name', function () {});",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "start(); test('name', function () { stop(); });",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "stop(); asyncTest('name', function () {});",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "stop(); test('name', function () { stop(); });",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "CallExpression"
+            }]
+        },
+
+        // assert.async() calls outside of test context should not matter
+        {
+            code: "var done = assert.async(); asyncTest('name', function () { done(); });",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "var done1 = assert.async(); QUnit.test('name', function (assert) { var done2 = assert.async(); done1(); });",
+            errors: [{
                 message: "Async callback \"done2\" is not called",
                 type: "CallExpression"
             }]
