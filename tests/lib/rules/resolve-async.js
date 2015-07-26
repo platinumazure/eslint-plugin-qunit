@@ -57,7 +57,10 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
         // assert.async() calls outside of test context should not matter
         "var done = assert.async(); QUnit.test('name', function (assert) {});",
         "var done = assert.async(); QUnit.test('name', function (assert) { done(); });",
-        "var done1 = assert.async(); QUnit.test('name', function (assert) { var done2 = assert.async(); done2(); });"
+        "var done1 = assert.async(); QUnit.test('name', function (assert) { var done2 = assert.async(); done2(); });",
+
+        // async calls can be done using a different variable
+        "QUnit.test('name', function (foo) { var done = foo.async(); done(); });"
     ],
 
     invalid: [
@@ -333,6 +336,15 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
             code: "var done1 = assert.async(); QUnit.test('name', function (assert) { var done2 = assert.async(); done1(); });",
             errors: [{
                 message: "Async callback \"done2\" is not called",
+                type: "CallExpression"
+            }]
+        },
+
+        // async calls can be done using a different variable
+        {
+            code: "QUnit.test('name', function (foo) { var done = foo.async(); });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
                 type: "CallExpression"
             }]
         }
