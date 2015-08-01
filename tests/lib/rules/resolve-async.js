@@ -30,6 +30,16 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
         "QUnit.test('name', function () { QUnit.stop(); QUnit.start(); });",
         "QUnit.asyncTest('name', function () { QUnit.start(); });",
 
+        // stop()/start() with semaphore args
+        "test('name', function () { stop(2); start(); start(); });",
+        "test('name', function () { stop(); stop(); start(2); });",
+        "asyncTest('name', function () { stop(1); start(); start(); });",
+        "asyncTest('name', function () { stop(); stop(); start(3); });",
+        "QUnit.test('name', function () { stop(2); start(); start(); });",
+        "QUnit.test('name', function () { stop(); stop(); start(2); });",
+        "QUnit.asyncTest('name', function () { stop(1); start(); start(); });",
+        "QUnit.asyncTest('name', function () { stop(); stop(); start(3); });",
+
         // assert.async()
         "test('name', function (assert) { var done = assert.async(); done(); });",
         "QUnit.test('name', function (assert) { var done = assert.async(); done(); });",
