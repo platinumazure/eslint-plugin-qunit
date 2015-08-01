@@ -70,7 +70,8 @@ eslintTester.addRuleTest("lib/rules/resolve-async", {
         "var done1 = assert.async(); QUnit.test('name', function (assert) { var done2 = assert.async(); done2(); });",
 
         // async calls can be done using a different variable
-        "QUnit.test('name', function (foo) { var done = foo.async(); done(); });"
+        "QUnit.test('name', function (foo) { var done = foo.async(); done(); });",
+        "QUnit.test('name', function (foo) { var done; done = assert.async(); });"
     ],
 
     invalid: [
