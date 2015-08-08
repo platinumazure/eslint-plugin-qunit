@@ -328,63 +328,63 @@ eslintTester.addRuleTest("lib/rules/no-async-in-loops", {
 
         // assert.async()
         {
-            code: "test('name', function () { while (false) assert.async(); });",
+            code: "test('name', function (assert) { while (false) assert.async(); });",
             errors: [{
                 message: "Unexpected assert.async() in while loop",
                 type: "CallExpression"
             }]
         },
         {
-            code: "test('name', function () { while (false) { assert.async(); } });",
+            code: "test('name', function (assert) { while (false) { assert.async(); } });",
             errors: [{
                 message: "Unexpected assert.async() in while loop",
                 type: "CallExpression"
             }]
         },
         {
-            code: "test('name', function () { do assert.async(); while (false); });",
+            code: "test('name', function (assert) { do assert.async(); while (false); });",
             errors: [{
                 message: "Unexpected assert.async() in do-while loop",
                 type: "CallExpression"
             }]
         },
         {
-            code: "test('name', function () { do { assert.async(); } while (false); });",
+            code: "test('name', function (assert) { do { assert.async(); } while (false); });",
             errors: [{
                 message: "Unexpected assert.async() in do-while loop",
                 type: "CallExpression"
             }]
         },
         {
-            code: "test('name', function () { for (;;) assert.async(); });",
+            code: "test('name', function (assert) { for (;;) assert.async(); });",
             errors: [{
                 message: "Unexpected assert.async() in for loop",
                 type: "CallExpression"
             }]
         },
         {
-            code: "test('name', function () { for (;;) { assert.async(); } });",
+            code: "test('name', function (assert) { for (;;) { assert.async(); } });",
             errors: [{
                 message: "Unexpected assert.async() in for loop",
                 type: "CallExpression"
             }]
         },
         {
-            code: "test('name', function () { for (i in x) assert.async(); });",
+            code: "test('name', function (assert) { for (i in x) assert.async(); });",
             errors: [{
                 message: "Unexpected assert.async() in for-in loop",
                 type: "CallExpression"
             }]
         },
         {
-            code: "test('name', function () { for (i in x) assert.async(); });",
+            code: "test('name', function (assert) { for (i in x) assert.async(); });",
             errors: [{
                 message: "Unexpected assert.async() in for-in loop",
                 type: "CallExpression"
             }]
         },
         {
-            code: "test('name', function () { for (i of x) assert.async(); });",
+            code: "test('name', function (assert) { for (i of x) assert.async(); });",
             ecmaFeatures: { forOf: true },
             errors: [{
                 message: "Unexpected assert.async() in for-of loop",
@@ -392,7 +392,45 @@ eslintTester.addRuleTest("lib/rules/no-async-in-loops", {
             }]
         },
         {
-            code: "test('name', function () { for (i of x) assert.async(); });",
+            code: "test('name', function (assert) { for (i of x) assert.async(); });",
+            ecmaFeatures: { forOf: true },
+            errors: [{
+                message: "Unexpected assert.async() in for-of loop",
+                type: "CallExpression"
+            }]
+        },
+
+        // assert.async() with other assert context variable
+        {
+            code: "test('name', function (foo) { while (false) foo.async(); });",
+            errors: [{
+                message: "Unexpected assert.async() in while loop",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "test('name', function (foo) { do foo.async(); while (false); });",
+            errors: [{
+                message: "Unexpected assert.async() in do-while loop",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "test('name', function (foo) { for (;;) foo.async(); });",
+            errors: [{
+                message: "Unexpected assert.async() in for loop",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "test('name', function (foo) { for (i in {}) foo.async(); });",
+            errors: [{
+                message: "Unexpected assert.async() in for-in loop",
+                type: "CallExpression"
+            }]
+        },
+        {
+            code: "test('name', function (foo) { for (i of {}) foo.async(); });",
             ecmaFeatures: { forOf: true },
             errors: [{
                 message: "Unexpected assert.async() in for-of loop",
