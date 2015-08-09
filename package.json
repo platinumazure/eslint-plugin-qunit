@@ -18,8 +18,7 @@
   "devDependencies": {
     "istanbul": "0.3.0",
     "mocha": "1.21.4",
-    "eslint-tester": "^0.8.0",
-    "eslint": ">=0.24.0"
+    "eslint": ">=1.0.0"
   },
   "peerDepencencies": {
     "eslint": ">=0.9.0"

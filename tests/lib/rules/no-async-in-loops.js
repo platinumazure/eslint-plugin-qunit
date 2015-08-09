@@ -8,16 +8,16 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var eslint = require("eslint").linter,
-    ESLintTester = require("eslint-tester");
+var rule = require("../../../lib/rules/no-async-in-loops"),
+    RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint);
+var ruleTester = new RuleTester();
 
-eslintTester.addRuleTest("lib/rules/no-async-in-loops", {
+ruleTester.run("no-async-in-loops", rule, {
 
     valid: [
         // stop()/start()

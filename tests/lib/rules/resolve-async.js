@@ -8,16 +8,15 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var eslint = require("eslint").linter,
-    ESLintTester = require("eslint-tester");
+var rule = require("../../../lib/rules/resolve-async"),
+    RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var eslintTester = new ESLintTester(eslint);
-
-eslintTester.addRuleTest("lib/rules/resolve-async", {
+var ruleTester = new RuleTester();
+ruleTester.run("resolve-async", rule, {
 
     valid: [
         // stop()/start()
