@@ -3,7 +3,6 @@
   "version": "0.1.1-pre",
   "description": "ESLint plugin containing rules useful for QUnit tests.",
   "main": "index.js",
-  "private": true,
   "scripts": {
     "test": "npm run lint && npm run unit-test --coverage && npm run check-coverage",
     "lint": "eslint ./",
