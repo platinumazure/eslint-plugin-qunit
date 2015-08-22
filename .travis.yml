@@ -2,3 +2,4 @@ language: "node_js"
 node_js:
     - "node"
     - "iojs"
+after_script: "cat ./build/coverage/lcov_info | node ./node_modules/coveralls/bin/coveralls.js"

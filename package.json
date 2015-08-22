@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint && npm run unit-test --coverage && npm run check-coverage",
     "lint": "eslint ./",
-    "unit-test": "istanbul cover --dir build/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --recursive --reporter dot",
+    "unit-test": "istanbul cover --dir build/coverage node_modules/mocha/bin/_mocha tests/**/*.js --report lcovonly -- --recursive",
     "check-coverage": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
     "report-coverage-html": "istanbul report --dir build/coverage html",
     "preversion": "npm test",
@@ -17,9 +17,11 @@
     "lib/"
   ],
   "devDependencies": {
+    "coveralls": "^2.11.4",
+    "eslint": ">=1.0.0",
     "istanbul": "0.3.0",
     "mocha": "1.21.4",
-    "eslint": ">=1.0.0"
+    "mocha-lcov-reporter": "0.0.2"
   },
   "peerDepencencies": {
     "eslint": ">=0.9.0"
