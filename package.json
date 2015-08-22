@@ -9,7 +9,9 @@
     "lint": "eslint ./",
     "unit-test": "istanbul cover --dir build/coverage node_modules/mocha/bin/_mocha tests/**/*.js -- --recursive --reporter dot",
     "check-coverage": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
-    "report-coverage-html": "istanbul report --dir build/coverage html"
+    "report-coverage-html": "istanbul report --dir build/coverage html",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags"
   },
   "files": [
     "index.js",
