@@ -18,10 +18,10 @@
   ],
   "devDependencies": {
     "coveralls": "^2.11.4",
-    "eslint": ">=1.0.0",
-    "istanbul": "0.3.0",
-    "mocha": "1.21.4",
-    "mocha-lcov-reporter": "0.0.2"
+    "eslint": "^1.0.0",
+    "istanbul": "^0.3.0",
+    "mocha": "^1.21.4",
+    "mocha-lcov-reporter": "^0.0.2"
   },
   "peerDepencencies": {
     "eslint": ">=0.9.0"
