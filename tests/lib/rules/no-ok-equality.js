@@ -70,105 +70,105 @@ ruleTester.run("no-ok-equality", rule, {
         {
             code: "test('Name', function (assert) { assert.ok(x === 1); });",
             errors: [{
-                message: "Unexpected equality comparison in assert.ok call"
+                message: "Unexpected equality comparison in assert.ok call. Use assert.strictEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function (assert) { assert.notOk(x === 1); });",
             errors: [{
-                message: "Unexpected equality comparison in assert.notOk call"
+                message: "Unexpected equality comparison in assert.notOk call. Use assert.notStrictEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function () { ok(x === 1); });",
             options: [{ allowGlobal: true }],
             errors: [{
-                message: "Unexpected equality comparison in ok call"
+                message: "Unexpected equality comparison in ok call. Use strictEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function () { notOk(x === 1); });",
             options: [{ allowGlobal: true }],
             errors: [{
-                message: "Unexpected equality comparison in notOk call"
+                message: "Unexpected equality comparison in notOk call. Use notStrictEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function (assert) { assert.ok(x == 1); });",
             errors: [{
-                message: "Unexpected equality comparison in assert.ok call"
+                message: "Unexpected equality comparison in assert.ok call. Use assert.equal(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function (assert) { assert.notOk(x == 1); });",
             errors: [{
-                message: "Unexpected equality comparison in assert.notOk call"
+                message: "Unexpected equality comparison in assert.notOk call. Use assert.notEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function () { ok(x == 1); });",
             options: [{ allowGlobal: true }],
             errors: [{
-                message: "Unexpected equality comparison in ok call"
+                message: "Unexpected equality comparison in ok call. Use equal(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function () { notOk(x == 1); });",
             options: [{ allowGlobal: true }],
             errors: [{
-                message: "Unexpected equality comparison in notOk call"
+                message: "Unexpected equality comparison in notOk call. Use notEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function (assert) { assert.ok(x !== 1); });",
             errors: [{
-                message: "Unexpected equality comparison in assert.ok call"
+                message: "Unexpected equality comparison in assert.ok call. Use assert.notStrictEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function (assert) { assert.notOk(x !== 1); });",
             errors: [{
-                message: "Unexpected equality comparison in assert.notOk call"
+                message: "Unexpected equality comparison in assert.notOk call. Use assert.strictEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function () { ok(x !== 1); });",
             options: [{ allowGlobal: true }],
             errors: [{
-                message: "Unexpected equality comparison in ok call"
+                message: "Unexpected equality comparison in ok call. Use notStrictEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function () { notOk(x !== 1); });",
             options: [{ allowGlobal: true }],
             errors: [{
-                message: "Unexpected equality comparison in notOk call"
+                message: "Unexpected equality comparison in notOk call. Use strictEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function (assert) { assert.ok(x != 1); });",
             errors: [{
-                message: "Unexpected equality comparison in assert.ok call"
+                message: "Unexpected equality comparison in assert.ok call. Use assert.notEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function (assert) { assert.notOk(x != 1); });",
             errors: [{
-                message: "Unexpected equality comparison in assert.notOk call"
+                message: "Unexpected equality comparison in assert.notOk call. Use assert.equal(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function () { ok(x != 1); });",
             options: [{ allowGlobal: true }],
             errors: [{
-                message: "Unexpected equality comparison in ok call"
+                message: "Unexpected equality comparison in ok call. Use notEqual(x, 1) instead."
             }]
         },
         {
             code: "test('Name', function () { notOk(x != 1); });",
             options: [{ allowGlobal: true }],
             errors: [{
-                message: "Unexpected equality comparison in notOk call"
+                message: "Unexpected equality comparison in notOk call. Use equal(x, 1) instead."
             }]
         }
     ]
