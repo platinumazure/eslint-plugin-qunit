@@ -8,6 +8,8 @@
         "default-case": 2,
         "func-style": [2, "declaration"],
         "guard-for-in": 2,
+        "no-console": 2,
+        "no-debugger": 2,
         "no-floating-decimal": 2,
         "no-nested-ternary": 2,
         "no-undefined": 2,
