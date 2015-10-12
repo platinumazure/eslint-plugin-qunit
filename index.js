@@ -10,6 +10,7 @@ module.exports = {
     rulesConfig: {
         "no-async-in-loops": 1,
         "no-commented-tests": 0,
+        "no-ok-equality": 1,
         "resolve-async": 2
     }
 };
