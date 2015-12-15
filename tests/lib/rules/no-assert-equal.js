@@ -37,7 +37,10 @@ ruleTester.run("no-assert-equal", rule, {
         "QUnit.test('Name', function (assert) { propEqual(a, b); });",
         "QUnit.test('Name', function () { strictEqual(a, b); });",
         "QUnit.test('Name', function () { deepEqual(a, b); });",
-        "QUnit.test('Name', function () { propEqual(a, b); });"
+        "QUnit.test('Name', function () { propEqual(a, b); });",
+
+	// equal is not within test context
+	"equal(a, b);"
     ],
 
     invalid: [
