@@ -116,7 +116,10 @@ ruleTester.run("assert-args", rule, {
 
         // not actually an assertion
         wrap("notAnAssertion(result, expected);"),
-        wrap("getAssertion()(result, expected);")
+        wrap("getAssertion()(result, expected);"),
+
+        // unwrapped
+        "notAnAssertion(result, expected);"
     ],
 
     invalid: [
