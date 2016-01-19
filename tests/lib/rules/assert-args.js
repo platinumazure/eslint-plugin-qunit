@@ -142,13 +142,16 @@ ruleTester.run("assert-args", rule, {
         wrap("assert.notPropEqual(result, expected, 'Message');"),
         wrap("assert.notPropEqual(obj[key], expected, key + ' value is true');"),
 
-        // not actually an assertion
+        // not actually assertions
         wrap("notAnAssertion(result, expected);"),
         wrap("getAssertion()(result, expected);"),
+
+        // Object prototype properties (also not actually assertions)
         wrap("hasOwnProperty('prop');"),
+        wrap("assert.hasOwnProperty('prop');"),
 
         // unwrapped
-        // "notAnAssertion(result, expected);"
+        "notAnAssertion(result, expected);"
     ],
 
     invalid: [
