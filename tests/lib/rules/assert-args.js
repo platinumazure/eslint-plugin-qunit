@@ -145,9 +145,10 @@ ruleTester.run("assert-args", rule, {
         // not actually an assertion
         wrap("notAnAssertion(result, expected);"),
         wrap("getAssertion()(result, expected);"),
+        wrap("hasOwnProperty('prop');"),
 
         // unwrapped
-        "notAnAssertion(result, expected);"
+        // "notAnAssertion(result, expected);"
     ],
 
     invalid: [
