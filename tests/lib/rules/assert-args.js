@@ -4,6 +4,8 @@
  */
 "use strict";
 
+/* eslint-disable lines-around-comment */
+
 //------------------------------------------------------------------------------
 // Requirements
 //------------------------------------------------------------------------------
@@ -577,6 +579,6 @@ ruleTester.run("assert-args", rule, {
         {
             code: wrap("assert.notPropEqual(a, b, c, 'Message');"),
             errors: ["Unexpected call to assert.notPropEqual with 4 arguments."]
-        },
+        }
     ]
 });
