@@ -89,7 +89,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function () { for (i of x) stop(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected stop() in for-of loop",
                 type: "CallExpression"
@@ -97,7 +97,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function () { for (i of x) stop(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected stop() in for-of loop",
                 type: "CallExpression"
@@ -163,7 +163,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function () { for (i of x) QUnit.stop(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected stop() in for-of loop",
                 type: "CallExpression"
@@ -171,7 +171,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function () { for (i of x) QUnit.stop(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected stop() in for-of loop",
                 type: "CallExpression"
@@ -237,7 +237,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function () { for (i of x) start(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected start() in for-of loop",
                 type: "CallExpression"
@@ -245,7 +245,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function () { for (i of x) start(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected start() in for-of loop",
                 type: "CallExpression"
@@ -311,7 +311,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function () { for (i of x) QUnit.start(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected start() in for-of loop",
                 type: "CallExpression"
@@ -319,7 +319,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function () { for (i of x) QUnit.start(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected start() in for-of loop",
                 type: "CallExpression"
@@ -385,7 +385,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function (assert) { for (i of x) assert.async(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected assert.async() in for-of loop",
                 type: "CallExpression"
@@ -393,7 +393,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function (assert) { for (i of x) assert.async(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected assert.async() in for-of loop",
                 type: "CallExpression"
@@ -431,7 +431,7 @@ ruleTester.run("no-async-in-loops", rule, {
         },
         {
             code: "test('name', function (foo) { for (i of {}) foo.async(); });",
-            ecmaFeatures: { forOf: true },
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 message: "Unexpected foo.async() in for-of loop",
                 type: "CallExpression"

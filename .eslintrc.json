@@ -25,6 +25,7 @@
         "guard-for-in": 2,
 	"indent": [2, 4, { "SwitchCase": 1, "VariableDeclarator": 1 }],
 	"key-spacing": [2, { "beforeColon": false, "afterColon": true }],
+	"keyword-spacing": [2, { "before": true, "after": true }],
 	"lines-around-comment": [
 	    2,
 	    {
@@ -119,7 +120,6 @@
         "radix": 2,
 	"semi": [2, "always"],
 	"semi-spacing": [2, { "before": false, "after": true }],
-        "space-after-keywords": [2, "always"],
 	"space-before-blocks": [2, "always"],
 	"space-before-function-paren": [2, { "anonymous": "always", "named": "never" }],
 	"space-in-parens": [2, "never"],
