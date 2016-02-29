@@ -1,3 +1,11 @@
+### 0.5.0
+
+* Build: Enable some ESLint rules available in eslint@2.0.0 (Kevin Partington)
+* Upgrade: eslint@^2.2.0 (Kevin Partington)
+* New: literal-compare-order rule (fixes #19) (Kevin Partington)
+* Build: Enabling many ESLint rules. (Kevin Partington)
+* Upgrade: eslint@^1.10.0 (Kevin Partington)
+
 ### 0.4.0
 
 * New: no-global-assertions rule (refs #20) (Kevin Partington)
