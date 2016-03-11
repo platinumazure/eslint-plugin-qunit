@@ -10,7 +10,8 @@ module.exports = {
         "no-global-assertions": require("./lib/rules/no-global-assertions"),
         "no-ok-equality": require("./lib/rules/no-ok-equality"),
         "no-only": require("./lib/rules/no-only"),
-        "resolve-async": require("./lib/rules/resolve-async")
+        "resolve-async": require("./lib/rules/resolve-async"),
+        "require-expect": require("./lib/rules/require-expect")
     },
     rulesConfig: {
         "assert-args": 1,
@@ -21,6 +22,7 @@ module.exports = {
         "no-global-assertions": 0,
         "no-ok-equality": 1,
         "no-only": 1,
-        "resolve-async": 2
+        "resolve-async": 2,
+        "require-expect": 0
     }
 };
