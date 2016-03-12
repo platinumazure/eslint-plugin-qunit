@@ -4,6 +4,7 @@ module.exports = {
     rules: {
         "assert-args": require("./lib/rules/assert-args"),
         "literal-compare-order": require("./lib/rules/literal-compare-order"),
+        "no-arrow-tests": require("./lib/rules/no-arrow-tests"),
         "no-assert-equal": require("./lib/rules/no-assert-equal"),
         "no-async-in-loops": require("./lib/rules/no-async-in-loops"),
         "no-commented-tests": require("./lib/rules/no-commented-tests"),
@@ -16,6 +17,7 @@ module.exports = {
     rulesConfig: {
         "assert-args": 1,
         "literal-compare-order": 0,
+        "no-arrow-tests": 0,
         "no-assert-equal": 0,
         "no-async-in-loops": 1,
         "no-commented-tests": 0,
