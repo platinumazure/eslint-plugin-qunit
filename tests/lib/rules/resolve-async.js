@@ -29,6 +29,23 @@ ruleTester.run("resolve-async", rule, {
         "QUnit.test('name', function () { QUnit.stop(); QUnit.start(); });",
         "QUnit.asyncTest('name', function () { QUnit.start(); });",
 
+        "module('name', { setup: function () { stop(); start(); } });",
+        "QUnit.module('name', { setup: function () { stop(); start(); } });",
+        "module('name', { setup: function () { QUnit.stop(); QUnit.start(); } });",
+        "QUnit.module('name', { setup: function () { QUnit.stop(); QUnit.start(); } });",
+        "module('name', { teardown: function () { stop(); start(); } });",
+        "QUnit.module('name', { teardown: function () { stop(); start(); } });",
+        "module('name', { teardown: function () { QUnit.stop(); QUnit.start(); } });",
+        "QUnit.module('name', { teardown: function () { QUnit.stop(); QUnit.start(); } });",
+        "module('name', { beforeEach: function () { stop(); start(); } });",
+        "QUnit.module('name', { beforeEach: function () { stop(); start(); } });",
+        "module('name', { beforeEach: function () { QUnit.stop(); QUnit.start(); } });",
+        "QUnit.module('name', { beforeEach: function () { QUnit.stop(); QUnit.start(); } });",
+        "module('name', { afterEach: function () { stop(); start(); } });",
+        "QUnit.module('name', { afterEach: function () { stop(); start(); } });",
+        "module('name', { afterEach: function () { QUnit.stop(); QUnit.start(); } });",
+        "QUnit.module('name', { afterEach: function () { QUnit.stop(); QUnit.start(); } });",
+
         // stop()/start() with semaphore args
         "test('name', function () { stop(2); start(); start(); });",
         "test('name', function () { stop(); stop(); start(2); });",
@@ -39,11 +56,37 @@ ruleTester.run("resolve-async", rule, {
         "QUnit.asyncTest('name', function () { stop(1); start(); start(); });",
         "QUnit.asyncTest('name', function () { stop(); stop(); start(3); });",
 
+        "module('name', { setup: function () { stop(2); start(); start(); } });",
+        "QUnit.module('name', { setup: function () { stop(2); start(); start(); } });",
+        "module('name', { setup: function () { QUnit.stop(2); QUnit.start(); QUnit.start(); } });",
+        "QUnit.module('name', { setup: function () { QUnit.stop(2); QUnit.start(); QUnit.start(); } });",
+        "module('name', { teardown: function () { stop(); start(); start(); } });",
+        "QUnit.module('name', { teardown: function () { stop(); start(); start(); } });",
+        "module('name', { teardown: function () { QUnit.stop(); QUnit.start(); QUnit.start(); } });",
+        "QUnit.module('name', { teardown: function () { QUnit.stop(); QUnit.start(); QUnit.start(); } });",
+        "module('name', { beforeEach: function () { stop(); start(); start(); } });",
+        "QUnit.module('name', { beforeEach: function () { stop(); start(); start(); } });",
+        "module('name', { beforeEach: function () { QUnit.stop(); QUnit.start(); QUnit.start(); } });",
+        "QUnit.module('name', { beforeEach: function () { QUnit.stop(); QUnit.start(); QUnit.start(); } });",
+        "module('name', { afterEach: function () { stop(); start(); start(); } });",
+        "QUnit.module('name', { afterEach: function () { stop(); start(); start(); } });",
+        "module('name', { afterEach: function () { QUnit.stop(); QUnit.start(); QUnit.start(); } });",
+        "QUnit.module('name', { afterEach: function () { QUnit.stop(); QUnit.start(); QUnit.start(); } });",
+
         // assert.async()
         "test('name', function (assert) { var done = assert.async(); done(); });",
         "QUnit.test('name', function (assert) { var done = assert.async(); done(); });",
         "test('name', function (assert) { var done; done = assert.async(); done(); });",
         "QUnit.test('name', function (assert) { var done; done = assert.async(); done(); });",
+
+        "module('name', { setup: function () { var done = assert.async(); done(); } });",
+        "QUnit.module('name', { setup: function () { var done = assert.async(); done(); } });",
+        "module('name', { teardown: function () { var done = assert.async(); done(); } });",
+        "QUnit.module('name', { teardown: function () { var done = assert.async(); done(); } });",
+        "module('name', { beforeEach: function () { var done = assert.async(); done(); } });",
+        "QUnit.module('name', { beforeEach: function () { var done = assert.async(); done(); } });",
+        "module('name', { afterEach: function () { var done = assert.async(); done(); } });",
+        "QUnit.module('name', { afterEach: function () { var done = assert.async(); done(); } });",
 
         // start/stop calls outside of test context should not affect count
         "start(); test('name', function () { stop(); start(); });",
@@ -70,7 +113,11 @@ ruleTester.run("resolve-async", rule, {
 
         // async calls can be done using a different variable
         "QUnit.test('name', function (foo) { var done = foo.async(); done(); });",
-        "QUnit.test('name', function (foo) { var done; done = assert.async(); });"
+        "QUnit.test('name', function (foo) { var done; done = assert.async(); });",
+
+        // module properties that aren't hooks should not be flagged
+        "QUnit.module({ someProp: function () { QUnit.stop(); } });",
+        "QUnit.module({ someProp: function (assert) { assert.async(); } });"
     ],
 
     invalid: [
@@ -129,6 +176,34 @@ ruleTester.run("resolve-async", rule, {
             errors: [{
                 message: "Need 1 more start() call",
                 type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.module('name', { setup: function () { QUnit.stop(); } });",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module('name', { teardown: function () { QUnit.stop(); } });",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module('name', { beforeEach: function () { QUnit.stop(); } });",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module('name', { afterEach: function () { QUnit.stop(); } });",
+            errors: [{
+                message: "Need 1 more start() call",
+                type: "Property"
             }]
         },
 
@@ -203,6 +278,34 @@ ruleTester.run("resolve-async", rule, {
                 type: "CallExpression"
             }]
         },
+        {
+            code: "QUnit.module('name', { setup: function () { QUnit.stop(); QUnit.stop(); } });",
+            errors: [{
+                message: "Need 2 more start() calls",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module('name', { teardown: function () { QUnit.stop(); QUnit.stop(); } });",
+            errors: [{
+                message: "Need 2 more start() calls",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module('name', { beforeEach: function () { QUnit.stop(); QUnit.stop(); } });",
+            errors: [{
+                message: "Need 2 more start() calls",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module('name', { afterEach: function () { QUnit.stop(); QUnit.stop(); } });",
+            errors: [{
+                message: "Need 2 more start() calls",
+                type: "Property"
+            }]
+        },
 
         // assert.async()
         {
@@ -231,6 +334,62 @@ ruleTester.run("resolve-async", rule, {
             errors: [{
                 message: "Async callback \"done\" is not called",
                 type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.module({ setup: function (assert) { var done = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ teardown: function (assert) { var done = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ beforeEach: function (assert) { var done = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ afterEach: function (assert) { var done = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ setup: function (assert) { var done; done = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ teardown: function (assert) { var done; done = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ beforeEach: function (assert) { var done; done = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ afterEach: function (assert) { var done; done = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
             }]
         },
 
@@ -303,6 +462,142 @@ ruleTester.run("resolve-async", rule, {
                 type: "CallExpression"
             }]
         },
+        {
+            code: "QUnit.module({ setup: function (assert) { var done1 = assert.async(), done2 = assert.async(); done1(); } });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ setup: function (assert) { var done1 = assert.async(), done2 = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "Property"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ setup: function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); done1(); } });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ setup: function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "Property"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ teardown: function (assert) { var done1 = assert.async(), done2 = assert.async(); done1(); } });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ teardown: function (assert) { var done1 = assert.async(), done2 = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "Property"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ teardown: function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); done1(); } });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ teardown: function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "Property"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ beforeEach: function (assert) { var done1 = assert.async(), done2 = assert.async(); done1(); } });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ beforeEach: function (assert) { var done1 = assert.async(), done2 = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "Property"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ beforeEach: function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); done1(); } });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ beforeEach: function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "Property"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ afterEach: function (assert) { var done1 = assert.async(), done2 = assert.async(); done1(); } });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ afterEach: function (assert) { var done1 = assert.async(), done2 = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "Property"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ afterEach: function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); done1(); } });",
+            errors: [{
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
+        {
+            code: "QUnit.module({ afterEach: function (assert) { var done1, done2; done1 = assert.async(); done2 = assert.async(); } });",
+            errors: [{
+                message: "Async callback \"done1\" is not called",
+                type: "Property"
+            }, {
+                message: "Async callback \"done2\" is not called",
+                type: "Property"
+            }]
+        },
 
         // start/stop calls outside of test context should not affect count
         {
@@ -356,6 +651,13 @@ ruleTester.run("resolve-async", rule, {
             errors: [{
                 message: "Async callback \"done\" is not called",
                 type: "CallExpression"
+            }]
+        },
+        {
+            code: "QUnit.module({ setup: function (foo) { var done = foo.async(); } });",
+            errors: [{
+                message: "Async callback \"done\" is not called",
+                type: "Property"
             }]
         }
     ]
