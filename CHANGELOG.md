@@ -2,7 +2,6 @@
 
 * Upgrade: devDependencies to latest stable (Kevin Partington)
 * New: no-arrow-tests rule (fixes #24) (Kevin Partington)
-* Merge pull request #22 from mitchlloyd/use-expect-squash (Kevin Partington)
 * New: require-expect rule (fixes #23) (Mitch Lloyd)
 * Build: Updating .travis.yml (Kevin Partington)
 
