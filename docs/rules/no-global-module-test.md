@@ -1,4 +1,4 @@
-# Forbid the use of global QUnit assertions (no-global-assertions)
+# Forbid the use of global module/test/asyncTest (no-global-module-test)
 
 QUnit 2.0 is deprecating and removing global functions related to declaring tests and modules. This rule will warn when the global functions are used.
 
