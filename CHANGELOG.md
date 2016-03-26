@@ -1,3 +1,14 @@
+### 0.7.0
+* Build: Add generate-release-changelog script as postversion hook (Kevin Partington)
+* New: no-async-test rule (refs #20) (Kevin Partington)
+* Docs: Fix header of no-global-module-test (Kevin Partington)
+* Build: Ensure unit tests are run with all sources instrumented (Kevin Partington)
+* New: no-global-module-test rule (refs #20) (Kevin Partington)
+* Update: no-global-assertions doesn't need to track test context (Kevin Partington)
+* Update: resolve-async now checks module hooks (fixes #4) (Kevin Partington)
+* Docs: Removed merge commit from changelog (Kevin Partington)
+* Docs: Update changelog for 0.6.0 (Kevin Partington)
+
 ### 0.6.0
 
 * Upgrade: devDependencies to latest stable (Kevin Partington)
