@@ -1,5 +1,5 @@
 /**
- * @fileoverview Forbid the use of global QUnit assertions.
+ * @fileoverview Forbid the use of global module/test/asyncTest.
  * @author Kevin Partington
  */
 "use strict";
