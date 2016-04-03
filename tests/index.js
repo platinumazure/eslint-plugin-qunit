@@ -40,6 +40,15 @@ describe("index.js", function () {
                     assert.property(index.rulesConfig, fileName, "Rule config for " + fileName + " not present");
                     assert.include(["number", "array"], typeof index.rulesConfig[fileName], "Rule config for " + fileName + " should be number or array");
                 });
+
+                it("should appear in docs", function (done) {
+                    var path = "./docs/rules/" + fileName + ".md";
+
+                    fs.access(path, function (err) {
+                        assert.notOk(err, "docs/rules/" + fileName + ".md should exist");
+                        done();
+                    });
+                });
             });
         });
     });
