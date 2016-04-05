@@ -5,3 +5,22 @@
 [![devDependency Status](https://david-dm.org/platinumazure/eslint-plugin-qunit/dev-status.svg)](https://david-dm.org/platinumazure/eslint-plugin-qunit#info=devDependencies)
 
 ESLint plugin containing rules useful for QUnit tests.
+
+## Available Rules
+
+Below is the list of rules available in this plugin.
+
+* [assert-args](./docs/rules/assert-args.md)
+* [literal-compare-order](./docs/rules/literal-compare-order.md)
+* [no-arrow-tests](./docs/rules/no-arrow-tests.md)
+* [no-assert-equal](./docs/rules/no-assert-equal.md)
+* [no-async-in-loops](./docs/rules/no-async-in-loops.md)
+* [no-async-test](./docs/rules/no-async-test.md)
+* [no-commented-tests](./docs/rules/no-commented-tests.md)
+* [no-global-assertions](./docs/rules/no-global-assertions.md)
+* [no-global-expect](./docs/rules/no-global-expect.md)
+* [no-global-module-test](./docs/rules/no-global-module-test.md)
+* [no-ok-equality](./docs/rules/no-ok-equality.md)
+* [no-only](./docs/rules/no-only.md)
+* [require-expect](./docs/rules/require-expect.md)
+* [resolve-async](./docs/rules/resolve-async.md)
