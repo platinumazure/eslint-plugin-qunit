@@ -1,0 +1,92 @@
+/**
+ * @fileoverview Forbid the use of negations in assert.ok/notOk.
+ * @author Kevin Partington
+ */
+"use strict";
+
+//------------------------------------------------------------------------------
+// Requirements
+//------------------------------------------------------------------------------
+
+var rule = require("../../../lib/rules/no-negated-ok"),
+    RuleTester = require("eslint").RuleTester;
+
+//------------------------------------------------------------------------------
+// Helper functions
+//------------------------------------------------------------------------------
+
+function wrap(code) {
+    return "QUnit.test('test', function (assert) { " + code + " });";
+}
+
+function errorMessage(callee) {
+    return "Unexpected negation in " + callee + "() assertion.";
+}
+
+//------------------------------------------------------------------------------
+// Tests
+//------------------------------------------------------------------------------
+
+var ruleTester = new RuleTester();
+
+ruleTester.run("no-negated-ok", rule, {
+
+    valid: [
+        // ok
+        wrap("ok(foo)"),
+        wrap("ok(foo, 'message')"),
+        wrap("assert.ok(foo)"),
+        wrap("assert.ok(foo, 'message')"),
+
+        // notOk
+        wrap("assert.notOk(foo)"),
+        wrap("assert.notOk(foo, 'message')"),
+
+        // only logical negation should be reported
+        wrap("ok(-foo)"),
+        wrap("ok(~foo)"),
+        wrap("assert.ok(-foo)"),
+        wrap("assert.ok(~foo)"),
+        wrap("assert.notOk(-foo)"),
+        wrap("assert.notOk(~foo)"),
+
+        // no arguments
+        wrap("ok()"),
+        wrap("assert.ok()"),
+        wrap("assert.notOk()"),
+
+        // different assertions can have negation
+        wrap("equal(!a, true)")
+    ],
+
+    invalid: [
+        // ok
+        {
+            code: wrap("ok(!foo)"),
+            errors: [errorMessage("ok")]
+        },
+        {
+            code: wrap("ok(!foo, 'message')"),
+            errors: [errorMessage("ok")]
+        },
+        {
+            code: wrap("assert.ok(!foo)"),
+            errors: [errorMessage("assert.ok")]
+        },
+        {
+            code: wrap("assert.ok(!foo, 'message')"),
+            errors: [errorMessage("assert.ok")]
+        },
+
+        // notOk
+        {
+            code: wrap("assert.notOk(!foo)"),
+            errors: [errorMessage("assert.notOk")]
+        },
+        {
+            code: wrap("assert.notOk(!foo, 'message')"),
+            errors: [errorMessage("assert.notOk")]
+        }
+    ]
+
+});
