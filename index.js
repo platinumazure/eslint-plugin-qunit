@@ -15,6 +15,7 @@ module.exports = {
         "no-negated-ok": require("./lib/rules/no-negated-ok"),
         "no-ok-equality": require("./lib/rules/no-ok-equality"),
         "no-only": require("./lib/rules/no-only"),
+        "no-reset": require("./lib/rules/no-reset"),
         "no-setup-teardown": require("./lib/rules/no-setup-teardown"),
         "resolve-async": require("./lib/rules/resolve-async"),
         "require-expect": require("./lib/rules/require-expect")
@@ -33,6 +34,7 @@ module.exports = {
         "no-negated-ok": 0,
         "no-ok-equality": 1,
         "no-only": 1,
+        "no-reset": 0,
         "no-setup-teardown": 0,
         "resolve-async": 2,
         "require-expect": 0

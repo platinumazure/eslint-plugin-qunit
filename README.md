@@ -24,6 +24,7 @@ Below is the list of rules available in this plugin.
 * [no-negated-ok](./docs/rules/no-negated-ok.md)
 * [no-ok-equality](./docs/rules/no-ok-equality.md)
 * [no-only](./docs/rules/no-only.md)
+* [no-reset](./docs/rules/no-reset.md)
 * [no-setup-teardown](./docs/rules/no-setup-teardown.md)
 * [require-expect](./docs/rules/require-expect.md)
 * [resolve-async](./docs/rules/resolve-async.md)
