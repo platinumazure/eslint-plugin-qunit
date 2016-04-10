@@ -9,7 +9,8 @@
 //------------------------------------------------------------------------------
 
 var shelljs = require("shelljs"),
-    semver = require("semver");
+    semver = require("semver"),
+    VERSION = require("../package.json").version;
 
 //------------------------------------------------------------------------------
 // Helpers
@@ -23,23 +24,23 @@ function execSilent(command) {
 // Script
 //------------------------------------------------------------------------------
 
-var lastTwoTags = execSilent("git tag")
+var lastTag = execSilent("git tag")
     .trim()
     .split("\n")
     .filter(semver.valid)
     .sort(semver.compare)
-    .slice(-2);
+    .pop();
 
 var releaseCommitMessage = /^\* \d+\.\d+\.\d+/;
 
-var logs = execSilent("git log --no-merges --pretty=format:\"* %s (%an)\" " + lastTwoTags.join(".."))
+var logs = execSilent("git log --no-merges --pretty=format:\"* %s (%an)\" " + lastTag + "..HEAD")
     .split(/\n/g)
     .filter(function (line) {
         return !releaseCommitMessage.test(line);
     });
 
 // Output header first
-("### " + semver.clean(lastTwoTags[1]) + "\n").to("CHANGELOG.tmp");
+("### " + VERSION + "\n").to("CHANGELOG.tmp");
 
 // Output logs
 logs.join("\n").concat("\n\n").toEnd("CHANGELOG.tmp");
@@ -50,6 +51,3 @@ shelljs.mv("CHANGELOG.md.tmp", "CHANGELOG.md");
 
 // Stage changelog for commit
 execSilent("git add CHANGELOG.md");
-
-// Commit changelog
-execSilent("git commit --amend --no-edit");
