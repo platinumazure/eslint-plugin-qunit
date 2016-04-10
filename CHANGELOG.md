@@ -1,3 +1,15 @@
+### 0.8.0
+* Build: generate-release-changelog is now a version hook (Kevin Partington)
+* New: no-reset rule (refs #20) (Kevin Partington)
+* Fix: Adding rule schemas to rules which did not have schemas (Kevin Partington)
+* New: no-setup-teardown rule (refs #20) (Kevin Partington)
+* New: no-negated-ok rule (fixes #28) (Kevin Partington)
+* Docs: Add Gitter badge (Kevin Partington)
+* Upgrade: eslint@2.7.0, also added the new rules to .eslintrc.json (Kevin Partington)
+* Docs: Adding rule summary to README. (Kevin Partington)
+* New: no-global-expect rule (Kevin Partington)
+* Build: Very basic test to check for rule documentation (Kevin Partington)
+
 ### 0.7.0
 * Build: Add generate-release-changelog script as postversion hook (Kevin Partington)
 * New: no-async-test rule (refs #20) (Kevin Partington)
