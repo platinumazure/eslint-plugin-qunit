@@ -21,6 +21,7 @@ Below is the list of rules available in this plugin.
 * [no-global-assertions](./docs/rules/no-global-assertions.md)
 * [no-global-expect](./docs/rules/no-global-expect.md)
 * [no-global-module-test](./docs/rules/no-global-module-test.md)
+* [no-global-stop-start](./docs/rules/no-global-stop-start.md)
 * [no-init](./docs/rules/no-init.md)
 * [no-negated-ok](./docs/rules/no-negated-ok.md)
 * [no-ok-equality](./docs/rules/no-ok-equality.md)
