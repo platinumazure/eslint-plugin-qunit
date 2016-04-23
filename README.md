@@ -23,6 +23,7 @@ Below is the list of rules available in this plugin.
 * [no-global-module-test](./docs/rules/no-global-module-test.md)
 * [no-global-stop-start](./docs/rules/no-global-stop-start.md)
 * [no-init](./docs/rules/no-init.md)
+* [no-jsdump](./docs/rules/no-jsdump.md)
 * [no-negated-ok](./docs/rules/no-negated-ok.md)
 * [no-ok-equality](./docs/rules/no-ok-equality.md)
 * [no-only](./docs/rules/no-only.md)
