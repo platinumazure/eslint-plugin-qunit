@@ -1,3 +1,13 @@
+### 0.9.0
+* Fix: no-negated-ok checks negation depth before reporting (fixes #31) (Kevin Partington)
+* Fix: no-negated-ok no longer flags global ok (fixes #30) (Kevin Partington)
+* New: no-qunit-stop rule (fixes #20) (Kevin Partington)
+* New: no-qunit-push rule (refs #20) (Kevin Partington)
+* New: no-jsdump rule (refs #20) (Kevin Partington)
+* New: no-reassign-log-callbacks rule (refs #20) (Kevin Partington)
+* New: no-global-stop-start rule (refs #20) (Kevin Partington)
+* New: no-init rule (refs #20) (Kevin Partington)
+
 ### 0.8.0
 * Build: generate-release-changelog is now a version hook (Kevin Partington)
 * New: no-reset rule (refs #20) (Kevin Partington)
