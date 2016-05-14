@@ -28,6 +28,7 @@ Below is the list of rules available in this plugin.
 * [no-ok-equality](./docs/rules/no-ok-equality.md)
 * [no-only](./docs/rules/no-only.md)
 * [no-qunit-push](./docs/rules/no-qunit-push.md)
+* [no-qunit-stop](./docs/rules/no-qunit-stop.md)
 * [no-reassign-log-callbacks](./docs/rules/no-reassign-log-callbacks.md)
 * [no-reset](./docs/rules/no-reset.md)
 * [no-setup-teardown](./docs/rules/no-setup-teardown.md)
