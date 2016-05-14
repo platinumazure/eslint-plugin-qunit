@@ -42,6 +42,14 @@ ruleTester.run("no-negated-ok", rule, {
         wrap("assert.notOk(foo)"),
         wrap("assert.notOk(foo, 'message')"),
 
+        // global ok with negation is accepted since there is no notOk
+        wrap("ok(!foo)"),
+        wrap("ok(!foo, 'message')"),
+
+        // no such thing as global notOk, but want to make sure we don't flag
+        wrap("notOk(!foo)"),
+        wrap("notOk(!foo, 'message')"),
+
         // only logical negation should be reported
         wrap("ok(-foo)"),
         wrap("ok(~foo)"),
@@ -61,14 +69,6 @@ ruleTester.run("no-negated-ok", rule, {
 
     invalid: [
         // ok
-        {
-            code: wrap("ok(!foo)"),
-            errors: [errorMessage("ok")]
-        },
-        {
-            code: wrap("ok(!foo, 'message')"),
-            errors: [errorMessage("ok")]
-        },
         {
             code: wrap("assert.ok(!foo)"),
             errors: [errorMessage("assert.ok")]
