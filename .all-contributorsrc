@@ -1,0 +1,46 @@
+{
+  "projectName": "eslint-plugin-qunit",
+  "projectOwner": "platinumazure",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "platinumazure",
+      "name": "Kevin Partington",
+      "avatar_url": "https://avatars.githubusercontent.com/u/284282?v=3",
+      "profile": "http://github.com/platinumazure",
+      "contributions": [
+        "code",
+        "doc",
+        "test",
+        "bug",
+        "example",
+        "review"
+      ]
+    },
+    {
+      "login": "mitchlloyd",
+      "name": "Mitch Lloyd",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15169?v=3",
+      "profile": "https://github.com/mitchlloyd",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
+    },
+    {
+      "login": "jmainz",
+      "name": "John Mainz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6665906?v=3",
+      "profile": "https://github.com/jmainz",
+      "contributions": [
+        "test",
+        "bug"
+      ]
+    }
+  ]
+}
