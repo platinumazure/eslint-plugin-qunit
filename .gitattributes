@@ -1,0 +1,5 @@
+# Auto detect text files and perform line feed normalization
+* text=auto
+
+# Require Unix line feeds on JavaScript files
+*.js eol=lf
