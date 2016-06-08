@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm run lint && npm run unit-test --coverage && npm run check-coverage",
     "lint": "eslint ./",
-    "unit-test": "istanbul cover --include-all-sources --dir build/coverage -x 'build/**' --report lcovonly node_modules/mocha/bin/_mocha tests/**/*.js -- --recursive",
+    "unit-test": "istanbul cover --include-all-sources --dir build/coverage -x \"build/**\" --report lcovonly node_modules/mocha/bin/_mocha tests/**/*.js -- --recursive",
     "check-coverage": "istanbul check-coverage --statement 100 --branch 100 --function 100 --lines 100",
     "report-coverage-html": "istanbul report html --dir build/coverage",
     "preversion": "npm test",
