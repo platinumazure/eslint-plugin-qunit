@@ -27,7 +27,7 @@
     "shelljs": "^0.7.0"
   },
   "peerDepencencies": {
-    "eslint": ">=1.3.0"
+    "eslint": "^2.8.0"
   },
   "repository": {
     "type": "git",
