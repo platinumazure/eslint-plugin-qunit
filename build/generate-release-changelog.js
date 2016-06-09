@@ -40,10 +40,11 @@ var logs = execSilent("git log --no-merges --pretty=format:\"* %s (%an)\" " + la
     });
 
 // Output header first
-("### " + VERSION + "\n").to("CHANGELOG.tmp");
+shelljs.echo("### " + VERSION + "\n").to("CHANGELOG.tmp");
 
 // Output logs
-logs.join("\n").concat("\n\n").toEnd("CHANGELOG.tmp");
+shelljs.ShellString(logs.join("\n").concat("\n\n"))
+    .toEnd("CHANGELOG.tmp");
 
 shelljs.cat("CHANGELOG.tmp", "CHANGELOG.md").to("CHANGELOG.md.tmp");
 shelljs.rm("CHANGELOG.tmp");
