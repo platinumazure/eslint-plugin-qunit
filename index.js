@@ -25,30 +25,5 @@ module.exports = {
         "no-setup-teardown": require("./lib/rules/no-setup-teardown"),
         "resolve-async": require("./lib/rules/resolve-async"),
         "require-expect": require("./lib/rules/require-expect")
-    },
-    rulesConfig: {
-        "assert-args": 1,
-        "literal-compare-order": 0,
-        "no-arrow-tests": 0,
-        "no-assert-equal": 0,
-        "no-async-in-loops": 1,
-        "no-async-test": 0,
-        "no-commented-tests": 0,
-        "no-global-assertions": 0,
-        "no-global-expect": 0,
-        "no-global-module-test": 0,
-        "no-global-stop-start": 0,
-        "no-init": 0,
-        "no-jsdump": 0,
-        "no-negated-ok": 0,
-        "no-ok-equality": 1,
-        "no-only": 1,
-        "no-qunit-push": 0,
-        "no-qunit-stop": 0,
-        "no-reassign-log-callbacks": 0,
-        "no-reset": 0,
-        "no-setup-teardown": 0,
-        "resolve-async": 2,
-        "require-expect": 0
     }
 };
