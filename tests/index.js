@@ -36,11 +36,6 @@ describe("index.js", function () {
                     assert.property(index.rules, fileName, "Rule export for " + fileName + " not present");
                 });
 
-                it("should appear in rulesConfig", function () {
-                    assert.property(index.rulesConfig, fileName, "Rule config for " + fileName + " not present");
-                    assert.include(["number", "array"], typeof index.rulesConfig[fileName], "Rule config for " + fileName + " should be number or array");
-                });
-
                 it("should appear in docs", function (done) {
                     var path = "./docs/rules/" + fileName + ".md";
 

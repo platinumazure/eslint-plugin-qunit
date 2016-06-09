@@ -23,7 +23,39 @@ module.exports = {
         "no-reassign-log-callbacks": require("./lib/rules/no-reassign-log-callbacks"),
         "no-reset": require("./lib/rules/no-reset"),
         "no-setup-teardown": require("./lib/rules/no-setup-teardown"),
-        "resolve-async": require("./lib/rules/resolve-async"),
-        "require-expect": require("./lib/rules/require-expect")
+        "require-expect": require("./lib/rules/require-expect"),
+        "resolve-async": require("./lib/rules/resolve-async")
+    },
+    configs: {
+        two: {
+            rules: {
+                "qunit/no-async-test": "error",
+                "qunit/no-global-assertions": "error",
+                "qunit/no-global-expect": "error",
+                "qunit/no-global-module-test": "error",
+                "qunit/no-global-stop-start": "error",
+                "qunit/no-init": "error",
+                "qunit/no-jsdump": "error",
+                "qunit/no-qunit-push": "error",
+                "qunit/no-qunit-stop": "error",
+                "qunit/no-reassign-log-callbacks": "error",
+                "qunit/no-reset": "error",
+                "qunit/no-setup-teardown": "error"
+            }
+        },
+        recommended: {
+            rules: {
+                "qunit/assert-args": "error",
+                "qunit/literal-compare-order": "error",
+                "qunit/no-async-in-loops": "error",
+                "qunit/no-commented-tests": "error",
+                "qunit/no-ok-equality": "error",
+                "qunit/no-only": "error",
+                "qunit/no-reassign-log-callbacks": "error",
+                "qunit/no-reset": "error",
+                "qunit/require-expect": ["error", "except-simple"],
+                "qunit/resolve-async": "error"
+            }
+        }
     }
 };
