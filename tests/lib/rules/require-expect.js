@@ -275,6 +275,17 @@ ruleTester.run("require-expect", rule, {
             options: ["except-simple"]
         },
 
+        // Multiple assert statements only report one error per test
+        {
+            code: "test('name', function(assert) { maybe(function() { assert.ok(true); assert.ok(true); }) });",
+            errors: [{
+                message: exceptSimpleErrorMessage("assert.expect"),
+                column: 1,
+                type: "CallExpression"
+            }],
+            options: ["except-simple"]
+        },
+
         // "always" configration - simple case
         {
             code: "test('name', function(assert) { assert.ok(true) })",
@@ -294,6 +305,35 @@ ruleTester.run("require-expect", rule, {
             code: "test('name', function(assert) { other.expect(1); assert.ok(true); });",
             options: [],
             errors: [{ message: alwaysErrorMessage("assert.expect") }]
+        },
+
+        // "always" configuration - errors are reported on `test()` line
+        {
+            code: [
+                "module('some-module', function() {",
+                "    test('some-test', function(assert) {",
+                "        if (false) {",
+                "            assert.ok(true, 'needs expect');",
+                "        }",
+                "    });",
+                "});"
+            ].join(returnAndIndent),
+            options: [],
+            errors: [{
+                message: alwaysErrorMessage("assert.expect"),
+                type: "CallExpression",
+                line: 2
+            }]
+        },
+
+        // "always" configuration - multiple assert statements only report one error per test
+        {
+            code: "test('name', function(assert) { maybe(function() { assert.ok(true); assert.ok(true); }) });",
+            options: [],
+            errors: [{
+                message: alwaysErrorMessage("assert.expect"),
+                column: 1
+            }]
         }
     ]
 
