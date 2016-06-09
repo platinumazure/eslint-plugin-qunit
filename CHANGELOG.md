@@ -1,3 +1,16 @@
+### 0.9.1
+* Build: Fix generate-release-changelog after removing shelljs global (Kevin Partington)
+* Build: Using double quotes to escape test exclusion glob (Kevin Partington)
+* Build: Quote excluded fileset pattern for istanbul (#37) (Mitch Lloyd)
+* Build: Dropping Node 0.12 and adding Node 6 to .travis.yml (Kevin Partington)
+* Build: Require Unix-style line endings (Kevin Partington)
+* Build: Ensuring LF is used in the repository via .gitattributes (Kevin Partington)
+* Docs: Added captbaritone as a contributor (Kevin Partington)
+* Docs: Adding Contributors section to README using all-contributors (Kevin Partington)
+* Build: Upgrade ESLint to latest, add some new rules (Kevin Partington)
+* Upgrade: coveralls, istanbul, mocha, shelljs to latest (Kevin Partington)
+* Build: Tweaking npm script commands for readability (Kevin Partington)
+
 ### 0.9.0
 * Fix: no-negated-ok checks negation depth before reporting (fixes #31) (Kevin Partington)
 * Fix: no-negated-ok no longer flags global ok (fixes #30) (Kevin Partington)
