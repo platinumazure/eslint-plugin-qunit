@@ -1,3 +1,10 @@
+### 1.0.0-rc0
+* New: Added shareable configs "two" and "recommended" (fixes #33) (Kevin Partington)
+* Breaking: Removing rulesConfig from plugin exports (Kevin Partington)
+* Chore: Transformed rules into new-style ESLint rules (fixes #34) (Kevin Partington)
+* Chore: Update peerDependency: eslint@^2.8.0 (fixes #32) (Kevin Partington)
+* Fix: require-expect only report one error per test (fixes: #35) (Mitch Lloyd)
+
 ### 0.9.1
 * Build: Fix generate-release-changelog after removing shelljs global (Kevin Partington)
 * Build: Using double quotes to escape test exclusion glob (Kevin Partington)
