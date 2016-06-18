@@ -32,6 +32,7 @@ Below is the list of rules available in this plugin.
 * [no-reassign-log-callbacks](./docs/rules/no-reassign-log-callbacks.md)
 * [no-reset](./docs/rules/no-reset.md)
 * [no-setup-teardown](./docs/rules/no-setup-teardown.md)
+* [no-test-expect-argument](./docs/rules/no-test-expect-argument.md)
 * [require-expect](./docs/rules/require-expect.md)
 * [resolve-async](./docs/rules/resolve-async.md)
 

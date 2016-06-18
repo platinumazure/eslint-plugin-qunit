@@ -23,6 +23,7 @@ module.exports = {
         "no-reassign-log-callbacks": require("./lib/rules/no-reassign-log-callbacks"),
         "no-reset": require("./lib/rules/no-reset"),
         "no-setup-teardown": require("./lib/rules/no-setup-teardown"),
+        "no-test-expect-argument": require("./lib/rules/no-test-expect-argument"),
         "require-expect": require("./lib/rules/require-expect"),
         "resolve-async": require("./lib/rules/resolve-async")
     },
@@ -40,7 +41,8 @@ module.exports = {
                 "qunit/no-qunit-stop": "error",
                 "qunit/no-reassign-log-callbacks": "error",
                 "qunit/no-reset": "error",
-                "qunit/no-setup-teardown": "error"
+                "qunit/no-setup-teardown": "error",
+                "qunit/no-test-expect-argument": "error"
             }
         },
         recommended: {
