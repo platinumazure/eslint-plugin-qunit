@@ -36,6 +36,49 @@ Below is the list of rules available in this plugin.
 * [require-expect](./docs/rules/require-expect.md)
 * [resolve-async](./docs/rules/resolve-async.md)
 
+## Available Configurations
+
+You can extend from these configurations in order to simplify manual configuration of plugin rules in your project.
+
+For more details on how to extend your configuration from one or both of these plugin configurations, please see the [ESLint plugin configuration documentation](http://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin).
+
+### recommended
+
+This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you.
+
+Rules included in `qunit/recommended` configuration:
+
+* `assert-args`
+* `literal-compare-order`
+* `no-async-in-loops`
+* `no-commented-tests`
+* `no-ok-equality`
+* `no-only`
+* `no-reassign-log-callbacks`
+* `no-reset`
+* `require-expect` (using "except-simple" configuration)
+* `resolve-async`
+
+### two
+
+This configuration includes rules which are useful for avoiding runtime errors or unexpected behavior in QUnit 2.0.
+
+Rules included in `qunit/two` configuration:
+
+* `no-async-test`
+* `no-global-assertions`
+* `no-global-expect`
+* `no-global-module-test`
+* `no-global-stop-start`
+* `no-init`
+* `no-jsdump`
+* `no-qunit-push`
+* `no-qunit-stop`
+* `no-reassign-log-callbacks`
+* `no-reset`
+* `no-setup-teardown`
+* `no-test-expect-argument`
+
 ## Contributors
 
 Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
