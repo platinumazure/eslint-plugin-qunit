@@ -46,6 +46,8 @@ For more details on how to extend your configuration from one or both of these p
 
 This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you.
 
+You can use this configuration by extending from `"plugin:qunit/recommended"` in your configuration file.
+
 Rules included in `qunit/recommended` configuration:
 
 * `assert-args`
@@ -62,6 +64,8 @@ Rules included in `qunit/recommended` configuration:
 ### two
 
 This configuration includes rules which are useful for avoiding runtime errors or unexpected behavior in QUnit 2.0.
+
+You can use this configuration by extending from `"plugin:qunit/two"` in your configuration file.
 
 Rules included in `qunit/two` configuration:
 
