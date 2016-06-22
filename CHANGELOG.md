@@ -1,3 +1,8 @@
+### 1.0.0
+* Docs: Clarify how to extend plugin configuration in README (#41) (Kevin Partington)
+* Docs: Update README with info about shareable configs (fixes #39) (Kevin Partington)
+* New: no-test-expect-argument rule (fixes #40) (Kevin Partington)
+
 ### 1.0.0-rc0
 * New: Added shareable configs "two" and "recommended" (fixes #33) (Kevin Partington)
 * Breaking: Removing rulesConfig from plugin exports (Kevin Partington)
