@@ -1,3 +1,9 @@
+### 1.1.0
+* Docs: Using flat shields.io badge for "all contributors" (Kevin Partington)
+* New: no-throws-string rule (fixes #43) (Kevin Partington)
+* New: no-compare-relation-boolean rule (fixes #17) (Kevin Partington)
+* Docs: Added semver policy to README (fixes #42) (Kevin Partington)
+
 ### 1.0.0
 * Docs: Clarify how to extend plugin configuration in README (#41) (Kevin Partington)
 * Docs: Update README with info about shareable configs (fixes #39) (Kevin Partington)
