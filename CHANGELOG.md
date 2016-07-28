@@ -1,3 +1,7 @@
+### 2.0.0
+* Breaking: Adding no-throws-string to qunit/two and qunit/recommended (Kevin Partington)
+* Upgrade: devDependencies to latest. (Kevin Partington)
+
 ### 1.1.0
 * Docs: Using flat shields.io badge for "all contributors" (Kevin Partington)
 * New: no-throws-string rule (fixes #43) (Kevin Partington)
