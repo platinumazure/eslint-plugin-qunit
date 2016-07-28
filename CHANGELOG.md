@@ -1,3 +1,7 @@
+### 2.0.1
+* Docs: Add no-throws-string to qunit/two, qunit/recommended in README (Kevin Partington)
+* Build: Removing iojs from .travis.yml (Kevin Partington)
+
 ### 2.0.0
 * Breaking: Adding no-throws-string to qunit/two and qunit/recommended (Kevin Partington)
 * Upgrade: devDependencies to latest. (Kevin Partington)
