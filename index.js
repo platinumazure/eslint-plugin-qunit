@@ -44,7 +44,8 @@ module.exports = {
                 "qunit/no-reassign-log-callbacks": "error",
                 "qunit/no-reset": "error",
                 "qunit/no-setup-teardown": "error",
-                "qunit/no-test-expect-argument": "error"
+                "qunit/no-test-expect-argument": "error",
+                "qunit/no-throws-string": "error"
             }
         },
         recommended: {
@@ -57,6 +58,7 @@ module.exports = {
                 "qunit/no-only": "error",
                 "qunit/no-reassign-log-callbacks": "error",
                 "qunit/no-reset": "error",
+                "qunit/no-throws-string": "error",
                 "qunit/require-expect": ["error", "except-simple"],
                 "qunit/resolve-async": "error"
             }
