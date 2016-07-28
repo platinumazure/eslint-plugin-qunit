@@ -60,6 +60,7 @@ Rules included in `qunit/recommended` configuration:
 * `no-only`
 * `no-reassign-log-callbacks`
 * `no-reset`
+* `no-throws-string`
 * `require-expect` (using "except-simple" configuration)
 * `resolve-async`
 
@@ -84,6 +85,7 @@ Rules included in `qunit/two` configuration:
 * `no-reset`
 * `no-setup-teardown`
 * `no-test-expect-argument`
+* `no-throws-string`
 
 ## Contributors
 
