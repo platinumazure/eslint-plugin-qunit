@@ -21,6 +21,10 @@ ruleTester.run("no-early-return", rule, {
     valid: [
         "QUnit.test('a test', function (assert) { function foo() { return; } });",
         "QUnit.test('a test', function (assert) { (function () { return; })(); });",
+        {
+            code: "QUnit.test('a test', function (assert) { () => { return; }; });",
+            parserOptions: { ecmaVersion: 6 }
+        },
         "QUnit[shouldRunTest() ? 'test' : 'skip']('a test', function () {});",
         "if (shouldRunTest()) { QUnit.test('a test', function () {}); }"
     ],
