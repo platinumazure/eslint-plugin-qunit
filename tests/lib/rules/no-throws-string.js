@@ -36,7 +36,10 @@ ruleTester.run("no-throws-string", rule, {
         "QUnit.test('a test', function (assert) { assert.raises(function () { }, function (err) { return true; }, 'Error should have been thrown'); });",
 
         // Not throws/raises
-        "QUnit.test('a test', function (assert) { assert.foo(function () { }, 'string', 'Error should have been thrown'); });"
+        "QUnit.test('a test', function (assert) { assert.foo(function () { }, 'string', 'Error should have been thrown'); });",
+
+        // Not inside a test
+        "someFunction();"
     ],
 
     invalid: [
