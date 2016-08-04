@@ -1,3 +1,8 @@
+### 2.1.0
+* Fix: Added missing test case to no-early-return (Kevin Partington)
+* Chore: Allowing ESLint ^2.8.0 or 3.x as peer dependency (fixes #45) (Kevin Partington)
+* New: no-early-return rule (fixes #27) (Kevin Partington)
+
 ### 2.0.1
 * Docs: Add no-throws-string to qunit/two, qunit/recommended in README (Kevin Partington)
 * Build: Removing iojs from .travis.yml (Kevin Partington)
