@@ -1,3 +1,6 @@
+### 2.1.1
+* Fix: no-throws-string exception (fixes #47) (Kevin Partington)
+
 ### 2.1.0
 * Fix: Added missing test case to no-early-return (Kevin Partington)
 * Chore: Allowing ESLint ^2.8.0 or 3.x as peer dependency (fixes #45) (Kevin Partington)
