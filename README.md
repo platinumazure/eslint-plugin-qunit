@@ -19,6 +19,7 @@ Below is the list of rules available in this plugin.
 * [no-async-test](./docs/rules/no-async-test.md)
 * [no-commented-tests](./docs/rules/no-commented-tests.md)
 * [no-compare-relation-boolean](./docs/rules/no-compare-relation-boolean.md)
+* [no-early-return](./docs/rules/no-early-return.md)
 * [no-global-assertions](./docs/rules/no-global-assertions.md)
 * [no-global-expect](./docs/rules/no-global-expect.md)
 * [no-global-module-test](./docs/rules/no-global-module-test.md)
