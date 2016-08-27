@@ -146,11 +146,17 @@ assert.notPropEqual(result, expected, 'message');
 
 ```
 
+# Known Limitations
+
+At this point, there is no special validation for assertion message arguments.
+We eventually want to add support for different types of validation for
+assertion message arguments (for example, requiring that assertion messages be
+string literals). However, we learned early on that enforcing string literal
+assertion messages makes the rule nearly unusable in some codebases.
+
 # When Not to Use It
 
-This rule assumes error messages are going to be provided as string literals.
-If your codebase commonly stores messages in variables, this rule may trigger
-many false positives and should be disabled.
+This rule should be reasonably safe to use in all circumstances.
 
 ## Further Reading
 
