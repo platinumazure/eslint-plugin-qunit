@@ -15,6 +15,7 @@ Below is the list of rules available in this plugin.
 * [literal-compare-order](./docs/rules/literal-compare-order.md)
 * [no-arrow-tests](./docs/rules/no-arrow-tests.md)
 * [no-assert-equal](./docs/rules/no-assert-equal.md)
+* [no-assert-logical-expression](./docs/rules/no-assert-logical-expression.md)
 * [no-async-in-loops](./docs/rules/no-async-in-loops.md)
 * [no-async-test](./docs/rules/no-async-test.md)
 * [no-commented-tests](./docs/rules/no-commented-tests.md)

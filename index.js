@@ -6,6 +6,7 @@ module.exports = {
         "literal-compare-order": require("./lib/rules/literal-compare-order"),
         "no-arrow-tests": require("./lib/rules/no-arrow-tests"),
         "no-assert-equal": require("./lib/rules/no-assert-equal"),
+        "no-assert-logical-expression": require("./lib/rules/no-assert-logical-expression"),
         "no-async-in-loops": require("./lib/rules/no-async-in-loops"),
         "no-async-test": require("./lib/rules/no-async-test"),
         "no-commented-tests": require("./lib/rules/no-commented-tests"),
