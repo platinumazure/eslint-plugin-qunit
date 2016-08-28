@@ -37,7 +37,10 @@ ruleTester.run("no-early-return", rule, {
 
         // Conditially run tests are okay
         "QUnit[shouldRunTest() ? 'test' : 'skip']('a test', function (assert) { assert.ok(true); });",
-        "if (shouldRunTest()) { QUnit.test('a test', function (assert) { assert.ok(true); }); }"
+        "if (shouldRunTest()) { QUnit.test('a test', function (assert) { assert.ok(true); }); }",
+
+        // Return statement outside of test is fine
+        "(function () { return true; }());"
     ],
 
     invalid: [
