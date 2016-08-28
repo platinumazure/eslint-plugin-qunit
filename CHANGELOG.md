@@ -1,3 +1,10 @@
+### 2.2.0
+* Build: Fixed extraneous output in generate-release-changelog (Kevin Partington)
+* New: no-assert-logical-expression rule (fixes #50) (Kevin Partington)
+* Fix: no-early-return crash when return statement was outside test (Kevin Partington)
+* Fix: no-early-return handles nested scopes (fixes #48) (Kevin Partington)
+* Docs: Add limitations section to assert-args docs (fixes #49) (Kevin Partington)
+
 ### 2.1.1
 * Fix: no-throws-string exception (fixes #47) (Kevin Partington)
 
