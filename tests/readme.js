@@ -18,7 +18,7 @@ var assert = require("chai").assert,
 
 describe("README", function () {
     var ruleGroupRegex = /## Available Rules[\s\S]*(?:\n(?=##)|$)/,
-        ruleRegex = /^\* \[([a-z-]+)\]\(\.\/docs\/rules\/\1\.md\)$/gm,
+        ruleRegex = /^\* \[([a-z-]+)\]\(docs\/rules\/\1\.md\)$/gm,
         fileContents,
         availableRules;
 
