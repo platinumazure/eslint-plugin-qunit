@@ -11,6 +11,7 @@ module.exports = {
         "no-async-test": require("./lib/rules/no-async-test"),
         "no-commented-tests": require("./lib/rules/no-commented-tests"),
         "no-compare-relation-boolean": require("./lib/rules/no-compare-relation-boolean"),
+        "no-conditional-assertions": require("./lib/rules/no-conditional-assertions"),
         "no-global-assertions": require("./lib/rules/no-global-assertions"),
         "no-global-expect": require("./lib/rules/no-global-expect"),
         "no-global-module-test": require("./lib/rules/no-global-module-test"),
