@@ -24,6 +24,7 @@ module.exports = {
         "no-only": require("./lib/rules/no-only"),
         "no-qunit-push": require("./lib/rules/no-qunit-push"),
         "no-qunit-stop": require("./lib/rules/no-qunit-stop"),
+        "no-qunit-start-in-tests": require("./lib/rules/no-qunit-start-in-tests"),
         "no-reassign-log-callbacks": require("./lib/rules/no-reassign-log-callbacks"),
         "no-reset": require("./lib/rules/no-reset"),
         "no-setup-teardown": require("./lib/rules/no-setup-teardown"),
