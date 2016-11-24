@@ -1,3 +1,13 @@
+### 2.3.0
+* Chore: Ensure .md files have LF line endings (Kevin Partington)
+* Chore: Updating Travis config, dropping Node 5 and adding Node 7 (Kevin Partington)
+* Chore: Enabling ESLint rule no-useless-return (Kevin Partington)
+* New: no-qunit-start-in-tests rule (fixes #51) (Kevin Partington)
+* Upgrade: eslint@~3.10.2, fixing resulting lint error (Kevin Partington)
+* Upgrade: eslint@^3.8.1, adding some new rules (Kevin Partington)
+* New: no-conditional-assertions rule (fixes #46) (Kevin Partington)
+* Fix: README rules links no longer use dot prefix (fixes #53) (Kevin Partington)
+
 ### 2.2.0
 * Build: Fixed extraneous output in generate-release-changelog (Kevin Partington)
 * New: no-assert-logical-expression rule (fixes #50) (Kevin Partington)
