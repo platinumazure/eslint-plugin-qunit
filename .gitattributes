@@ -3,3 +3,4 @@
 
 # Require Unix line feeds on JavaScript files
 *.js eol=lf
+*.md eol=lf
