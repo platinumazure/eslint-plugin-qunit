@@ -17,6 +17,7 @@ module.exports = {
         "no-global-module-test": require("./lib/rules/no-global-module-test"),
         "no-global-stop-start": require("./lib/rules/no-global-stop-start"),
         "no-early-return": require("./lib/rules/no-early-return"),
+        "no-identical-names": require("./lib/rules/no-identical-names"),
         "no-init": require("./lib/rules/no-init"),
         "no-jsdump": require("./lib/rules/no-jsdump"),
         "no-negated-ok": require("./lib/rules/no-negated-ok"),

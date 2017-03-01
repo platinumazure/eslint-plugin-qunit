@@ -26,6 +26,7 @@ Below is the list of rules available in this plugin.
 * [no-global-expect](docs/rules/no-global-expect.md)
 * [no-global-module-test](docs/rules/no-global-module-test.md)
 * [no-global-stop-start](docs/rules/no-global-stop-start.md)
+* [no-identical-names](docs/rules/no-identical-names.md)
 * [no-init](docs/rules/no-init.md)
 * [no-jsdump](docs/rules/no-jsdump.md)
 * [no-negated-ok](docs/rules/no-negated-ok.md)
