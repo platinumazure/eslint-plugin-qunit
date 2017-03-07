@@ -1,3 +1,8 @@
+### 2.4.0
+* Docs: Fixing indentation in no-qunit-start-in-tests docs (Kevin Partington)
+* Docs: Add Turbo87 to project contributor list (Kevin Partington)
+* New: Add "no-identical-names" rule (fixes #56) (#57) (Tobias Bieniek)
+
 ### 2.3.0
 * Chore: Ensure .md files have LF line endings (Kevin Partington)
 * Chore: Updating Travis config, dropping Node 5 and adding Node 7 (Kevin Partington)
