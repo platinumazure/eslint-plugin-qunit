@@ -52,6 +52,17 @@
         "test",
         "bug"
       ]
+    },
+    {
+      "login": "Turbo87",
+      "name": "Tobias Bieniek",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/141300?v=3",
+      "profile": "https://github.com/Turbo87",
+      "contributions": [
+        "code",
+        "doc",
+        "test"
+      ]
     }
   ]
 }
