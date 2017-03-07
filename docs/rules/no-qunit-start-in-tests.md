@@ -20,39 +20,39 @@ QUnit.test("A test", function(assert) {
     var done = assert.async();
 
     setTimeout(function() {
-	QUnit.start();
+        QUnit.start();
     });
 });
 
 QUnit.module("A module", {
     beforeEach: function() {
         var done = assert.async();
-	setTimeout(function() {
-	    QUnit.start();
-	});
+        setTimeout(function() {
+            QUnit.start();
+        });
     },
 
     afterEach: function() {
         var done = assert.async();
-	setTimeout(function() {
-	    QUnit.start();
-	});
+        setTimeout(function() {
+            QUnit.start();
+        });
     }
 });
 
 QUnit.module("A module", function(hooks) {
     hooks.beforeEach(function() {
         var done = assert.async();
-	setTimeout(function() {
-	    QUnit.start();
-	});
+        setTimeout(function() {
+            QUnit.start();
+        });
     });
 
     hooks.afterEach(function() {
         var done = assert.async();
-	setTimeout(function() {
-	    QUnit.start();
-	});
+        setTimeout(function() {
+            QUnit.start();
+        });
     });
 });
 
@@ -66,39 +66,39 @@ QUnit.test("A test", function(assert) {
     var done = assert.async();
 
     setTimeout(function() {
-	done();
+        done();
     });
 });
 
 QUnit.module("A module", {
     beforeEach: function() {
         var done = assert.async();
-	setTimeout(function() {
-	    done();
-	});
+        setTimeout(function() {
+            done();
+        });
     },
 
     afterEach: function() {
         var done = assert.async();
-	setTimeout(function() {
-	    done();
-	});
+        setTimeout(function() {
+            done();
+        });
     }
 });
 
 QUnit.module("A module", function(hooks) {
     hooks.beforeEach(function() {
         var done = assert.async();
-	setTimeout(function() {
-	    done();
-	});
+        setTimeout(function() {
+            done();
+        });
     });
 
     hooks.afterEach(function() {
         var done = assert.async();
-	setTimeout(function() {
-	    done();
-	});
+        setTimeout(function() {
+            done();
+        });
     });
 });
 
