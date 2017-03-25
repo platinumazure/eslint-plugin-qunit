@@ -1,3 +1,10 @@
+/**
+ * @fileoverview Entry point for eslint-plugin-qunit. Exports rules and configs.
+ * @author Kevin Partington
+ */
+
+/* eslint sort-keys: "error" */
+
 "use strict";
 
 module.exports = {
@@ -12,11 +19,11 @@ module.exports = {
         "no-commented-tests": require("./lib/rules/no-commented-tests"),
         "no-compare-relation-boolean": require("./lib/rules/no-compare-relation-boolean"),
         "no-conditional-assertions": require("./lib/rules/no-conditional-assertions"),
+        "no-early-return": require("./lib/rules/no-early-return"),
         "no-global-assertions": require("./lib/rules/no-global-assertions"),
         "no-global-expect": require("./lib/rules/no-global-expect"),
         "no-global-module-test": require("./lib/rules/no-global-module-test"),
         "no-global-stop-start": require("./lib/rules/no-global-stop-start"),
-        "no-early-return": require("./lib/rules/no-early-return"),
         "no-identical-names": require("./lib/rules/no-identical-names"),
         "no-init": require("./lib/rules/no-init"),
         "no-jsdump": require("./lib/rules/no-jsdump"),
@@ -24,8 +31,8 @@ module.exports = {
         "no-ok-equality": require("./lib/rules/no-ok-equality"),
         "no-only": require("./lib/rules/no-only"),
         "no-qunit-push": require("./lib/rules/no-qunit-push"),
-        "no-qunit-stop": require("./lib/rules/no-qunit-stop"),
         "no-qunit-start-in-tests": require("./lib/rules/no-qunit-start-in-tests"),
+        "no-qunit-stop": require("./lib/rules/no-qunit-stop"),
         "no-reassign-log-callbacks": require("./lib/rules/no-reassign-log-callbacks"),
         "no-reset": require("./lib/rules/no-reset"),
         "no-setup-teardown": require("./lib/rules/no-setup-teardown"),
@@ -34,7 +41,24 @@ module.exports = {
         "require-expect": require("./lib/rules/require-expect"),
         "resolve-async": require("./lib/rules/resolve-async")
     },
+
+    // eslint-disable-next-line sort-keys
     configs: {
+        recommended: {
+            rules: {
+                "qunit/assert-args": "error",
+                "qunit/literal-compare-order": "error",
+                "qunit/no-async-in-loops": "error",
+                "qunit/no-commented-tests": "error",
+                "qunit/no-ok-equality": "error",
+                "qunit/no-only": "error",
+                "qunit/no-reassign-log-callbacks": "error",
+                "qunit/no-reset": "error",
+                "qunit/no-throws-string": "error",
+                "qunit/require-expect": ["error", "except-simple"],
+                "qunit/resolve-async": "error"
+            }
+        },
         two: {
             rules: {
                 "qunit/no-async-test": "error",
@@ -51,21 +75,6 @@ module.exports = {
                 "qunit/no-setup-teardown": "error",
                 "qunit/no-test-expect-argument": "error",
                 "qunit/no-throws-string": "error"
-            }
-        },
-        recommended: {
-            rules: {
-                "qunit/assert-args": "error",
-                "qunit/literal-compare-order": "error",
-                "qunit/no-async-in-loops": "error",
-                "qunit/no-commented-tests": "error",
-                "qunit/no-ok-equality": "error",
-                "qunit/no-only": "error",
-                "qunit/no-reassign-log-callbacks": "error",
-                "qunit/no-reset": "error",
-                "qunit/no-throws-string": "error",
-                "qunit/require-expect": ["error", "except-simple"],
-                "qunit/resolve-async": "error"
             }
         }
     }
