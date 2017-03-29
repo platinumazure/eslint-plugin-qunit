@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var assert = require("chai").assert,
+const assert = require("chai").assert,
     index = require("../index"),
     fs = require("fs");
 
@@ -17,7 +17,7 @@ var assert = require("chai").assert,
 //------------------------------------------------------------------------------
 
 describe("index.js", function () {
-    var ruleFileNames;
+    let ruleFileNames;
 
     before(function (done) {
         fs.readdir("lib/rules", function (err, files) {
@@ -37,7 +37,7 @@ describe("index.js", function () {
                 });
 
                 it("should appear in docs", function (done) {
-                    var path = "./docs/rules/" + fileName + ".md";
+                    const path = "./docs/rules/" + fileName + ".md";
 
                     fs.access(path, function (err) {
                         assert.notOk(err, "docs/rules/" + fileName + ".md should exist");

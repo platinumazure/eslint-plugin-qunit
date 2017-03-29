@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var assert = require("chai").assert,
+const assert = require("chai").assert,
     fs = require("fs"),
     path = require("path");
 
@@ -17,9 +17,10 @@ var assert = require("chai").assert,
 //------------------------------------------------------------------------------
 
 describe("README", function () {
-    var ruleGroupRegex = /## Available Rules[\s\S]*(?:\n(?=##)|$)/,
-        ruleRegex = /^\* \[([a-z-]+)]\(docs\/rules\/\1\.md\)$/gm,
-        fileContents,
+    const ruleGroupRegex = /## Available Rules[\s\S]*(?:\n(?=##)|$)/,
+        ruleRegex = /^\* \[([a-z-]+)]\(docs\/rules\/\1\.md\)$/gm;
+
+    let fileContents,
         availableRules;
 
     before(function (done) {
@@ -41,13 +42,12 @@ describe("README", function () {
     });
 
     it("should find the rules", function () {
-        var match = ruleGroupRegex.exec(fileContents),
-            foundRules = [],
-            ruleSection;
+        const foundRules = [];
+        let match = ruleGroupRegex.exec(fileContents);
 
         assert.ok(match, "Rule section should be present");
 
-        ruleSection = match[0];
+        const ruleSection = match[0];
 
         while ((match = ruleRegex.exec(ruleSection)) !== null) {
             foundRules.push(match[1]);

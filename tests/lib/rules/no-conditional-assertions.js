@@ -8,14 +8,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-conditional-assertions"),
+const rule = require("../../../lib/rules/no-conditional-assertions"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Helpers
 //------------------------------------------------------------------------------
 
-var MESSAGE = "Do not place an assertion inside a conditional.";
+const MESSAGE = "Do not place an assertion inside a conditional.";
 
 function wrapInQUnitTest(code) {
     return "QUnit.test('test', function (assert) { " + code + " });";
@@ -42,7 +42,7 @@ function wrapInInvalidTestObject(code) {
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-conditional-assertions", rule, {
 
     valid: [

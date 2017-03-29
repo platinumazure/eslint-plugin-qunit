@@ -10,7 +10,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-init"),
+const rule = require("../../../lib/rules/no-init"),
     RuleTester = require("eslint").RuleTester;
 
 
@@ -18,7 +18,7 @@ var rule = require("../../../lib/rules/no-init"),
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-init", rule, {
 
     valid: [

@@ -8,8 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-test-expect-argument"),
-
+const rule = require("../../../lib/rules/no-test-expect-argument"),
     RuleTester = require("eslint").RuleTester;
 
 
@@ -17,7 +16,7 @@ var rule = require("../../../lib/rules/no-test-expect-argument"),
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-test-expect-argument", rule, {
     valid: [
         // No expect at all is allowed (see "require-expect")

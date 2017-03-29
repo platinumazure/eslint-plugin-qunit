@@ -8,21 +8,21 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-assert-equal"),
+const rule = require("../../../lib/rules/no-assert-equal"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var ERROR_TEMPLATE_QUALIFIED = "Unexpected {{id}}.equal. Use {{id}}.strictEqual, {{id}}.deepEqual, or {{id}}.propEqual.",
+const ERROR_TEMPLATE_QUALIFIED = "Unexpected {{id}}.equal. Use {{id}}.strictEqual, {{id}}.deepEqual, or {{id}}.propEqual.",
     ERROR_TEMPLATE_GLOBAL = "Unexpected equal. Use strictEqual, deepEqual, or propEqual.";
 
 function getErrorMessage(identifier) {
     return ERROR_TEMPLATE_QUALIFIED.replace(/\{\{id\}\}/g, identifier);
 }
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 
 ruleTester.run("no-assert-equal", rule, {
     valid: [

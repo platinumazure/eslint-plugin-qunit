@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-assert-logical-expression"),
+const rule = require("../../../lib/rules/no-assert-logical-expression"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ function wrap(code) {
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-assert-logical-expression", rule, {
 
     valid: [

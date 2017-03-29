@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/literal-compare-order"),
+const rule = require("../../../lib/rules/literal-compare-order"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ function wrap(assertionCode, testName) {
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 
 ruleTester.run("literal-compare-order", rule, {
     valid: [

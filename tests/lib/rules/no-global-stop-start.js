@@ -10,7 +10,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-global-stop-start"),
+const rule = require("../../../lib/rules/no-global-stop-start"),
     RuleTester = require("eslint").RuleTester;
 
 
@@ -18,7 +18,7 @@ var rule = require("../../../lib/rules/no-global-stop-start"),
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-global-stop-start", rule, {
 
     valid: [

@@ -10,7 +10,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-setup-teardown"),
+const rule = require("../../../lib/rules/no-setup-teardown"),
     RuleTester = require("eslint").RuleTester;
 
 
@@ -18,7 +18,7 @@ var rule = require("../../../lib/rules/no-setup-teardown"),
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-setup-teardown", rule, {
 
     valid: [

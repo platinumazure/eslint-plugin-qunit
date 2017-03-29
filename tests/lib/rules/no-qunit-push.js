@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-qunit-push"),
+const rule = require("../../../lib/rules/no-qunit-push"),
     RuleTester = require("eslint").RuleTester;
 
 
@@ -16,7 +16,7 @@ var rule = require("../../../lib/rules/no-qunit-push"),
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-qunit-push", rule, {
     valid: [
         "this.pushResult({ result: result, actual: actual, expected: expected, message: message });"

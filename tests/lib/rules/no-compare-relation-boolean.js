@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-compare-relation-boolean"),
+const rule = require("../../../lib/rules/no-compare-relation-boolean"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
@@ -33,7 +33,7 @@ function generateInvalidCase(code) {
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 
 ruleTester.run("no-compare-relation-boolean", rule, {
     valid: [

@@ -9,14 +9,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/require-expect"),
+const rule = require("../../../lib/rules/require-expect"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester(),
+const ruleTester = new RuleTester(),
     returnAndIndent = "\n        ";
 
 function alwaysErrorMessage(expectCallName) {

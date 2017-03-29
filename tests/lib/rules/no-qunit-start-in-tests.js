@@ -8,14 +8,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-qunit-start-in-tests"),
+const rule = require("../../../lib/rules/no-qunit-start-in-tests"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Helpers
 //------------------------------------------------------------------------------
 
-var MESSAGE = "Do not use QUnit.start() inside a {{context}}.";
+const MESSAGE = "Do not use QUnit.start() inside a {{context}}.";
 
 function createMessage(context) {
     return MESSAGE.replace(/\{\{context\}\}/g, context);
@@ -25,7 +25,7 @@ function createMessage(context) {
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-qunit-start-in-tests", rule, {
 
     valid: [

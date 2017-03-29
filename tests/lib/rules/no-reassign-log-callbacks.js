@@ -10,14 +10,14 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-reassign-log-callbacks"),
+const rule = require("../../../lib/rules/no-reassign-log-callbacks"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-reassign-log-callbacks", rule, {
 
     valid: [

@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-global-assertions"),
+const rule = require("../../../lib/rules/no-global-assertions"),
     RuleTester = require("eslint").RuleTester;
 
 
@@ -29,7 +29,7 @@ function wrap(assertionCode, testName) {
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 
 ruleTester.run("no-global-assertions", rule, {
     valid: [

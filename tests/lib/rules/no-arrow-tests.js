@@ -10,7 +10,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-var rule = require("../../../lib/rules/no-arrow-tests"),
+const rule = require("../../../lib/rules/no-arrow-tests"),
     RuleTester = require("eslint").RuleTester;
 
 
@@ -18,7 +18,7 @@ var rule = require("../../../lib/rules/no-arrow-tests"),
 // Tests
 //------------------------------------------------------------------------------
 
-var ruleTester = new RuleTester();
+const ruleTester = new RuleTester();
 ruleTester.run("no-arrow-tests", rule, {
 
     valid: [
