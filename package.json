@@ -42,5 +42,8 @@
   "bugs": {
     "url": "https://github.com/platinumazure/eslint-plugin-qunit/issues"
   },
-  "homepage": "https://github.com/platinumazure/eslint-plugin-qunit"
+  "homepage": "https://github.com/platinumazure/eslint-plugin-qunit",
+  "engines": {
+    "node": ">=4.0.0"
+  }
 }
