@@ -17,11 +17,7 @@ const rule = require("../../../lib/rules/literal-compare-order"),
 
 function wrap(assertionCode, testName) {
     testName = testName || "Name";
-    return "QUnit.test('" +
-        testName +
-        "', function (assert) { " +
-        assertionCode +
-        " });";
+    return `QUnit.test('${testName}', function (assert) { ${assertionCode} });`;
 }
 
 //------------------------------------------------------------------------------

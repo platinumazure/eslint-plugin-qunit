@@ -133,6 +133,7 @@
         "operator-linebreak": ["error", "after"],
         "padded-blocks": ["error", "never"],
         "prefer-const": "error",
+        "prefer-template": "error",
         "quote-props": ["error", "consistent"],
         "quotes": ["error", "double"],
         "radix": "error",

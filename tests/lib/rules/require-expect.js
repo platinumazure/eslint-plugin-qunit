@@ -20,11 +20,11 @@ const ruleTester = new RuleTester(),
     returnAndIndent = "\n        ";
 
 function alwaysErrorMessage(expectCallName) {
-    return "Test is missing `" + expectCallName + "()` call`";
+    return `Test is missing \`${expectCallName}()\` call`;
 }
 
 function exceptSimpleErrorMessage(expectCallName) {
-    return "Should use `" + expectCallName + "()` when using assertions outside of the top-level test callback";
+    return `Should use \`${expectCallName}()\` when using assertions outside of the top-level test callback`;
 }
 
 ruleTester.run("require-expect", rule, {

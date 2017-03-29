@@ -16,7 +16,7 @@ const rule = require("../../../lib/rules/no-assert-logical-expression"),
 //------------------------------------------------------------------------------
 
 function wrap(code) {
-    return "QUnit.test('test', function (assert) { " + code + " });";
+    return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
 //------------------------------------------------------------------------------

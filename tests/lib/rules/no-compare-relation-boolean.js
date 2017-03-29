@@ -16,7 +16,7 @@ const rule = require("../../../lib/rules/no-compare-relation-boolean"),
 //------------------------------------------------------------------------------
 
 function wrapInQUnitTest(code) {
-    return "QUnit.test('test', function (assert) { " + code + " });";
+    return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
 function generateInvalidCase(code) {

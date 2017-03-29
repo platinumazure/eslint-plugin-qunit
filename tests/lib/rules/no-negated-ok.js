@@ -16,11 +16,11 @@ const rule = require("../../../lib/rules/no-negated-ok"),
 //------------------------------------------------------------------------------
 
 function wrap(code) {
-    return "QUnit.test('test', function (assert) { " + code + " });";
+    return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
 function errorMessage(callee) {
-    return "Unexpected negation in " + callee + "() assertion.";
+    return `Unexpected negation in ${callee}() assertion.`;
 }
 
 //------------------------------------------------------------------------------

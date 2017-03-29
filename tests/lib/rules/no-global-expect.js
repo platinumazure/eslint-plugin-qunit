@@ -16,7 +16,7 @@ const rule = require("../../../lib/rules/no-global-expect"),
 //------------------------------------------------------------------------------
 
 function wrap(code) {
-    return "QUnit.test('a test', function (assert) { " + code + " });";
+    return `QUnit.test('a test', function (assert) { ${code} });`;
 }
 
 //------------------------------------------------------------------------------

@@ -18,7 +18,7 @@ const rule = require("../../../lib/rules/no-conditional-assertions"),
 const MESSAGE = "Do not place an assertion inside a conditional.";
 
 function wrapInQUnitTest(code) {
-    return "QUnit.test('test', function (assert) { " + code + " });";
+    return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
 function wrapInValidTestObject(code) {

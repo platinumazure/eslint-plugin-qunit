@@ -33,14 +33,14 @@ describe("index.js", function () {
         ruleFileNames.forEach(function (fileName) {
             describe(fileName, function () {
                 it("should appear in rule exports", function () {
-                    assert.property(index.rules, fileName, "Rule export for " + fileName + " not present");
+                    assert.property(index.rules, fileName, `Rule export for ${fileName} not present`);
                 });
 
                 it("should appear in docs", function (done) {
-                    const path = "./docs/rules/" + fileName + ".md";
+                    const path = `./docs/rules/${fileName}.md`;
 
                     fs.access(path, function (err) {
-                        assert.notOk(err, "docs/rules/" + fileName + ".md should exist");
+                        assert.notOk(err, `docs/rules/${fileName}.md should exist`);
                         done();
                     });
                 });
