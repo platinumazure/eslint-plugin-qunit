@@ -132,6 +132,7 @@
         "operator-assignment": ["error", "always"],
         "operator-linebreak": ["error", "after"],
         "padded-blocks": ["error", "never"],
+        "prefer-const": "error",
         "quote-props": ["error", "consistent"],
         "quotes": ["error", "double"],
         "radix": "error",
