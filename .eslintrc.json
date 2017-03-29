@@ -146,6 +146,7 @@
         "space-unary-ops": ["error", { "words": true, "nonwords": false }],
         "spaced-comment": ["error", "always", { "exceptions": ["-"] }],
         "strict": ["error", "global"],
+        "template-curly-spacing": ["error", "never"],
         "use-isnan": "error",
         "valid-jsdoc": ["error", {
             "prefer": {
