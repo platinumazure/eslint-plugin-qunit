@@ -1,3 +1,19 @@
+### 3.0.0
+* Update: Using ESLint AST selectors in some rules (fixes #59) (Kevin Partington)
+* Breaking: Updating eslint peerDependency to >=3.18.0 (refs #59) (Kevin Partington)
+* Upgrade: devDependencies to latest version (Kevin Partington)
+* Chore: Enable template-curly-spacing ESLint rule (fixes #54) (Kevin Partington)
+* Chore: Enable prefer-template ESLint rule (refs #54) (Kevin Partington)
+* Chore: Enable prefer-const ESLint rule (refs #54) (Kevin Partington)
+* Chore: Enabling no-const-assign ESLint rule (refs #54) (Kevin Partington)
+* Chore: Enable no-var ESLint rule (refs #54) (Kevin Partington)
+* Chore: Fix whitespace in ESLint configuration (Kevin Partington)
+* Chore: Consume eslint-plugin-node (Kevin Partington)
+* Breaking: engines set in package.json (node >=4.0.0) (Kevin Partington)
+* Breaking: Updating exported configs (fixes #52, fixes #58) (Kevin Partington)
+* Chore: Ensuring rules etc. are sorted in index.js (Kevin Partington)
+* Docs: Fixing indentation in no-qunit-start-in-tests docs (fixes #55) (Kevin Partington)
+
 ### 2.4.0
 * Docs: Fixing indentation in no-qunit-start-in-tests docs (Kevin Partington)
 * Docs: Add Turbo87 to project contributor list (Kevin Partington)
