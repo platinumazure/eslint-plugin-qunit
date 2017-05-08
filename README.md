@@ -61,6 +61,7 @@ Rules included in `qunit/recommended` configuration:
 * `literal-compare-order`
 * `no-async-in-loops`
 * `no-commented-tests`
+* `no-identical-names`
 * `no-ok-equality`
 * `no-only`
 * `no-reassign-log-callbacks`
@@ -85,6 +86,7 @@ Rules included in `qunit/two` configuration:
 * `no-init`
 * `no-jsdump`
 * `no-qunit-push`
+* `no-qunit-start-in-tests`
 * `no-qunit-stop`
 * `no-reassign-log-callbacks`
 * `no-reset`
