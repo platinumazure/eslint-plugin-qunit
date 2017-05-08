@@ -1,3 +1,8 @@
+### 3.1.0
+* Docs: Updating config rule lists in README to match reality (fixes #60) (Kevin Partington)
+* Docs: Adding ntwb to contributor list (Kevin Partington)
+* Update: no-identical-names message references line number (fixes #62) (Kevin Partington)
+
 ### 3.0.0
 * Update: Using ESLint AST selectors in some rules (fixes #59) (Kevin Partington)
 * Breaking: Updating eslint peerDependency to >=3.18.0 (refs #59) (Kevin Partington)
