@@ -20,7 +20,10 @@ const ruleTester = new RuleTester();
 ruleTester.run("no-commented-tests", rule, {
 
     valid: [
-        "QUnit.skip('Name', function () { ok(true); });"
+        "QUnit.skip('Name', function () { ok(true); });",
+
+        // shebang comments
+        "#!/some-test()"
     ],
 
     invalid: [
