@@ -1,3 +1,9 @@
+### 3.2.0
+* Chore: ESLint peerDependency expanded to >=3.18.0 <5.0.0 (Kevin Partington)
+* Fix: no-commented-tests does not warn on shebang comments (Kevin Partington)
+* Chore: Upgrade devDependencies, including eslint@4.x (Kevin Partington)
+* Chore: Use sourceCode.getAllComments() in no-commented-tests (fixes #64) (Kevin Partington)
+
 ### 3.1.0
 * Docs: Updating config rule lists in README to match reality (fixes #60) (Kevin Partington)
 * Docs: Adding ntwb to contributor list (Kevin Partington)
