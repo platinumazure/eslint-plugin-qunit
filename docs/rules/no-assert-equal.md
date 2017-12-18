@@ -1,4 +1,4 @@
-#Forbid the use of assert.equal (no-assert-equal)
+# Forbid the use of assert.equal (no-assert-equal)
 
 The `assert.equal` assertion method in QUnit uses loose equality comparison. In a project which favors strict equality comparison, it is better to use `assert.strictEqual` for scalar values and either `assert.deepEqual` or `assert.propEqual` for more complex objects.
 
