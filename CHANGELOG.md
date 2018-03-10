@@ -1,3 +1,8 @@
+### 3.2.1
+* Upgrade: devDependencies (Kevin Partington)
+* Docs: Add Krinkle to all-contributors (Kevin Partington)
+* Docs: Fix heading syntax for no-assert-equal (#66) (Timo Tijhof)
+
 ### 3.2.0
 * Chore: ESLint peerDependency expanded to >=3.18.0 <5.0.0 (Kevin Partington)
 * Fix: no-commented-tests does not warn on shebang comments (Kevin Partington)
