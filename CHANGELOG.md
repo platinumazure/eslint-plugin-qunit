@@ -1,3 +1,8 @@
+### 3.3.1
+* Chore: Declare compatibility with eslint@5.x (Kevin Partington)
+* Chore: Upgrade devDependencies (Kevin Partington)
+* Chore: Removing unused eslint disable comments (Kevin Partington)
+
 ### 3.3.0
 * Chore: Disable package-lock (Kevin Partington)
 * Chore: Add support/testing for Node 10 (Kevin Partington)
