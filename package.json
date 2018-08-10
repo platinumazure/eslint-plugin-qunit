@@ -27,7 +27,7 @@
     "shelljs": "^0.8.2"
   },
   "peerDepencencies": {
-    "eslint": ">=3.18.0 <6.0.0"
+    "eslint": ">=4.15.0 <6.0.0"
   },
   "repository": {
     "type": "git",
@@ -60,6 +60,6 @@
   },
   "homepage": "https://github.com/platinumazure/eslint-plugin-qunit",
   "engines": {
-    "node": ">=4.0.0"
+    "node": "6.x || 8.x || >=10.0.0"
   }
 }
