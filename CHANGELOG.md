@@ -1,3 +1,10 @@
+### 3.3.0
+* Chore: Disable package-lock (Kevin Partington)
+* Chore: Add support/testing for Node 10 (Kevin Partington)
+* New: "never" and "never-except-zero" options for require-expect rule (#70) (Timo Tijhof)
+* Chore: Test with Node 8 and 9 (Kevin Partington)
+* Chore: Switch to nyc for unit tests and code coverage (Kevin Partington)
+
 ### 3.2.1
 * Upgrade: devDependencies (Kevin Partington)
 * Docs: Add Krinkle to all-contributors (Kevin Partington)
