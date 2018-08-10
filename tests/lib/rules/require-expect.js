@@ -27,6 +27,10 @@ function exceptSimpleErrorMessage(expectCallName) {
     return `Should use \`${expectCallName}()\` when using assertions outside of the top-level test callback`;
 }
 
+function neverErrorMessage() {
+    return "Unexpected use of `assert.expect()` call";
+}
+
 ruleTester.run("require-expect", rule, {
 
     valid: [
@@ -88,8 +92,25 @@ ruleTester.run("require-expect", rule, {
                 "});"
             ].join(returnAndIndent),
             options: ["except-simple"]
-        }
+        },
 
+        // "never" - assert without expect is fine
+        {
+            code: "test('name', function(assert) { assert.ok(true) });",
+            options: ["never"]
+        },
+
+        // "never-except-zero" - assert without expect is fine
+        {
+            code: "test('name', function(assert) { assert.ok(true) });",
+            options: ["never-except-zero"]
+        },
+
+        // "never-except-zero" - expect zero is fine
+        {
+            code: "test('name', function(assert) { assert.expect(0) });",
+            options: ["never-except-zero"]
+        }
     ],
 
     invalid: [
@@ -334,6 +355,27 @@ ruleTester.run("require-expect", rule, {
                 message: alwaysErrorMessage("assert.expect"),
                 column: 1
             }]
+        },
+
+        // "never" - expect is not fine
+        {
+            code: "test('name', function(assert) { assert.expect(1); assert.ok(true); });",
+            options: ["never"],
+            errors: [{ message: neverErrorMessage() }]
+        },
+
+        // "never" - expect zero is not fine
+        {
+            code: "test('name', function(assert) { assert.expect(0) });",
+            options: ["never"],
+            errors: [{ message: neverErrorMessage() }]
+        },
+
+        // "never-except-zero" - expect is not fine
+        {
+            code: "test('name', function(assert) { assert.expect(1); assert.ok(true); });",
+            options: ["never-except-zero"],
+            errors: [{ message: neverErrorMessage() }]
         }
     ]
 
