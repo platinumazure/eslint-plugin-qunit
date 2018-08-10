@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run lint && npm run unit-test",
-    "lint": "eslint ./",
+    "lint": "eslint ./ --report-unused-disable-directives",
     "unit-test": "nyc mocha tests/**/*.js",
     "report-coverage-html": "nyc report --reporter=html --report-dir build/coverage",
     "preversion": "npm test",
