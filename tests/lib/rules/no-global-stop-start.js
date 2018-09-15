@@ -30,14 +30,20 @@ ruleTester.run("no-global-stop-start", rule, {
         {
             code: "stop();",
             errors: [{
-                message: "Unexpected global stop() call.",
+                messageId: "unexpectedGlobalStopStart",
+                data: {
+                    callee: "stop"
+                },
                 type: "CallExpression"
             }]
         },
         {
             code: "start();",
             errors: [{
-                message: "Unexpected global start() call.",
+                messageId: "unexpectedGlobalStopStart",
+                data: {
+                    callee: "start"
+                },
                 type: "CallExpression"
             }]
         }

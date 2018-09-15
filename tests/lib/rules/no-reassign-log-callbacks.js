@@ -37,49 +37,49 @@ ruleTester.run("no-reassign-log-callbacks", rule, {
         {
             code: "QUnit.begin = function () { };",
             errors: [{
-                message: "Do not reassign QUnit log callbacks.",
+                messageId: "noReassignLogCallbacks",
                 type: "AssignmentExpression"
             }]
         },
         {
             code: "QUnit.done = function () { };",
             errors: [{
-                message: "Do not reassign QUnit log callbacks.",
+                messageId: "noReassignLogCallbacks",
                 type: "AssignmentExpression"
             }]
         },
         {
             code: "QUnit.log = function () { };",
             errors: [{
-                message: "Do not reassign QUnit log callbacks.",
+                messageId: "noReassignLogCallbacks",
                 type: "AssignmentExpression"
             }]
         },
         {
             code: "QUnit.moduleDone = function () { };",
             errors: [{
-                message: "Do not reassign QUnit log callbacks.",
+                messageId: "noReassignLogCallbacks",
                 type: "AssignmentExpression"
             }]
         },
         {
             code: "QUnit.moduleStart = function () { };",
             errors: [{
-                message: "Do not reassign QUnit log callbacks.",
+                messageId: "noReassignLogCallbacks",
                 type: "AssignmentExpression"
             }]
         },
         {
             code: "QUnit.testDone = function () { };",
             errors: [{
-                message: "Do not reassign QUnit log callbacks.",
+                messageId: "noReassignLogCallbacks",
                 type: "AssignmentExpression"
             }]
         },
         {
             code: "QUnit.testStart = function () { };",
             errors: [{
-                message: "Do not reassign QUnit log callbacks.",
+                messageId: "noReassignLogCallbacks",
                 type: "AssignmentExpression"
             }]
         }

@@ -62,7 +62,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "QUnit.test('test', (assert) => { assert.ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -70,7 +70,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "QUnit.test('test', () => { ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -78,7 +78,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "QUnit.asyncTest('test', (assert) => { assert.ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -86,7 +86,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "QUnit.asyncTest('test', () => { ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -94,7 +94,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "test('test', (assert) => { assert.ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -102,7 +102,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "test('test', () => { ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -110,7 +110,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "asyncTest('test', (assert) => { assert.ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -118,7 +118,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "asyncTest('test', () => { ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -128,7 +128,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "QUnit.module('module', { setup: () => {} });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -136,7 +136,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "QUnit.module('module', { teardown: () => {} });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -144,7 +144,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "QUnit.module('module', { beforeEach: () => {} });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -152,7 +152,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "QUnit.module('module', { afterEach: () => {} });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -160,7 +160,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "module('module', { setup: () => {} });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -168,7 +168,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "module('module', { teardown: () => {} });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -176,7 +176,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "module('module', { beforeEach: () => {} });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
@@ -184,7 +184,7 @@ ruleTester.run("no-arrow-tests", rule, {
             code: "module('module', { afterEach: () => {} });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{
-                message: "Arrow function should not be used as test callback.",
+                messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         }

@@ -31,21 +31,30 @@ ruleTester.run("no-global-module-test", rule, {
         {
             code: "module();",
             errors: [{
-                message: "Unexpected global `module`.",
+                messageId: "unexpectedGlobalModuleTest",
+                data: {
+                    callee: "module"
+                },
                 type: "CallExpression"
             }]
         },
         {
             code: "test();",
             errors: [{
-                message: "Unexpected global `test`.",
+                messageId: "unexpectedGlobalModuleTest",
+                data: {
+                    callee: "test"
+                },
                 type: "CallExpression"
             }]
         },
         {
             code: "asyncTest();",
             errors: [{
-                message: "Unexpected global `asyncTest`.",
+                messageId: "unexpectedGlobalModuleTest",
+                data: {
+                    callee: "asyncTest"
+                },
                 type: "CallExpression"
             }]
         }

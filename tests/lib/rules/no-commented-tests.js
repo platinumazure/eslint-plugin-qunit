@@ -32,7 +32,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "// test('Name', function () { ok(true); });",
             errors: [
                 {
-                    message: "Unexpected \"test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "test"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -42,7 +45,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "// asyncTest('Name', function () { ok(true); });",
             errors: [
                 {
-                    message: "Unexpected \"asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "asyncTest"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -52,7 +58,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "// QUnit.test('Name', function () { ok(true); });",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.test"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -62,7 +71,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "// QUnit.asyncTest('Name', function () { ok(true); });",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.asyncTest"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -72,7 +84,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "// QUnit.skip('Name', function () { ok(true); });",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.skip\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.skip"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -84,7 +99,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/* test('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "test"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -94,7 +112,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/* asyncTest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "asyncTest"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -104,7 +125,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/* QUnit.test('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.test"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -114,7 +138,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/* QUnit.asyncTest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.asyncTest"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -124,7 +151,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/* QUnit.skip('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.skip\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.skip"
+                    },
                     line: 1,
                     column: 4
                 }
@@ -136,7 +166,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\n\ttest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "test"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -146,7 +179,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\n\tasyncTest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "asyncTest"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -156,7 +192,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\n\tQUnit.test('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.test"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -166,7 +205,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\n\tQUnit.asyncTest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.asyncTest"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -176,7 +218,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\n\tQUnit.skip('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.skip\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.skip"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -188,7 +233,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\ttest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "test"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -198,7 +246,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\tasyncTest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "asyncTest"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -208,7 +259,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\tQUnit.test('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.test"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -218,7 +272,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\tQUnit.asyncTest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.asyncTest"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -228,7 +285,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\tQUnit.skip('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.skip\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.skip"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -240,7 +300,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\n\ttest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "test"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -250,7 +313,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\n\tasyncTest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "asyncTest"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -260,7 +326,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\n\tQUnit.test('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.test\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.test"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -270,7 +339,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\n\tQUnit.asyncTest('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.asyncTest\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.asyncTest"
+                    },
                     line: 2,
                     column: 2
                 }
@@ -280,7 +352,10 @@ ruleTester.run("no-commented-tests", rule, {
             code: "/**\r\n\tQUnit.skip('Name', function () { ok(true); }); */",
             errors: [
                 {
-                    message: "Unexpected \"QUnit.skip\" in comment. Use QUnit.skip outside of a comment.",
+                    messageId: "unexpectedTestInComment",
+                    data: {
+                        callee: "QUnit.skip"
+                    },
                     line: 2,
                     column: 2
                 }

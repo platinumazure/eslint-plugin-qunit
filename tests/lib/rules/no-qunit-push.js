@@ -26,7 +26,7 @@ ruleTester.run("no-qunit-push", rule, {
         {
             code: "QUnit.push(result, actual, expected, message);",
             errors: [{
-                message: "Do not use QUnit.push().",
+                messageId: "noQUnitPush",
                 type: "CallExpression"
             }]
         }

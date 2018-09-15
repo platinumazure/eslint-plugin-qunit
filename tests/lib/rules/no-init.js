@@ -33,7 +33,7 @@ ruleTester.run("no-init", rule, {
         {
             code: "QUnit.init();",
             errors: [{
-                message: "Do not use QUnit.init().",
+                messageId: "noInit",
                 type: "CallExpression"
             }]
         }

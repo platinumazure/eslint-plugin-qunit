@@ -26,7 +26,7 @@ ruleTester.run("no-jsdump", rule, {
         {
             code: "QUnit.jsDump(obj);",
             errors: [{
-                message: "Use QUnit.dump() instead of QUnit.jsDump().",
+                messageId: "noJsDump",
                 type: "CallExpression"
             }]
         }

@@ -15,10 +15,13 @@ const rule = require("../../../lib/rules/no-qunit-start-in-tests"),
 // Helpers
 //------------------------------------------------------------------------------
 
-const MESSAGE = "Do not use QUnit.start() inside a {{context}}.";
-
-function createMessage(context) {
-    return MESSAGE.replace(/\{\{context\}\}/g, context);
+function createError(context) {
+    return {
+        messageId: "noQUnitStartInTests",
+        data: {
+            context
+        }
+    };
 }
 
 //------------------------------------------------------------------------------
@@ -39,57 +42,36 @@ ruleTester.run("no-qunit-start-in-tests", rule, {
     invalid: [
         {
             code: "QUnit.asyncTest(\"test\", function(assert) { QUnit.start(); });",
-            errors: [{
-                message: createMessage("test"),
-                type: "CallExpression"
-            }]
+            errors: [createError("test")]
         },
 
         // Module hooks
         {
             code: "QUnit.module(\"module\", { beforeEach: function() { QUnit.start(); } });",
-            errors: [{
-                message: createMessage("beforeEach hook"),
-                type: "CallExpression"
-            }]
+            errors: [createError("beforeEach hook")]
         },
         {
             code: "QUnit.module(\"module\", { afterEach: function() { QUnit.start(); } });",
-            errors: [{
-                message: createMessage("afterEach hook"),
-                type: "CallExpression"
-            }]
+            errors: [createError("afterEach hook")]
         },
         {
             code: "QUnit.module(\"module\", { setup: function() { QUnit.start(); } });",
-            errors: [{
-                message: createMessage("setup hook"),
-                type: "CallExpression"
-            }]
+            errors: [createError("setup hook")]
         },
         {
             code: "QUnit.module(\"module\", { teardown: function() { QUnit.start(); } });",
-            errors: [{
-                message: createMessage("teardown hook"),
-                type: "CallExpression"
-            }]
+            errors: [createError("teardown hook")]
         }
 
         // Module hooks (new-style modules)
         /* Enable when supported
         {
             code: "QUnit.module(\"module\", function(hooks) { hooks.beforeEach(function() { QUnit.start(); }); });",
-            errors: [{
-                message: createMessage("beforeEach hook"),
-                type: "CallExpression"
-            }]
+            errors: [createError("beforeEach hook")]
         },
         {
             code: "QUnit.module(\"module\", function(hooks) { hooks.afterEach(function() { QUnit.start(); }); });",
-            errors: [{
-                message: createMessage("afterEach hook"),
-                type: "CallExpression"
-            }]
+            errors: [createError("afterEach hook")]
         }
         */
     ]

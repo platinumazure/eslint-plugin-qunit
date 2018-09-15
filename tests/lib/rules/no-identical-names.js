@@ -78,7 +78,10 @@ ruleTester.run("no-identical-title", rule, {
                 "test(\"it1\", function() {});"
             ].join("\n"),
             errors: [{
-                message: "Test name is used on line 2 in the same module.",
+                messageId: "duplicateTest",
+                data: {
+                    line: 2
+                },
                 column: 6,
                 line: 3
             }]
@@ -89,7 +92,10 @@ ruleTester.run("no-identical-title", rule, {
                 "test(\"it1\", function() {});"
             ].join("\n"),
             errors: [{
-                message: "Test name is used on line 1 in the same module.",
+                messageId: "duplicateTest",
+                data: {
+                    line: 1
+                },
                 column: 6,
                 line: 2
             }]
@@ -102,7 +108,10 @@ ruleTester.run("no-identical-title", rule, {
                 "});"
             ].join("\n"),
             errors: [{
-                message: "Test name is used on line 2 in the same module.",
+                messageId: "duplicateTest",
+                data: {
+                    line: 2
+                },
                 column: 8,
                 line: 3
             }]
@@ -113,7 +122,10 @@ ruleTester.run("no-identical-title", rule, {
                 "module(\"module1\");"
             ].join("\n"),
             errors: [{
-                message: "Module name is used on line 1.",
+                messageId: "duplicateModule",
+                data: {
+                    line: 1
+                },
                 column: 8,
                 line: 2
             }]
@@ -125,7 +137,10 @@ ruleTester.run("no-identical-title", rule, {
                 "module(\"module1\");"
             ].join("\n"),
             errors: [{
-                message: "Module name is used on line 1.",
+                messageId: "duplicateModule",
+                data: {
+                    line: 1
+                },
                 column: 8,
                 line: 3
             }]

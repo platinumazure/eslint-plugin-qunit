@@ -28,9 +28,9 @@ ruleTester.run("no-only", rule, {
     invalid: [
         {
             code: "QUnit.only('Name', function() { });",
-            errors: [
-                "Unexpected QUnit.only call."
-            ]
+            errors: [{
+                messageId: "noQUnitOnly"
+            }]
         }
     ]
 });

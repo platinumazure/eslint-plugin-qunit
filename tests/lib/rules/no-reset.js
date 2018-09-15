@@ -32,7 +32,7 @@ ruleTester.run("no-reset", rule, {
         {
             code: "QUnit.reset();",
             errors: [{
-                message: "Do not use QUnit.reset().",
+                messageId: "noReset",
                 type: "CallExpression"
             }]
         }

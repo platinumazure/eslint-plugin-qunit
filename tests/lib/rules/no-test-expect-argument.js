@@ -42,28 +42,40 @@ ruleTester.run("no-test-expect-argument", rule, {
         {
             code: "test('test name', 0, function () { });",
             errors: [{
-                message: "Do not use expect argument in test()",
+                messageId: "noExpectArgument",
+                data: {
+                    callee: "test"
+                },
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.test('test name', 0, function () { });",
             errors: [{
-                message: "Do not use expect argument in QUnit.test()",
+                messageId: "noExpectArgument",
+                data: {
+                    callee: "QUnit.test"
+                },
                 type: "CallExpression"
             }]
         },
         {
             code: "asyncTest('test name', 0, function () { });",
             errors: [{
-                message: "Do not use expect argument in asyncTest()",
+                messageId: "noExpectArgument",
+                data: {
+                    callee: "asyncTest"
+                },
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.asyncTest('test name', 0, function () { });",
             errors: [{
-                message: "Do not use expect argument in QUnit.asyncTest()",
+                messageId: "noExpectArgument",
+                data: {
+                    callee: "QUnit.asyncTest"
+                },
                 type: "CallExpression"
             }]
         }

@@ -80,145 +80,337 @@ ruleTester.run("literal-compare-order", rule, {
         // equal
         {
             code: wrap("equal('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("equal('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.equal('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.equal('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
 
         // strictEqual
         {
             code: wrap("strictEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("strictEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.strictEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.strictEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
 
         // deepEqual
         {
             code: wrap("deepEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("deepEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.deepEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.deepEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
 
         // propEqual
         {
             code: wrap("propEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("propEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.propEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.propEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
 
         // notEqual
         {
             code: wrap("notEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("notEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.notEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.notEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
 
         // notStrictEqual
         {
             code: wrap("notStrictEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("notStrictEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.notStrictEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.notStrictEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
 
         // notDeepEqual
         {
             code: wrap("notDeepEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("notDeepEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.notDeepEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.notDeepEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
 
         // notPropEqual
         {
             code: wrap("notPropEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("notPropEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.notPropEqual('Literal', variable);"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         },
         {
             code: wrap("assert.notPropEqual('Literal', variable, 'message');"),
-            errors: ["Expected value 'Literal' should be specified after actual value variable."]
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
         }
     ]
 });

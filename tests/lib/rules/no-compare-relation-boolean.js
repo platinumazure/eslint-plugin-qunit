@@ -23,7 +23,7 @@ function generateInvalidCase(code) {
     return {
         code: wrapInQUnitTest(code),
         errors: [{
-            message: "Redundant comparison of relational expression to boolean literal",
+            messageId: "redundantComparison",
             type: "CallExpression"
         }]
     };

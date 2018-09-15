@@ -42,24 +42,40 @@ ruleTester.run("no-setup-teardown", rule, {
         {
             code: "QUnit.module('module', { setup: function () { } });",
             errors: [{
-                message: "Use beforeEach instead of setup.",
+                messageId: "noSetupTeardown",
+                data: {
+                    forbidden: "setup",
+                    preferred: "beforeEach"
+                },
                 type: "Property"
             }]
         },
         {
             code: "QUnit.module('module', { teardown: function () { } });",
             errors: [{
-                message: "Use afterEach instead of teardown.",
+                messageId: "noSetupTeardown",
+                data: {
+                    forbidden: "teardown",
+                    preferred: "afterEach"
+                },
                 type: "Property"
             }]
         },
         {
             code: "QUnit.module('module', { setup: function () {}, teardown: function () { } });",
             errors: [{
-                message: "Use beforeEach instead of setup.",
+                messageId: "noSetupTeardown",
+                data: {
+                    forbidden: "setup",
+                    preferred: "beforeEach"
+                },
                 type: "Property"
             }, {
-                message: "Use afterEach instead of teardown.",
+                messageId: "noSetupTeardown",
+                data: {
+                    forbidden: "teardown",
+                    preferred: "afterEach"
+                },
                 type: "Property"
             }]
         }

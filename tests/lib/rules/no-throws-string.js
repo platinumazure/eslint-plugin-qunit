@@ -46,21 +46,30 @@ ruleTester.run("no-throws-string", rule, {
         {
             code: "QUnit.test('a test', function (assert) { assert.throws(function () { }, 'Error message', 'Error should have been thrown'); });",
             errors: [{
-                message: "Do not use assert.throws(block, string, string).",
+                messageId: "noThrowsWithString",
+                data: {
+                    callee: "assert.throws"
+                },
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.test('a test', function (assert) { assert.raises(function () { }, 'Error message', 'Error should have been thrown'); });",
             errors: [{
-                message: "Do not use assert.raises(block, string, string).",
+                messageId: "noThrowsWithString",
+                data: {
+                    callee: "assert.raises"
+                },
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.test('a test', function () { throws(function () { }, 'Error message', 'Error should have been thrown'); });",
             errors: [{
-                message: "Do not use throws(block, string, string).",
+                messageId: "noThrowsWithString",
+                data: {
+                    callee: "throws"
+                },
                 type: "CallExpression"
             }]
         }

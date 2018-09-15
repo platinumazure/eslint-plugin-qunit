@@ -53,7 +53,10 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.ok(foo && bar);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 50
@@ -62,7 +65,10 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.ok(foo || bar);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 50
@@ -71,7 +77,10 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notOk(foo && bar);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 53
@@ -80,7 +89,10 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notOk(foo || bar);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 53
@@ -89,12 +101,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.equal(foo && bar, baz && lol);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 53
             }, {
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 65
@@ -103,12 +121,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.equal(foo || bar, baz || lol);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 53
             }, {
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 65
@@ -117,12 +141,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.strictEqual(foo && bar, baz && lol);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 59
             }, {
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 71
@@ -131,12 +161,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.strictEqual(foo || bar, baz || lol);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 59
             }, {
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 71
@@ -145,12 +181,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.deepEqual(foo && bar, baz && lol);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 57
             }, {
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 69
@@ -159,12 +201,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.deepEqual(foo || bar, baz || lol);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 57
             }, {
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 69
@@ -173,12 +221,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.propEqual(foo && bar, baz && lol);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 57
             }, {
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 69
@@ -187,12 +241,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.propEqual(foo || bar, baz || lol);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 57
             }, {
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 69
@@ -201,12 +261,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notEqual(foo && bar, baz && lol);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 56
             }, {
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 68
@@ -215,12 +281,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notEqual(foo || bar, baz || lol);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 56
             }, {
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 68
@@ -229,12 +301,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notStrictEqual(foo && bar, baz && lol);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 62
             }, {
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 74
@@ -243,12 +321,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notStrictEqual(foo || bar, baz || lol);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 62
             }, {
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 74
@@ -257,12 +341,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notDeepEqual(foo && bar, baz && lol);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 60
             }, {
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 72
@@ -271,12 +361,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notDeepEqual(foo || bar, baz || lol);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 60
             }, {
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 72
@@ -285,12 +381,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notPropEqual(foo && bar, baz && lol);"),
             errors: [{
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 60
             }, {
-                message: "Do not use '&&' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 72
@@ -299,12 +401,18 @@ ruleTester.run("no-assert-logical-expression", rule, {
         {
             code: wrap("assert.notPropEqual(foo || bar, baz || lol);"),
             errors: [{
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 60
             }, {
-                message: "Do not use '||' in assertion arguments.",
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "||"
+                },
                 type: "LogicalExpression",
                 line: 1,
                 column: 72

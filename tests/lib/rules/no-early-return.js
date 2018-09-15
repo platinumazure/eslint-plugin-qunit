@@ -47,7 +47,7 @@ ruleTester.run("no-early-return", rule, {
         {
             code: "QUnit.test('a test', function (assert) { if (true) return; assert.ok(true); });",
             errors: [{
-                message: "Do not return early from a QUnit test.",
+                messageId: "noEarlyReturn",
                 type: "ReturnStatement"
             }]
         },
@@ -56,14 +56,14 @@ ruleTester.run("no-early-return", rule, {
         {
             code: "QUnit.test('a test', function (assert) { setTimeout(function () { if (true) return; assert.ok(true); }, 0); });",
             errors: [{
-                message: "Do not return early from a QUnit test.",
+                messageId: "noEarlyReturn",
                 type: "ReturnStatement"
             }]
         },
         {
             code: "QUnit.test('a test', function (assert) { setTimeout(function () { assert.ok(true); if (true) return; assert.ok(true); }, 0); });",
             errors: [{
-                message: "Do not return early from a QUnit test.",
+                messageId: "noEarlyReturn",
                 type: "ReturnStatement"
             }]
         },
@@ -72,12 +72,12 @@ ruleTester.run("no-early-return", rule, {
         {
             code: "QUnit.test('a test', function (assert) { setTimeout(function () { return; assert.ok(true); }, 0); return; assert.ok(true); });",
             errors: [{
-                message: "Do not return early from a QUnit test.",
+                messageId: "noEarlyReturn",
                 type: "ReturnStatement",
                 line: 1,
                 column: 67
             }, {
-                message: "Do not return early from a QUnit test.",
+                messageId: "noEarlyReturn",
                 type: "ReturnStatement",
                 line: 1,
                 column: 99

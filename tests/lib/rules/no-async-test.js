@@ -27,14 +27,14 @@ ruleTester.run("no-async-test", rule, {
         {
             code: "asyncTest('a test', function () { });",
             errors: [{
-                message: "Unexpected asynchronous test. Use assert.async() instead.",
+                messageId: "unexpectedAsyncTest",
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.asyncTest('a test', function () { });",
             errors: [{
-                message: "Unexpected asynchronous test. Use assert.async() instead.",
+                messageId: "unexpectedAsyncTest",
                 type: "CallExpression"
             }]
         }

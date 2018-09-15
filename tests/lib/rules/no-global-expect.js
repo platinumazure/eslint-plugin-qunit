@@ -34,7 +34,7 @@ ruleTester.run("no-global-expect", rule, {
         {
             code: wrap("expect(1)"),
             errors: [{
-                message: "Unexpected global expect.",
+                messageId: "unexpectedGlobalExpect",
                 type: "CallExpression"
             }]
         }

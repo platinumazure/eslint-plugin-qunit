@@ -20,15 +20,30 @@ const ruleTester = new RuleTester(),
     returnAndIndent = "\n        ";
 
 function alwaysErrorMessage(expectCallName) {
-    return `Test is missing \`${expectCallName}()\` call`;
+    return {
+        messageId: "expectRequired",
+        data: {
+            expect: expectCallName
+        }
+    };
 }
 
 function exceptSimpleErrorMessage(expectCallName) {
-    return `Should use \`${expectCallName}()\` when using assertions outside of the top-level test callback`;
+    return {
+        messageId: "expectRequiredComplexTest",
+        data: {
+            expect: expectCallName
+        }
+    };
 }
 
-function neverErrorMessage() {
-    return "Unexpected use of `assert.expect()` call";
+function neverErrorMessage(expectCallName) {
+    return {
+        messageId: "expectForbidden",
+        data: {
+            expect: expectCallName
+        }
+    };
 }
 
 ruleTester.run("require-expect", rule, {
@@ -117,130 +132,91 @@ ruleTester.run("require-expect", rule, {
         // default - make sure expect is identified correctly
         {
             code: "test('name', function(assert) { other.assert.expect(0) });",
-            errors: [{
-                message: alwaysErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [alwaysErrorMessage("assert.expect")],
             options: []
         },
 
         // assert in loop block
         {
             code: "test('name', function(assert) { while (false) { assert.ok(true) } });",
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
 
         // global assertion in loop block
         {
             code: "test('name', function() { for (;;) { ok(true) } });",
-            errors: [{
-                message: exceptSimpleErrorMessage("expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("expect")],
             options: ["except-simple"]
         },
 
         // assert used in callback
         {
             code: "test('name', function(assert) { maybe(function() { assert.ok(true) }); });",
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
 
         // global assertion used in callback
         {
             code: "test('name', function(assert) { maybe(function() { ok(true) }); });",
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
 
         // assert in function expression
         {
             code: "test('name', function(assert) { var maybe = function() { assert.ok(true) }; });",
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
 
         // global assertion in function expression
         {
             code: "test('name', function() { var maybe = function() { ok(true) }; });",
-            errors: [{
-                message: exceptSimpleErrorMessage("expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("expect")],
             options: ["except-simple"]
         },
 
         // `expect` does not count when used inside of a block.
         {
             code: "test('name', function(assert) { function name() { assert.expect(1); assert.ok(true) } });",
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
 
         // global `expect` does not count when used inside of a block.
         {
             code: "test('name', function() { function name() { expect(1); ok(true) } });",
-            errors: [{
-                message: exceptSimpleErrorMessage("expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("expect")],
             options: ["except-simple"]
         },
 
         // `expect` does not count when used inside of a callback
         {
             code: "test('name', function(assert) { maybe(function() { assert.expect(1); assert.ok(true) }); });",
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
 
         // global `expect` does not count when used inside of a callback
         {
             code: "test('name', function() { maybe(function() { expect(1); ok(true) }); });",
-            errors: [{
-                message: exceptSimpleErrorMessage("expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("expect")],
             options: ["except-simple"]
         },
 
         // assert in outer test context and nested in a block
         {
             code: "test('name', function(assert) { assert.ok(true); if (true) { assert.ok(true); } });",
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
 
         // Deeply nested
         {
             code: "test('name', function() { if (true) { if (true) { ok(true); } } });",
-            errors: [{
-                message: exceptSimpleErrorMessage("expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("expect")],
             options: ["except-simple"]
         },
 
@@ -250,10 +226,7 @@ ruleTester.run("require-expect", rule, {
                 "function myAssertion(a, assert, c) { assert.ok(true); }",
                 "test('name', function(assert) { myAssertion(null, assert, null); });"
             ].join(returnAndIndent),
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
 
@@ -263,10 +236,7 @@ ruleTester.run("require-expect", rule, {
                 "function myAssertion(a, localAssert, c) { localAssert.ok(true); }",
                 "test('name', function(myAssert) { myAssertion(null, myAssert, null); });"
             ].join(returnAndIndent),
-            errors: [{
-                message: exceptSimpleErrorMessage("myAssert.expect"),
-                type: "CallExpression"
-            }],
+            errors: [exceptSimpleErrorMessage("myAssert.expect")],
             options: ["except-simple"]
         },
 
@@ -288,22 +258,14 @@ ruleTester.run("require-expect", rule, {
                 "    });",
                 "});"
             ].join(returnAndIndent),
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                type: "CallExpression",
-                line: 2
-            }],
+            errors: [Object.assign(exceptSimpleErrorMessage("assert.expect"), { line: 2 })],
             options: ["except-simple"]
         },
 
         // Multiple assert statements only report one error per test
         {
             code: "test('name', function(assert) { maybe(function() { assert.ok(true); assert.ok(true); }) });",
-            errors: [{
-                message: exceptSimpleErrorMessage("assert.expect"),
-                column: 1,
-                type: "CallExpression"
-            }],
+            errors: [Object.assign(exceptSimpleErrorMessage("assert.expect"), { column: 1 })],
             options: ["except-simple"]
         },
 
@@ -311,21 +273,21 @@ ruleTester.run("require-expect", rule, {
         {
             code: "test('name', function(assert) { assert.ok(true) })",
             options: [],
-            errors: [{ message: alwaysErrorMessage("assert.expect") }]
+            errors: [alwaysErrorMessage("assert.expect")]
         },
 
         // "always" configration - global assertion
         {
             code: "test('name', function() { equal(1, 1) })",
             options: [],
-            errors: [{ message: alwaysErrorMessage("expect") }]
+            errors: [alwaysErrorMessage("expect")]
         },
 
         // "always" configuration checking that "expect" is called on assert.
         {
             code: "test('name', function(assert) { other.expect(1); assert.ok(true); });",
             options: [],
-            errors: [{ message: alwaysErrorMessage("assert.expect") }]
+            errors: [alwaysErrorMessage("assert.expect")]
         },
 
         // "always" configuration - errors are reported on `test()` line
@@ -340,42 +302,35 @@ ruleTester.run("require-expect", rule, {
                 "});"
             ].join(returnAndIndent),
             options: [],
-            errors: [{
-                message: alwaysErrorMessage("assert.expect"),
-                type: "CallExpression",
-                line: 2
-            }]
+            errors: [Object.assign(alwaysErrorMessage("assert.expect"), { line: 2 })]
         },
 
         // "always" configuration - multiple assert statements only report one error per test
         {
             code: "test('name', function(assert) { maybe(function() { assert.ok(true); assert.ok(true); }) });",
             options: [],
-            errors: [{
-                message: alwaysErrorMessage("assert.expect"),
-                column: 1
-            }]
+            errors: [Object.assign(alwaysErrorMessage("assert.expect"), { column: 1 })]
         },
 
         // "never" - expect is not fine
         {
             code: "test('name', function(assert) { assert.expect(1); assert.ok(true); });",
             options: ["never"],
-            errors: [{ message: neverErrorMessage() }]
+            errors: [neverErrorMessage("assert.expect")]
         },
 
         // "never" - expect zero is not fine
         {
             code: "test('name', function(assert) { assert.expect(0) });",
             options: ["never"],
-            errors: [{ message: neverErrorMessage() }]
+            errors: [neverErrorMessage("assert.expect")]
         },
 
         // "never-except-zero" - expect is not fine
         {
             code: "test('name', function(assert) { assert.expect(1); assert.ok(true); });",
             options: ["never-except-zero"],
-            errors: [{ message: neverErrorMessage() }]
+            errors: [neverErrorMessage("assert.expect")]
         }
     ]
 

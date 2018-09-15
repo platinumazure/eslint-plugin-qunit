@@ -27,14 +27,14 @@ ruleTester.run("no-qunit-stop", rule, {
         {
             code: "QUnit.stop();",
             errors: [{
-                message: "Use assert.async() instead of QUnit.stop().",
+                messageId: "noQUnitStop",
                 type: "CallExpression"
             }]
         },
         {
             code: "QUnit.stop(2);",
             errors: [{
-                message: "Use assert.async() instead of QUnit.stop().",
+                messageId: "noQUnitStop",
                 type: "CallExpression"
             }]
         }

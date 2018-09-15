@@ -15,8 +15,6 @@ const rule = require("../../../lib/rules/no-conditional-assertions"),
 // Helpers
 //------------------------------------------------------------------------------
 
-const MESSAGE = "Do not place an assertion inside a conditional.";
-
 function wrapInQUnitTest(code) {
     return `QUnit.test('test', function (assert) { ${code} });`;
 }
@@ -32,7 +30,7 @@ function wrapInInvalidTestObject(code) {
     return {
         code: wrapInQUnitTest(code),
         errors: [{
-            message: MESSAGE,
+            messageId: "noAssertionInsideConditional",
             type: "CallExpression"
         }]
     };

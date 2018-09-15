@@ -154,7 +154,13 @@ ruleTester.run("assert-args", rule, {
         // ok
         {
             code: wrap("ok();"),
-            errors: ["Unexpected call to ok with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "ok",
+                    argCount: 0
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -164,11 +170,23 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("ok(a, b, 'Message');"),
-            errors: ["Unexpected call to ok with 3 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "ok",
+                    argCount: 3
+                }
+            }]
         },
         {
             code: wrap("assert.ok();"),
-            errors: ["Unexpected call to assert.ok with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.ok",
+                    argCount: 0
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -178,17 +196,35 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.ok(a, b, 'Message');"),
-            errors: ["Unexpected call to assert.ok with 3 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.ok",
+                    argCount: 3
+                }
+            }]
         },
 
         // equal
         {
             code: wrap("equal();"),
-            errors: ["Unexpected call to equal with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "equal",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("equal(a);"),
-            errors: ["Unexpected call to equal with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "equal",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -198,15 +234,33 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("equal(a, b, c, 'Message');"),
-            errors: ["Unexpected call to equal with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "equal",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.equal();"),
-            errors: ["Unexpected call to assert.equal with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.equal",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("assert.equal(a);"),
-            errors: ["Unexpected call to assert.equal with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.equal",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -216,17 +270,35 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.equal(a, b, c, 'Message');"),
-            errors: ["Unexpected call to assert.equal with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.equal",
+                    argCount: 4
+                }
+            }]
         },
 
         // strictEqual
         {
             code: wrap("strictEqual();"),
-            errors: ["Unexpected call to strictEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "strictEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("strictEqual(a);"),
-            errors: ["Unexpected call to strictEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "strictEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -236,15 +308,33 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("strictEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to strictEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "strictEqual",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.strictEqual();"),
-            errors: ["Unexpected call to assert.strictEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.strictEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("assert.strictEqual(a);"),
-            errors: ["Unexpected call to assert.strictEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.strictEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -254,17 +344,35 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.strictEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to assert.strictEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.strictEqual",
+                    argCount: 4
+                }
+            }]
         },
 
         // deepEqual
         {
             code: wrap("deepEqual();"),
-            errors: ["Unexpected call to deepEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "deepEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("deepEqual(a);"),
-            errors: ["Unexpected call to deepEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "deepEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -274,15 +382,33 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("deepEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to deepEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "deepEqual",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.deepEqual();"),
-            errors: ["Unexpected call to assert.deepEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.deepEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("assert.deepEqual(a);"),
-            errors: ["Unexpected call to assert.deepEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.deepEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -292,17 +418,35 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.deepEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to assert.deepEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.deepEqual",
+                    argCount: 4
+                }
+            }]
         },
 
         // propEqual
         {
             code: wrap("propEqual();"),
-            errors: ["Unexpected call to propEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "propEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("propEqual(a);"),
-            errors: ["Unexpected call to propEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "propEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -312,15 +456,33 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("propEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to propEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "propEqual",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.propEqual();"),
-            errors: ["Unexpected call to assert.propEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.propEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("assert.propEqual(a);"),
-            errors: ["Unexpected call to assert.propEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.propEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -330,13 +492,25 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.propEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to assert.propEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.propEqual",
+                    argCount: 4
+                }
+            }]
         },
 
         // raises
         {
             code: wrap("raises();"),
-            errors: ["Unexpected call to raises with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "raises",
+                    argCount: 0
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -346,11 +520,23 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("raises(function () {}, TypeError, blah, 'Message');"),
-            errors: ["Unexpected call to raises with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "raises",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.raises();"),
-            errors: ["Unexpected call to assert.raises with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.raises",
+                    argCount: 0
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -360,13 +546,25 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.raises(function () {}, TypeError, blah, 'Message');"),
-            errors: ["Unexpected call to assert.raises with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.raises",
+                    argCount: 4
+                }
+            }]
         },
 
         // throws
         {
             code: wrap("throws();"),
-            errors: ["Unexpected call to throws with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "throws",
+                    argCount: 0
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -376,11 +574,23 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("throws(function () {}, TypeError, blah, 'Message');"),
-            errors: ["Unexpected call to throws with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "throws",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.throws();"),
-            errors: ["Unexpected call to assert.throws with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.throws",
+                    argCount: 0
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -390,13 +600,25 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.throws(function () {}, TypeError, blah, 'Message');"),
-            errors: ["Unexpected call to assert.throws with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.throws",
+                    argCount: 4
+                }
+            }]
         },
 
         // notOk
         {
             code: wrap("notOk();"),
-            errors: ["Unexpected call to notOk with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notOk",
+                    argCount: 0
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -406,11 +628,23 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("notOk(a, b, 'Message');"),
-            errors: ["Unexpected call to notOk with 3 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "notOk",
+                    argCount: 3
+                }
+            }]
         },
         {
             code: wrap("assert.notOk();"),
-            errors: ["Unexpected call to assert.notOk with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notOk",
+                    argCount: 0
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -420,17 +654,35 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.notOk(a, b, 'Message');"),
-            errors: ["Unexpected call to assert.notOk with 3 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.notOk",
+                    argCount: 3
+                }
+            }]
         },
 
         // notEqual
         {
             code: wrap("notEqual();"),
-            errors: ["Unexpected call to notEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("notEqual(a);"),
-            errors: ["Unexpected call to notEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -440,15 +692,33 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("notEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to notEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "notEqual",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.notEqual();"),
-            errors: ["Unexpected call to assert.notEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("assert.notEqual(a);"),
-            errors: ["Unexpected call to assert.notEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -458,17 +728,35 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.notEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to assert.notEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.notEqual",
+                    argCount: 4
+                }
+            }]
         },
 
         // notStrictEqual
         {
             code: wrap("notStrictEqual();"),
-            errors: ["Unexpected call to notStrictEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notStrictEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("notStrictEqual(a);"),
-            errors: ["Unexpected call to notStrictEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notStrictEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -478,15 +766,33 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("notStrictEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to notStrictEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "notStrictEqual",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.notStrictEqual();"),
-            errors: ["Unexpected call to assert.notStrictEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notStrictEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("assert.notStrictEqual(a);"),
-            errors: ["Unexpected call to assert.notStrictEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notStrictEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -496,17 +802,35 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.notStrictEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to assert.notStrictEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.notStrictEqual",
+                    argCount: 4
+                }
+            }]
         },
 
         // notDeepEqual
         {
             code: wrap("notDeepEqual();"),
-            errors: ["Unexpected call to notDeepEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notDeepEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("notDeepEqual(a);"),
-            errors: ["Unexpected call to notDeepEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notDeepEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -516,15 +840,33 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("notDeepEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to notDeepEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "notDeepEqual",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.notDeepEqual();"),
-            errors: ["Unexpected call to assert.notDeepEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notDeepEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("assert.notDeepEqual(a);"),
-            errors: ["Unexpected call to assert.notDeepEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notDeepEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -534,17 +876,35 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.notDeepEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to assert.notDeepEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.notDeepEqual",
+                    argCount: 4
+                }
+            }]
         },
 
         // notPropEqual
         {
             code: wrap("notPropEqual();"),
-            errors: ["Unexpected call to notPropEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notPropEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("notPropEqual(a);"),
-            errors: ["Unexpected call to notPropEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "notPropEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -554,15 +914,33 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("notPropEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to notPropEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "notPropEqual",
+                    argCount: 4
+                }
+            }]
         },
         {
             code: wrap("assert.notPropEqual();"),
-            errors: ["Unexpected call to assert.notPropEqual with 0 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notPropEqual",
+                    argCount: 0
+                }
+            }]
         },
         {
             code: wrap("assert.notPropEqual(a);"),
-            errors: ["Unexpected call to assert.notPropEqual with 1 arguments and no error message."]
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.notPropEqual",
+                    argCount: 1
+                }
+            }]
         },
         /* Allowed for now.
         {
@@ -572,7 +950,13 @@ ruleTester.run("assert-args", rule, {
         */
         {
             code: wrap("assert.notPropEqual(a, b, c, 'Message');"),
-            errors: ["Unexpected call to assert.notPropEqual with 4 arguments."]
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.notPropEqual",
+                    argCount: 4
+                }
+            }]
         }
     ]
 });

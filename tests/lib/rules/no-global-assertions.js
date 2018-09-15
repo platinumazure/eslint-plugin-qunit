@@ -21,6 +21,15 @@ function wrap(assertionCode, testName) {
     return `QUnit.test('${testName}', function (assert) { ${assertionCode} });`;
 }
 
+function createError(assertion) {
+    return {
+        messageId: "unexpectedGlobalAssertion",
+        data: {
+            assertion
+        }
+    };
+}
+
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -49,47 +58,47 @@ ruleTester.run("no-global-assertions", rule, {
     invalid: [
         {
             code: wrap("ok(true);"),
-            errors: ["Unexpected global `ok` assertion."]
+            errors: [createError("ok")]
         },
         {
             code: wrap("equal(a, b);"),
-            errors: ["Unexpected global `equal` assertion."]
+            errors: [createError("equal")]
         },
         {
             code: wrap("strictEqual(a, b);"),
-            errors: ["Unexpected global `strictEqual` assertion."]
+            errors: [createError("strictEqual")]
         },
         {
             code: wrap("deepEqual(a, b);"),
-            errors: ["Unexpected global `deepEqual` assertion."]
+            errors: [createError("deepEqual")]
         },
         {
             code: wrap("propEqual(a, b);"),
-            errors: ["Unexpected global `propEqual` assertion."]
+            errors: [createError("propEqual")]
         },
         {
             code: wrap("notEqual(a, b);"),
-            errors: ["Unexpected global `notEqual` assertion."]
+            errors: [createError("notEqual")]
         },
         {
             code: wrap("notStrictEqual(a, b);"),
-            errors: ["Unexpected global `notStrictEqual` assertion."]
+            errors: [createError("notStrictEqual")]
         },
         {
             code: wrap("notDeepEqual(a, b);"),
-            errors: ["Unexpected global `notDeepEqual` assertion."]
+            errors: [createError("notDeepEqual")]
         },
         {
             code: wrap("notPropEqual(a, b);"),
-            errors: ["Unexpected global `notPropEqual` assertion."]
+            errors: [createError("notPropEqual")]
         },
         {
             code: wrap("raises(function () {}, TypeError);"),
-            errors: ["Unexpected global `raises` assertion."]
+            errors: [createError("raises")]
         },
         {
             code: wrap("throws(function () {}, TypeError);"),
-            errors: ["Unexpected global `throws` assertion."]
+            errors: [createError("throws")]
         }
     ]
 });

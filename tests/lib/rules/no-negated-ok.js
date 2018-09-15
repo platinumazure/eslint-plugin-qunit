@@ -19,8 +19,13 @@ function wrap(code) {
     return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
-function errorMessage(callee) {
-    return `Unexpected negation in ${callee}() assertion.`;
+function createError(callee) {
+    return {
+        messageId: "noNegationInOk",
+        data: {
+            callee
+        }
+    };
 }
 
 //------------------------------------------------------------------------------
@@ -87,39 +92,39 @@ ruleTester.run("no-negated-ok", rule, {
         // ok
         {
             code: wrap("assert.ok(!foo)"),
-            errors: [errorMessage("assert.ok")]
+            errors: [createError("assert.ok")]
         },
         {
             code: wrap("assert.ok(!foo, 'message')"),
-            errors: [errorMessage("assert.ok")]
+            errors: [createError("assert.ok")]
         },
 
         // notOk
         {
             code: wrap("assert.notOk(!foo)"),
-            errors: [errorMessage("assert.notOk")]
+            errors: [createError("assert.notOk")]
         },
         {
             code: wrap("assert.notOk(!foo, 'message')"),
-            errors: [errorMessage("assert.notOk")]
+            errors: [createError("assert.notOk")]
         },
 
         // triple negation is not allowed
         {
             code: wrap("assert.ok(!!!foo)"),
-            errors: [errorMessage("assert.ok")]
+            errors: [createError("assert.ok")]
         },
         {
             code: wrap("assert.ok(!!!foo, 'message')"),
-            errors: [errorMessage("assert.ok")]
+            errors: [createError("assert.ok")]
         },
         {
             code: wrap("assert.notOk(!!!foo)"),
-            errors: [errorMessage("assert.notOk")]
+            errors: [createError("assert.notOk")]
         },
         {
             code: wrap("assert.notOk(!!!foo, 'message')"),
-            errors: [errorMessage("assert.notOk")]
+            errors: [createError("assert.notOk")]
         }
     ]
 

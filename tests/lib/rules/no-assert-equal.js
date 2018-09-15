@@ -15,13 +15,6 @@ const rule = require("../../../lib/rules/no-assert-equal"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ERROR_TEMPLATE_QUALIFIED = "Unexpected {{id}}.equal. Use {{id}}.strictEqual, {{id}}.deepEqual, or {{id}}.propEqual.",
-    ERROR_TEMPLATE_GLOBAL = "Unexpected equal. Use strictEqual, deepEqual, or propEqual.";
-
-function getErrorMessage(identifier) {
-    return ERROR_TEMPLATE_QUALIFIED.replace(/\{\{id\}\}/g, identifier);
-}
-
 const ruleTester = new RuleTester();
 
 ruleTester.run("no-assert-equal", rule, {
@@ -46,19 +39,29 @@ ruleTester.run("no-assert-equal", rule, {
     invalid: [
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(a, b); });",
-            errors: [{ message: getErrorMessage("assert") }]
+            errors: [{
+                messageId: "unexpectedAssertEqual",
+                data: { assertVar: "assert" }
+            }]
         },
         {
             code: "QUnit.test('Name', function (foo) { foo.equal(a, b); });",
-            errors: [{ message: getErrorMessage("foo") }]
+            errors: [{
+                messageId: "unexpectedAssertEqual",
+                data: { assertVar: "foo" }
+            }]
         },
         {
             code: "QUnit.test('Name', function (assert) { equal(a, b); });",
-            errors: [{ message: ERROR_TEMPLATE_GLOBAL }]
+            errors: [{
+                messageId: "unexpectedGlobalEqual"
+            }]
         },
         {
             code: "QUnit.test('Name', function () { equal(a, b); });",
-            errors: [{ message: ERROR_TEMPLATE_GLOBAL }]
+            errors: [{
+                messageId: "unexpectedGlobalEqual"
+            }]
         }
     ]
 });
