@@ -1,3 +1,8 @@
+### 4.0.0
+* Upgrade: coveralls, eslint, nyc, semver to latest (Kevin Partington)
+* Chore: Convert all rules to use messageIds (Kevin Partington)
+* Breaking: Drop support for Node 4/7/9 and ESLint <4.15 (Kevin Partington)
+
 ### 3.3.1
 * Chore: Declare compatibility with eslint@5.x (Kevin Partington)
 * Chore: Upgrade devDependencies (Kevin Partington)
