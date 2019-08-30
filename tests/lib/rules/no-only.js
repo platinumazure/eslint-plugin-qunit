@@ -19,15 +19,33 @@ const ruleTester = new RuleTester();
 
 ruleTester.run("no-only", rule, {
     valid: [
+        "QUnit.module.test('Name', function() { });",
         "QUnit.test('Name', function() { });",
-
-        // QUnit.only is not exposed globally so this is valid
-        "only('Name', function() { });"
+        "module.test('Name', function() { });",
+        "test('Name', function() { });"
     ],
 
     invalid: [
         {
+            code: "QUnit.module.only('Name', function() { });",
+            errors: [{
+                messageId: "noQUnitOnly"
+            }]
+        },
+        {
             code: "QUnit.only('Name', function() { });",
+            errors: [{
+                messageId: "noQUnitOnly"
+            }]
+        },
+        {
+            code: "module.only('Name', function() { });",
+            errors: [{
+                messageId: "noQUnitOnly"
+            }]
+        },
+        {
+            code: "only('Name', function() { });",
             errors: [{
                 messageId: "noQUnitOnly"
             }]
