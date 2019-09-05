@@ -8,7 +8,13 @@ The following patterns are considered warnings:
 
 ```js
 
-QUnit.only('Name', function () { });
+QUnit.module.only('Name', function() { });
+
+QUnit.only('Name', function() { });
+
+module.only('Name', function() { });
+
+only('Name', function() { });
 
 ```
 
@@ -16,7 +22,13 @@ The following patterns are not considered warnings:
 
 ```js
 
-QUnit.test('Name', function () { });
+QUnit.module.test('Name', function() { });
+
+QUnit.test('Name', function() { });
+
+module.test('Name', function() { });
+
+test('Name', function() { });
 
 ```
 
