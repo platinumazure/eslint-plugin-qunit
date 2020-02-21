@@ -40,7 +40,7 @@ ruleTester.run("no-assert-ok", rule, {
         {
             code: "QUnit.test('Name', function (assert) { assert.ok(a); });",
             errors: [{
-                messageId: "unexpectedAssertEqual",
+                messageId: "unexpectedLocalOkNotOk",
                 data: { assertVar: "assert",
                     assertion: "ok" }
             }]
@@ -48,7 +48,7 @@ ruleTester.run("no-assert-ok", rule, {
         {
             code: "QUnit.test('Name', function (foo) { foo.ok(a); });",
             errors: [{
-                messageId: "unexpectedAssertEqual",
+                messageId: "unexpectedLocalOkNotOk",
                 data: { assertVar: "foo",
                     assertion: "ok" }
             }]
@@ -56,7 +56,7 @@ ruleTester.run("no-assert-ok", rule, {
         {
             code: "QUnit.test('Name', function (assert) { assert.notOk(a); });",
             errors: [{
-                messageId: "unexpectedAssertEqual",
+                messageId: "unexpectedLocalOkNotOk",
                 data: { assertVar: "assert",
                     assertion: "notOk" }
             }]
@@ -64,7 +64,7 @@ ruleTester.run("no-assert-ok", rule, {
         {
             code: "QUnit.test('Name', function (foo) { foo.notOk(a); });",
             errors: [{
-                messageId: "unexpectedAssertEqual",
+                messageId: "unexpectedLocalOkNotOk",
                 data: { assertVar: "foo",
                     assertion: "notOk" }
             }]
@@ -72,28 +72,28 @@ ruleTester.run("no-assert-ok", rule, {
         {
             code: "QUnit.test('Name', function (assert) { ok(a, b); });",
             errors: [{
-                messageId: "unexpectedGlobalEqual",
+                messageId: "unexpectedGlobalOkNotOk",
                 data: { assertion: "ok" }
             }]
         },
         {
             code: "QUnit.test('Name', function (assert) { notOk(a, b); });",
             errors: [{
-                messageId: "unexpectedGlobalEqual",
+                messageId: "unexpectedGlobalOkNotOk",
                 data: { assertion: "notOk" }
             }]
         },
         {
             code: "QUnit.test('Name', function () { ok(a, b); });",
             errors: [{
-                messageId: "unexpectedGlobalEqual",
+                messageId: "unexpectedGlobalOkNotOk",
                 data: { assertion: "ok" }
             }]
         },
         {
             code: "QUnit.test('Name', function () { notOk(a, b); });",
             errors: [{
-                messageId: "unexpectedGlobalEqual",
+                messageId: "unexpectedGlobalOkNotOk",
                 data: { assertion: "notOk" }
             }]
         }
