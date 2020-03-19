@@ -1,6 +1,6 @@
 /**
  * @fileoverview Forbid the use of assert.ok/notOk and suggest other assertions.
- * @author Kevin Partington
+ * @author ventuno
  */
 "use strict";
 
@@ -41,32 +41,40 @@ ruleTester.run("no-assert-ok", rule, {
             code: "QUnit.test('Name', function (assert) { assert.ok(a); });",
             errors: [{
                 messageId: "unexpectedLocalOkNotOk",
-                data: { assertVar: "assert",
-                    assertion: "ok" }
+                data: {
+                    assertVar: "assert",
+                    assertion: "ok"
+                }
             }]
         },
         {
             code: "QUnit.test('Name', function (foo) { foo.ok(a); });",
             errors: [{
                 messageId: "unexpectedLocalOkNotOk",
-                data: { assertVar: "foo",
-                    assertion: "ok" }
+                data: {
+                    assertVar: "foo",
+                    assertion: "ok"
+                }
             }]
         },
         {
             code: "QUnit.test('Name', function (assert) { assert.notOk(a); });",
             errors: [{
                 messageId: "unexpectedLocalOkNotOk",
-                data: { assertVar: "assert",
-                    assertion: "notOk" }
+                data: {
+                    assertVar: "assert",
+                    assertion: "notOk"
+                }
             }]
         },
         {
             code: "QUnit.test('Name', function (foo) { foo.notOk(a); });",
             errors: [{
                 messageId: "unexpectedLocalOkNotOk",
-                data: { assertVar: "foo",
-                    assertion: "notOk" }
+                data: {
+                    assertVar: "foo",
+                    assertion: "notOk"
+                }
             }]
         },
         {
