@@ -29,6 +29,37 @@ QUnit.test('Name', function (foo) { foo.notOk(a); });
 QUnit.test('Name', function () { notOk(a); });
 
 ```
+
+The following patterns are not considered warnings:
+
+```js
+
+QUnit.test('Name', function (assert) { assert.strictEqual(a, true); });
+
+QUnit.test('Name', function (foo) { foo.strictEqual(a, true); });
+
+QUnit.test('Name', function () { strictEqual(a, true); });
+
+QUnit.test('Name', function (assert) { assert.strictEqual(a, false); });
+
+QUnit.test('Name', function (foo) { foo.strictEqual(a, false); });
+
+QUnit.test('Name', function () { strictEqual(a, false); });
+
+QUnit.test('Name', function (assert) { assert.deepEqual(a, b); });
+
+QUnit.test('Name', function (foo) { foo.deepEqual(a, b); });
+
+QUnit.test('Name', function () { deepEqual(a, b); });
+
+QUnit.test('Name', function (assert) { assert.propEqual(a, b); });
+
+QUnit.test('Name', function (foo) { foo.propEqual(a, b); });
+
+QUnit.test('Name', function () { propEqual(a, b); });
+
+```
+
 ## Further Reading
 
 * [QUnit's Assertions](https://api.qunitjs.com/category/assert/)
