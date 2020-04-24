@@ -39,6 +39,7 @@ Below is the list of rules available in this plugin.
 * [no-reassign-log-callbacks](docs/rules/no-reassign-log-callbacks.md)
 * [no-reset](docs/rules/no-reset.md)
 * [no-setup-teardown](docs/rules/no-setup-teardown.md)
+* [no-skip](docs/rules/no-skip.md)
 * [no-test-expect-argument](docs/rules/no-test-expect-argument.md)
 * [no-throws-string](docs/rules/no-throws-string.md)
 * [require-expect](docs/rules/require-expect.md)
