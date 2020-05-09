@@ -88,7 +88,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/180672?v=4",
       "profile": "https://github.com/edg2s",
       "contributions": [
-        "bug"
+        "bug",
+        "code"
       ]
     },
     {
@@ -97,7 +98,8 @@
       "avatar_url": "https://avatars1.githubusercontent.com/u/1049837?v=4",
       "profile": "https://github.com/Techn1x",
       "contributions": [
-        "bug"
+        "bug",
+        "code"
       ]
     },
     {
@@ -116,6 +118,15 @@
       "profile": "https://github.com/ventuno",
       "contributions": [
         "code"
+      ]
+    },
+    {
+      "login": "Krysthalia",
+      "name": "Anne-Gaëlle Schall",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/38167520?v=4",
+      "profile": "https://github.com/Krysthalia",
+      "contributions": [
+        "bug"
       ]
     }
   ],
