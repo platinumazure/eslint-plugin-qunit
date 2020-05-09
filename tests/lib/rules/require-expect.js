@@ -16,7 +16,7 @@ const rule = require("../../../lib/rules/require-expect"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester(),
+const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 2015 } }),
     returnAndIndent = "\n        ";
 
 function alwaysErrorMessage(expectCallName) {
@@ -153,6 +153,16 @@ ruleTester.run("require-expect", rule, {
         // assert used in callback
         {
             code: "test('name', function(assert) { maybe(function() { assert.ok(true) }); });",
+            errors: [exceptSimpleErrorMessage("assert.expect")],
+            options: ["except-simple"]
+        },
+        {
+            code: "test('name', function(assert) { maybe(() => { assert.ok(true) }); });",
+            errors: [exceptSimpleErrorMessage("assert.expect")],
+            options: ["except-simple"]
+        },
+        {
+            code: "test('name', function(assert) { maybe(() => assert.ok(true)); });",
             errors: [exceptSimpleErrorMessage("assert.expect")],
             options: ["except-simple"]
         },
