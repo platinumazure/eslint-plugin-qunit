@@ -10,7 +10,8 @@
 
 const assert = require("chai").assert,
     index = require("../index"),
-    fs = require("fs");
+    fs = require("fs"),
+    path = require("path");
 
 //------------------------------------------------------------------------------
 // Tests
@@ -20,10 +21,10 @@ describe("index.js", function () {
     let ruleFileNames;
 
     before(function (done) {
-        fs.readdir("lib/rules", function (err, files) {
+        fs.readdir("./lib/rules", function (err, files) {
             if (err) throw err;
             ruleFileNames = files.map(function (rawFileName) {
-                return rawFileName.slice(0, -3);
+                return path.basename(rawFileName, ".js");
             });
             done();
         });
