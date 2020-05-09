@@ -1,3 +1,17 @@
+### 4.1.0
+* Docs: Add more contributors (Kevin Partington)
+* Upgrade: Bump acorn from 6.3.0 to 6.4.1 (#83) (dependabot[bot])
+* Upgrade: Bump eslint-utils from 1.3.1 to 1.4.3 (#82) (dependabot[bot])
+* Docs: Add contributors (Kevin Partington)
+* Fix: require-expect handles implicit body arrow functions correctly (fixes #76) (Kevin Partington)
+* Chore: Improve unit test (Kevin Partington)
+* Build: Add Node 12, 13, and 14 to Travis config (Kevin Partington)
+* Upgrade: Upgrade devDependencies (semver-minor only) (Kevin Partington)
+* Build: Add package-lock.json (Kevin Partington)
+* New: Implement new rule `no-assert-ok` (#78) (ventuno)
+* Update: Improve no-only rule to detect only() module.only() and QUnit.module.only() (#73) (Brad Overton)
+* Fix: Fix typo in no-test-expect-argument (#71) (Ed S)
+
 ### 4.0.0
 * Upgrade: coveralls, eslint, nyc, semver to latest (Kevin Partington)
 * Chore: Convert all rules to use messageIds (Kevin Partington)
