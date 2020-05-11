@@ -37,6 +37,7 @@ module.exports = {
         "no-reassign-log-callbacks": require("./lib/rules/no-reassign-log-callbacks"),
         "no-reset": require("./lib/rules/no-reset"),
         "no-setup-teardown": require("./lib/rules/no-setup-teardown"),
+        "no-skip": require("./lib/rules/no-skip"),
         "no-test-expect-argument": require("./lib/rules/no-test-expect-argument"),
         "no-throws-string": require("./lib/rules/no-throws-string"),
         "require-expect": require("./lib/rules/require-expect"),
