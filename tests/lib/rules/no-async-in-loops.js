@@ -565,29 +565,6 @@ ruleTester.run("no-async-in-loops", rule, {
             }]
         },
         {
-            code: "test('name', function (assert) { for (i in x) assert.async(); });",
-            errors: [{
-                messageId: "unexpectedAsyncInLoop",
-                data: {
-                    call: "assert.async()",
-                    loopTypeText: "for-in loop"
-                },
-                type: "CallExpression"
-            }]
-        },
-        {
-            code: "test('name', function (assert) { for (i of x) assert.async(); });",
-            parserOptions: { ecmaVersion: 6 },
-            errors: [{
-                messageId: "unexpectedAsyncInLoop",
-                data: {
-                    call: "assert.async()",
-                    loopTypeText: "for-of loop"
-                },
-                type: "CallExpression"
-            }]
-        },
-        {
             code: "test('name', function (assert) { for (i of x) assert.async(); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{

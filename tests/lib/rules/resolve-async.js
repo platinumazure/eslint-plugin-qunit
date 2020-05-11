@@ -167,15 +167,7 @@ ruleTester.run("resolve-async", rule, {
             errors: [createNeedStartCallsMessage("CallExpression")]
         },
         {
-            code: "asyncTest('name', function () {});",
-            errors: [createNeedStartCallsMessage("CallExpression")]
-        },
-        {
             code: "test('name', function () { QUnit.stop(); });",
-            errors: [createNeedStartCallsMessage("CallExpression")]
-        },
-        {
-            code: "QUnit.asyncTest('name', function () {});",
             errors: [createNeedStartCallsMessage("CallExpression")]
         },
         {

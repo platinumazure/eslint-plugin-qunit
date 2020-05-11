@@ -1,11 +1,11 @@
 {
-    "extends": ["plugin:node/recommended"],
+    "extends": ["plugin:node/recommended", "plugin:eslint-plugin/recommended"],
 
     "env": {
         "node": true
     },
 
-    "plugins": ["node"],
+    "plugins": ["node", "eslint-plugin"],
 
     "rules": {
         "array-bracket-spacing": ["error", "never"],
@@ -155,6 +155,18 @@
         }],
         "valid-typeof": "error",
         "wrap-iife": "error",
-        "yoda": ["error", "never"]
+        "yoda": ["error", "never"],
+
+        "eslint-plugin/consistent-output": "error",
+        "eslint-plugin/meta-property-ordering": ["error", [
+            "type", "docs", "fixable", "messages", "schema", "deprecated", "replacedBy"
+        ]],
+        "eslint-plugin/no-deprecated-context-methods": "error",
+        "eslint-plugin/prefer-output-null": "error",
+        "eslint-plugin/prefer-placeholders": "error",
+        "eslint-plugin/report-message-format": ["error", "^[A-Z].*\\.$"],
+        "eslint-plugin/require-meta-schema": "error",
+        "eslint-plugin/test-case-property-ordering": "error",
+        "eslint-plugin/test-case-shorthand-strings": "error"
     }
 }
