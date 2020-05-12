@@ -1,3 +1,8 @@
+### 4.2.0
+* Fix: literal-compare-order crash on BDD-style assertions (fixes #74) (Kevin Partington)
+* Chore: Add eslint-plugin-eslint-plugin devDependency (fixes #85) (Kevin Partington)
+* New rule: no-skip (#81) (Steve Calvert)
+
 ### 4.1.0
 * Docs: Add more contributors (Kevin Partington)
 * Upgrade: Bump acorn from 6.3.0 to 6.4.1 (#83) (dependabot[bot])
