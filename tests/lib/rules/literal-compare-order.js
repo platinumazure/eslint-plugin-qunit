@@ -74,7 +74,10 @@ ruleTester.run("literal-compare-order", rule, {
         wrap("notPropEqual(variable, 'Literal');"),
         wrap("notPropEqual(variable, 'Literal', 'Message');"),
         wrap("assert.notPropEqual(variable, 'Literal');"),
-        wrap("assert.notPropEqual(variable, 'Literal', 'Message');")
+        wrap("assert.notPropEqual(variable, 'Literal', 'Message');"),
+
+        // avoid crash in BDD-style assertions
+        "QUnit.test('Name', function() { expect(variable).to.equal('Literal'); });"
     ],
     invalid: [
         // equal
