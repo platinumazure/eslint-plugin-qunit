@@ -116,6 +116,10 @@ ruleTester.run("resolve-async", rule, {
         "module('name', { afterEach: function () { var done = assert.async(); done(); } });",
         "QUnit.module('name', { afterEach: function () { var done = assert.async(); done(); } });",
 
+        // assert.async callback can be invoked via .call/.apply
+        "QUnit.test('name', function (assert) { var done = assert.async(); done.call(); });",
+        "QUnit.test('name', function (assert) { var done = assert.async(); done.apply(); });",
+
         // start/stop calls outside of test context should not affect count
         "start(); test('name', function () { stop(); start(); });",
         "stop(); test('name', function () { stop(); start(); });",
@@ -431,6 +435,16 @@ ruleTester.run("resolve-async", rule, {
                 createAsyncCallbackNotCalledMessage("Property", "done1"),
                 createAsyncCallbackNotCalledMessage("Property", "done2")
             ]
+        },
+
+        // assert.async callback can be invoked via .call/.apply
+        {
+            code: "QUnit.test('name', function (assert) { var done1 = assert.async(), done2 = assert.async(); done1.call(); });",
+            errors: [createAsyncCallbackNotCalledMessage("CallExpression", "done2")]
+        },
+        {
+            code: "QUnit.test('name', function (assert) { var done1 = assert.async(), done2 = assert.async(); done1.apply(); });",
+            errors: [createAsyncCallbackNotCalledMessage("CallExpression", "done2")]
         },
 
         // start/stop calls outside of test context should not affect count
