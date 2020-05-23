@@ -14,6 +14,12 @@ Here by mistake a developer just passed to `assert.ok` a pointer to `myFunc` ins
 
 The assertions to lint against can be controlled with an array of assertions (default `["equal", "ok", "notOk"]`).
 
+To fine tune the error message (which by default will recommend to use `strictEqual`, `deepEqual`, or `propEqual`) a configuration object can be passed as an option instead of a string. The configuration object has two properties:
+* `disallowed`: the name of the assertion to disallow (either `equal`, `ok`, or `notOk`);
+* `recommended`: an array of strings representing the recommended options to display as an error message. The strings in the array will be concatenated to build the error message: `Unexpected {{assertVar}}.{{assertion}}. Use {{assertVar}}.<recommended_1>, {{assertVar}}.<recommended_2>.` when using local assertions and `Unexpected {{assertion}}. Use <recommended_1>, <recommended_2>.` when using global assertions.
+
+If an assertion is passed twice as a string and object the first configuration will be used and any other configuration will be ignored.
+
 ## Rule Details
 
 The following patterns are considered warnings:

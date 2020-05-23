@@ -215,7 +215,8 @@ ruleTester.run("no-loose-assertions", rule, {
                           assert.equal(a, b);
                       });
                   `,
-            options: [["ok", "equal"]],
+            options: [["ok", { disallowed: "equal",
+                recommended: ["ab"] }]],
             errors: [{
                 messageId: "unexpectedLocalLooseAssertion",
                 data: {
@@ -223,11 +224,7 @@ ruleTester.run("no-loose-assertions", rule, {
                     assertion: "ok"
                 }
             }, {
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "equal"
-                }
+                message: "Unexpected assert.equal. Use assert.ab."
             }]
         },
         {
@@ -238,7 +235,8 @@ ruleTester.run("no-loose-assertions", rule, {
                           foo.equal(a, b);
                       });
                   `,
-            options: [["ok", "equal"]],
+            options: [["ok", { disallowed: "equal",
+                recommended: ["ab"] }]],
             errors: [{
                 messageId: "unexpectedLocalLooseAssertion",
                 data: {
@@ -246,11 +244,7 @@ ruleTester.run("no-loose-assertions", rule, {
                     assertion: "ok"
                 }
             }, {
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "equal"
-                }
+                message: "Unexpected foo.equal. Use foo.ab."
             }]
         },
         {
@@ -268,6 +262,23 @@ ruleTester.run("no-loose-assertions", rule, {
             }, {
                 messageId: "unexpectedGlobalLooseAssertion",
                 data: { assertion: "equal" }
+            }]
+        },
+        {
+            code: `
+                      QUnit.test('Name', function () {
+                          ok(a, b);
+                          notOk(a, b);
+                          equal(a, b);
+                      });
+                  `,
+            options: [["ok", { disallowed: "equal",
+                recommended: ["ab"] }, "equal"]],
+            errors: [{
+                messageId: "unexpectedGlobalLooseAssertion",
+                data: { assertion: "ok" }
+            }, {
+                message: "Unexpected equal. Use ab."
             }]
         }
     ]
