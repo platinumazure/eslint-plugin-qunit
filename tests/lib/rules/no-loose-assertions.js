@@ -272,8 +272,11 @@ ruleTester.run("no-loose-assertions", rule, {
                           equal(a, b);
                       });
                   `,
+
+            // Extra "equal" and "ok" definitions to make sure they are properly ignored while parsing options
             options: [["ok", { disallowed: "equal",
-                recommended: ["ab"] }, "equal"]],
+                recommended: ["ab"] }, "equal", { disallowed: "ok",
+                recommended: ["ab"] }]],
             errors: [{
                 messageId: "unexpectedGlobalLooseAssertion",
                 data: { assertion: "ok" }
