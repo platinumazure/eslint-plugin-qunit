@@ -229,8 +229,6 @@ ruleTester.run("no-arrow-tests", rule, {
                 type: "ArrowFunctionExpression"
             }]
         },
-
-        // Unsupported comment placement
         {
             code: "QUnit.test('a test 6', assert /* comment */ =>\n{ assert.ok(true); }\n);",
             output: "QUnit.test('a test 6', function(assert/* comment */) { assert.ok(true); }\n);",
