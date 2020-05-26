@@ -190,8 +190,40 @@ ruleTester.run("no-arrow-tests", rule, {
 
         // Comment placement
         {
-            code: "QUnit.test('a test', /* comment */ assert => { assert.ok(true); });",
-            output: "QUnit.test('a test', /* comment */ function(assert) { assert.ok(true); });",
+            code: "QUnit.test('a test 1', /* comment */ assert => { assert.ok(true); });",
+            output: "QUnit.test('a test 1', /* comment */ function(assert) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 2', (assert /* comment */) => { assert.ok(true); });",
+            output: "QUnit.test('a test 2', function(assert /* comment */) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 3', (assert) /* comment */ => { assert.ok(true); });",
+            output: "QUnit.test('a test 3', function(assert)/* comment */ { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 4', (assert) => /* comment */ { assert.ok(true); });",
+            output: "QUnit.test('a test 4', function(assert)/* comment */ { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 5', (/* assert */) => { noop(); });",
+            output: "QUnit.test('a test 5', function(/* assert */) { noop(); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -200,16 +232,24 @@ ruleTester.run("no-arrow-tests", rule, {
 
         // Unsupported comment placement
         {
-            code: "QUnit.test('a test', assert /* comment */ => { assert.ok(true); });",
-            output: "QUnit.test('a test', function(assert) { assert.ok(true); });",
+            code: "QUnit.test('a test 6', assert /* comment */ =>\n{ assert.ok(true); }\n);",
+            output: "QUnit.test('a test 6', function(assert/* comment */) { assert.ok(true); }\n);",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
         },
         {
-            code: "QUnit.test('a test', (assert /* comment */) => { assert.ok(true); });",
-            output: "QUnit.test('a test', function(assert) { assert.ok(true); });",
+            code: "QUnit.test('a test 7', assert /* comment */ => { assert.ok(true); });",
+            output: "QUnit.test('a test 7', function(assert/* comment */) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 8', assert => /* comment */ { assert.ok(true); });",
+            output: "QUnit.test('a test 8', function(assert)/* comment */ { assert.ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
