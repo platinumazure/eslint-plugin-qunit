@@ -186,6 +186,34 @@ ruleTester.run("no-arrow-tests", rule, {
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
             }]
+        },
+
+        // Comment placement
+        {
+            code: "QUnit.test('a test', /* comment */ assert => { assert.ok(true); });",
+            output: "QUnit.test('a test', /* comment */ function(assert) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+
+        // Unsupported comment placement
+        {
+            code: "QUnit.test('a test', assert /* comment */ => { assert.ok(true); });",
+            output: "QUnit.test('a test', function(assert) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test', (assert /* comment */) => { assert.ok(true); });",
+            output: "QUnit.test('a test', function(assert) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
         }
     ]
 });
