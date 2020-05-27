@@ -201,7 +201,7 @@ ruleTester.run("no-arrow-tests", rule, {
         // Async function
         {
             code: "QUnit.test('test', async () => { assert.ok(false) })",
-            output: "QUnit.test('test', async function () { assert.ok(false) })",
+            output: "QUnit.test('test', async function() { assert.ok(false) })",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
