@@ -19,7 +19,7 @@ const rule = require("../../../lib/rules/no-arrow-tests"),
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester({
-    parserOptions: { ecmaVersion: 6 }
+    parserOptions: { ecmaVersion: 2017 }
 });
 ruleTester.run("no-arrow-tests", rule, {
 
@@ -182,6 +182,26 @@ ruleTester.run("no-arrow-tests", rule, {
         {
             code: "module('module', { afterEach: () => {} });",
             output: "module('module', { afterEach: function() {} });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+
+        // No function body
+        {
+            code: "QUnit.test('test', () => ok(true));",
+            output: "QUnit.test('test', function() { return ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+
+        // Async function
+        {
+            code: "QUnit.test('test', async () => { assert.ok(false) })",
+            output: "QUnit.test('test', async function () { assert.ok(false) })",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
