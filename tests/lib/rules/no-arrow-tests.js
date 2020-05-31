@@ -18,7 +18,9 @@ const rule = require("../../../lib/rules/no-arrow-tests"),
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+    parserOptions: { ecmaVersion: 2017 }
+});
 ruleTester.run("no-arrow-tests", rule, {
 
     valid: [
@@ -43,24 +45,21 @@ ruleTester.run("no-arrow-tests", rule, {
         "module('module', { afterEach: function () {} });",
 
         // not actually module hooks
-        {
-            code: [
-                "var a = {",
-                "    setup: () => {},",
-                "    teardown: () => {},",
-                "    beforeEach: () => {},",
-                "    afterEach: () => {}",
-                "};"
-            ].join("\n"),
-            parserOptions: { ecmaVersion: 6 }
-        }
+        [
+            "var a = {",
+            "    setup: () => {},",
+            "    teardown: () => {},",
+            "    beforeEach: () => {},",
+            "    afterEach: () => {}",
+            "};"
+        ].join("\n")
     ],
 
     invalid: [
         // tests
         {
             code: "QUnit.test('test', (assert) => { assert.ok(true); });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "QUnit.test('test', function(assert) { assert.ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -68,7 +67,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "QUnit.test('test', () => { ok(true); });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "QUnit.test('test', function() { ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -76,7 +75,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "QUnit.asyncTest('test', (assert) => { assert.ok(true); });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "QUnit.asyncTest('test', function(assert) { assert.ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -84,7 +83,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "QUnit.asyncTest('test', () => { ok(true); });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "QUnit.asyncTest('test', function() { ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -92,7 +91,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "test('test', (assert) => { assert.ok(true); });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "test('test', function(assert) { assert.ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -100,7 +99,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "test('test', () => { ok(true); });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "test('test', function() { ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -108,7 +107,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "asyncTest('test', (assert) => { assert.ok(true); });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "asyncTest('test', function(assert) { assert.ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -116,7 +115,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "asyncTest('test', () => { ok(true); });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "asyncTest('test', function() { ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -126,7 +125,7 @@ ruleTester.run("no-arrow-tests", rule, {
         // modules
         {
             code: "QUnit.module('module', { setup: () => {} });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "QUnit.module('module', { setup: function() {} });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -134,7 +133,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "QUnit.module('module', { teardown: () => {} });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "QUnit.module('module', { teardown: function() {} });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -142,7 +141,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "QUnit.module('module', { beforeEach: () => {} });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "QUnit.module('module', { beforeEach: function() {} });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -150,7 +149,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "QUnit.module('module', { afterEach: () => {} });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "QUnit.module('module', { afterEach: function() {} });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -158,7 +157,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "module('module', { setup: () => {} });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "module('module', { setup: function() {} });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -166,7 +165,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "module('module', { teardown: () => {} });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "module('module', { teardown: function() {} });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -174,7 +173,7 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "module('module', { beforeEach: () => {} });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "module('module', { beforeEach: function() {} });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
@@ -182,7 +181,93 @@ ruleTester.run("no-arrow-tests", rule, {
         },
         {
             code: "module('module', { afterEach: () => {} });",
-            parserOptions: { ecmaVersion: 6 },
+            output: "module('module', { afterEach: function() {} });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+
+        // No function body
+        {
+            code: "QUnit.test('test', () => ok(true));",
+            output: "QUnit.test('test', function() { return ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+
+        // Async function
+        {
+            code: "QUnit.test('test', async () => { assert.ok(false) })",
+            output: "QUnit.test('test', async function() { assert.ok(false) })",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+
+        // Comment placement
+        {
+            code: "QUnit.test('a test 1', /* comment */ assert => { assert.ok(true); });",
+            output: "QUnit.test('a test 1', /* comment */ function(assert) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 2', (assert /* comment */) => { assert.ok(true); });",
+            output: "QUnit.test('a test 2', function(assert /* comment */) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 3', (assert) /* comment */ => { assert.ok(true); });",
+            output: "QUnit.test('a test 3', function(assert)/* comment */ { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 4', (assert) => /* comment */ { assert.ok(true); });",
+            output: "QUnit.test('a test 4', function(assert)/* comment */ { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 5', (/* assert */) => { noop(); });",
+            output: "QUnit.test('a test 5', function(/* assert */) { noop(); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 6', assert /* comment */ =>\n{ assert.ok(true); }\n);",
+            output: "QUnit.test('a test 6', function(assert/* comment */) { assert.ok(true); }\n);",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 7', assert /* comment */ => { assert.ok(true); });",
+            output: "QUnit.test('a test 7', function(assert/* comment */) { assert.ok(true); });",
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
+            code: "QUnit.test('a test 8', assert => /* comment */ { assert.ok(true); });",
+            output: "QUnit.test('a test 8', function(assert)/* comment */ { assert.ok(true); });",
             errors: [{
                 messageId: "noArrowFunction",
                 type: "ArrowFunctionExpression"
