@@ -1,5 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
-
 "use strict";
 
 //------------------------------------------------------------------------------
@@ -7,7 +5,8 @@
 //------------------------------------------------------------------------------
 
 const rule = require("../../../lib/rules/no-identical-names"),
-    RuleTester = require("eslint").RuleTester;
+    RuleTester = require("eslint").RuleTester,
+    outdent = require("outdent");
 
 //------------------------------------------------------------------------------
 // Tests
@@ -18,52 +17,52 @@ const ruleTester = new RuleTester();
 ruleTester.run("no-identical-title", rule, {
 
     valid: [
-        [
-            "module(\"module\");",
-            "test(\"test\", function() {});"
-        ].join("\n"),
-        [
-            "module(\"module1\");",
-            "test(\"it1\", function() {});",
-            "test(\"it2\", function() {});"
-        ].join("\n"),
-        [
-            "test(\"it1\", function() {});",
-            "test(\"it2\", function() {});"
-        ].join("\n"),
-        [
-            "module(\"title\", function() {});",
-            "test(\"title\", function() {});"
-        ].join("\n"),
-        [
-            "module(\"module1\");",
-            "test(\"it1\", function() {});",
-            "module(\"module2\");",
-            "test(\"it1\", function() {});"
-        ].join("\n"),
-        [
-            "module(\"module1\");",
-            "module(\"module2\");"
-        ].join("\n"),
-        [
-            "test(\"test\" + n, function() {});",
-            "test(\"test\" + n, function() {});"
-        ].join("\n"),
-        [
-            "module(\"module1\", function() {",
-            "  test(\"it1\", function() {});",
-            "  test(\"it2\", function() {});",
-            "});",
-            "module(\"module2\", function() {",
-            "  test(\"it1\", function() {});",
-            "  test(\"it2\", function() {});",
-            "});"
-        ].join("\n"),
+        outdent`
+            module("module");
+            test("test", function() {});
+        `,
+        outdent`
+            module("module1");
+            test("it1", function() {});
+            test("it2", function() {});
+        `,
+        outdent`
+            test("it1", function() {});
+            test("it2", function() {});
+        `,
+        outdent`
+            module("title", function() {});
+            test("title", function() {});
+        `,
+        outdent`
+            module("module1");
+            test("it1", function() {});
+            module("module2");
+            test("it1", function() {});
+        `,
+        outdent`
+            module("module1");
+            module("module2");
+        `,
+        outdent`
+            test("test" + n, function() {});
+            test("test" + n, function() {});
+        `,
+        outdent`
+            module("module1", function() {
+              test("it1", function() {});
+              test("it2", function() {});
+            });
+            module("module2", function() {
+              test("it1", function() {});
+              test("it2", function() {});
+            });
+        `,
         {
-            code: [
-                "test(`it${n}`, function() {});",
-                "test(`it${n}`, function() {});"
-            ].join("\n"),
+            code: outdent `
+                test(\`it$\{n\}\`, function() {});
+                test(\`it$\{n\}\`, function() {});
+            `,
             parserOptions: {
                 ecmaVersion: 6
             }
@@ -72,11 +71,11 @@ ruleTester.run("no-identical-title", rule, {
 
     invalid: [
         {
-            code: [
-                "module(\"module1\");",
-                "test(\"it1\", function() {});",
-                "test(\"it1\", function() {});"
-            ].join("\n"),
+            code: outdent `
+                module("module1");
+                test("it1", function() {});
+                test("it1", function() {});
+            `,
             errors: [{
                 messageId: "duplicateTest",
                 data: {
@@ -87,10 +86,10 @@ ruleTester.run("no-identical-title", rule, {
             }]
         },
         {
-            code: [
-                "test(\"it1\", function() {});",
-                "test(\"it1\", function() {});"
-            ].join("\n"),
+            code: outdent `
+                test("it1", function() {});
+                test("it1", function() {});
+            `,
             errors: [{
                 messageId: "duplicateTest",
                 data: {
@@ -101,12 +100,12 @@ ruleTester.run("no-identical-title", rule, {
             }]
         },
         {
-            code: [
-                "module(\"module1\", function() {",
-                "  test(\"it1\", function() {});",
-                "  test(\"it1\", function() {});",
-                "});"
-            ].join("\n"),
+            code: outdent `
+                module("module1", function() {
+                  test("it1", function() {});
+                  test("it1", function() {});
+                });
+            `,
             errors: [{
                 messageId: "duplicateTest",
                 data: {
@@ -117,10 +116,10 @@ ruleTester.run("no-identical-title", rule, {
             }]
         },
         {
-            code: [
-                "module(\"module1\");",
-                "module(\"module1\");"
-            ].join("\n"),
+            code: outdent `
+                module("module1");
+                module("module1");
+            `,
             errors: [{
                 messageId: "duplicateModule",
                 data: {
@@ -131,11 +130,11 @@ ruleTester.run("no-identical-title", rule, {
             }]
         },
         {
-            code: [
-                "module(\"module1\");",
-                "test(\"it\", function() {});",
-                "module(\"module1\");"
-            ].join("\n"),
+            code: outdent `
+                module("module1");
+                test("it", function() {});
+                module("module1");
+            `,
             errors: [{
                 messageId: "duplicateModule",
                 data: {
