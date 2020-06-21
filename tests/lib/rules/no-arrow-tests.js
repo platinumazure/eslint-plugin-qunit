@@ -11,7 +11,8 @@
 //------------------------------------------------------------------------------
 
 const rule = require("../../../lib/rules/no-arrow-tests"),
-    RuleTester = require("eslint").RuleTester;
+    RuleTester = require("eslint").RuleTester,
+    outdent = require("outdent");
 
 
 //------------------------------------------------------------------------------
@@ -45,14 +46,14 @@ ruleTester.run("no-arrow-tests", rule, {
         "module('module', { afterEach: function () {} });",
 
         // not actually module hooks
-        [
-            "var a = {",
-            "    setup: () => {},",
-            "    teardown: () => {},",
-            "    beforeEach: () => {},",
-            "    afterEach: () => {}",
-            "};"
-        ].join("\n")
+        outdent`
+            var a = {
+                setup: () => {},
+                teardown: () => {},
+                beforeEach: () => {},
+                afterEach: () => {}
+            };
+        `
     ],
 
     invalid: [
