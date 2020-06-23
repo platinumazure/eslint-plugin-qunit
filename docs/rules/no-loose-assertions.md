@@ -44,6 +44,12 @@ QUnit.test('Name', function (foo) { foo.equal(a, b); });
 
 QUnit.test('Name', function () { equal(a, b); });
 
+QUnit.test('Name', function (assert) { assert.notEqual(a, b); });
+
+QUnit.test('Name', function (foo) { foo.notEqual(a, b); });
+
+QUnit.test('Name', function () { notEqual(a, b); });
+
 ```
 
 The following patterns are not considered warnings:
