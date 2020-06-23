@@ -138,6 +138,7 @@ ruleTester.run("no-loose-assertions", rule, {
                           assert.ok(a, b);
                           assert.notOk(a, b);
                           assert.equal(a, b);
+                          assert.notEqual(a, b);
                       });
                   `,
             errors: [{
@@ -157,6 +158,12 @@ ruleTester.run("no-loose-assertions", rule, {
                 data: {
                     assertVar: "assert",
                     assertion: "equal"
+                }
+            }, {
+                messageId: "unexpectedLocalLooseAssertion",
+                data: {
+                    assertVar: "assert",
+                    assertion: "notEqual"
                 }
             }]
         },
@@ -166,6 +173,7 @@ ruleTester.run("no-loose-assertions", rule, {
                           foo.ok(a, b);
                           foo.notOk(a, b);
                           foo.equal(a, b);
+                          foo.notEqual(a, b);
                       });
                   `,
             errors: [{
@@ -186,6 +194,12 @@ ruleTester.run("no-loose-assertions", rule, {
                     assertVar: "foo",
                     assertion: "equal"
                 }
+            }, {
+                messageId: "unexpectedLocalLooseAssertion",
+                data: {
+                    assertVar: "foo",
+                    assertion: "notEqual"
+                }
             }]
         },
         {
@@ -194,6 +208,7 @@ ruleTester.run("no-loose-assertions", rule, {
                           ok(a, b);
                           notOk(a, b);
                           equal(a, b);
+                          notEqual(a, b);
                       });
                   `,
             errors: [{
@@ -205,6 +220,9 @@ ruleTester.run("no-loose-assertions", rule, {
             }, {
                 messageId: "unexpectedGlobalLooseAssertion",
                 data: { assertion: "equal" }
+            }, {
+                messageId: "unexpectedGlobalLooseAssertion",
+                data: { assertion: "notEqual" }
             }]
         },
         {

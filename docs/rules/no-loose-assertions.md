@@ -1,4 +1,4 @@
-# Forbid the use of assert.equal/assert.ok/assert.notOk (no-loose-assertions)
+# Forbid the use of assert.equal/assert.ok/assert.notStrictEqual/assert.notOk (no-loose-assertions)
 
 The `assert.equal` assertion method in QUnit uses loose equality comparison. In a project which favors strict equality comparison, it is better to use `assert.strictEqual` for scalar values and either `assert.deepEqual` or `assert.propEqual` for more complex objects.
 
@@ -14,7 +14,7 @@ Here by mistake a developer just passed to `assert.ok` a pointer to `myFunc` ins
 
 The assertions to lint against can be controlled with an array of assertions (default `["equal", "ok", "notOk"]`).
 
-To fine tune the error message (which by default will recommend to use `strictEqual`, `deepEqual`, or `propEqual`) a configuration object can be passed as an option instead of a string. The configuration object has two properties:
+To fine tune the error message (which by default will recommend to use `strictEqual`, `notStrictEqual`, `deepEqual`, or `propEqual`) a configuration object can be passed as an option instead of a string. The configuration object has two properties:
 * `disallowed`: the name of the assertion to disallow (either `equal`, `ok`, or `notOk`);
 * `recommended`: an array of strings representing the recommended options to display as an error message. The strings in the array will be concatenated to build the error message: `Unexpected {{assertVar}}.{{assertion}}. Use {{assertVar}}.<recommended_1>, {{assertVar}}.<recommended_2>.` when using local assertions and `Unexpected {{assertion}}. Use <recommended_1>, <recommended_2>.` when using global assertions.
 
@@ -56,11 +56,11 @@ QUnit.test('Name', function (foo) { foo.strictEqual(a, true); });
 
 QUnit.test('Name', function () { strictEqual(a, true); });
 
-QUnit.test('Name', function (assert) { assert.strictEqual(a, false); });
+QUnit.test('Name', function (assert) { assert.notStrictEqual(a, false); });
 
-QUnit.test('Name', function (foo) { foo.strictEqual(a, false); });
+QUnit.test('Name', function (foo) { foo.notStrictEqual(a, false); });
 
-QUnit.test('Name', function () { strictEqual(a, false); });
+QUnit.test('Name', function () { notStrictEqual(a, false); });
 
 QUnit.test('Name', function (assert) { assert.deepEqual(a, b); });
 
