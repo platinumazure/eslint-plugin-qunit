@@ -12,7 +12,7 @@ test('test myFunc returns a truthy value' (assert) => {
 ```
 Here by mistake a developer just passed to `assert.ok` a pointer to `myFunc` instead of explicitly calling it. This test is going pass no matter how `myFunc` changes. Using `assert.strictEqual(myFunc, theReturnValue)` solves the problem as this becomes an explicit check for equality.
 
-The assertions to lint against can be controlled with an array of assertions (default `["equal", "ok", "notOk"]`).
+The assertions to lint against can be controlled with an array of assertions (default `["equal", "notEqual", "ok", "notOk"]`).
 
 To fine tune the error message (which by default will recommend to use `strictEqual`, `notStrictEqual`, `deepEqual`, or `propEqual`) a configuration object can be passed as an option instead of a string. The configuration object has two properties:
 * `disallowed`: the name of the assertion to disallow (either `equal`, `ok`, or `notOk`);
