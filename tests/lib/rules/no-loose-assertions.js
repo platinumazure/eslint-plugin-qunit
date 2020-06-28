@@ -1,5 +1,5 @@
 /**
- * @fileoverview Forbid the use of assert.equal/assert.ok/notOk and suggest other assertions.
+ * @fileoverview Forbid the use of assert.equal/assert.notEqual/assert.ok/notOk and suggest other assertions.
  * @author ventuno
  */
 "use strict";
