@@ -1,6 +1,6 @@
 # Forbid the use of assert.equal/assert.notEqual/assert.ok/assert.notOk (no-loose-assertions)
 
-The `assert.equal` assertion method in QUnit uses loose equality comparison. In a project which favors strict equality comparison, it is better to use `assert.strictEqual` for scalar values and either `assert.deepEqual` or `assert.propEqual` for more complex objects.
+The `assert.equal`/`assert.notEqual` assertions method in QUnit use loose equality comparison. In a project which favors strict equality comparison, it is better to use `assert.strictEqual`/`assert.notStrictEqual` for scalar values and either `assert.deepEqual` or `assert.propEqual` for more complex objects.
 
 `assert.ok` and `assert.notOk` pass for any truthy/falsy argument. As [many expressions evaluate to true/false in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) the usage of `assert.ok` is potentially error prone. In general, it should be advisable to always test for exact values in tests which makes tests a lot more solid.
 
@@ -79,6 +79,9 @@ QUnit.test('Name', function (assert) { assert.propEqual(a, b); });
 QUnit.test('Name', function (foo) { foo.propEqual(a, b); });
 
 QUnit.test('Name', function () { propEqual(a, b); });
+
+/* eslint no-loose-assertions: ["error", ["strictEqual", "ok", "notOk"]] */
+QUnit.test('Name', function (assert) { assert.notEqual(a, b); });
 
 ```
 
