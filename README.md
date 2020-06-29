@@ -29,6 +29,7 @@ Below is the list of rules available in this plugin.
 * [no-identical-names](docs/rules/no-identical-names.md)
 * [no-init](docs/rules/no-init.md)
 * [no-jsdump](docs/rules/no-jsdump.md)
+* [no-loose-assertions](docs/rules/no-loose-assertions.md)
 * [no-negated-ok](docs/rules/no-negated-ok.md)
 * [no-ok-equality](docs/rules/no-ok-equality.md)
 * [no-only](docs/rules/no-only.md)

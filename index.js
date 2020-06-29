@@ -28,6 +28,7 @@ module.exports = {
         "no-identical-names": require("./lib/rules/no-identical-names"),
         "no-init": require("./lib/rules/no-init"),
         "no-jsdump": require("./lib/rules/no-jsdump"),
+        "no-loose-assertions": require("./lib/rules/no-assert-ok"),
         "no-negated-ok": require("./lib/rules/no-negated-ok"),
         "no-ok-equality": require("./lib/rules/no-ok-equality"),
         "no-only": require("./lib/rules/no-only"),
