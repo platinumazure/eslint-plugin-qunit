@@ -1,3 +1,10 @@
+### 4.3.0
+* Upgrade: Bump lodash from 4.17.11 to 4.17.19 (#91) (dependabot[bot])
+* New no-loose-assertions rule. (#80) (ventuno)
+* Chore: Use outdent for multiline test cases (#89) (Ed S)
+* Update: Add a fixer for no-arrow-tests (#88) (Ed S)
+* Docs: Remove unsupported all-contributors badge (Kevin Partington)
+
 ### 4.2.0
 * Fix: literal-compare-order crash on BDD-style assertions (fixes #74) (Kevin Partington)
 * Chore: Add eslint-plugin-eslint-plugin devDependency (fixes #85) (Kevin Partington)
