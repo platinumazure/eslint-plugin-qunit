@@ -31,6 +31,7 @@ Below is the list of rules available in this plugin.
 * [no-jsdump](docs/rules/no-jsdump.md)
 * [no-loose-assertions](docs/rules/no-loose-assertions.md)
 * [no-negated-ok](docs/rules/no-negated-ok.md)
+* [no-nested-tests](docs/rules/no-nested-tests.md)
 * [no-ok-equality](docs/rules/no-ok-equality.md)
 * [no-only](docs/rules/no-only.md)
 * [no-qunit-push](docs/rules/no-qunit-push.md)
