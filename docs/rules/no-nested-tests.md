@@ -16,6 +16,12 @@ test('Parent', function () {
     test('Child', function () {});
 });
 
+QUnit.test('ParentTest', function () {
+    QUnit.module('ChildModule', function () {
+        QUnit.test('ChildTest', function () {});
+    });
+});
+
 ```
 
 The following patterns are not considered warnings:
@@ -35,7 +41,7 @@ QUnit.module('ParentModule', function () {
 
 ```
 
-## When Not To Use It
+## When Not to Use It
 
 It should be safe to use this rule. However it may cause false positive when using same namespace `test` during act or arrange stages.
 
