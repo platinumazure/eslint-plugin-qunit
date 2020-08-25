@@ -85,6 +85,7 @@ ruleTester.run("literal-compare-order", rule, {
         // equal
         {
             code: wrap("equal('Literal', variable);"),
+            output: wrap("equal(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -95,6 +96,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("equal('Literal', variable, 'message');"),
+            output: wrap("equal(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -105,6 +107,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.equal('Literal', variable);"),
+            output: wrap("assert.equal(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -115,6 +118,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.equal('Literal', variable, 'message');"),
+            output: wrap("assert.equal(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -127,6 +131,7 @@ ruleTester.run("literal-compare-order", rule, {
         // strictEqual
         {
             code: wrap("strictEqual('Literal', variable);"),
+            output: wrap("strictEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -137,6 +142,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("strictEqual('Literal', variable, 'message');"),
+            output: wrap("strictEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -147,6 +153,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.strictEqual('Literal', variable);"),
+            output: wrap("assert.strictEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -157,6 +164,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.strictEqual('Literal', variable, 'message');"),
+            output: wrap("assert.strictEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -169,6 +177,7 @@ ruleTester.run("literal-compare-order", rule, {
         // deepEqual
         {
             code: wrap("deepEqual('Literal', variable);"),
+            output: wrap("deepEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -179,6 +188,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("deepEqual('Literal', variable, 'message');"),
+            output: wrap("deepEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -189,6 +199,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.deepEqual('Literal', variable);"),
+            output: wrap("assert.deepEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -199,6 +210,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.deepEqual('Literal', variable, 'message');"),
+            output: wrap("assert.deepEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -211,6 +223,7 @@ ruleTester.run("literal-compare-order", rule, {
         // propEqual
         {
             code: wrap("propEqual('Literal', variable);"),
+            output: wrap("propEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -221,6 +234,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("propEqual('Literal', variable, 'message');"),
+            output: wrap("propEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -231,6 +245,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.propEqual('Literal', variable);"),
+            output: wrap("assert.propEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -241,6 +256,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.propEqual('Literal', variable, 'message');"),
+            output: wrap("assert.propEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -253,6 +269,7 @@ ruleTester.run("literal-compare-order", rule, {
         // notEqual
         {
             code: wrap("notEqual('Literal', variable);"),
+            output: wrap("notEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -263,6 +280,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("notEqual('Literal', variable, 'message');"),
+            output: wrap("notEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -273,6 +291,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.notEqual('Literal', variable);"),
+            output: wrap("assert.notEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -283,6 +302,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.notEqual('Literal', variable, 'message');"),
+            output: wrap("assert.notEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -295,6 +315,7 @@ ruleTester.run("literal-compare-order", rule, {
         // notStrictEqual
         {
             code: wrap("notStrictEqual('Literal', variable);"),
+            output: wrap("notStrictEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -305,6 +326,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("notStrictEqual('Literal', variable, 'message');"),
+            output: wrap("notStrictEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -315,6 +337,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.notStrictEqual('Literal', variable);"),
+            output: wrap("assert.notStrictEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -325,6 +348,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.notStrictEqual('Literal', variable, 'message');"),
+            output: wrap("assert.notStrictEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -337,6 +361,7 @@ ruleTester.run("literal-compare-order", rule, {
         // notDeepEqual
         {
             code: wrap("notDeepEqual('Literal', variable);"),
+            output: wrap("notDeepEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -347,6 +372,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("notDeepEqual('Literal', variable, 'message');"),
+            output: wrap("notDeepEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -357,6 +383,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.notDeepEqual('Literal', variable);"),
+            output: wrap("assert.notDeepEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -367,6 +394,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.notDeepEqual('Literal', variable, 'message');"),
+            output: wrap("assert.notDeepEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -379,6 +407,7 @@ ruleTester.run("literal-compare-order", rule, {
         // notPropEqual
         {
             code: wrap("notPropEqual('Literal', variable);"),
+            output: wrap("notPropEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -389,6 +418,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("notPropEqual('Literal', variable, 'message');"),
+            output: wrap("notPropEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -399,6 +429,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.notPropEqual('Literal', variable);"),
+            output: wrap("assert.notPropEqual(variable, 'Literal');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
@@ -409,6 +440,7 @@ ruleTester.run("literal-compare-order", rule, {
         },
         {
             code: wrap("assert.notPropEqual('Literal', variable, 'message');"),
+            output: wrap("assert.notPropEqual(variable, 'Literal', 'message');"),
             errors: [{
                 messageId: "actualFirst",
                 data: {
