@@ -33,6 +33,8 @@ ruleTester.run("literal-compare-order", rule, {
         wrap("equal(variable, 'Literal', 'Message');"),
         wrap("assert.equal(variable, 'Literal');"),
         wrap("assert.equal(variable, 'Literal', 'Message');"),
+        wrap("equal();"), // avoid crash with missing arguments
+        wrap("equal(variable);"), // avoid crash with missing arguments
 
         // strictEqual
         wrap("strictEqual(variable, 'Literal');"),
