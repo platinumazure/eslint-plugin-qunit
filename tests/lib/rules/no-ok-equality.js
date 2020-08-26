@@ -85,18 +85,29 @@ ruleTester.run("no-ok-equality", rule, {
     invalid: [
         {
             code: "test('Name', function (assert) { assert.ok(x === 1); });",
+            output: "test('Name', function (assert) { assert.strictEqual(x, 1); });",
+            errors: [
+                createError("assert.ok", "assert.strictEqual", "x", "1")
+            ]
+        },
+        {
+            // With message:
+            code: "test('Name', function (assert) { assert.ok(x === 1, 'my message'); });",
+            output: "test('Name', function (assert) { assert.strictEqual(x, 1, 'my message'); });",
             errors: [
                 createError("assert.ok", "assert.strictEqual", "x", "1")
             ]
         },
         {
             code: "test('Name', function (assert) { assert.notOk(x === 1); });",
+            output: "test('Name', function (assert) { assert.notStrictEqual(x, 1); });",
             errors: [
                 createError("assert.notOk", "assert.notStrictEqual", "x", "1")
             ]
         },
         {
             code: "test('Name', function () { ok(x === 1); });",
+            output: "test('Name', function () { strictEqual(x, 1); });",
             options: [{ allowGlobal: true }],
             errors: [
                 createError("ok", "strictEqual", "x", "1")
@@ -104,6 +115,7 @@ ruleTester.run("no-ok-equality", rule, {
         },
         {
             code: "test('Name', function () { notOk(x === 1); });",
+            output: "test('Name', function () { notStrictEqual(x, 1); });",
             options: [{ allowGlobal: true }],
             errors: [
                 createError("notOk", "notStrictEqual", "x", "1")
@@ -111,18 +123,21 @@ ruleTester.run("no-ok-equality", rule, {
         },
         {
             code: "test('Name', function (assert) { assert.ok(x == 1); });",
+            output: "test('Name', function (assert) { assert.equal(x, 1); });",
             errors: [
                 createError("assert.ok", "assert.equal", "x", "1")
             ]
         },
         {
             code: "test('Name', function (assert) { assert.notOk(x == 1); });",
+            output: "test('Name', function (assert) { assert.notEqual(x, 1); });",
             errors: [
                 createError("assert.notOk", "assert.notEqual", "x", "1")
             ]
         },
         {
             code: "test('Name', function () { ok(x == 1); });",
+            output: "test('Name', function () { equal(x, 1); });",
             options: [{ allowGlobal: true }],
             errors: [
                 createError("ok", "equal", "x", "1")
@@ -130,6 +145,7 @@ ruleTester.run("no-ok-equality", rule, {
         },
         {
             code: "test('Name', function () { notOk(x == 1); });",
+            output: "test('Name', function () { notEqual(x, 1); });",
             options: [{ allowGlobal: true }],
             errors: [
                 createError("notOk", "notEqual", "x", "1")
@@ -137,18 +153,21 @@ ruleTester.run("no-ok-equality", rule, {
         },
         {
             code: "test('Name', function (assert) { assert.ok(x !== 1); });",
+            output: "test('Name', function (assert) { assert.notStrictEqual(x, 1); });",
             errors: [
                 createError("assert.ok", "assert.notStrictEqual", "x", "1")
             ]
         },
         {
             code: "test('Name', function (assert) { assert.notOk(x !== 1); });",
+            output: "test('Name', function (assert) { assert.strictEqual(x, 1); });",
             errors: [
                 createError("assert.notOk", "assert.strictEqual", "x", "1")
             ]
         },
         {
             code: "test('Name', function () { ok(x !== 1); });",
+            output: "test('Name', function () { notStrictEqual(x, 1); });",
             options: [{ allowGlobal: true }],
             errors: [
                 createError("ok", "notStrictEqual", "x", "1")
@@ -156,6 +175,7 @@ ruleTester.run("no-ok-equality", rule, {
         },
         {
             code: "test('Name', function () { notOk(x !== 1); });",
+            output: "test('Name', function () { strictEqual(x, 1); });",
             options: [{ allowGlobal: true }],
             errors: [
                 createError("notOk", "strictEqual", "x", "1")
@@ -163,18 +183,21 @@ ruleTester.run("no-ok-equality", rule, {
         },
         {
             code: "test('Name', function (assert) { assert.ok(x != 1); });",
+            output: "test('Name', function (assert) { assert.notEqual(x, 1); });",
             errors: [
                 createError("assert.ok", "assert.notEqual", "x", "1")
             ]
         },
         {
             code: "test('Name', function (assert) { assert.notOk(x != 1); });",
+            output: "test('Name', function (assert) { assert.equal(x, 1); });",
             errors: [
                 createError("assert.notOk", "assert.equal", "x", "1")
             ]
         },
         {
             code: "test('Name', function () { ok(x != 1); });",
+            output: "test('Name', function () { notEqual(x, 1); });",
             options: [{ allowGlobal: true }],
             errors: [
                 createError("ok", "notEqual", "x", "1")
@@ -182,6 +205,7 @@ ruleTester.run("no-ok-equality", rule, {
         },
         {
             code: "test('Name', function () { notOk(x != 1); });",
+            output: "test('Name', function () { equal(x, 1); });",
             options: [{ allowGlobal: true }],
             errors: [
                 createError("notOk", "equal", "x", "1")
