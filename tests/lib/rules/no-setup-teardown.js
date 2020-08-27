@@ -41,6 +41,7 @@ ruleTester.run("no-setup-teardown", rule, {
     invalid: [
         {
             code: "QUnit.module('module', { setup: function () { } });",
+            output: "QUnit.module('module', { beforeEach: function () { } });",
             errors: [{
                 messageId: "noSetupTeardown",
                 data: {
@@ -52,6 +53,7 @@ ruleTester.run("no-setup-teardown", rule, {
         },
         {
             code: "QUnit.module('module', { teardown: function () { } });",
+            output: "QUnit.module('module', { afterEach: function () { } });",
             errors: [{
                 messageId: "noSetupTeardown",
                 data: {
@@ -63,6 +65,7 @@ ruleTester.run("no-setup-teardown", rule, {
         },
         {
             code: "QUnit.module('module', { setup: function () {}, teardown: function () { } });",
+            output: "QUnit.module('module', { beforeEach: function () {}, afterEach: function () { } });",
             errors: [{
                 messageId: "noSetupTeardown",
                 data: {
