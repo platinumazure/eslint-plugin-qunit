@@ -19,14 +19,24 @@ function wrapInQUnitTest(code) {
     return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
-function generateInvalidCase(code) {
-    return {
+function generateInvalidCase({ code, output, options }) {
+    const testCase = {
         code: wrapInQUnitTest(code),
         errors: [{
             messageId: "redundantComparison",
             type: "CallExpression"
         }]
     };
+
+    if (output) {
+        testCase.output = wrapInQUnitTest(output);
+    }
+
+    if (options) {
+        testCase.options = options;
+    }
+
+    return testCase;
 }
 
 //------------------------------------------------------------------------------
@@ -53,57 +63,196 @@ ruleTester.run("no-compare-relation-boolean", rule, {
     ].map(wrapInQUnitTest),
 
     invalid: [
-        "assert.equal(a === b, true);",
-        "assert.equal(a === b, false);",
-        "assert.equal(a === b, true, 'message');", // With message
-        "assert.equal(a === b, false, 'message');", // With message
+        {
+            code: "assert.equal(a === b, true);",
+            output: "assert.ok(a === b);"
+        },
+        {
+            code: "assert.equal(a === b, false);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            // No autofix when rule option `fixToNotOk` is off by default.
+            code: "assert.equal(a === b, false);",
+            output: null
+        },
+        {
+            // No autofix when rule option `fixToNotOk` is off explicitly.
+            code: "assert.equal(a === b, false);",
+            options: [{ fixToNotOk: false }],
+            output: null
+        },
 
-        "assert.strictEqual(a === b, true);",
-        "assert.strictEqual(a === b, false);",
+        {
+            code: "assert.equal(a === b, true, 'message');", // With message
+            output: "assert.ok(a === b, 'message');"
+        },
+        {
+            code: "assert.equal(a === b, false, 'message');", // With message
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b, 'message');"
+        },
 
-        "assert.deepEqual(a === b, true);",
-        "assert.deepEqual(a === b, false);",
+        {
+            code: "assert.strictEqual(a === b, true);",
+            output: "assert.ok(a === b);"
+        },
+        {
+            code: "assert.strictEqual(a === b, false);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
 
-        "assert.propEqual(a === b, true);",
-        "assert.propEqual(a === b, false);",
+        {
+            code: "assert.deepEqual(a === b, true);",
+            output: "assert.ok(a === b);"
+        },
+        {
+            code: "assert.deepEqual(a === b, false);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
 
-        "assert.notEqual(a === b, true);",
-        "assert.notEqual(a === b, false);",
+        {
+            code: "assert.propEqual(a === b, true);",
+            output: "assert.ok(a === b);"
+        },
+        {
+            code: "assert.propEqual(a === b, false);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
 
-        "assert.notStrictEqual(a === b, true);",
-        "assert.notStrictEqual(a === b, false);",
+        {
+            code: "assert.notEqual(a === b, true);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            code: "assert.notEqual(a === b, false);",
+            output: "assert.ok(a === b);"
+        },
 
-        "assert.notDeepEqual(a === b, true);",
-        "assert.notDeepEqual(a === b, false);",
+        {
+            code: "assert.notStrictEqual(a === b, true);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            code: "assert.notStrictEqual(a === b, false);",
+            output: "assert.ok(a === b);"
+        },
 
-        "assert.notPropEqual(a === b, true);",
-        "assert.notPropEqual(a === b, false);",
+        {
+            code: "assert.notDeepEqual(a === b, true);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            code: "assert.notDeepEqual(a === b, false);",
+            output: "assert.ok(a === b);"
+        },
+
+        {
+            code: "assert.notPropEqual(a === b, true);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            code: "assert.notPropEqual(a === b, false);",
+            output: "assert.ok(a === b);"
+        },
 
         // Argument order does not matter for this rule
-        "assert.equal(true, a === b);",
-        "assert.equal(false, a === b);",
-        "assert.equal(true, a === b, 'message');", // With message
-        "assert.equal(false, a === b, 'message');", // With message
+        {
+            code: "assert.equal(true, a === b);",
+            output: "assert.ok(a === b);"
+        },
+        {
+            code: "assert.equal(false, a === b);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
 
-        "assert.strictEqual(true, a === b);",
-        "assert.strictEqual(false, a === b);",
+        {
+            code: "assert.equal(true, a === b, 'message');", // With message
+            output: "assert.ok(a === b, 'message');"
+        },
+        {
+            code: "assert.equal(false, a === b, 'message');", // With message
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b, 'message');"
+        },
 
-        "assert.deepEqual(true, a === b);",
-        "assert.deepEqual(false, a === b);",
+        {
+            code: "assert.strictEqual(true, a === b);",
+            output: "assert.ok(a === b);"
+        },
+        {
+            code: "assert.strictEqual(false, a === b);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
 
-        "assert.propEqual(true, a === b);",
-        "assert.propEqual(false, a === b);",
+        {
+            code: "assert.deepEqual(true, a === b);",
+            output: "assert.ok(a === b);"
+        },
+        {
+            code: "assert.deepEqual(false, a === b);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
 
-        "assert.notEqual(true, a === b);",
-        "assert.notEqual(false, a === b);",
+        {
+            code: "assert.propEqual(true, a === b);",
+            output: "assert.ok(a === b);"
+        },
+        {
+            code: "assert.propEqual(false, a === b);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
 
-        "assert.notStrictEqual(true, a === b);",
-        "assert.notStrictEqual(false, a === b);",
+        {
+            code: "assert.notEqual(true, a === b);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            code: "assert.notEqual(false, a === b);",
+            output: "assert.ok(a === b);"
+        },
 
-        "assert.notDeepEqual(true, a === b);",
-        "assert.notDeepEqual(false, a === b);",
+        {
+            code: "assert.notStrictEqual(true, a === b);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            code: "assert.notStrictEqual(false, a === b);",
+            output: "assert.ok(a === b);"
+        },
 
-        "assert.notPropEqual(true, a === b);",
-        "assert.notPropEqual(false, a === b);"
+        {
+            code: "assert.notDeepEqual(true, a === b);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            code: "assert.notDeepEqual(false, a === b);",
+            output: "assert.ok(a === b);"
+        },
+
+        {
+            code: "assert.notPropEqual(true, a === b);",
+            options: [{ fixToNotOk: true }],
+            output: "assert.notOk(a === b);"
+        },
+        {
+            code: "assert.notPropEqual(false, a === b);",
+            output: "assert.ok(a === b);"
+        }
     ].map(generateInvalidCase)
 });
