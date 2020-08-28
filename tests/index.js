@@ -59,7 +59,7 @@ describe("index.js", function () {
                     const path = `./docs/rules/${fileName}.md`;
                     const fileContents = fs.readFileSync(path, "utf8");
 
-                    const titleRegexp = new RegExp(`# .+ \\(${fileName}\\)`);
+                    const titleRegexp = new RegExp(`^# .+ \\(${fileName}\\)$`, "m");
                     assert.ok(fileContents.match(titleRegexp), "includes rule name in title header");
                 });
             });
