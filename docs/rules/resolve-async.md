@@ -1,4 +1,4 @@
-# Require that all async calls should be resolved in tests
+# Require that all async calls should be resolved in tests (resolve-async)
 
 Asynchronous operations on QUnit tests should be resolved within the scope of
 the test to maximize readability and maintainability. Also, if there are more

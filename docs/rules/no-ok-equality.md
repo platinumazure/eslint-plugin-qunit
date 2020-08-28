@@ -1,4 +1,4 @@
-# Forbid equality comparisons in assert.ok/assert.notOk
+# Forbid equality comparisons in assert.ok/assert.notOk (no-ok-equality)
 
 Equality comparisons in `assert.ok` or `assert.notOk` calls are not valuable
 because if the assertion fails, QUnit cannot reveal any comparison information.
