@@ -37,6 +37,15 @@ describe("index.js", function () {
                     assert.property(index.rules, fileName, `Rule export for ${fileName} not present`);
                 });
 
+                it("should appear in tests", function (done) {
+                    const path = `./tests/lib/rules/${fileName}.js`;
+
+                    fs.access(path, function (err) {
+                        assert.notOk(err, `tests/lib/rules/${fileName}.js should exist`);
+                        done();
+                    });
+                });
+
                 it("should appear in docs", function (done) {
                     const path = `./docs/rules/${fileName}.md`;
 
@@ -44,6 +53,14 @@ describe("index.js", function () {
                         assert.notOk(err, `docs/rules/${fileName}.md should exist`);
                         done();
                     });
+                });
+
+                it("should have the right doc contents", function () {
+                    const path = `./docs/rules/${fileName}.md`;
+                    const fileContents = fs.readFileSync(path, "utf8");
+
+                    const titleRegexp = new RegExp(`^# .+ \\(${fileName}\\)$`, "m");
+                    assert.ok(fileContents.match(titleRegexp), "includes rule name in title header");
                 });
             });
         });

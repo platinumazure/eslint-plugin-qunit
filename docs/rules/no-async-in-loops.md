@@ -1,4 +1,4 @@
-# Forbid async calls in loops
+# Forbid async calls in loops (no-async-in-loops)
 
 Asynchronous operations are much harder to reason about in loops. To increase
 maintainability, asynchronous operations should not be placed within loops.
