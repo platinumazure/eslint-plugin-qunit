@@ -1,5 +1,7 @@
 # Forbid arrow functions as QUnit test/module callbacks (no-arrow-tests)
 
+:wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
 QUnit test and module callbacks can share state by modifying properties of
 `this` within those callbacks.
 
