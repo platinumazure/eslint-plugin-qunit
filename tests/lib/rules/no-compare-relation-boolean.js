@@ -55,6 +55,8 @@ ruleTester.run("no-compare-relation-boolean", rule, {
     invalid: [
         "assert.equal(a === b, true);",
         "assert.equal(a === b, false);",
+        "assert.equal(a === b, true, 'message');", // With message
+        "assert.equal(a === b, false, 'message');", // With message
 
         "assert.strictEqual(a === b, true);",
         "assert.strictEqual(a === b, false);",
@@ -80,6 +82,8 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         // Argument order does not matter for this rule
         "assert.equal(true, a === b);",
         "assert.equal(false, a === b);",
+        "assert.equal(true, a === b, 'message');", // With message
+        "assert.equal(false, a === b, 'message');", // With message
 
         "assert.strictEqual(true, a === b);",
         "assert.strictEqual(false, a === b);",
