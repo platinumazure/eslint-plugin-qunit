@@ -45,6 +45,10 @@ ruleTester.run("no-assert-logical-expression", rule, {
         wrap("assert.raises(function () { throw (foo || bar); });"),
         wrap("assert.throws(function () { throw (foo || bar); });"),
 
+        // Messages can have logical expressions.
+        wrap("assert.ok(foo, message || 'alternative message');"),
+        wrap("assert.equal(foo, bar, message || 'alternative message');"),
+
         // Not an assertion, not in a test
         "doSomething(foo && bar);"
     ],
