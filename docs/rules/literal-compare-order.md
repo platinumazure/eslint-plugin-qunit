@@ -1,5 +1,7 @@
 # Ensure comparison assertions have arguments in the right order (literal-compare-order)
 
+:wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
 QUnit's many comparison assertions (`equal`, `strictEqual`, etc.) distinguish
 between an expected value and an actual value, and report incorrect assertions
 accordingly. The QUnit reporters will show how the actual value is different

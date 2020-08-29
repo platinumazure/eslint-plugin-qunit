@@ -1,5 +1,7 @@
 # Forbid equality comparisons in assert.ok/assert.notOk (no-ok-equality)
 
+:wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
 Equality comparisons in `assert.ok` or `assert.notOk` calls are not valuable
 because if the assertion fails, QUnit cannot reveal any comparison information.
 Instead, developers should use `assert.equal`, `assert.strictEqual`,

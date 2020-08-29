@@ -17,6 +17,9 @@ const assert = require("chai").assert,
 // Tests
 //------------------------------------------------------------------------------
 
+const FIXABLE_MSG =
+    ":wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.";
+
 describe("index.js", function () {
     let ruleFileNames;
 
@@ -58,9 +61,23 @@ describe("index.js", function () {
                 it("should have the right doc contents", function () {
                     const path = `./docs/rules/${fileName}.md`;
                     const fileContents = fs.readFileSync(path, "utf8");
+                    const lines = fileContents.split("\n");
 
-                    const titleRegexp = new RegExp(`^# .+ \\(${fileName}\\)$`, "m");
-                    assert.ok(fileContents.match(titleRegexp), "includes rule name in title header");
+                    // First content should be title.
+                    const titleRegexp = new RegExp(`^# .+ \\(${fileName}\\)$`);
+                    assert.ok(titleRegexp.test(lines[0]), "includes rule name in title header");
+
+                    // Second content should be fixable notice if applicable.
+                    if (index.rules[fileName].meta.fixable) {
+                        assert.equal(lines[1], "", "has blank line between title and fixable notice");
+                        assert.equal(lines[2], FIXABLE_MSG, "includes fixable notice");
+                        assert.equal(lines[3], "", "has blank line after fixable notice");
+                    } else {
+                        assert.ok(
+                            !fileContents.includes(FIXABLE_MSG),
+                            "does not include fixable notice"
+                        );
+                    }
                 });
             });
         });
