@@ -2,21 +2,53 @@
   "name": "eslint-plugin-qunit",
   "version": "5.0.0",
   "description": "ESLint plugin containing rules useful for QUnit tests.",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm run lint && npm run unit-test && npm run update && git diff --exit-code",
-    "lint": "npm-run-all --continue-on-error --aggregate-output --parallel lint:*",
-    "lint:js": "eslint ./ --report-unused-disable-directives",
-    "unit-test": "nyc mocha tests/**/*.js",
-    "report-coverage-html": "nyc report --reporter=html --report-dir build/coverage",
-    "preversion": "npm test",
-    "update": "node ./scripts/update-rules.js",
-    "version": "node build/generate-release-changelog.js"
+  "keywords": [
+    "eslint",
+    "eslintplugin"
+  ],
+  "homepage": "https://github.com/platinumazure/eslint-plugin-qunit",
+  "bugs": {
+    "url": "https://github.com/platinumazure/eslint-plugin-qunit/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/platinumazure/eslint-plugin-qunit.git"
+  },
+  "license": "MIT",
+  "author": "Kevin Partington <kevin@kernelpanicstudios.com>",
+  "main": "index.js",
   "files": [
     "index.js",
     "lib/"
   ],
+  "scripts": {
+    "lint": "npm-run-all --continue-on-error --aggregate-output --parallel lint:*",
+    "lint:js": "eslint ./ --report-unused-disable-directives",
+    "lint:package-json": "sort-package-json --check",
+    "report-coverage-html": "nyc report --reporter=html --report-dir build/coverage",
+    "test": "npm run lint && npm run unit-test && npm run update && git diff --exit-code",
+    "unit-test": "nyc mocha tests/**/*.js",
+    "update": "node ./scripts/update-rules.js",
+    "preversion": "npm test",
+    "version": "node build/generate-release-changelog.js"
+  },
+  "nyc": {
+    "all": true,
+    "branches": 100,
+    "check-coverage": true,
+    "exclude": [
+      "build/**",
+      "scripts/**",
+      "tests/**"
+    ],
+    "functions": 100,
+    "lines": 100,
+    "report-dir": "./build/coverage",
+    "reporter": [
+      "lcovonly"
+    ],
+    "statements": 100
+  },
   "devDependencies": {
     "all-contributors-cli": "^6.14.2",
     "chai": "^4.2.0",
@@ -30,43 +62,13 @@
     "nyc": "^15.0.1",
     "outdent": "^0.7.1",
     "semver": "^7.3.2",
-    "shelljs": "^0.8.4"
+    "shelljs": "^0.8.4",
+    "sort-package-json": "^1.44.0"
+  },
+  "engines": {
+    "node": "10.x || 12.x || 13.x || >=14.0.0"
   },
   "peerDepencencies": {
     "eslint": ">=4.15.0 <8.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/platinumazure/eslint-plugin-qunit.git"
-  },
-  "keywords": [
-    "eslint",
-    "eslintplugin"
-  ],
-  "nyc": {
-    "check-coverage": true,
-    "lines": 100,
-    "statements": 100,
-    "functions": 100,
-    "branches": 100,
-    "exclude": [
-      "build/**",
-      "scripts/**",
-      "tests/**"
-    ],
-    "reporter": [
-      "lcovonly"
-    ],
-    "all": true,
-    "report-dir": "./build/coverage"
-  },
-  "author": "Kevin Partington <kevin@kernelpanicstudios.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/platinumazure/eslint-plugin-qunit/issues"
-  },
-  "homepage": "https://github.com/platinumazure/eslint-plugin-qunit",
-  "engines": {
-    "node": "10.x || 12.x || 13.x || >=14.0.0"
   }
 }
