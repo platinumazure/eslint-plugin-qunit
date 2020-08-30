@@ -79,7 +79,8 @@
       "avatar_url": "https://avatars3.githubusercontent.com/u/156867?v=4",
       "profile": "https://timotijhof.net",
       "contributions": [
-        "doc"
+        "doc",
+        "ideas"
       ]
     },
     {
@@ -127,6 +128,36 @@
       "profile": "https://github.com/Krysthalia",
       "contributions": [
         "bug"
+      ]
+    },
+    {
+      "login": "scalvert",
+      "name": "Steve Calvert",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/180990?v=4",
+      "profile": "http://www.linkedin.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "aliaksandr-yermalayeu",
+      "name": "Aliaksandr Yermalayeu",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/14282348?v=4",
+      "profile": "https://github.com/aliaksandr-yermalayeu",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "bmish",
+      "name": "Bryan Mishkin",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/698306?v=4",
+      "profile": "http://www.linkedin.com/in/bmish",
+      "contributions": [
+        "bug",
+        "code",
+        "doc",
+        "ideas"
       ]
     }
   ],
