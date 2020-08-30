@@ -85,45 +85,83 @@ ruleTester.run("no-negated-ok", rule, {
         wrap("assert.notOk()"),
 
         // different assertions can have negation
-        wrap("equal(!a, true)")
+        wrap("equal(!a, true)"),
+
+        // unknown objects in path
+        wrap("assert.ok.foo(!a)"),
+        wrap("foo.assert.ok(!a)"),
+        wrap("foo.assert.bar.ok(!a)"),
+        wrap("foo.assert.bar.ok.baz(!a)")
     ],
 
     invalid: [
         // ok
         {
             code: wrap("assert.ok(!foo)"),
+            output: wrap("assert.equal(foo, false)"),
+            errors: [createError("assert.ok")]
+        },
+        {
+            code: wrap("assert.ok(!foo)"),
+            output: wrap("assert.notOk(foo)"),
+            options: [{ fixToNotOk: true }],
             errors: [createError("assert.ok")]
         },
         {
             code: wrap("assert.ok(!foo, 'message')"),
+            output: wrap("assert.equal(foo, false, 'message')"),
+            errors: [createError("assert.ok")]
+        },
+        {
+            code: wrap("assert.ok(!foo, 'message')"),
+            output: wrap("assert.notOk(foo, 'message')"),
+            options: [{ fixToNotOk: true }],
             errors: [createError("assert.ok")]
         },
 
         // notOk
         {
             code: wrap("assert.notOk(!foo)"),
+            output: wrap("assert.ok(foo)"),
             errors: [createError("assert.notOk")]
         },
         {
             code: wrap("assert.notOk(!foo, 'message')"),
+            output: wrap("assert.ok(foo, 'message')"),
             errors: [createError("assert.notOk")]
         },
 
         // triple negation is not allowed
         {
             code: wrap("assert.ok(!!!foo)"),
+            output: wrap("assert.equal(foo, false)"),
+            errors: [createError("assert.ok")]
+        },
+        {
+            code: wrap("assert.ok(!!!foo)"),
+            output: wrap("assert.notOk(foo)"),
+            options: [{ fixToNotOk: true }],
             errors: [createError("assert.ok")]
         },
         {
             code: wrap("assert.ok(!!!foo, 'message')"),
+            output: wrap("assert.equal(foo, false, 'message')"),
+            errors: [createError("assert.ok")]
+        },
+        {
+            code: wrap("assert.ok(!!!foo, 'message')"),
+            output: wrap("assert.notOk(foo, 'message')"),
+            options: [{ fixToNotOk: true }],
             errors: [createError("assert.ok")]
         },
         {
             code: wrap("assert.notOk(!!!foo)"),
+            output: wrap("assert.ok(foo)"),
             errors: [createError("assert.notOk")]
         },
         {
             code: wrap("assert.notOk(!!!foo, 'message')"),
+            output: wrap("assert.ok(foo, 'message')"),
             errors: [createError("assert.notOk")]
         }
     ]

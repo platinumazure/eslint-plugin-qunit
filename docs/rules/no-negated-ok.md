@@ -1,5 +1,7 @@
 # Forbid the use of negations in assert.ok/notOk (no-negated-ok)
 
+:wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+
 Negated `assert.ok()` or `assert.notOk()` solutions can be misleading, because
 the error message may show a double negative or otherwise be hard to read. It
 is usually better to use the opposite assertion in order to get a better error
@@ -45,6 +47,12 @@ QUnit.test('test', function (assert) {
 });
 
 ```
+
+## Configuration
+
+This rule takes an optional object containing:
+
+* `fixToNotOk` (boolean, default: false): Whether the rule should autofix `assert.ok(!foo)` to `assert.notOk(foo)` ([notOk](https://api.qunitjs.com/assert/notOk/) was added in QUnit 1.18)
 
 ## When Not to Use It
 
