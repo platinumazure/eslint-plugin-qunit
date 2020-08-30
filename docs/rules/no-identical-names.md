@@ -1,5 +1,7 @@
 # Forbid identical test and module names (no-identical-names)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 Having identical names for two different tests or modules may create
 confusion. For example, when a test with the same name as another test
 in the same module fails, it is harder to know which one failed and

@@ -1,5 +1,7 @@
 # Forbid use of QUnit.jsDump() (no-jsdump)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 When QUnit was first developed, it used the `jsDump` library for serializing
 objects as strings. Since then, QUnit has forked and evolved the library. To
 reflect that this new serialization code no longer uses jsDump, `QUnit.dump()`

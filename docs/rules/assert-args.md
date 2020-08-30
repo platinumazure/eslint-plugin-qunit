@@ -1,5 +1,7 @@
 # Ensure the correct number of assert arguments is used (assert-args)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 QUnit's assertions expect a certain number of arguments based on what sort of
 condition is being evaluated.
 

@@ -1,5 +1,7 @@
 # Forbid async calls in loops (no-async-in-loops)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 Asynchronous operations are much harder to reason about in loops. To increase
 maintainability, asynchronous operations should not be placed within loops.
 

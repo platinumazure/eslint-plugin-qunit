@@ -1,5 +1,7 @@
 # Require that all async calls should be resolved in tests (resolve-async)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 Asynchronous operations on QUnit tests should be resolved within the scope of
 the test to maximize readability and maintainability. Also, if there are more
 async setup calls than async resolution calls, the test runner will hang, so
