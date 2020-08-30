@@ -6,96 +6,65 @@
 
 ESLint plugin containing rules useful for QUnit tests.
 
-## Available Rules
-
-Below is the list of rules available in this plugin.
-
-* [assert-args](docs/rules/assert-args.md)
-* [literal-compare-order](docs/rules/literal-compare-order.md)
-* [no-arrow-tests](docs/rules/no-arrow-tests.md)
-* [no-assert-equal](docs/rules/no-assert-equal.md)
-* [no-assert-logical-expression](docs/rules/no-assert-logical-expression.md)
-* [no-assert-ok](docs/rules/no-assert-ok.md)
-* [no-async-in-loops](docs/rules/no-async-in-loops.md)
-* [no-async-test](docs/rules/no-async-test.md)
-* [no-commented-tests](docs/rules/no-commented-tests.md)
-* [no-compare-relation-boolean](docs/rules/no-compare-relation-boolean.md)
-* [no-conditional-assertions](docs/rules/no-conditional-assertions.md)
-* [no-early-return](docs/rules/no-early-return.md)
-* [no-global-assertions](docs/rules/no-global-assertions.md)
-* [no-global-expect](docs/rules/no-global-expect.md)
-* [no-global-module-test](docs/rules/no-global-module-test.md)
-* [no-global-stop-start](docs/rules/no-global-stop-start.md)
-* [no-identical-names](docs/rules/no-identical-names.md)
-* [no-init](docs/rules/no-init.md)
-* [no-jsdump](docs/rules/no-jsdump.md)
-* [no-loose-assertions](docs/rules/no-loose-assertions.md)
-* [no-negated-ok](docs/rules/no-negated-ok.md)
-* [no-nested-tests](docs/rules/no-nested-tests.md)
-* [no-ok-equality](docs/rules/no-ok-equality.md)
-* [no-only](docs/rules/no-only.md)
-* [no-qunit-push](docs/rules/no-qunit-push.md)
-* [no-qunit-start-in-tests](docs/rules/no-qunit-start-in-tests.md)
-* [no-qunit-stop](docs/rules/no-qunit-stop.md)
-* [no-reassign-log-callbacks](docs/rules/no-reassign-log-callbacks.md)
-* [no-reset](docs/rules/no-reset.md)
-* [no-setup-teardown](docs/rules/no-setup-teardown.md)
-* [no-skip](docs/rules/no-skip.md)
-* [no-test-expect-argument](docs/rules/no-test-expect-argument.md)
-* [no-throws-string](docs/rules/no-throws-string.md)
-* [require-expect](docs/rules/require-expect.md)
-* [resolve-async](docs/rules/resolve-async.md)
-
-## Available Configurations
+## Configurations
 
 You can extend from these configurations in order to simplify manual configuration of plugin rules in your project.
 
 For more details on how to extend your configuration from one or both of these plugin configurations, please see the [ESLint plugin configuration documentation](http://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin).
 
-### recommended
+|     | Name | Description |
+| :-- | :--- | :---------- |
+| :white_check_mark: | recommended | This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you. You can use this configuration by extending from `"plugin:qunit/recommended"` in your configuration file. |
+| :two: | two | This configuration includes rules which are useful for avoiding runtime errors or unexpected behavior in QUnit 2.0. You can use this configuration by extending from `"plugin:qunit/two"` in your configuration file. |
 
-This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you.
+## Rules
 
-You can use this configuration by extending from `"plugin:qunit/recommended"` in your configuration file.
+Each rule has emojis denoting:
 
-Rules included in `qunit/recommended` configuration:
+- What configuration it belongs to
+- :wrench: if some problems reported by the rule are automatically fixable by the `--fix` [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) option
 
-* `assert-args`
-* `literal-compare-order`
-* `no-async-in-loops`
-* `no-commented-tests`
-* `no-identical-names`
-* `no-ok-equality`
-* `no-only`
-* `no-reassign-log-callbacks`
-* `no-reset`
-* `no-throws-string`
-* `require-expect` (using "except-simple" configuration)
-* `resolve-async`
+<!--RULES_TABLE_START-->
 
-### two
+|    | Name |
+|:---|:--------|
+| :white_check_mark: | [assert-args](./docs/rule/assert-args.md) |
+| :white_check_mark::wrench: | [literal-compare-order](./docs/rule/literal-compare-order.md) |
+| :wrench: | [no-arrow-tests](./docs/rule/no-arrow-tests.md) |
+|  | [no-assert-equal](./docs/rule/no-assert-equal.md) |
+|  | [no-assert-logical-expression](./docs/rule/no-assert-logical-expression.md) |
+|  | [no-assert-ok](./docs/rule/no-assert-ok.md) |
+| :white_check_mark: | [no-async-in-loops](./docs/rule/no-async-in-loops.md) |
+| :two: | [no-async-test](./docs/rule/no-async-test.md) |
+| :white_check_mark: | [no-commented-tests](./docs/rule/no-commented-tests.md) |
+| :wrench: | [no-compare-relation-boolean](./docs/rule/no-compare-relation-boolean.md) |
+|  | [no-conditional-assertions](./docs/rule/no-conditional-assertions.md) |
+|  | [no-early-return](./docs/rule/no-early-return.md) |
+| :two: | [no-global-assertions](./docs/rule/no-global-assertions.md) |
+| :two: | [no-global-expect](./docs/rule/no-global-expect.md) |
+| :two: | [no-global-module-test](./docs/rule/no-global-module-test.md) |
+| :two: | [no-global-stop-start](./docs/rule/no-global-stop-start.md) |
+| :white_check_mark: | [no-identical-names](./docs/rule/no-identical-names.md) |
+| :two: | [no-init](./docs/rule/no-init.md) |
+| :two: | [no-jsdump](./docs/rule/no-jsdump.md) |
+|  | [no-loose-assertions](./docs/rule/no-loose-assertions.md) |
+| :wrench: | [no-negated-ok](./docs/rule/no-negated-ok.md) |
+|  | [no-nested-tests](./docs/rule/no-nested-tests.md) |
+| :white_check_mark::wrench: | [no-ok-equality](./docs/rule/no-ok-equality.md) |
+| :white_check_mark: | [no-only](./docs/rule/no-only.md) |
+| :two: | [no-qunit-push](./docs/rule/no-qunit-push.md) |
+| :two: | [no-qunit-start-in-tests](./docs/rule/no-qunit-start-in-tests.md) |
+| :two: | [no-qunit-stop](./docs/rule/no-qunit-stop.md) |
+| :white_check_mark::two: | [no-reassign-log-callbacks](./docs/rule/no-reassign-log-callbacks.md) |
+| :white_check_mark::two: | [no-reset](./docs/rule/no-reset.md) |
+| :two::wrench: | [no-setup-teardown](./docs/rule/no-setup-teardown.md) |
+|  | [no-skip](./docs/rule/no-skip.md) |
+| :two: | [no-test-expect-argument](./docs/rule/no-test-expect-argument.md) |
+| :white_check_mark::two: | [no-throws-string](./docs/rule/no-throws-string.md) |
+| :white_check_mark: | [require-expect](./docs/rule/require-expect.md) |
+| :white_check_mark: | [resolve-async](./docs/rule/resolve-async.md) |
 
-This configuration includes rules which are useful for avoiding runtime errors or unexpected behavior in QUnit 2.0.
-
-You can use this configuration by extending from `"plugin:qunit/two"` in your configuration file.
-
-Rules included in `qunit/two` configuration:
-
-* `no-async-test`
-* `no-global-assertions`
-* `no-global-expect`
-* `no-global-module-test`
-* `no-global-stop-start`
-* `no-init`
-* `no-jsdump`
-* `no-qunit-push`
-* `no-qunit-start-in-tests`
-* `no-qunit-stop`
-* `no-reassign-log-callbacks`
-* `no-reset`
-* `no-setup-teardown`
-* `no-test-expect-argument`
-* `no-throws-string`
+<!--RULES_TABLE_END-->
 
 ## Contributors
 
