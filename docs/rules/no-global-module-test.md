@@ -1,5 +1,7 @@
 # Forbid the use of global module/test/asyncTest (no-global-module-test)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 QUnit 2.0 is deprecating and removing global functions related to declaring tests and modules. This rule will warn when the global functions are used.
 
 ## Rule Details

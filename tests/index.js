@@ -17,8 +17,11 @@ const assert = require("chai").assert,
 // Tests
 //------------------------------------------------------------------------------
 
-const FIXABLE_MSG =
-    ":wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.";
+const MESSAGES = {
+    fixable: ":wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.",
+    configRecommended: ":white_check_mark: The `\"extends\": \"plugin:qunit/recommended\"` property in a configuration file enables this rule.",
+    configTwo: ":two: The `\"extends\": \"plugin:qunit/two\"` property in a configuration file enables this rule."
+};
 
 describe("index.js", function () {
     let ruleFileNames;
@@ -67,17 +70,40 @@ describe("index.js", function () {
                     const titleRegexp = new RegExp(`^# .+ \\(${fileName}\\)$`);
                     assert.ok(titleRegexp.test(lines[0]), "includes rule name in title header");
 
-                    // Second content should be fixable notice if applicable.
-                    if (index.rules[fileName].meta.fixable) {
-                        assert.equal(lines[1], "", "has blank line between title and fixable notice");
-                        assert.equal(lines[2], FIXABLE_MSG, "includes fixable notice");
-                        assert.equal(lines[3], "", "has blank line after fixable notice");
+                    // Decide which notices should be shown at the top of the doc.
+                    const expectedNotices = [];
+                    const unexpectedNotices = [];
+                    if (index.configs.recommended.rules[`qunit/${fileName}`]) {
+                        expectedNotices.push("configRecommended");
                     } else {
-                        assert.ok(
-                            !fileContents.includes(FIXABLE_MSG),
-                            "does not include fixable notice"
-                        );
+                        unexpectedNotices.push("configRecommended");
                     }
+                    if (index.configs.two.rules[`qunit/${fileName}`]) {
+                        expectedNotices.push("configTwo");
+                    } else {
+                        unexpectedNotices.push("configTwo");
+                    }
+                    if (index.rules[fileName].meta.fixable) {
+                        expectedNotices.push("fixable");
+                    } else {
+                        unexpectedNotices.push("fixable");
+                    }
+
+                    // Ensure that expected notices are present in the correct order.
+                    let currentLineNumber = 1;
+                    expectedNotices.forEach(expectedNotice => {
+                        assert.equal(lines[currentLineNumber], "", `has blank line before ${expectedNotice} notice`);
+                        assert.equal(lines[currentLineNumber + 1], MESSAGES[expectedNotice], `includes ${expectedNotice} notice`);
+                        currentLineNumber += 2;
+                    });
+
+                    // Ensure that unexpected notices are not present.
+                    unexpectedNotices.forEach(unexpectedNotice => {
+                        assert.ok(
+                            !fileContents.includes(MESSAGES[unexpectedNotice]),
+                            `does not include unexpected ${unexpectedNotice} notice`
+                        );
+                    });
                 });
             });
         });

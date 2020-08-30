@@ -1,5 +1,7 @@
 # Forbid the use of global QUnit assertions (no-global-assertions)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 QUnit 2.0 is deprecating and removing global QUnit assertions such as `ok()`, requiring consumers to instead use scoped assertions provided on the test callback argument.
 
 ## Rule Details

@@ -1,5 +1,7 @@
 # Forbid the use of global expect (no-global-expect)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 QUnit 2.0 is deprecating and removing the global `expect` function. This rule will warn when the global `expect` function is used.
 
 ## Rule Details

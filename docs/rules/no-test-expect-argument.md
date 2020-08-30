@@ -1,5 +1,7 @@
 # forbid expect argument in QUnit.test (no-test-expect-argument)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 QUnit 2.0 is deprecating expect counts as the second argument of `QUnit.test`. Users are expected to use `assert.expect()` instead.
 
 ## Rule Details

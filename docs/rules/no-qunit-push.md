@@ -1,5 +1,7 @@
 # Forbid the use of QUnit.push (no-qunit-push)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 When writing custom assertions, the proper way to log an assertion result
 used to be calling `QUnit.push()` with the assertion result data. However, in
 order to allow for better control of test context, `QUnit.push` has been

@@ -1,5 +1,7 @@
 # Forbid use of global stop()/start() (no-global-stop-start)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 QUnit 2.0 is deprecating and removing all of its global exports, including
 `stop()` and `start()`.
 

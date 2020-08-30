@@ -1,5 +1,9 @@
 # Forbid overwriting of QUnit logging callbacks (no-reassign-log-callbacks)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 In early versions of QUnit, it was possible to create logging functions that
 would be invoked as QUnit processed tests and modules by assigning to specific
 properties of the QUnit object. This became problematic when multiple logging
@@ -12,6 +16,7 @@ and recommend that the corresponding functions be invoked instead.
 ## Rule Details
 
 The full list of QUnit logging callbacks are as follows:
+
 * `QUnit.begin()`
 * `Qunit.done()`
 * `QUnit.log()`

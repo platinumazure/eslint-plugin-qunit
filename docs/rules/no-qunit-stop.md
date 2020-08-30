@@ -1,5 +1,7 @@
 # Forbid the use of QUnit.stop (no-qunit-stop)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 QUnit's handling of asynchronous tests used to be via tracking a global
 semaphore and not starting a test until the previous test had decremented the
 semaphore. However, in order to avoid tests interfering with each other,

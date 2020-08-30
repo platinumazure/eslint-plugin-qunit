@@ -1,5 +1,7 @@
 # Forbid QUnit.start() within tests or test hooks (no-qunit-start-in-tests)
 
+:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+
 The purpose of this rule is to ensure that `QUnit.start()` is not used within tests or test hooks.
 
 Prior to QUnit 2.0, `QUnit.start()` was the way to resume an asynchronous test. However, with QUnit 2.0, that usage has been disallowed, and now `QUnit.start()` should only be used to start the test runner for the first time (if `QUnit.config.autostart` is set to `false`.
