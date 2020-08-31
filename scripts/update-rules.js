@@ -28,7 +28,7 @@ const rulesTableContent = Object.keys(rules)
             isFixable ? EMOJI_FIXABLE : ""
         ].join("");
 
-        const url = `./docs/rule/${ruleName}.md`;
+        const url = `./docs/rules/${ruleName}.md`;
         const link = `[${ruleName}](${url})`;
 
         return `| ${emojis} | ${link} |`;
