@@ -4,7 +4,7 @@
   "description": "ESLint plugin containing rules useful for QUnit tests.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run unit-test && yarn update && git diff --exit-code",
+    "test": "npm run lint && npm run unit-test && npm run update && git diff --exit-code",
     "lint": "npm-run-all --continue-on-error --aggregate-output --parallel lint:*",
     "lint:js": "eslint ./ --report-unused-disable-directives",
     "unit-test": "nyc mocha tests/**/*.js",
