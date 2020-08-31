@@ -49,4 +49,3 @@ It should be safe to use this rule. However it may cause false positive when usi
 
 * [QUnit.module() Nested Scope](https://github.com/qunitjs/qunit/blob/master/docs/QUnit/module.md#nested-scope)
 * [QUnit.test](https://github.com/qunitjs/qunit/blob/master/docs/QUnit/test.md)
-

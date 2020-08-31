@@ -1,4 +1,5 @@
 # eslint-plugin-qunit
+
 ![CI](https://github.com/platinumazure/eslint-plugin-qunit/workflows/CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/platinumazure/eslint-plugin-qunit/badge.svg?branch=master&service=github)](https://coveralls.io/github/platinumazure/eslint-plugin-qunit?branch=master)
 [![devDependency Status](https://david-dm.org/platinumazure/eslint-plugin-qunit/dev-status.svg)](https://david-dm.org/platinumazure/eslint-plugin-qunit#info=devDependencies)
@@ -21,8 +22,8 @@ For more details on how to extend your configuration from one or both of these p
 
 Each rule has emojis denoting:
 
-- What configuration it belongs to
-- :wrench: if some problems reported by the rule are automatically fixable by the `--fix` [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) option
+* What configuration it belongs to
+* :wrench: if some problems reported by the rule are automatically fixable by the `--fix` [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) option
 
 <!--RULES_TABLE_START-->
 
@@ -101,6 +102,8 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
 <!-- prettier-ignore-end -->
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
+<!-- markdownlint-disable line-length -->
+
 This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
 
 ## Semantic Versioning Policy
@@ -108,20 +111,20 @@ This project follows the [all-contributors](https://github.com/kentcdodds/all-co
 Like ESLint itself, this ESLint plugin follows [semantic versioning](http://semver.org). However, due to the nature of ESLint as a code quality tool, it's not always clear when a minor or major version bump occurs. To help clarify this for everyone, we've defined the following semantic versioning policy, based on the policy used by ESLint:
 
 * Patch release (intended not to break your lint build)
-    * A bug fix in a plugin rule that results in ESLint reporting fewer errors.
-    * Improvements to documentation.
-    * Non-user-facing changes such as refactoring code; adding, deleting, or modifying tests; and increasing test coverage.
-    * Re-releasing after a failed release (i.e., after having published a release that doesn't work for anyone).
+  * A bug fix in a plugin rule that results in ESLint reporting fewer errors.
+  * Improvements to documentation.
+  * Non-user-facing changes such as refactoring code; adding, deleting, or modifying tests; and increasing test coverage.
+  * Re-releasing after a failed release (i.e., after having published a release that doesn't work for anyone).
 * Minor release (might break your lint build)
-    * A bug fix in a rule that results in ESLint reporting more errors.
-    * A new rule is created (without being added to plugin configuration).
-    * A new option to an existing rule is created (without any default options changing).
-    * A new plugin configuration is created.
-    * An existing rule is deprecated.
+  * A bug fix in a rule that results in ESLint reporting more errors.
+  * A new rule is created (without being added to plugin configuration).
+  * A new option to an existing rule is created (without any default options changing).
+  * A new plugin configuration is created.
+  * An existing rule is deprecated.
 * Major release (likely to break your lint build)
-    * An existing plugin configuration is changed in any way, including but not limited to:
-        * A new rule is added to the configuration.
-        * A rule is removed from the configuration.
-        * The options used in configuration for a rule are changed
-    * An existing rule is removed.
-    * A backward-incompatible change is made to the options of a rule.
+  * An existing plugin configuration is changed in any way, including but not limited to:
+    * A new rule is added to the configuration.
+    * A rule is removed from the configuration.
+    * The options used in configuration for a rule are changed
+  * An existing rule is removed.
+  * A backward-incompatible change is made to the options of a rule.

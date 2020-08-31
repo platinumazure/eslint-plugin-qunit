@@ -26,9 +26,9 @@ The "never-except-zero" option disallows `except` calls, except when used to
 explicitly assert that a test performs no assertions, which would otherwise
 be considered an error.
 
-# Rule Details
+## Rule Details
 
-## always
+### always
 
 When using the default "always" option, each test needs an expect call. So the
 following would warn.
@@ -53,7 +53,7 @@ test('name', function() {
 });
 ```
 
-## except-simple
+### except-simple
 
 When using the "except-simple" option, the following patterns are considered
 warnings.
@@ -127,7 +127,7 @@ test('name', function(assert) {
 });
 ```
 
-## never
+### never
 
 The following would warn.
 
@@ -152,7 +152,7 @@ test('name', function(assert) {
 });
 ```
 
-## never-except-zero
+### never-except-zero
 
 The following would warn.
 
@@ -177,7 +177,7 @@ test('name', function(assert) {
 });
 ```
 
-# When Not to Use It
+## When Not to Use It
 
 1. If your tests have some logic that relies on an unpredictable number of
    assertions being called.
