@@ -52,9 +52,13 @@ module.exports = {
             rules: {
                 "qunit/assert-args": "error",
                 "qunit/literal-compare-order": "error",
+                "qunit/no-assert-logical-expression": "error",
                 "qunit/no-async-in-loops": "error",
                 "qunit/no-commented-tests": "error",
+                "qunit/no-conditional-assertions": "error",
+                "qunit/no-early-return": "error",
                 "qunit/no-identical-names": "error",
+                "qunit/no-negated-ok": "error",
                 "qunit/no-ok-equality": "error",
                 "qunit/no-only": "error",
                 "qunit/no-reassign-log-callbacks": "error",

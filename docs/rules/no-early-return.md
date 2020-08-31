@@ -1,5 +1,7 @@
 # prevent early return in a QUnit test (no-early-return)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 This rule aims to prevent early returns in a QUnit test. Unit tests which can return early are usually indications that a test is nondeterministic or too dependent on environmental factors. On the rare occasion that a test should be run conditionally, the whole test should be run or skipped, rather than having a test that can return early (which is harder to maintain).
 
 ## Rule Details

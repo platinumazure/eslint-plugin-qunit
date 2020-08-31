@@ -1,5 +1,7 @@
 # Forbid assertions within if statements or conditional expressions (no-conditional-assertions)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 This rule aims to detect non-deterministic unit testing by looking for assertions in an if statement or conditional expression.
 
 Most of the time, a unit test should know what it is testing and what assertions should be run for a given test. Conditional assertions suggest that the developer is not sure how the unit test should run, or else that the developer is unfamiliar with testing boolean conditions within an assertion.

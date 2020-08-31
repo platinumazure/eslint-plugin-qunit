@@ -1,5 +1,7 @@
 # Forbid the use of negations in assert.ok/notOk (no-negated-ok)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 Negated `assert.ok()` or `assert.notOk()` solutions can be misleading, because

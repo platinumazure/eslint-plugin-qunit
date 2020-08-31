@@ -32,14 +32,14 @@ Each rule has emojis denoting:
 | :white_check_mark::wrench: | [literal-compare-order](./docs/rule/literal-compare-order.md) |
 | :wrench: | [no-arrow-tests](./docs/rule/no-arrow-tests.md) |
 |  | [no-assert-equal](./docs/rule/no-assert-equal.md) |
-|  | [no-assert-logical-expression](./docs/rule/no-assert-logical-expression.md) |
+| :white_check_mark: | [no-assert-logical-expression](./docs/rule/no-assert-logical-expression.md) |
 |  | [no-assert-ok](./docs/rule/no-assert-ok.md) |
 | :white_check_mark: | [no-async-in-loops](./docs/rule/no-async-in-loops.md) |
 | :two: | [no-async-test](./docs/rule/no-async-test.md) |
 | :white_check_mark: | [no-commented-tests](./docs/rule/no-commented-tests.md) |
 | :wrench: | [no-compare-relation-boolean](./docs/rule/no-compare-relation-boolean.md) |
-|  | [no-conditional-assertions](./docs/rule/no-conditional-assertions.md) |
-|  | [no-early-return](./docs/rule/no-early-return.md) |
+| :white_check_mark: | [no-conditional-assertions](./docs/rule/no-conditional-assertions.md) |
+| :white_check_mark: | [no-early-return](./docs/rule/no-early-return.md) |
 | :two: | [no-global-assertions](./docs/rule/no-global-assertions.md) |
 | :two: | [no-global-expect](./docs/rule/no-global-expect.md) |
 | :two: | [no-global-module-test](./docs/rule/no-global-module-test.md) |
@@ -48,7 +48,7 @@ Each rule has emojis denoting:
 | :two: | [no-init](./docs/rule/no-init.md) |
 | :two: | [no-jsdump](./docs/rule/no-jsdump.md) |
 |  | [no-loose-assertions](./docs/rule/no-loose-assertions.md) |
-| :wrench: | [no-negated-ok](./docs/rule/no-negated-ok.md) |
+| :white_check_mark::wrench: | [no-negated-ok](./docs/rule/no-negated-ok.md) |
 |  | [no-nested-tests](./docs/rule/no-nested-tests.md) |
 | :white_check_mark::wrench: | [no-ok-equality](./docs/rule/no-ok-equality.md) |
 | :white_check_mark: | [no-only](./docs/rule/no-only.md) |
