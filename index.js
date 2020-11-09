@@ -13,6 +13,7 @@ module.exports = {
         "literal-compare-order": require("./lib/rules/literal-compare-order"),
         "no-arrow-tests": require("./lib/rules/no-arrow-tests"),
         "no-assert-equal": require("./lib/rules/no-assert-equal"),
+        "no-assert-equal-boolean": require("./lib/rules/no-assert-equal-boolean"),
         "no-assert-logical-expression": require("./lib/rules/no-assert-logical-expression"),
         "no-assert-ok": require("./lib/rules/no-assert-ok"),
         "no-async-in-loops": require("./lib/rules/no-async-in-loops"),
