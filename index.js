@@ -49,6 +49,7 @@ module.exports = {
     // eslint-disable-next-line sort-keys
     configs: {
         recommended: {
+            plugins: ["qunit"],
             rules: {
                 "qunit/assert-args": "error",
                 "qunit/literal-compare-order": "error",
@@ -69,6 +70,7 @@ module.exports = {
             }
         },
         two: {
+            plugins: ["qunit"],
             rules: {
                 "qunit/no-async-test": "error",
                 "qunit/no-global-assertions": "error",
