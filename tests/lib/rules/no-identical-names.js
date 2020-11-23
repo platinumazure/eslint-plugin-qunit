@@ -66,7 +66,33 @@ ruleTester.run("no-identical-title", rule, {
             parserOptions: {
                 ecmaVersion: 6
             }
-        }
+        },
+
+        // Nested modules
+        outdent`
+            module("module1", function() {
+                module("submodule1", function() {});
+            });
+            module("module2", function() {
+                module("submodule1", function() {});
+            });
+        `,
+        outdent`
+            module("module1", function() {
+                module("submodule1", function() {
+                    module("subsubmodule1", function() {
+                        test("it1", function() {})
+                    });
+                });
+            });
+            module("module2", function() {
+                module("submodule1", function() {
+                    module("subsubmodule1", function() {
+                        test("it1", function() {})
+                    });
+                });
+            });
+        `
     ],
 
     invalid: [
@@ -141,6 +167,36 @@ ruleTester.run("no-identical-title", rule, {
                     line: 1
                 },
                 column: 8,
+                line: 3
+            }]
+        },
+        {
+            code: outdent `
+                module("module1", function() {
+                    module("module2", function() {
+                        test("it", function() {});
+                        test("it", function() {});
+                    });
+                });
+            `,
+            errors: [{
+                messageId: "duplicateTest",
+                data: { line: 3 },
+                column: 14,
+                line: 4
+            }]
+        },
+        {
+            code: outdent `
+                module("module1", function() {
+                    module("submodule1", function() {});
+                    module("submodule1", function() {});
+                });
+            `,
+            errors: [{
+                messageId: "duplicateModule",
+                data: { line: 2 },
+                column: 12,
                 line: 3
             }]
         }
