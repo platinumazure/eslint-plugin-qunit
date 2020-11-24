@@ -165,6 +165,9 @@
         "eslint-plugin/prefer-output-null": "error",
         "eslint-plugin/prefer-placeholders": "error",
         "eslint-plugin/report-message-format": ["error", "^[A-Z].*\\.$"],
+        "eslint-plugin/require-meta-docs-url": ["error", {
+            "pattern": "https://github.com/platinumazure/eslint-plugin-qunit/blob/master/docs/rules/{{name}}.md"
+        }],
         "eslint-plugin/require-meta-schema": "error",
         "eslint-plugin/test-case-property-ordering": "error",
         "eslint-plugin/test-case-shorthand-strings": "error"
