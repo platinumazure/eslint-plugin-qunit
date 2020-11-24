@@ -108,4 +108,15 @@ describe("index.js", function () {
             });
         });
     });
+
+    describe("configs", function () {
+        for (const configName of Object.keys(index.configs)) {
+            const config = index.configs[configName];
+            describe(configName, function () {
+                it("has the right plugins", function () {
+                    assert.deepStrictEqual(config.plugins, ["qunit"]);
+                });
+            });
+        }
+    });
 });
