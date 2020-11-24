@@ -16,7 +16,7 @@ We can apply the same analysis to all of QUnit's assertions. In general,
 optional message; and the other assertions expect two arguments and one optional
 message.
 
-# Rule Details
+## Rule Details
 
 The following patterns are considered warnings:
 
@@ -148,7 +148,7 @@ assert.notPropEqual(result, expected, 'message');
 
 ```
 
-# Known Limitations
+## Known Limitations
 
 At this point, there is no special validation for assertion message arguments.
 We eventually want to add support for different types of validation for
@@ -156,7 +156,7 @@ assertion message arguments (for example, requiring that assertion messages be
 string literals). However, we learned early on that enforcing string literal
 assertion messages makes the rule nearly unusable in some codebases.
 
-# When Not to Use It
+## When Not to Use It
 
 This rule should be reasonably safe to use in all circumstances.
 

@@ -20,7 +20,7 @@ regarded as "expected" values, rather than actual values, and then flags
 assertions in which the literal/"expected" value is known to be in the argument
 slot reserved for the "actual" value.
 
-# Rule Details
+## Rule Details
 
 The following patterns are considered warnings:
 
@@ -98,7 +98,7 @@ assert.notPropEqual(variable, "Literal", "message");
 
 ```
 
-# When Not to Use It
+## When Not to Use It
 
 This rule can be disabled if you aren't concerned about the readability of test
 reports.
