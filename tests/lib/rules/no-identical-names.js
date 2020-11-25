@@ -199,6 +199,20 @@ ruleTester.run("no-identical-title", rule, {
                 column: 12,
                 line: 3
             }]
+        },
+        {
+            code: outdent`
+                module("name1", function() {
+                    module("name1", function() {});
+                });
+            `,
+            errors: [{
+                messageId: "duplicateModuleAncestor",
+                data: { line: 1 },
+                column: 12,
+                line: 2
+            }]
         }
+
     ]
 });
