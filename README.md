@@ -33,6 +33,7 @@ Each rule has emojis denoting:
 | :white_check_mark::wrench: | [literal-compare-order](./docs/rules/literal-compare-order.md) |
 | :wrench: | [no-arrow-tests](./docs/rules/no-arrow-tests.md) |
 |  | [no-assert-equal](./docs/rules/no-assert-equal.md) |
+| :wrench: | [no-assert-equal-boolean](./docs/rules/no-assert-equal-boolean.md) |
 | :white_check_mark: | [no-assert-logical-expression](./docs/rules/no-assert-logical-expression.md) |
 |  | [no-assert-ok](./docs/rules/no-assert-ok.md) |
 | :white_check_mark: | [no-async-in-loops](./docs/rules/no-async-in-loops.md) |
