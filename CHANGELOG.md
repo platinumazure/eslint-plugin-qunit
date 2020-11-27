@@ -1,3 +1,19 @@
+### 5.1.0
+* Build: Fix lint:docs script to work on bash (Kevin Partington)
+* Docs: Update contributor list (#128) (Kevin Partington)
+* Update: catch duplicate titles in ancestor modules in no-identical-names rule (#127) (Bryan Mishkin)
+* New: add new rule no-assert-equal-boolean (#121) (Bryan Mishkin)
+* Docs: add markdownlint (#115) (Bryan Mishkin)
+* Fix: false positives with no-identical-names and nested modules (#123) (Bryan Mishkin)
+* Update: Add 'qunit' plugin to configs (#124) (Bryan Mishkin)
+* Docs: add rule doc URL to rules (#125) (Bryan Mishkin)
+* Build: add CI checks to ensure tests pass on supported ESLint versions (#116) (Bryan Mishkin)
+* Chore: Upgrade devDependencies to latest (#119) (Kevin Partington)
+* Build: Update lcov location in coveralls action (#118) (Kevin Partington)
+* Build: switch from travis to Github Actions (#117) (Bryan Mishkin)
+* Update: allow eslint peer dependency to include v6 and v7 (#113) (Bryan Mishkin)
+* Docs: fix broken rules link in README (#111) (Bryan Mishkin)
+
 ### 5.0.0
 * Breaking: Update plugin:qunit/recommended config (fixes #86) (Kevin Partington)
 * Build: Fix yarn reference in test script (Kevin Partington)
