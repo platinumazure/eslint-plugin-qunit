@@ -159,6 +159,24 @@
         "doc",
         "ideas"
       ]
+    },
+    {
+      "login": "XhmikosR",
+      "name": "XhmikosR",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/349621?v=4",
+      "profile": "https://xhmikosr.io/",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "andreyfel",
+      "name": "Andrey Fel",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/9370878?v=4",
+      "profile": "https://github.com/andreyfel",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "repoType": "github",
