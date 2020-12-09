@@ -18,6 +18,9 @@
     "index.js",
     "lib/"
   ],
+  "dependencies": {
+    "eslint-utils": "^2.1.0"
+  },
   "devDependencies": {
     "all-contributors-cli": "^6.17.2",
     "chai": "^4.2.0",

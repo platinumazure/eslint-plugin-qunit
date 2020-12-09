@@ -24,7 +24,13 @@ ruleTester.run("no-global-module-test", rule, {
         "QUnit.asyncTest();",
 
         // Other identifiers are perfectly valid
-        "ok();"
+        "ok();",
+
+        // Global overridden by local import/declaration.
+        {
+            code: "var module = require('foo'); module();",
+            globals: { module: true }
+        }
     ],
 
     invalid: [
@@ -36,7 +42,8 @@ ruleTester.run("no-global-module-test", rule, {
                     callee: "module"
                 },
                 type: "CallExpression"
-            }]
+            }],
+            globals: { module: true }
         },
         {
             code: "test();",
@@ -46,7 +53,8 @@ ruleTester.run("no-global-module-test", rule, {
                     callee: "test"
                 },
                 type: "CallExpression"
-            }]
+            }],
+            globals: { test: true }
         },
         {
             code: "asyncTest();",
@@ -56,7 +64,8 @@ ruleTester.run("no-global-module-test", rule, {
                     callee: "asyncTest"
                 },
                 type: "CallExpression"
-            }]
+            }],
+            globals: { asyncTest: true }
         }
     ]
 });

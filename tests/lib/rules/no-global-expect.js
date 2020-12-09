@@ -23,11 +23,42 @@ function wrap(code) {
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({
+    parserOptions: {
+        ecmaVersion: 2015,
+        sourceType: "module"
+    }
+});
 
 ruleTester.run("no-global-expect", rule, {
     valid: [
-        wrap("assert.expect(1);")
+        wrap("assert.expect(1);"),
+        {
+            code: wrap("assert.expect(1);"),
+            globals: { expect: true }
+        },
+
+        // Global overridden by local import/declaration.
+        {
+            code: `import expect from 'foo'; ${wrap("expect(1);")}`,
+            globals: { expect: true }
+        },
+        {
+            code: `import { expect } from 'foo'; ${wrap("expect(1);")}`,
+            globals: { expect: true }
+        },
+        {
+            code: `var expect = require('foo'); ${wrap("expect(1);")}`,
+            globals: { expect: true }
+        },
+        {
+            code: `var expect = () => {}; ${wrap("expect(1);")}`,
+            globals: { expect: true }
+        },
+        {
+            code: `function expect() {}; ${wrap("expect(1);")}`,
+            globals: { expect: true }
+        }
     ],
 
     invalid: [
@@ -36,7 +67,8 @@ ruleTester.run("no-global-expect", rule, {
             errors: [{
                 messageId: "unexpectedGlobalExpect",
                 type: "CallExpression"
-            }]
+            }],
+            globals: { expect: true }
         }
     ]
 });

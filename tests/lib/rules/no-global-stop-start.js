@@ -23,7 +23,13 @@ ruleTester.run("no-global-stop-start", rule, {
 
     valid: [
         "QUnit.stop();",
-        "QUnit.start();"
+        "QUnit.start();",
+
+        // Global overridden by local import/declaration.
+        {
+            code: "var start = require('foo'); start();",
+            globals: { start: true }
+        }
     ],
 
     invalid: [
@@ -35,7 +41,8 @@ ruleTester.run("no-global-stop-start", rule, {
                     callee: "stop"
                 },
                 type: "CallExpression"
-            }]
+            }],
+            globals: { stop: true }
         },
         {
             code: "start();",
@@ -45,7 +52,8 @@ ruleTester.run("no-global-stop-start", rule, {
                     callee: "start"
                 },
                 type: "CallExpression"
-            }]
+            }],
+            globals: { start: true }
         }
     ]
 });
