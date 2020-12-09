@@ -1,4 +1,4 @@
-# Forbid commented tests (no-commented-tests)
+# Disallow commented tests (no-commented-tests)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

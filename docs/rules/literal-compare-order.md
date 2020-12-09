@@ -1,4 +1,4 @@
-# Ensure comparison assertions have arguments in the right order (literal-compare-order)
+# Enforce comparison assertions have arguments in the right order (literal-compare-order)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

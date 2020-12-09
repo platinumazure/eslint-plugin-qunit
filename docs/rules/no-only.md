@@ -1,4 +1,4 @@
-# Forbid the use of QUnit.only (no-only)
+# Disallow QUnit.only (no-only)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

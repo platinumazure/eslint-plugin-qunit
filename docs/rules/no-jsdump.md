@@ -1,4 +1,4 @@
-# Forbid use of QUnit.jsDump() (no-jsdump)
+# Disallow use of QUnit.jsDump (no-jsdump)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

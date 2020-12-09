@@ -1,4 +1,4 @@
-# Forbid the use of negations in assert.ok/notOk (no-negated-ok)
+# Disallow negation in assert.ok/assert.notOk (no-negated-ok)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

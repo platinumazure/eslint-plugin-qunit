@@ -1,4 +1,4 @@
-# Forbid setup/teardown module hooks (no-setup-teardown)
+# Disallow setup/teardown module hooks (no-setup-teardown)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

@@ -1,4 +1,4 @@
-# Forbid assertions within if statements or conditional expressions (no-conditional-assertions)
+# Disallow assertions within if statements or conditional expressions (no-conditional-assertions)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

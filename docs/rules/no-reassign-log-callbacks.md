@@ -1,4 +1,4 @@
-# Forbid overwriting of QUnit logging callbacks (no-reassign-log-callbacks)
+# Disallow overwriting of QUnit logging callbacks (no-reassign-log-callbacks)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

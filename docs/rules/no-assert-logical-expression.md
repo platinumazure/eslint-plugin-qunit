@@ -1,4 +1,4 @@
-# Forbid binary logical expressions in assert arguments (no-assert-logical-expression)
+# Disallow binary logical expressions in assert arguments (no-assert-logical-expression)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

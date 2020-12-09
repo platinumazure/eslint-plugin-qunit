@@ -1,4 +1,4 @@
-# Forbid the use of global QUnit assertions (no-global-assertions)
+# Disallow global QUnit assertions (no-global-assertions)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

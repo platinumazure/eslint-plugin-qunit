@@ -1,4 +1,4 @@
-# forbid comparing relational expression to boolean in assertions (no-compare-relation-boolean)
+# Disallow comparing relational expressions to booleans in assertions (no-compare-relation-boolean)
 
 :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 

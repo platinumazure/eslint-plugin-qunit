@@ -1,4 +1,4 @@
-# Forbid QUnit.start() within tests or test hooks (no-qunit-start-in-tests)
+# Disallow QUnit.start() within tests or test hooks (no-qunit-start-in-tests)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

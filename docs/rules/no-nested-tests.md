@@ -1,4 +1,4 @@
-# Forbid QUnit.test() calls inside callback of another QUnit.test (no-nested-tests)
+# Disallow nested QUnit.test() calls (no-nested-tests)
 
 This rule prevents from incorrect usage of [Nested Scope](https://github.com/qunitjs/qunit/blob/master/docs/QUnit/module.md#nested-scope). Developer can write nested test instead of nested module by mistake. In this case test will still be executed, but effects may be unexpected.
 

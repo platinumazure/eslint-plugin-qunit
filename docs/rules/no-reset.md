@@ -1,4 +1,4 @@
-# Forbids use of QUnit.reset (no-reset)
+# Disallow QUnit.reset (no-reset)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

@@ -1,4 +1,4 @@
-# Forbid the use of QUnit.push (no-qunit-push)
+# Disallow QUnit.push (no-qunit-push)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 
