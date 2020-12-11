@@ -169,6 +169,7 @@
             "pattern": "https://github.com/platinumazure/eslint-plugin-qunit/blob/master/docs/rules/{{name}}.md"
         }],
         "eslint-plugin/require-meta-schema": "error",
+        "eslint-plugin/require-meta-type": "error",
         "eslint-plugin/test-case-property-ordering": "error",
         "eslint-plugin/test-case-shorthand-strings": "error"
     }
