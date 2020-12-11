@@ -27,44 +27,44 @@ Each rule has emojis denoting:
 
 <!--RULES_TABLE_START-->
 
-|    | Name |
-|:---|:--------|
-| :white_check_mark: | [assert-args](./docs/rules/assert-args.md) |
-| :white_check_mark::wrench: | [literal-compare-order](./docs/rules/literal-compare-order.md) |
-| :wrench: | [no-arrow-tests](./docs/rules/no-arrow-tests.md) |
-|  | [no-assert-equal](./docs/rules/no-assert-equal.md) |
-| :wrench: | [no-assert-equal-boolean](./docs/rules/no-assert-equal-boolean.md) |
-| :white_check_mark: | [no-assert-logical-expression](./docs/rules/no-assert-logical-expression.md) |
-|  | [no-assert-ok](./docs/rules/no-assert-ok.md) |
-| :white_check_mark: | [no-async-in-loops](./docs/rules/no-async-in-loops.md) |
-| :two: | [no-async-test](./docs/rules/no-async-test.md) |
-| :white_check_mark: | [no-commented-tests](./docs/rules/no-commented-tests.md) |
-| :wrench: | [no-compare-relation-boolean](./docs/rules/no-compare-relation-boolean.md) |
-| :white_check_mark: | [no-conditional-assertions](./docs/rules/no-conditional-assertions.md) |
-| :white_check_mark: | [no-early-return](./docs/rules/no-early-return.md) |
-| :two: | [no-global-assertions](./docs/rules/no-global-assertions.md) |
-| :two: | [no-global-expect](./docs/rules/no-global-expect.md) |
-| :two: | [no-global-module-test](./docs/rules/no-global-module-test.md) |
-| :two: | [no-global-stop-start](./docs/rules/no-global-stop-start.md) |
-| :white_check_mark: | [no-identical-names](./docs/rules/no-identical-names.md) |
-| :two: | [no-init](./docs/rules/no-init.md) |
-| :two: | [no-jsdump](./docs/rules/no-jsdump.md) |
-|  | [no-loose-assertions](./docs/rules/no-loose-assertions.md) |
-| :white_check_mark::wrench: | [no-negated-ok](./docs/rules/no-negated-ok.md) |
-|  | [no-nested-tests](./docs/rules/no-nested-tests.md) |
-| :white_check_mark::wrench: | [no-ok-equality](./docs/rules/no-ok-equality.md) |
-| :white_check_mark: | [no-only](./docs/rules/no-only.md) |
-| :two: | [no-qunit-push](./docs/rules/no-qunit-push.md) |
-| :two: | [no-qunit-start-in-tests](./docs/rules/no-qunit-start-in-tests.md) |
-| :two: | [no-qunit-stop](./docs/rules/no-qunit-stop.md) |
-| :white_check_mark::two: | [no-reassign-log-callbacks](./docs/rules/no-reassign-log-callbacks.md) |
-| :white_check_mark::two: | [no-reset](./docs/rules/no-reset.md) |
-| :two::wrench: | [no-setup-teardown](./docs/rules/no-setup-teardown.md) |
-|  | [no-skip](./docs/rules/no-skip.md) |
-| :two: | [no-test-expect-argument](./docs/rules/no-test-expect-argument.md) |
-| :white_check_mark::two: | [no-throws-string](./docs/rules/no-throws-string.md) |
-| :white_check_mark: | [require-expect](./docs/rules/require-expect.md) |
-| :white_check_mark: | [resolve-async](./docs/rules/resolve-async.md) |
+|    | Name | Description |
+|:---|:--------|:--------|
+| :white_check_mark: | [assert-args](./docs/rules/assert-args.md) | enforce that the correct number of assert arguments are used|
+| :white_check_mark::wrench: | [literal-compare-order](./docs/rules/literal-compare-order.md) | enforce comparison assertions have arguments in the right order|
+| :wrench: | [no-arrow-tests](./docs/rules/no-arrow-tests.md) | disallow arrow functions as QUnit test/module callbacks|
+|  | [no-assert-equal](./docs/rules/no-assert-equal.md) | disallow the use of assert.equal|
+| :wrench: | [no-assert-equal-boolean](./docs/rules/no-assert-equal-boolean.md) | require use of boolean assertions|
+| :white_check_mark: | [no-assert-logical-expression](./docs/rules/no-assert-logical-expression.md) | disallow binary logical expressions in assert arguments|
+|  | [no-assert-ok](./docs/rules/no-assert-ok.md) | disallow the use of assert.ok/assert.notOk|
+| :white_check_mark: | [no-async-in-loops](./docs/rules/no-async-in-loops.md) | disallow async calls in loops|
+| :two: | [no-async-test](./docs/rules/no-async-test.md) | disallow the use of asyncTest or QUnit.asyncTest|
+| :white_check_mark: | [no-commented-tests](./docs/rules/no-commented-tests.md) | disallow commented tests|
+| :wrench: | [no-compare-relation-boolean](./docs/rules/no-compare-relation-boolean.md) | disallow comparing relational expressions to booleans in assertions|
+| :white_check_mark: | [no-conditional-assertions](./docs/rules/no-conditional-assertions.md) | disallow assertions within if statements or conditional expressions|
+| :white_check_mark: | [no-early-return](./docs/rules/no-early-return.md) | disallow early return in tests|
+| :two: | [no-global-assertions](./docs/rules/no-global-assertions.md) | disallow global QUnit assertions|
+| :two: | [no-global-expect](./docs/rules/no-global-expect.md) | disallow global expect|
+| :two: | [no-global-module-test](./docs/rules/no-global-module-test.md) | disallow global module/test/asyncTest|
+| :two: | [no-global-stop-start](./docs/rules/no-global-stop-start.md) | disallow global stop/start|
+| :white_check_mark: | [no-identical-names](./docs/rules/no-identical-names.md) | disallow identical test and module names|
+| :two: | [no-init](./docs/rules/no-init.md) | disallow use of QUnit.init|
+| :two: | [no-jsdump](./docs/rules/no-jsdump.md) | disallow use of QUnit.jsDump|
+|  | [no-loose-assertions](./docs/rules/no-loose-assertions.md) | disallow the use of assert.equal/assert.ok/assert.notEqual/assert.notOk|
+| :white_check_mark::wrench: | [no-negated-ok](./docs/rules/no-negated-ok.md) | disallow negation in assert.ok/assert.notOk|
+|  | [no-nested-tests](./docs/rules/no-nested-tests.md) | disallow nested QUnit.test() calls|
+| :white_check_mark::wrench: | [no-ok-equality](./docs/rules/no-ok-equality.md) | disallow equality comparisons in assert.ok/assert.notOk|
+| :white_check_mark: | [no-only](./docs/rules/no-only.md) | disallow QUnit.only|
+| :two: | [no-qunit-push](./docs/rules/no-qunit-push.md) | disallow QUnit.push|
+| :two: | [no-qunit-start-in-tests](./docs/rules/no-qunit-start-in-tests.md) | disallow QUnit.start() within tests or test hooks|
+| :two: | [no-qunit-stop](./docs/rules/no-qunit-stop.md) | disallow QUnit.stop|
+| :white_check_mark::two: | [no-reassign-log-callbacks](./docs/rules/no-reassign-log-callbacks.md) | disallow overwriting of QUnit logging callbacks|
+| :white_check_mark::two: | [no-reset](./docs/rules/no-reset.md) | disallow QUnit.reset|
+| :two::wrench: | [no-setup-teardown](./docs/rules/no-setup-teardown.md) | disallow setup/teardown module hooks|
+|  | [no-skip](./docs/rules/no-skip.md) | disallow QUnit.skip|
+| :two: | [no-test-expect-argument](./docs/rules/no-test-expect-argument.md) | disallow the expect argument in QUnit.test|
+| :white_check_mark::two: | [no-throws-string](./docs/rules/no-throws-string.md) | disallow assert.throws() with block, string, and message args|
+| :white_check_mark: | [require-expect](./docs/rules/require-expect.md) | enforce that `expect` is called|
+| :white_check_mark: | [resolve-async](./docs/rules/resolve-async.md) | require that async calls are resolved|
 
 <!--RULES_TABLE_END-->
 

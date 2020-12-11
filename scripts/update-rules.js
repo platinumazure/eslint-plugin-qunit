@@ -31,7 +31,9 @@ const rulesTableContent = Object.keys(rules)
         const url = `./docs/rules/${ruleName}.md`;
         const link = `[${ruleName}](${url})`;
 
-        return `| ${emojis} | ${link} |`;
+        const description = rules[ruleName].meta.docs.description;
+
+        return `| ${emojis} | ${link} | ${description}|`;
     })
     .join("\n");
 
@@ -39,6 +41,6 @@ fs.writeFileSync(
     pathReadme,
     readmeContent.replace(
         tablePlaceholder,
-        `<!--RULES_TABLE_START-->\n\n|    | Name |\n|:---|:--------|\n${rulesTableContent}\n\n<!--RULES_TABLE_END-->`
+        `<!--RULES_TABLE_START-->\n\n|    | Name | Description |\n|:---|:--------|:--------|\n${rulesTableContent}\n\n<!--RULES_TABLE_END-->`
     )
 );
