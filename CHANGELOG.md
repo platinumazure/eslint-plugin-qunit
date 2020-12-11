@@ -1,3 +1,9 @@
+### 5.1.1
+* Upgrade: Bump ini from 1.3.5 to 1.3.7 (#137) (dependabot[bot])
+* Docs: enable eslint-plugin/require-meta-docs-description lint rule to enforce consistent rule descriptions (#133) (Bryan Mishkin)
+* Chore: add type properties to rules and enforce with eslint-plugin/require-meta-type lint rule (#134) (Bryan Mishkin)
+* Fix: only detect true global usages in no-global-* rules (#132) (Bryan Mishkin)
+
 ### 5.1.0
 * Build: Fix lint:docs script to work on bash (Kevin Partington)
 * Docs: Update contributor list (#128) (Kevin Partington)
