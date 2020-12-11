@@ -1,4 +1,4 @@
-# Forbid async calls in loops (no-async-in-loops)
+# Disallow async calls in loops (no-async-in-loops)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

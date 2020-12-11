@@ -1,4 +1,4 @@
-# Forbid the use of QUnit.stop (no-qunit-stop)
+# Disallow QUnit.stop (no-qunit-stop)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

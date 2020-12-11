@@ -1,4 +1,4 @@
-# Forbid the use of QUnit.skip (no-skip)
+# Disallow QUnit.skip (no-skip)
 
 `QUnit.skip` is useful to mark a test as skipped. This should be preferred over commenting out the test. However, leaving tests skipped in perpetuity is a bad practice, as the test ceases to provide any use in ensuring correctness of your code. Skipping tests should be done sparingly.
 

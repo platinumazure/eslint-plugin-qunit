@@ -1,4 +1,4 @@
-# Forbid the use of global module/test/asyncTest (no-global-module-test)
+# Disallow global module/test/asyncTest (no-global-module-test)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

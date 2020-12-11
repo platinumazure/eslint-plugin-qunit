@@ -1,4 +1,4 @@
-# Forbid the use of asyncTest or QUnit.asyncTest (no-async-test)
+# Disallow the use of asyncTest or QUnit.asyncTest (no-async-test)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

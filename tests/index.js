@@ -23,6 +23,15 @@ const MESSAGES = {
     configTwo: ":two: The `\"extends\": \"plugin:qunit/two\"` property in a configuration file enables this rule."
 };
 
+function toSentenceCase(str) {
+    return str.replace(
+        /^\w/,
+        function (txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
+}
+
 describe("index.js", function () {
     let ruleFileNames;
 
@@ -67,8 +76,9 @@ describe("index.js", function () {
                     const lines = fileContents.split("\n");
 
                     // First content should be title.
-                    const titleRegexp = new RegExp(`^# .+ \\(${fileName}\\)$`);
-                    assert.ok(titleRegexp.test(lines[0]), "includes rule name in title header");
+                    const description = index.rules[fileName].meta.docs.description;
+                    const expectedTitle = `# ${toSentenceCase(description)} (${fileName})`;
+                    assert.equal(lines[0], expectedTitle, "includes the rule description and name in title");
 
                     // Decide which notices should be shown at the top of the doc.
                     const expectedNotices = [];

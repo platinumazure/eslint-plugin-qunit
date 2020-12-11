@@ -1,4 +1,4 @@
-# Ensure the correct number of assert arguments is used (assert-args)
+# Enforce that the correct number of assert arguments are used (assert-args)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

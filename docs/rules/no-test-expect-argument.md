@@ -1,4 +1,4 @@
-# forbid expect argument in QUnit.test (no-test-expect-argument)
+# Disallow the expect argument in QUnit.test (no-test-expect-argument)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

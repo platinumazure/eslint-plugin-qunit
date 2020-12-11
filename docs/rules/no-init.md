@@ -1,4 +1,4 @@
-# Forbids use of QUnit.init (no-init)
+# Disallow use of QUnit.init (no-init)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

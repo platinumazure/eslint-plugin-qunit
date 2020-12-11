@@ -1,4 +1,4 @@
-# forbid assert.throws() with block, string, and message (no-throws-string)
+# Disallow assert.throws() with block, string, and message args (no-throws-string)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

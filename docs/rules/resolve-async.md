@@ -1,4 +1,4 @@
-# Require that all async calls should be resolved in tests (resolve-async)
+# Require that async calls are resolved (resolve-async)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

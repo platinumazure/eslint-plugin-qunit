@@ -1,4 +1,4 @@
-# Forbid use of global stop()/start() (no-global-stop-start)
+# Disallow global stop/start (no-global-stop-start)
 
 :two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
 

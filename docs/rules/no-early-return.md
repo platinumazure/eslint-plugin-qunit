@@ -1,4 +1,4 @@
-# prevent early return in a QUnit test (no-early-return)
+# Disallow early return in tests (no-early-return)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

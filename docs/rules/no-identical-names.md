@@ -1,4 +1,4 @@
-# Forbid identical test and module names (no-identical-names)
+# Disallow identical test and module names (no-identical-names)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 

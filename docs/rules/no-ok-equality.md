@@ -1,4 +1,4 @@
-# Forbid equality comparisons in assert.ok/assert.notOk (no-ok-equality)
+# Disallow equality comparisons in assert.ok/assert.notOk (no-ok-equality)
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
