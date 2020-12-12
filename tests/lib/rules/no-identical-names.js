@@ -68,6 +68,29 @@ ruleTester.run("no-identical-title", rule, {
             }
         },
 
+        // Tests with identical names are allowed if they are in different modules.
+        outdent`
+            test('it1', function (assert) {});
+            module('module1', function () {
+                module('module2', function () {
+                    test('it1', function (assert) {});
+                });
+                test('it1', function (assert) {});
+            });
+        `,
+        outdent`
+            module('module1', function () {
+                test('it1', function (assert) {});
+                module('module2');
+                test('it1', function (assert) {}); // Part of module2
+            });
+        `,
+        outdent`
+            test("it1", function() {});
+            module("module1");
+            test("it1", function() {}); // Part of module1.
+        `,
+
         // Nested modules
         outdent`
             module("module1", function() {
@@ -172,6 +195,20 @@ ruleTester.run("no-identical-title", rule, {
         },
         {
             code: outdent `
+                module("module1", function() {});
+                test("it1", function() {});
+                module("module2", function() {});
+                test("it1", function() {});
+            `,
+            errors: [{
+                messageId: "duplicateTest",
+                data: { line: 2 },
+                column: 6,
+                line: 4
+            }]
+        },
+        {
+            code: outdent `
                 module("module1", function() {
                     module("module2", function() {
                         test("it", function() {});
@@ -211,6 +248,21 @@ ruleTester.run("no-identical-title", rule, {
                 data: { line: 1 },
                 column: 12,
                 line: 2
+            }]
+        },
+        {
+            code: outdent`
+                module("name1", function() {
+                    test('it1', function() {});
+                    module("name2", function() {});
+                    test('it1', function() {});
+                });
+            `,
+            errors: [{
+                messageId: "duplicateTest",
+                data: { line: 2 },
+                column: 10,
+                line: 4
             }]
         }
 
