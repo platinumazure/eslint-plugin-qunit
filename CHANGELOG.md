@@ -1,3 +1,8 @@
+### 5.2.0
+* Upgrade: devDependencies (#140) (Kevin Partington)
+* Fix: allow tests with identical names in different modules in no-identical-names rule (#131) (Bryan Mishkin)
+* Docs: add rule descriptions to README table (#139) (Bryan Mishkin)
+
 ### 5.1.1
 * Upgrade: Bump ini from 1.3.5 to 1.3.7 (#137) (dependabot[bot])
 * Docs: enable eslint-plugin/require-meta-docs-description lint rule to enforce consistent rule descriptions (#133) (Bryan Mishkin)
