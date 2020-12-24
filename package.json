@@ -19,7 +19,8 @@
     "lib/"
   ],
   "dependencies": {
-    "eslint-utils": "^2.1.0"
+    "eslint-utils": "^2.1.0",
+    "requireindex": "^1.2.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^6.19.0",

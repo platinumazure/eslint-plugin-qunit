@@ -7,45 +7,10 @@
 
 "use strict";
 
+const requireIndex = require("requireindex");
+
 module.exports = {
-    rules: {
-        "assert-args": require("./lib/rules/assert-args"),
-        "literal-compare-order": require("./lib/rules/literal-compare-order"),
-        "no-arrow-tests": require("./lib/rules/no-arrow-tests"),
-        "no-assert-equal": require("./lib/rules/no-assert-equal"),
-        "no-assert-equal-boolean": require("./lib/rules/no-assert-equal-boolean"),
-        "no-assert-logical-expression": require("./lib/rules/no-assert-logical-expression"),
-        "no-assert-ok": require("./lib/rules/no-assert-ok"),
-        "no-async-in-loops": require("./lib/rules/no-async-in-loops"),
-        "no-async-test": require("./lib/rules/no-async-test"),
-        "no-commented-tests": require("./lib/rules/no-commented-tests"),
-        "no-compare-relation-boolean": require("./lib/rules/no-compare-relation-boolean"),
-        "no-conditional-assertions": require("./lib/rules/no-conditional-assertions"),
-        "no-early-return": require("./lib/rules/no-early-return"),
-        "no-global-assertions": require("./lib/rules/no-global-assertions"),
-        "no-global-expect": require("./lib/rules/no-global-expect"),
-        "no-global-module-test": require("./lib/rules/no-global-module-test"),
-        "no-global-stop-start": require("./lib/rules/no-global-stop-start"),
-        "no-identical-names": require("./lib/rules/no-identical-names"),
-        "no-init": require("./lib/rules/no-init"),
-        "no-jsdump": require("./lib/rules/no-jsdump"),
-        "no-loose-assertions": require("./lib/rules/no-loose-assertions"),
-        "no-negated-ok": require("./lib/rules/no-negated-ok"),
-        "no-nested-tests": require("./lib/rules/no-nested-tests"),
-        "no-ok-equality": require("./lib/rules/no-ok-equality"),
-        "no-only": require("./lib/rules/no-only"),
-        "no-qunit-push": require("./lib/rules/no-qunit-push"),
-        "no-qunit-start-in-tests": require("./lib/rules/no-qunit-start-in-tests"),
-        "no-qunit-stop": require("./lib/rules/no-qunit-stop"),
-        "no-reassign-log-callbacks": require("./lib/rules/no-reassign-log-callbacks"),
-        "no-reset": require("./lib/rules/no-reset"),
-        "no-setup-teardown": require("./lib/rules/no-setup-teardown"),
-        "no-skip": require("./lib/rules/no-skip"),
-        "no-test-expect-argument": require("./lib/rules/no-test-expect-argument"),
-        "no-throws-string": require("./lib/rules/no-throws-string"),
-        "require-expect": require("./lib/rules/require-expect"),
-        "resolve-async": require("./lib/rules/resolve-async")
-    },
+    rules: requireIndex("./lib/rules"),
 
     // eslint-disable-next-line sort-keys
     configs: {
