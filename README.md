@@ -1,5 +1,6 @@
 # eslint-plugin-qunit
 
+[![NPM version](https://img.shields.io/npm/v/eslint-plugin-qunit.svg?style=flat)](https://npmjs.org/package/eslint-plugin-qunit)
 ![CI](https://github.com/platinumazure/eslint-plugin-qunit/workflows/CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/platinumazure/eslint-plugin-qunit/badge.svg?branch=master&service=github)](https://coveralls.io/github/platinumazure/eslint-plugin-qunit?branch=master)
 [![devDependency Status](https://david-dm.org/platinumazure/eslint-plugin-qunit/dev-status.svg)](https://david-dm.org/platinumazure/eslint-plugin-qunit#info=devDependencies)
