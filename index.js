@@ -10,7 +10,7 @@
 const requireIndex = require("requireindex");
 
 module.exports = {
-    rules: requireIndex("./lib/rules"),
+    rules: requireIndex(`${__dirname}/lib/rules`),
 
     // eslint-disable-next-line sort-keys
     configs: {
