@@ -41,6 +41,17 @@ ruleTester.run("no-identical-title", rule, {
             test("it1", function() {});
         `,
         outdent`
+            module('A');
+
+            test('foo', function() {});
+            test('bar', function() {});
+
+            module('B');
+
+            test('foo', function() {});
+            test('bar', function() {});
+        `,
+        outdent`
             module("module1");
             module("module2");
         `,
