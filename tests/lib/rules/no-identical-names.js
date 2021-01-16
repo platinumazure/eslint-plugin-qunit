@@ -52,6 +52,19 @@ ruleTester.run("no-identical-title", rule, {
             test('bar', function() {});
         `,
         outdent`
+            module('A', {}); // Object with no tests
+            test('foo', function () {});
+            module('B', function () {}); // Function with no tests
+            test('foo', function () {});
+        `,
+        outdent`
+            module("name1", function() {
+                test('it1', function() {});
+                module("name2", function() {});
+                test('it1', function() {}); // Part of name2
+            });
+        `,
+        outdent`
             module("module1");
             module("module2");
         `,
@@ -206,20 +219,6 @@ ruleTester.run("no-identical-title", rule, {
         },
         {
             code: outdent `
-                module("module1", function() {});
-                test("it1", function() {});
-                module("module2", function() {});
-                test("it1", function() {});
-            `,
-            errors: [{
-                messageId: "duplicateTest",
-                data: { line: 2 },
-                column: 6,
-                line: 4
-            }]
-        },
-        {
-            code: outdent `
                 module("module1", function() {
                     module("module2", function() {
                         test("it", function() {});
@@ -232,6 +231,26 @@ ruleTester.run("no-identical-title", rule, {
                 data: { line: 3 },
                 column: 14,
                 line: 4
+            }]
+        },
+        {
+            code: outdent `
+                test("it", function() {});
+
+                // Module with test deep inside it.
+                module("module1", function() {
+                    module("module2", function() {
+                        test("it-deep", function() {});
+                    });
+                });
+
+                test("it", function() {});
+            `,
+            errors: [{
+                messageId: "duplicateTest",
+                data: { line: 1 },
+                column: 6,
+                line: 10
             }]
         },
         {
@@ -260,22 +279,6 @@ ruleTester.run("no-identical-title", rule, {
                 column: 12,
                 line: 2
             }]
-        },
-        {
-            code: outdent`
-                module("name1", function() {
-                    test('it1', function() {});
-                    module("name2", function() {});
-                    test('it1', function() {});
-                });
-            `,
-            errors: [{
-                messageId: "duplicateTest",
-                data: { line: 2 },
-                column: 10,
-                line: 4
-            }]
         }
-
     ]
 });
