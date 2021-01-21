@@ -1,3 +1,12 @@
+### 5.3.0
+* Fix: requireindex usage when this plugin is referenced from other plugins (#144) (Bryan Mishkin)
+* Update: fix detection of test-less modules in no-identical-names rule (#146) (Bryan Mishkin)
+* Build: Add Windows to CI testing matrix (#145) (Bryan Mishkin)
+* Fix: false positive for tests in different modules in no-identical-names rule (#143) (Bryan Mishkin)
+* Docs: add npm badge to README (#141) (Bryan Mishkin)
+* Chore: Use requireindex to ensure correct rule files are exported (Kevin Partington)
+* Build: Run CI on all pushed branches (Kevin Partington)
+
 ### 5.2.0
 * Upgrade: devDependencies (#140) (Kevin Partington)
 * Fix: allow tests with identical names in different modules in no-identical-names rule (#131) (Bryan Mishkin)
