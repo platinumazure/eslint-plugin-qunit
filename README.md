@@ -47,6 +47,7 @@ Each rule has emojis denoting:
 | :two: | [no-global-expect](./docs/rules/no-global-expect.md) | disallow global expect|
 | :two: | [no-global-module-test](./docs/rules/no-global-module-test.md) | disallow global module/test/asyncTest|
 | :two: | [no-global-stop-start](./docs/rules/no-global-stop-start.md) | disallow global stop/start|
+|  | [no-hooks-from-ancestor-modules](./docs/rules/no-hooks-from-ancestor-modules.md) | disallow the use of hooks from ancestor modules|
 | :white_check_mark: | [no-identical-names](./docs/rules/no-identical-names.md) | disallow identical test and module names|
 | :two: | [no-init](./docs/rules/no-init.md) | disallow use of QUnit.init|
 | :two: | [no-jsdump](./docs/rules/no-jsdump.md) | disallow use of QUnit.jsDump|
