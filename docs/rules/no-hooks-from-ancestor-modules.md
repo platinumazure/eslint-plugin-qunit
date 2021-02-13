@@ -19,7 +19,7 @@ QUnit.module("outer module", function(hooks) {
 });
 
 QUnit.module("outer module", function(outerHooks) {
-  QUnit.module("inner module", function() {
+  QUnit.module("inner module", function(innerHooks) {
     outerHooks.beforeEach(function() {});
   });
 });
