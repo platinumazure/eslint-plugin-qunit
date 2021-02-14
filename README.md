@@ -67,6 +67,7 @@ Each rule has emojis denoting:
 | :white_check_mark::two: | [no-throws-string](./docs/rules/no-throws-string.md) | disallow assert.throws() with block, string, and message args|
 | :white_check_mark: | [require-expect](./docs/rules/require-expect.md) | enforce that `expect` is called|
 | :white_check_mark: | [resolve-async](./docs/rules/resolve-async.md) | require that async calls are resolved|
+|  | [use-object-in-propequal](./docs/rules/use-object-in-propequal.md) | enforce use of objects as expected value in `assert.propEqual`|
 
 <!--RULES_TABLE_END-->
 
