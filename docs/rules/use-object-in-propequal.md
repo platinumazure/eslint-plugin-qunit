@@ -16,7 +16,7 @@ assert.propEqual(actual, 0);
 
 assert.propEqual(actual, "foo");
 
-assert.propEqual(actual, ["array"]);
+assert.propEqual(actual, `foo`);
 
 assert.propEqual(actual, /regex/);
 ```
@@ -25,6 +25,8 @@ The following patterns are not considered warnings:
 
 ```js
 assert.propEqual(actual, { foo: "bar" });
+
+assert.propEqual(actual, ["array"]);
 
 // Variables are not checked
 assert.propEqual(actual, foo);

@@ -45,8 +45,11 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("use-object-in-propequal", rule, {
     valid: [
-        // Object expressions, identifiers, member expressions, and calls are fine
+        // Object expressions/array expressions
         wrap("assert.propEqual(actual, { foo: 'bar' });"),
+        wrap("assert.propEqual(actual, ['string']);"),
+
+        // Identifiers, member expressions, calls, and new expressions are fine
         wrap("assert.propEqual(actual, someVar);"),
         wrap("assert.propEqual(actual, obj.prop);"),
         wrap("assert.propEqual(actual, func());"),
@@ -64,7 +67,6 @@ ruleTester.run("use-object-in-propequal", rule, {
         wrap("assert.deepEqual(actual, -1);"),
         wrap("assert.deepEqual(actual, 'string');"),
         wrap("assert.deepEqual(actual, `template`);"),
-        wrap("assert.deepEqual(actual, ['string']);"),
         wrap("assert.deepEqual(actual, true);"),
         wrap("assert.deepEqual(actual, false);"),
         wrap("assert.deepEqual(actual, null);"),
@@ -85,7 +87,6 @@ ruleTester.run("use-object-in-propequal", rule, {
         createInvalid("assert.propEqual(actual, -1);", "-1"),
         createInvalid("assert.propEqual(actual, 'string');", "'string'"),
         createInvalid("assert.propEqual(actual, `template`);", "`template`"),
-        createInvalid("assert.propEqual(actual, ['string']);", "['string']"),
         createInvalid("assert.propEqual(actual, true);", "true"),
         createInvalid("assert.propEqual(actual, false);", "false"),
         createInvalid("assert.propEqual(actual, null);", "null"),
