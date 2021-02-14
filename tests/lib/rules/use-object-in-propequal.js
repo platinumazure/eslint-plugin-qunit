@@ -38,7 +38,7 @@ function createInvalid(assertionCode, invalidValue) {
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 2015,
         ecmaFeatures: { jsx: true }
     }
 });
@@ -62,7 +62,6 @@ ruleTester.run("use-object-in-propequal", rule, {
         wrap("assert.deepEqual(actual, { foo: 'bar' });"),
         wrap("assert.deepEqual(actual, 0);"),
         wrap("assert.deepEqual(actual, -1);"),
-        wrap("assert.deepEqual(actual, 0n);"),
         wrap("assert.deepEqual(actual, 'string');"),
         wrap("assert.deepEqual(actual, `template`);"),
         wrap("assert.deepEqual(actual, ['string']);"),
@@ -75,12 +74,15 @@ ruleTester.run("use-object-in-propequal", rule, {
         wrap("assert.deepEqual(actual, --foo);"),
         wrap("assert.deepEqual(actual, foo--);"),
         wrap("assert.deepEqual(actual, <JSX />);")
+
+        // eslint-disable-next-line no-warning-comments
+        // TODO: Uncomment when support for ESLint 5 is dropped
+        // wrap("assert.deepEqual(actual, 0n);"),
     ],
 
     invalid: [
         createInvalid("assert.propEqual(actual, 0);", "0"),
         createInvalid("assert.propEqual(actual, -1);", "-1"),
-        createInvalid("assert.propEqual(actual, 0n);", "0n"),
         createInvalid("assert.propEqual(actual, 'string');", "'string'"),
         createInvalid("assert.propEqual(actual, `template`);", "`template`"),
         createInvalid("assert.propEqual(actual, ['string']);", "['string']"),
@@ -93,5 +95,9 @@ ruleTester.run("use-object-in-propequal", rule, {
         createInvalid("assert.propEqual(actual, --foo);", "--foo"),
         createInvalid("assert.propEqual(actual, foo--);", "foo--"),
         createInvalid("assert.propEqual(actual, <JSX />)", "<JSX />")
+
+        // eslint-disable-next-line no-warning-comments
+        // TODO: Uncomment when support for ESLint 5 is dropped
+        // createInvalid("assert.propEqual(actual, 0n);", "0n"),
     ]
 });
