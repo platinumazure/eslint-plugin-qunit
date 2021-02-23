@@ -47,7 +47,7 @@ assert.ok(a > b);
 
 This rule takes an optional object containing:
 
-* `fixToNotOk` (boolean, default: false): Whether the rule should autofix examples like `assert.equal(a === b, false)` to `assert.notOk(a === b)` ([notOk](https://api.qunitjs.com/assert/notOk/) was added in QUnit 1.18)
+* `fixToNotOk` (boolean, default: true): Whether the rule should autofix examples like `assert.equal(a === b, false)` to `assert.notOk(a === b)` ([notOk](https://api.qunitjs.com/assert/notOk/) was added in QUnit 1.18)
 
 ## When Not To Use It
 
