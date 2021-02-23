@@ -39,7 +39,8 @@
     "shelljs": "^0.8.4"
   },
   "peerDepencencies": {
-    "eslint": ">=4.15.0 <8.0.0"
+    "eslint": ">=4.15.0 <8.0.0",
+    "qunit": ">=2.0.0"
   },
   "repository": {
     "type": "git",
