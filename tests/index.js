@@ -19,8 +19,7 @@ const assert = require("chai").assert,
 
 const MESSAGES = {
     fixable: ":wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.",
-    configRecommended: ":white_check_mark: The `\"extends\": \"plugin:qunit/recommended\"` property in a configuration file enables this rule.",
-    configTwo: ":two: The `\"extends\": \"plugin:qunit/two\"` property in a configuration file enables this rule."
+    configRecommended: ":white_check_mark: The `\"extends\": \"plugin:qunit/recommended\"` property in a configuration file enables this rule."
 };
 
 function toSentenceCase(str) {
@@ -87,11 +86,6 @@ describe("index.js", function () {
                         expectedNotices.push("configRecommended");
                     } else {
                         unexpectedNotices.push("configRecommended");
-                    }
-                    if (index.configs.two.rules[`qunit/${fileName}`]) {
-                        expectedNotices.push("configTwo");
-                    } else {
-                        unexpectedNotices.push("configTwo");
                     }
                     if (index.rules[fileName].meta.fixable) {
                         expectedNotices.push("fixable");

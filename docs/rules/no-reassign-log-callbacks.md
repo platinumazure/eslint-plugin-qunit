@@ -2,8 +2,6 @@
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
-:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
-
 In early versions of QUnit, it was possible to create logging functions that
 would be invoked as QUnit processed tests and modules by assigning to specific
 properties of the QUnit object. This became problematic when multiple logging
