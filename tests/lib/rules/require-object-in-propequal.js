@@ -43,7 +43,7 @@ const ruleTester = new RuleTester({
     }
 });
 
-ruleTester.run("use-object-in-propequal", rule, {
+ruleTester.run("require-object-in-propequal", rule, {
     valid: [
         // Object expressions/array expressions
         wrap("assert.propEqual(actual, { foo: 'bar' });"),
