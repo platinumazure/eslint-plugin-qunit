@@ -66,6 +66,7 @@ Each rule has emojis denoting:
 | :two: | [no-test-expect-argument](./docs/rules/no-test-expect-argument.md) | disallow the expect argument in QUnit.test|
 | :white_check_mark::two: | [no-throws-string](./docs/rules/no-throws-string.md) | disallow assert.throws() with block, string, and message args|
 | :white_check_mark: | [require-expect](./docs/rules/require-expect.md) | enforce that `expect` is called|
+|  | [require-object-in-propequal](./docs/rules/require-object-in-propequal.md) | enforce use of objects as expected value in `assert.propEqual`|
 | :white_check_mark: | [resolve-async](./docs/rules/resolve-async.md) | require that async calls are resolved|
 
 <!--RULES_TABLE_END-->
