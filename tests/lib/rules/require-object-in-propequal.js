@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/use-object-in-propequal"),
+const rule = require("../../../lib/rules/require-object-in-propequal"),
     RuleTester = require("eslint").RuleTester;
 
 //------------------------------------------------------------------------------

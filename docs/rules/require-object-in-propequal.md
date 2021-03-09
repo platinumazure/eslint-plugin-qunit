@@ -1,4 +1,4 @@
-# Enforce use of objects as expected value in `assert.propEqual` (use-object-in-propequal)
+# Enforce use of objects as expected value in `assert.propEqual` (require-object-in-propequal)
 
 The `assert.propEqual` assertion is for the strict-equality comparison of own-properties
 of two objects. If the expected value is a string or other non-object, the assertion
