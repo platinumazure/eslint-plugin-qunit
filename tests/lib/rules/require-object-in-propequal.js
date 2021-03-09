@@ -80,6 +80,11 @@ ruleTester.run("require-object-in-propequal", rule, {
         // eslint-disable-next-line no-warning-comments
         // TODO: Uncomment when support for ESLint 5 is dropped
         // wrap("assert.deepEqual(actual, 0n);"),
+
+        // eslint-disable-next-line no-warning-comments
+        // TODO: Uncomment when support for ESLint 5 is dropped
+        // wrap("assert.propEqual(actual, foo?.bar);"),
+        // wrap("assert.propEqual(actual, foo?.bar?.());")
     ],
 
     invalid: [
