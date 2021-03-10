@@ -38,6 +38,7 @@ Each rule has emojis denoting:
 | :white_check_mark: | [no-assert-logical-expression](./docs/rules/no-assert-logical-expression.md) | disallow binary logical expressions in assert arguments|
 |  | [no-assert-ok](./docs/rules/no-assert-ok.md) | disallow the use of assert.ok/assert.notOk|
 | :white_check_mark: | [no-async-in-loops](./docs/rules/no-async-in-loops.md) | disallow async calls in loops|
+|  | [no-async-module-callbacks](./docs/rules/no-async-module-callbacks.md) | disallow async module callbacks|
 | :two: | [no-async-test](./docs/rules/no-async-test.md) | disallow the use of asyncTest or QUnit.asyncTest|
 | :white_check_mark: | [no-commented-tests](./docs/rules/no-commented-tests.md) | disallow commented tests|
 | :wrench: | [no-compare-relation-boolean](./docs/rules/no-compare-relation-boolean.md) | disallow comparing relational expressions to booleans in assertions|
