@@ -1,11 +1,12 @@
 # Disallow async module callbacks (no-async-module-callbacks)
 
-QUnit does not support async module callbacks. Code after an `await` statement
-in an async module will run in an unexpected way.
+QUnit does not support async module callbacks. Only test and hook callbacks
+will work as expected when using `async` and `await`. Code after an `await`
+statement in an async module callback will run in an unexpected way.
 
 The following example will result in QUnit only running the first `test`
 as part of the first `module`. The second `test` will be treated as
-if it was within the last `module`that QUnit processes.
+if it was within the last `module` that QUnit processes.
 
 ```js
 QUnit.module('An async module', async function () {
