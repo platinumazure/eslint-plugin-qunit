@@ -9,9 +9,11 @@ also calls `assert.expect(0)`. QUnit also has a [configuration
 option](https://api.qunitjs.com/QUnit.config/) to require `expect` for every
 test. This rule checks for `expect` at linting time.
 
-The "always" option (default) requires that `expect` is called in each test.
+## Options
 
-The "except-simple" option only requires an `expect` call when an assertion is
+The "always" option requires that `expect` is called in each test.
+
+The "except-simple" (**default**) option only requires an `expect` call when an assertion is
 called inside of a block or when `assert` is passed to another function. The
 rationale here is that by wrapping `assert` statements in conditional blocks
 or callbacks, developers are at risk of creating tests that incorrectly pass
@@ -30,7 +32,7 @@ be considered an error.
 
 ### always
 
-When using the default "always" option, each test needs an expect call. So the
+When using the "always" option, each test needs an expect call. So the
 following would warn.
 
 ```js
@@ -55,7 +57,7 @@ test('name', function() {
 
 ### except-simple
 
-When using the "except-simple" option, the following patterns are considered
+When using the **default** "except-simple" option, the following patterns are considered
 warnings.
 
 ```js
