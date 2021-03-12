@@ -1,3 +1,10 @@
+### 5.4.0
+* New: no-async-module-callbacks rule (#147) (#150) (Ray Cohen)
+* New: require-object-in-propequal rule (#148) (Kevin Partington)
+* New: no-hooks-from-ancestor-modules rule (fixes #93) (#94) (Ray Cohen)
+* Build: Run against Node 15 in CI (Kevin Partington)
+* Upgrade: devDependencies (Kevin Partington)
+
 ### 5.3.0
 * Fix: requireindex usage when this plugin is referenced from other plugins (#144) (Bryan Mishkin)
 * Update: fix detection of test-less modules in no-identical-names rule (#146) (Bryan Mishkin)
