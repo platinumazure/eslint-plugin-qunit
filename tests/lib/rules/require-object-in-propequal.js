@@ -38,7 +38,7 @@ function createInvalid(assertionCode, invalidValue) {
 
 const ruleTester = new RuleTester({
     parserOptions: {
-        ecmaVersion: 2015,
+        ecmaVersion: 2020,
         ecmaFeatures: { jsx: true }
     }
 });
@@ -75,16 +75,12 @@ ruleTester.run("require-object-in-propequal", rule, {
         wrap("assert.deepEqual(actual, foo++);"),
         wrap("assert.deepEqual(actual, --foo);"),
         wrap("assert.deepEqual(actual, foo--);"),
-        wrap("assert.deepEqual(actual, <JSX />);")
+        wrap("assert.deepEqual(actual, <JSX />);"),
 
-        // eslint-disable-next-line no-warning-comments
-        // TODO: Uncomment when support for ESLint 5 is dropped
-        // wrap("assert.deepEqual(actual, 0n);"),
+        wrap("assert.deepEqual(actual, 0n);"),
 
-        // eslint-disable-next-line no-warning-comments
-        // TODO: Uncomment when support for ESLint 5 is dropped
-        // wrap("assert.propEqual(actual, foo?.bar);"),
-        // wrap("assert.propEqual(actual, foo?.bar?.());")
+        wrap("assert.propEqual(actual, foo?.bar);"),
+        wrap("assert.propEqual(actual, foo?.bar?.());")
     ],
 
     invalid: [
@@ -100,10 +96,7 @@ ruleTester.run("require-object-in-propequal", rule, {
         createInvalid("assert.propEqual(actual, foo++);", "foo++"),
         createInvalid("assert.propEqual(actual, --foo);", "--foo"),
         createInvalid("assert.propEqual(actual, foo--);", "foo--"),
-        createInvalid("assert.propEqual(actual, <JSX />)", "<JSX />")
-
-        // eslint-disable-next-line no-warning-comments
-        // TODO: Uncomment when support for ESLint 5 is dropped
-        // createInvalid("assert.propEqual(actual, 0n);", "0n"),
+        createInvalid("assert.propEqual(actual, <JSX />)", "<JSX />"),
+        createInvalid("assert.propEqual(actual, 0n);", "0n")
     ]
 });
