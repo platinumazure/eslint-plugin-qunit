@@ -99,6 +99,7 @@ ruleTester.run("no-negated-ok", rule, {
         {
             code: wrap("assert.ok(!foo)"),
             output: wrap("assert.equal(foo, false)"),
+            options: [{ fixToNotOk: false }],
             errors: [createError("assert.ok")]
         },
         {
@@ -108,14 +109,29 @@ ruleTester.run("no-negated-ok", rule, {
             errors: [createError("assert.ok")]
         },
         {
+            // fixToNotOk = true (implicit since this is the option's default)
+            code: wrap("assert.ok(!foo)"),
+            output: wrap("assert.notOk(foo)"),
+            errors: [createError("assert.ok")]
+        },
+
+        // ok (with message)
+        {
             code: wrap("assert.ok(!foo, 'message')"),
             output: wrap("assert.equal(foo, false, 'message')"),
+            options: [{ fixToNotOk: false }],
             errors: [createError("assert.ok")]
         },
         {
             code: wrap("assert.ok(!foo, 'message')"),
             output: wrap("assert.notOk(foo, 'message')"),
             options: [{ fixToNotOk: true }],
+            errors: [createError("assert.ok")]
+        },
+        {
+            // fixToNotOk = true (implicit since this is the option's default)
+            code: wrap("assert.ok(!foo, 'message')"),
+            output: wrap("assert.notOk(foo, 'message')"),
             errors: [createError("assert.ok")]
         },
 
@@ -135,6 +151,7 @@ ruleTester.run("no-negated-ok", rule, {
         {
             code: wrap("assert.ok(!!!foo)"),
             output: wrap("assert.equal(foo, false)"),
+            options: [{ fixToNotOk: false }],
             errors: [createError("assert.ok")]
         },
         {
@@ -144,8 +161,17 @@ ruleTester.run("no-negated-ok", rule, {
             errors: [createError("assert.ok")]
         },
         {
+            // fixToNotOk = true (implicit since this is the option's default)
+            code: wrap("assert.ok(!!!foo)"),
+            output: wrap("assert.notOk(foo)"),
+            errors: [createError("assert.ok")]
+        },
+
+        // triple negation is not allowed (with message)
+        {
             code: wrap("assert.ok(!!!foo, 'message')"),
             output: wrap("assert.equal(foo, false, 'message')"),
+            options: [{ fixToNotOk: false }],
             errors: [createError("assert.ok")]
         },
         {
@@ -155,10 +181,13 @@ ruleTester.run("no-negated-ok", rule, {
             errors: [createError("assert.ok")]
         },
         {
+            // fixToNotOk = true (implicit since this is the option's default)
             code: wrap("assert.notOk(!!!foo)"),
             output: wrap("assert.ok(foo)"),
             errors: [createError("assert.notOk")]
         },
+
+        // triple negation is not allowed (with notOk)
         {
             code: wrap("assert.notOk(!!!foo, 'message')"),
             output: wrap("assert.ok(foo, 'message')"),
