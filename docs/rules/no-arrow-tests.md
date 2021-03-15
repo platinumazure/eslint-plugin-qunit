@@ -1,5 +1,7 @@
 # Disallow arrow functions as QUnit test/module callbacks (no-arrow-tests)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 QUnit test and module callbacks can share state by modifying properties of

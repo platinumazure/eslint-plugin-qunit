@@ -1,5 +1,7 @@
 # Disallow comparing relational expressions to booleans in assertions (no-compare-relation-boolean)
 
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+
 :wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 Sometimes, QUnit assertions contain relations (such as `expected === actual`). Many of these relations can be expressed better using different assertion methods (such as `assert.strictEqual`). However, even for those comparisons which cannot easily be expressed (such as `actual > expected`), comparing those results explicitly to `true` or `false` provides no added value, because the assertion will show that true equals or does not equal true.
