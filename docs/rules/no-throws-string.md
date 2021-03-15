@@ -2,8 +2,6 @@
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
-:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
-
 QUnit 2.0 has deprecated the `assert.throws(block, string, message)` form of
 `assert.throws()`. This rule can be used to flag uses of the deprecated form
 and convert them to use a regular expression or some other predicate.
