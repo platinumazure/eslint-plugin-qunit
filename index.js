@@ -31,7 +31,7 @@ module.exports = {
                 "qunit/no-reassign-log-callbacks": "error",
                 "qunit/no-reset": "error",
                 "qunit/no-throws-string": "error",
-                "qunit/require-expect": ["error", "except-simple"],
+                "qunit/require-expect": "error",
                 "qunit/resolve-async": "error"
             }
         },
