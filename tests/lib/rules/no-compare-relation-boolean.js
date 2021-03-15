@@ -73,9 +73,9 @@ ruleTester.run("no-compare-relation-boolean", rule, {
             output: "assert.notOk(a === b);"
         },
         {
-            // No autofix when rule option `fixToNotOk` is off by default.
+            // fixToNotOk = true (implicit since this is the option's default)
             code: "assert.equal(a === b, false);",
-            output: null
+            output: "assert.notOk(a === b);"
         },
         {
             // No autofix when rule option `fixToNotOk` is off explicitly.
