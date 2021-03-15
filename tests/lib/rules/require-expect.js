@@ -52,25 +52,33 @@ ruleTester.run("require-expect", rule, {
         // default, calling expect is valid
         {
             code: "test('name', function(assert) { assert.expect(0) });",
-            options: []
+            options: [] // Defaults to except-simple
         },
 
         // default, using global expect
         {
             code: "test('name', function() { expect(0) });",
-            options: []
+            options: [] // Defaults to except-simple
         },
 
         // CallExpression without parent object throws no errors
         {
             code: "test('name', function(assert) { assert.expect(0); noParentObject() });",
-            options: []
+            options: [] // Defaults to except-simple
+        },
+        {
+            code: "test('name', function(assert) { assert.expect(0); noParentObject() });",
+            options: ["always"]
         },
 
         // assert at top of test context is ok
         {
             code: "test('name', function(assert) { assert.ok(true) });",
             options: ["except-simple"]
+        },
+        {
+            code: "test('name', function(assert) { assert.ok(true) });",
+            options: [] // Defaults to except-simple
         },
 
         // global assertion at top of test context is ok
@@ -129,10 +137,10 @@ ruleTester.run("require-expect", rule, {
     ],
 
     invalid: [
-        // default - make sure expect is identified correctly
+        // always - make sure expect is identified correctly
         {
             code: "test('name', function(assert) { other.assert.expect(0) });",
-            options: [],
+            options: ["always"],
             errors: [alwaysErrorMessage("assert.expect")]
         },
 
@@ -140,6 +148,11 @@ ruleTester.run("require-expect", rule, {
         {
             code: "test('name', function(assert) { while (false) { assert.ok(true) } });",
             options: ["except-simple"],
+            errors: [exceptSimpleErrorMessage("assert.expect")]
+        },
+        {
+            code: "test('name', function(assert) { while (false) { assert.ok(true) } });",
+            options: [], // Defaults to except-simple
             errors: [exceptSimpleErrorMessage("assert.expect")]
         },
 
@@ -282,21 +295,21 @@ ruleTester.run("require-expect", rule, {
         // "always" configration - simple case
         {
             code: "test('name', function(assert) { assert.ok(true) })",
-            options: [],
+            options: ["always"],
             errors: [alwaysErrorMessage("assert.expect")]
         },
 
         // "always" configration - global assertion
         {
             code: "test('name', function() { equal(1, 1) })",
-            options: [],
+            options: ["always"],
             errors: [alwaysErrorMessage("expect")]
         },
 
         // "always" configuration checking that "expect" is called on assert.
         {
             code: "test('name', function(assert) { other.expect(1); assert.ok(true); });",
-            options: [],
+            options: ["always"],
             errors: [alwaysErrorMessage("assert.expect")]
         },
 
@@ -311,14 +324,14 @@ ruleTester.run("require-expect", rule, {
                 "    });",
                 "});"
             ].join(returnAndIndent),
-            options: [],
+            options: ["always"],
             errors: [Object.assign(alwaysErrorMessage("assert.expect"), { line: 2 })]
         },
 
         // "always" configuration - multiple assert statements only report one error per test
         {
             code: "test('name', function(assert) { maybe(function() { assert.ok(true); assert.ok(true); }) });",
-            options: [],
+            options: ["always"],
             errors: [Object.assign(alwaysErrorMessage("assert.expect"), { column: 1 })]
         },
 

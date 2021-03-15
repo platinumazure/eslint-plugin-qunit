@@ -1,6 +1,6 @@
 # Disallow QUnit.push (no-qunit-push)
 
-:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
+:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 When writing custom assertions, the proper way to log an assertion result
 used to be calling `QUnit.push()` with the assertion result data. However, in

@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu, windows ]
-        node-version: [10.x, 12.x, 13.x, 14.x, 15.x]
+        node-version: [10.x, 12.x, 14.x, 15.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +29,6 @@ jobs:
     - run: npm test
     - run: npm run update && git diff --exit-code
     - run: npm install --save-dev eslint@6 && npm test
-    - run: npm install --save-dev eslint@5 && npm test
 
     - name: Coveralls
       uses: coverallsapp/github-action@master

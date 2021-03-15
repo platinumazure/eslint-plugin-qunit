@@ -2,8 +2,6 @@
 
 :white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
-:two: The `"extends": "plugin:qunit/two"` property in a configuration file enables this rule.
-
 Early versions of QUnit exposed the `QUnit.reset()` function, which allowed
 consumers to invoke the internal QUnit fixture reset logic. This has been
 discouraged for a long time since QUnit now automatically invokes this method
