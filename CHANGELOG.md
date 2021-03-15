@@ -1,3 +1,14 @@
+### 6.0.0
+* Upgrade: chai, mocha, eslint, markdownlint to latest (Kevin Partington)
+* Chore: Uncomment ES2020 tests in require-object-in-propequal (#159) (Kevin Partington)
+* Breaking: add more recommended rules for v6 (#157) (Bryan Mishkin)
+* Breaking: merge two config into recommended config (#155) (Bryan Mishkin)
+* Breaking: update require-expect rule to default to expect-simple option (#158) (Bryan Mishkin)
+* Breaking: update `fixToNotOk` rule option default to true in `no-compare-relation-boolean` rule (#154) (Bryan Mishkin)
+* Breaking: update `fixToNotOk` rule default option to true in `no-negated-ok` rule (#153) (Bryan Mishkin)
+* Breaking: drop Node 13 support (#152) (Bryan Mishkin)
+* Chore: require eslint 6+ as peer dependency (#151) (Bryan Mishkin)
+
 ### 5.4.0
 * New: no-async-module-callbacks rule (#147) (#150) (Ray Cohen)
 * New: require-object-in-propequal rule (#148) (Kevin Partington)
