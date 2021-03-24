@@ -36,6 +36,12 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
     valid: [
         "QUnit.testDone(function() {});",
         `
+        QUnit.module("module");
+        `,
+        `
+        QUnit.module("module", function() { test("it1", function() {}); });
+        `,
+        `
         QUnit.module("module", function(hooks) { hooks.beforeEach(function() {}); });
         `,
         `
@@ -109,7 +115,13 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
                 });
             });
         });
-        `
+        `,
+
+        {
+            // TypeScript: module callback is adding a type to `this`
+            code: "QUnit.module(\"module\", function(this: LocalTestContext, hooks) { hooks.afterEach(function() {}); });",
+            parser: require.resolve("@typescript-eslint/parser")
+        }
     ],
 
     invalid: [
@@ -194,6 +206,24 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
                     usedHooksIdentifierName: "firstHooks"
                 })
             ]
+        },
+
+        {
+            // TypeScript: module callback is adding a type to `this`
+            code: `
+                QUnit.module("module-a", function (this: LocalTestContext, hooks) {
+                    QUnit.module("module-b", function () {
+                        hooks.afterEach(function () {});
+                    });
+                });
+            `,
+            errors: [
+                createError({
+                    invokedMethodName: "afterEach",
+                    usedHooksIdentifierName: "hooks"
+                })
+            ],
+            parser: require.resolve("@typescript-eslint/parser")
         }
     ]
 });
