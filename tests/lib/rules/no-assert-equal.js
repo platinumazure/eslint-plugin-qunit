@@ -41,26 +41,82 @@ ruleTester.run("no-assert-equal", rule, {
             code: "QUnit.test('Name', function (assert) { assert.equal(a, b); });",
             errors: [{
                 messageId: "unexpectedAssertEqual",
-                data: { assertVar: "assert" }
+                data: { assertVar: "assert" },
+                suggestions: [
+                    {
+                        messageId: "switchToDeepEqual",
+                        output: "QUnit.test('Name', function (assert) { assert.deepEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToPropEqual",
+                        output: "QUnit.test('Name', function (assert) { assert.propEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToStrictEqual",
+                        output: "QUnit.test('Name', function (assert) { assert.strictEqual(a, b); });"
+                    }
+                ]
             }]
         },
         {
             code: "QUnit.test('Name', function (foo) { foo.equal(a, b); });",
             errors: [{
                 messageId: "unexpectedAssertEqual",
-                data: { assertVar: "foo" }
+                data: { assertVar: "foo" },
+                suggestions: [
+                    {
+                        messageId: "switchToDeepEqual",
+                        output: "QUnit.test('Name', function (foo) { foo.deepEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToPropEqual",
+                        output: "QUnit.test('Name', function (foo) { foo.propEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToStrictEqual",
+                        output: "QUnit.test('Name', function (foo) { foo.strictEqual(a, b); });"
+                    }
+                ]
             }]
         },
         {
             code: "QUnit.test('Name', function (assert) { equal(a, b); });",
             errors: [{
-                messageId: "unexpectedGlobalEqual"
+                messageId: "unexpectedGlobalEqual",
+                suggestions: [
+                    {
+                        messageId: "switchToDeepEqual",
+                        output: "QUnit.test('Name', function (assert) { deepEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToPropEqual",
+                        output: "QUnit.test('Name', function (assert) { propEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToStrictEqual",
+                        output: "QUnit.test('Name', function (assert) { strictEqual(a, b); });"
+                    }
+                ]
             }]
         },
         {
             code: "QUnit.test('Name', function () { equal(a, b); });",
             errors: [{
-                messageId: "unexpectedGlobalEqual"
+                messageId: "unexpectedGlobalEqual",
+                suggestions: [
+                    {
+                        messageId: "switchToDeepEqual",
+                        output: "QUnit.test('Name', function () { deepEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToPropEqual",
+                        output: "QUnit.test('Name', function () { propEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToStrictEqual",
+                        output: "QUnit.test('Name', function () { strictEqual(a, b); });"
+                    }
+                ]
             }]
         }
     ]
