@@ -7,7 +7,7 @@ of two objects. If the expected value is a string or other non-object, the asser
 result can be unexpected.
 
 For string comparisons, `assert.strictEqual` should be used. For arrays,
-`assert.deepStrictEqual` should be used.
+`assert.deepEqual` should be used.
 
 ## Rule Details
 
