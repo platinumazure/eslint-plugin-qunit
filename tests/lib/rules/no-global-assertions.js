@@ -40,6 +40,7 @@ ruleTester.run("no-global-assertions", rule, {
     valid: [
         wrap("assert.ok(true);"),
         wrap("assert.equal(a, b);"),
+        wrap("assert.false(foo);"),
         wrap("assert.strictEqual(a, b);"),
         wrap("assert.deepEqual(a, b);"),
         wrap("assert.propEqual(a, b);"),
@@ -49,6 +50,7 @@ ruleTester.run("no-global-assertions", rule, {
         wrap("assert.notPropEqual(a, b);"),
         wrap("assert.raises(function () {}, TypeError);"),
         wrap("assert.throws(function () {}, TypeError);"),
+        wrap("assert.true(foo);"),
         wrap("assert.expect(1);"),
 
         // Global overridden by local import/declaration.

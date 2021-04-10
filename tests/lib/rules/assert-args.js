@@ -44,6 +44,10 @@ ruleTester.run("assert-args", rule, {
         wrap("assert.equal(result, expected, 'Message');"),
         wrap("assert.equal(obj[key], expected, key + ' value is true');"),
 
+        // false
+        wrap("false(result);"),
+        wrap("false(result, 'Message');"),
+
         // strictEqual
         wrap("strictEqual(result, expected);"),
         wrap("strictEqual(result, expected, 'Message');"),
@@ -97,6 +101,10 @@ ruleTester.run("assert-args", rule, {
         wrap("assert.throws(function () {}, /error/, 'Message');"),
         wrap("assert.throws(function () {}, 'Error', 'Message');"),
         wrap("assert.throws(function () {}, TypeError, expectedMessage);"),
+
+        // true
+        wrap("true(result);"),
+        wrap("true(result, 'Message');"),
 
         // notOk
         wrap("notOk(result);"),
@@ -275,6 +283,50 @@ ruleTester.run("assert-args", rule, {
                 data: {
                     callee: "assert.equal",
                     argCount: 4
+                }
+            }]
+        },
+
+        // false
+        {
+            code: wrap("assert.false();"),
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.false",
+                    argCount: 0
+                }
+            }]
+        },
+        {
+            code: wrap("assert.false(a, b, 'Message');"),
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.false",
+                    argCount: 3
+                }
+            }]
+        },
+
+        // true
+        {
+            code: wrap("assert.true();"),
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.true",
+                    argCount: 0
+                }
+            }]
+        },
+        {
+            code: wrap("assert.true(a, b, 'Message');"),
+            errors: [{
+                messageId: "unexpectedArgCount",
+                data: {
+                    callee: "assert.true",
+                    argCount: 3
                 }
             }]
         },
