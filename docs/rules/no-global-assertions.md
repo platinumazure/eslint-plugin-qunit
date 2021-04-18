@@ -28,9 +28,9 @@ notDeepEqual(a, b);
 
 notPropEqual(a, b);
 
-raises(function (), TypeError);
+raises(function () {}, TypeError);
 
-throws(function (), TypeError);
+throws(function () {}, TypeError);
 
 ```
 
@@ -56,9 +56,9 @@ assert.notDeepEqual(a, b);
 
 assert.notPropEqual(a, b);
 
-assert.raises(function (), TypeError);
+assert.raises(function () {}, TypeError);
 
-assert.throws(function (), TypeError);
+assert.throws(function () {}, TypeError);
 
 ```
 

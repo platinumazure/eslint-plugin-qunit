@@ -74,7 +74,7 @@ test('name', function(assert) {
 });
 
 test('name', function(assert) {
-    var callback = function() {
+    function callback() {
         assert.ok(true);
     }
     callback();
