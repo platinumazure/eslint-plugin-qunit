@@ -190,7 +190,6 @@
                 "brace-style": "off",
                 "eqeqeq": "off",
                 "guard-for-in": "off",
-                "indent": "off",
                 "no-constant-condition": "off",
                 "no-empty-function": "off",
                 "no-undef": "off",
