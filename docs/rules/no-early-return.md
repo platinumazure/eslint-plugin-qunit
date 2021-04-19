@@ -31,8 +31,11 @@ QUnit[shouldRunTest() ? "test" : "skip"]("a test", function (assert) {
 // Nested function scopes are okay because they do not cause the test to abort
 QUnit.test("a test", function (assert) {
     (function () {
-        return;
-    })();
+        if (true) {
+            return;
+        }
+        assert.ok(true);
+    }());
 });
 
 if (shouldRunTest()) {

@@ -24,7 +24,7 @@ The following patterns are not warnings:
 
 ```js
 
-var done = assert.async():
+var done = assert.async();
 
 ```
 

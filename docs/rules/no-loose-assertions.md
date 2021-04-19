@@ -7,7 +7,7 @@ The `assert.equal`/`assert.notEqual` assertion methods in QUnit use loose equali
 An example when using `assert.ok` can involuntarily go wrong:
 
 ```js
-test('test myFunc returns a truthy value' (assert) => {
+test('test myFunc returns a truthy value', (assert) => {
   assert.ok(myFunc);
 });
 ```
@@ -83,7 +83,7 @@ QUnit.test('Name', function (foo) { foo.propEqual(a, b); });
 
 QUnit.test('Name', function () { propEqual(a, b); });
 
-/* eslint no-loose-assertions: ["error", ["strictEqual", "ok", "notOk"]] */
+/* With rule config: ["error", ["strictEqual", "ok", "notOk"]] */
 QUnit.test('Name', function (assert) { assert.notEqual(a, b); });
 
 ```
