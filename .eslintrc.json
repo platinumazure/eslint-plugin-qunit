@@ -1,5 +1,5 @@
 {
-    "extends": ["plugin:node/recommended", "plugin:eslint-plugin/recommended"],
+    "extends": ["plugin:node/recommended", "plugin:eslint-comments/recommended", "plugin:eslint-plugin/recommended"],
 
     "env": {
         "node": true
