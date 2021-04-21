@@ -46,7 +46,7 @@ ruleTester.run("assert-args", rule, {
 
         // false
         wrap("false(result);"),
-        wrap("false(result, 'Message');"),
+        wrap("assert.false(result, 'Message');"),
 
         // strictEqual
         wrap("strictEqual(result, expected);"),
