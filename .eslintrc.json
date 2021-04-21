@@ -1,5 +1,5 @@
 {
-    "extends": ["plugin:node/recommended", "plugin:eslint-plugin/recommended"],
+    "extends": ["plugin:node/recommended", "plugin:eslint-comments/recommended", "plugin:eslint-plugin/recommended"],
 
     "env": {
         "node": true
@@ -173,5 +173,32 @@
         "eslint-plugin/require-meta-type": "error",
         "eslint-plugin/test-case-property-ordering": "error",
         "eslint-plugin/test-case-shorthand-strings": "error"
-    }
+    },
+
+    "overrides": [
+        {
+            "files": ["**/*.md"],
+            "processor": "markdown/markdown"
+          },
+          {
+            "files": ["**/*.md/*.js", "**/*.md/*.javascript"],
+            "plugins": ["markdown"],
+            "parserOptions": {
+              "sourceType": "module"
+            },
+            "rules": {
+                "brace-style": "off",
+                "eqeqeq": "off",
+                "guard-for-in": "off",
+                "no-constant-condition": "off",
+                "no-empty-function": "off",
+                "no-undef": "off",
+                "no-unused-expressions": "off",
+                "no-unused-vars": "off",
+                "no-var": "off",
+                "quotes": "off",
+                "space-before-function-paren": "off"
+            }
+        }
+    ]
 }

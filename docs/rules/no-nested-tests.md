@@ -39,7 +39,7 @@ QUnit.module('ParentModule', function () {
     QUnit.module('ChildModule', function () {
         QUnit.test('ChildTest', function () {});
     });
-})
+});
 
 ```
 

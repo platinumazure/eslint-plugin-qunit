@@ -30,6 +30,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
         // Simple assertions
         wrap("assert.ok(foo);"),
         wrap("assert.equal(foo, bar);"),
+        wrap("assert.false(foo);"),
         wrap("assert.strictEqual(foo, bar);"),
         wrap("assert.deepEqual(foo, bar);"),
         wrap("assert.propEqual(foo, bar);"),
@@ -40,6 +41,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
         wrap("assert.notPropEqual(foo, bar);"),
         wrap("assert.raises(function () {}, /Message/);"),
         wrap("assert.throws(function () {}, /Message/);"),
+        wrap("assert.true(foo);"),
 
         // Logical expressions inside raises/throw blocks are fine
         wrap("assert.raises(function () { throw (foo || bar); });"),
@@ -420,6 +422,32 @@ ruleTester.run("no-assert-logical-expression", rule, {
                 type: "LogicalExpression",
                 line: 1,
                 column: 72
+            }]
+        },
+
+        // Boolean assertions
+        {
+            code: wrap("assert.true(foo && bar);"),
+            errors: [{
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
+                type: "LogicalExpression",
+                line: 1,
+                column: 52
+            }]
+        },
+        {
+            code: wrap("assert.false(foo && bar);"),
+            errors: [{
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
+                type: "LogicalExpression",
+                line: 1,
+                column: 53
             }]
         }
     ]

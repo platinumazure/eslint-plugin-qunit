@@ -15,15 +15,15 @@ The following patterns are considered warnings:
 
 ```js
 QUnit.module("outer module", function(hooks) {
-  QUnit.module("inner module", function() {
-    hooks.beforeEach(function() {});
-  });
+    QUnit.module("inner module", function() {
+        hooks.beforeEach(function() {});
+    });
 });
 
 QUnit.module("outer module", function(outerHooks) {
-  QUnit.module("inner module", function(innerHooks) {
-    outerHooks.beforeEach(function() {});
-  });
+    QUnit.module("inner module", function(innerHooks) {
+        outerHooks.beforeEach(function() {});
+    });
 });
 ```
 
@@ -31,7 +31,7 @@ The following patterns are not warnings:
 
 ```js
 QUnit.module("example module", function(hooks) {
-  hooks.beforeEach(function() {});
+    hooks.beforeEach(function() {});
 });
 ```
 
