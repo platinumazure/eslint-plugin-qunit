@@ -76,6 +76,7 @@ ruleTester.run("no-conditional-assertions", rule, {
     invalid: [
         "if (foo) assert.ok(true);",
         "if (foo) { assert.ok(true); }",
+        "if (foo) { assert.true(true); }",
         "if (foo) {} else if (bar) assert.ok(true);",
         "if (foo) {} else assert.ok(true);",
         "foo ? assert.ok(true) : false",
