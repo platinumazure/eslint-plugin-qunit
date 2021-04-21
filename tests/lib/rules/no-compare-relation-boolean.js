@@ -60,7 +60,7 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         // Comparing against something that isn't a boolean literal is fine
         "assert.equal(a > b, 1);",
         "assert.equal(a > b, c);"
-    ].map(wrapInQUnitTest),
+    ].map(code => wrapInQUnitTest(code)),
 
     invalid: [
         {
@@ -254,5 +254,5 @@ ruleTester.run("no-compare-relation-boolean", rule, {
             code: "assert.notPropEqual(false, a === b);",
             output: "assert.ok(a === b);"
         }
-    ].map(generateInvalidCase)
+    ].map(code => generateInvalidCase(code))
 });
