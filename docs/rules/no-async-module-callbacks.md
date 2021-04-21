@@ -12,15 +12,15 @@ if it was within the last `module` that QUnit processes.
 
 ```js
 QUnit.module('An async module', async function () {
-  QUnit.test('a passing test', function (assert) {
-    assert.ok(true);
-  });
+    QUnit.test('a passing test', function (assert) {
+        assert.ok(true);
+    });
 
-  await Promise.resolve();
+    await Promise.resolve();
 
-  QUnit.test('another passing test', function (assert) {
-    assert.ok(true);
-  });
+    QUnit.test('another passing test', function (assert) {
+        assert.ok(true);
+    });
 });
 
 QUnit.module('Some other module');

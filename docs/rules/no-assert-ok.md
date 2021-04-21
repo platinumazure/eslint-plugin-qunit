@@ -6,7 +6,7 @@ An example when using `assert.ok` can involuntarily go wrong:
 
 ```js
 test('test myFunc returns a truthy value', (assert) => {
-  assert.ok(myFunc);
+    assert.ok(myFunc);
 });
 ```
 
