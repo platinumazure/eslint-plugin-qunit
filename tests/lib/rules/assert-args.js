@@ -45,7 +45,7 @@ ruleTester.run("assert-args", rule, {
         wrap("assert.equal(obj[key], expected, key + ' value is true');"),
 
         // false
-        wrap("false(result);"),
+        wrap("assert.false(result);"),
         wrap("assert.false(result, 'Message');"),
 
         // strictEqual
