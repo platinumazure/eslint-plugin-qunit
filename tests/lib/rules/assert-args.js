@@ -104,7 +104,7 @@ ruleTester.run("assert-args", rule, {
 
         // true
         wrap("assert.true(result);"),
-        wrap("true(result, 'Message');"),
+        wrap("assert.true(result, 'Message');"),
 
         // notOk
         wrap("notOk(result);"),
