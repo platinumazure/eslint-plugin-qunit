@@ -103,7 +103,7 @@ ruleTester.run("assert-args", rule, {
         wrap("assert.throws(function () {}, TypeError, expectedMessage);"),
 
         // true
-        wrap("true(result);"),
+        wrap("assert.true(result);"),
         wrap("true(result, 'Message');"),
 
         // notOk
