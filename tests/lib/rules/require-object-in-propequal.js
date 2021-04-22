@@ -15,8 +15,7 @@ const rule = require("../../../lib/rules/require-object-in-propequal"),
 // Helpers
 //------------------------------------------------------------------------------
 
-function wrap(assertionCode, testName) {
-    testName = testName || "Name";
+function wrap(assertionCode, testName = "Name") {
     return `QUnit.test('${testName}', function (assert) { ${assertionCode} });`;
 }
 

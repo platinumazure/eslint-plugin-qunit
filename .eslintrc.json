@@ -1,8 +1,18 @@
 {
-    "extends": ["plugin:node/recommended", "plugin:eslint-comments/recommended", "plugin:eslint-plugin/recommended"],
+    "extends": [
+        "plugin:node/recommended",
+        "plugin:eslint-comments/recommended",
+        "plugin:eslint-plugin/recommended",
+        "plugin:unicorn/recommended"
+    ],
 
     "env": {
         "node": true
+    },
+
+    "parserOptions": {
+        "sourceType": "script",
+        "ecmaVersion": 2019
     },
 
     "plugins": ["node", "eslint-plugin"],
@@ -172,7 +182,15 @@
         "eslint-plugin/require-meta-schema": "error",
         "eslint-plugin/require-meta-type": "error",
         "eslint-plugin/test-case-property-ordering": "error",
-        "eslint-plugin/test-case-shorthand-strings": "error"
+        "eslint-plugin/test-case-shorthand-strings": "error",
+
+        // eslint-plugin-unicorn
+        "unicorn/consistent-function-scoping": "off",
+        "unicorn/empty-brace-spaces": "off",
+        "unicorn/filename-case": "off",
+        "unicorn/no-array-reduce": "off",
+        "unicorn/no-null": "off",
+        "unicorn/prevent-abbreviations": "off"
     },
 
     "overrides": [

@@ -15,8 +15,8 @@ const rule = require("../../../lib/rules/resolve-async"),
 // Helpers
 //------------------------------------------------------------------------------
 
-function createNeedStartCallsMessage(nodeType, numberOfCalls) {
-    const semaphore = numberOfCalls || 1;
+function createNeedStartCallsMessage(nodeType, numberOfCalls = 1) {
+    const semaphore = numberOfCalls;
     const callOrCalls = semaphore === 1 ? "call" : "calls";
 
     return {

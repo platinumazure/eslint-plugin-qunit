@@ -26,7 +26,7 @@ function toSentenceCase(str) {
     return str.replace(
         /^\w/,
         function (txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            return txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase();
         }
     );
 }
@@ -45,7 +45,7 @@ describe("index.js", function () {
     });
 
     it("rules", function () {
-        ruleFileNames.forEach(function (fileName) {
+        for (const fileName of ruleFileNames) {
             describe(fileName, function () {
                 it("should appear in rule exports", function () {
                     assert.property(index.rules, fileName, `Rule export for ${fileName} not present`);
@@ -95,22 +95,22 @@ describe("index.js", function () {
 
                     // Ensure that expected notices are present in the correct order.
                     let currentLineNumber = 1;
-                    expectedNotices.forEach(expectedNotice => {
+                    for (const expectedNotice of expectedNotices) {
                         assert.equal(lines[currentLineNumber], "", `has blank line before ${expectedNotice} notice`);
                         assert.equal(lines[currentLineNumber + 1], MESSAGES[expectedNotice], `includes ${expectedNotice} notice`);
                         currentLineNumber += 2;
-                    });
+                    }
 
                     // Ensure that unexpected notices are not present.
-                    unexpectedNotices.forEach(unexpectedNotice => {
+                    for (const unexpectedNotice of unexpectedNotices) {
                         assert.ok(
                             !fileContents.includes(MESSAGES[unexpectedNotice]),
                             `does not include unexpected ${unexpectedNotice} notice`
                         );
-                    });
+                    }
                 });
             });
-        });
+        }
     });
 
     describe("configs", function () {
