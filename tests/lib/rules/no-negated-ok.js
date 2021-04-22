@@ -91,7 +91,49 @@ ruleTester.run("no-negated-ok", rule, {
         wrap("assert.ok.foo(!a)"),
         wrap("foo.assert.ok(!a)"),
         wrap("foo.assert.bar.ok(!a)"),
-        wrap("foo.assert.bar.ok.baz(!a)")
+        wrap("foo.assert.bar.ok.baz(!a)"),
+
+        // Boolean assertions, no negation
+        {
+            code: wrap("assert.true(foo)"),
+            options: [{ checkBooleanAssertions: true }]
+        },
+        {
+            code: wrap("assert.true(foo, 'message')"),
+            options: [{ checkBooleanAssertions: true }]
+        },
+        {
+            code: wrap("assert.false(foo)"),
+            options: [{ checkBooleanAssertions: true }]
+        },
+        {
+            code: wrap("assert.false(foo, 'message')"),
+            options: [{ checkBooleanAssertions: true }]
+        },
+
+        // Boolean assertions, negation, checkBooleanAssertions = false (implicitly)
+        wrap("assert.true(!foo)"),
+        wrap("assert.true(!foo, 'message')"),
+        wrap("assert.false(!foo)"),
+        wrap("assert.false(!foo, 'message')"),
+
+        // Boolean assertions, negation, checkBooleanAssertions = false (explicitly)
+        {
+            code: wrap("assert.true(!foo)"),
+            options: [{ checkBooleanAssertions: false }]
+        },
+        {
+            code: wrap("assert.true(!foo, 'message')"),
+            options: [{ checkBooleanAssertions: false }]
+        },
+        {
+            code: wrap("assert.false(!foo)"),
+            options: [{ checkBooleanAssertions: false }]
+        },
+        {
+            code: wrap("assert.false(!foo, 'message')"),
+            options: [{ checkBooleanAssertions: false }]
+        }
     ],
 
     invalid: [
@@ -192,6 +234,22 @@ ruleTester.run("no-negated-ok", rule, {
             code: wrap("assert.notOk(!!!foo, 'message')"),
             output: wrap("assert.ok(foo, 'message')"),
             errors: [createError("assert.notOk")]
+        },
+
+        // true
+        {
+            code: wrap("assert.true(!foo)"),
+            output: wrap("assert.false(foo)"),
+            options: [{ checkBooleanAssertions: true }],
+            errors: [createError("assert.true")]
+        },
+
+        // false
+        {
+            code: wrap("assert.false(!foo)"),
+            output: wrap("assert.true(foo)"),
+            options: [{ checkBooleanAssertions: true }],
+            errors: [createError("assert.false")]
         }
     ]
 
