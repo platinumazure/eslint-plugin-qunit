@@ -1,3 +1,18 @@
+### 6.1.0
+* Update: add checkBooleanAssertions option to no-ok-equality rule (#173) (Bryan Mishkin)
+* Chore: Add eslint-plugin-unicorn (#180) (Bryan Mishkin)
+* Update: add checkBooleanAssertions option to no-negated-ok rule (#174) (Bryan Mishkin)
+* Fix: handle typed this callback argument in no-hooks-from-ancestor-modules rule (#162) (Bryan Mishkin)
+* Build: start testing under Node 16 (#181) (Bryan Mishkin)
+* Update: Ensure boolean assertions are not missed by several rules (#172) (Bryan Mishkin)
+* Chore: add eslint-plugin-eslint-comments (#178) (Bryan Mishkin)
+* Docs: enable/autofix indent rule in markdown JS code samples (#177) (Bryan Mishkin)
+* Docs: Add eslint-plugin-markdown for JavaScript code samples in documentation (#176) (Bryan Mishkin)
+* Upgrade: Bump y18n from 4.0.0 to 4.0.1 (#163) (dependabot[bot])
+* Update: add automatic suggestions for `no-assert-equal` rule (#165) (Bryan Mishkin)
+* Fix: only flag callee node instead of entire call expression in no-hooks-from-ancestor-modules rule (#160) (Bryan Mishkin)
+* Docs: fix typo of deepEqual assert name in require-object-in-propequal rule doc (#166) (Bryan Mishkin)
+
 ### 6.0.0
 * Upgrade: chai, mocha, eslint, markdownlint to latest (Kevin Partington)
 * Chore: Uncomment ES2020 tests in require-object-in-propequal (#159) (Kevin Partington)
