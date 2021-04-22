@@ -62,6 +62,13 @@ QUnit.test("Name", function (assert) { assert.ok(x instanceof Number); });
 
 ```
 
+## Configuration
+
+This rule takes an optional object containing:
+
+* `allowGlobals` (boolean, default: true): Whether the rule should check global assertions
+* `checkBooleanAssertions` (boolean, default: false): Whether the rule should check the [true](https://api.qunitjs.com/assert/true/) and [false](https://api.qunitjs.com/assert/false/) boolean assertions
+
 ## When Not to Use It
 
 It is best to enable this rule, but since it is possible to test a codebase
