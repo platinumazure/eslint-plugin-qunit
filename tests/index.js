@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 const assert = require("chai").assert,
-    index = require("../index"),
+    { rules, configs } = require("../index"),
     fs = require("fs"),
     path = require("path");
 
@@ -31,63 +31,53 @@ function toSentenceCase(str) {
     );
 }
 
+const ruleNames = fs.readdirSync("./lib/rules").map(rawFileName => path.basename(rawFileName, ".js"));
+
 describe("index.js", function () {
-    let ruleFileNames;
-
-    before(function (done) {
-        fs.readdir("./lib/rules", function (err, files) {
-            if (err) throw err;
-            ruleFileNames = files.map(function (rawFileName) {
-                return path.basename(rawFileName, ".js");
-            });
-            done();
-        });
-    });
-
-    it("rules", function () {
-        for (const fileName of ruleFileNames) {
-            describe(fileName, function () {
+    describe("rules", function () {
+        for (const ruleName of ruleNames) {
+            describe(ruleName, function () {
                 it("should appear in rule exports", function () {
-                    assert.property(index.rules, fileName, `Rule export for ${fileName} not present`);
+                    assert.property(rules, ruleName, `Rule export for ${ruleName} not present`);
                 });
 
                 it("should appear in tests", function (done) {
-                    const path = `./tests/lib/rules/${fileName}.js`;
+                    const path = `./tests/lib/rules/${ruleName}.js`;
 
                     fs.access(path, function (err) {
-                        assert.notOk(err, `tests/lib/rules/${fileName}.js should exist`);
+                        assert.notOk(err, `tests/lib/rules/${ruleName}.js should exist`);
                         done();
                     });
                 });
 
                 it("should appear in docs", function (done) {
-                    const path = `./docs/rules/${fileName}.md`;
+                    const path = `./docs/rules/${ruleName}.md`;
 
                     fs.access(path, function (err) {
-                        assert.notOk(err, `docs/rules/${fileName}.md should exist`);
+                        assert.notOk(err, `docs/rules/${ruleName}.md should exist`);
                         done();
                     });
                 });
 
                 it("should have the right doc contents", function () {
-                    const path = `./docs/rules/${fileName}.md`;
+                    const path = `./docs/rules/${ruleName}.md`;
                     const fileContents = fs.readFileSync(path, "utf8");
                     const lines = fileContents.split("\n");
 
                     // First content should be title.
-                    const description = index.rules[fileName].meta.docs.description;
-                    const expectedTitle = `# ${toSentenceCase(description)} (${fileName})`;
+                    const description = rules[ruleName].meta.docs.description;
+                    const expectedTitle = `# ${toSentenceCase(description)} (${ruleName})`;
                     assert.equal(lines[0], expectedTitle, "includes the rule description and name in title");
 
                     // Decide which notices should be shown at the top of the doc.
                     const expectedNotices = [];
                     const unexpectedNotices = [];
-                    if (index.configs.recommended.rules[`qunit/${fileName}`]) {
+                    if (configs.recommended.rules[`qunit/${ruleName}`]) {
                         expectedNotices.push("configRecommended");
                     } else {
                         unexpectedNotices.push("configRecommended");
                     }
-                    if (index.rules[fileName].meta.fixable) {
+                    if (rules[ruleName].meta.fixable) {
                         expectedNotices.push("fixable");
                     } else {
                         unexpectedNotices.push("fixable");
@@ -114,8 +104,8 @@ describe("index.js", function () {
     });
 
     describe("configs", function () {
-        for (const configName of Object.keys(index.configs)) {
-            const config = index.configs[configName];
+        // eslint-disable-next-line mocha/no-setup-in-describe -- rule doesn't like function calls like `Object.entries()`
+        for (const [configName, config] of Object.entries(configs)) {
             describe(configName, function () {
                 it("has the right plugins", function () {
                     assert.deepStrictEqual(config.plugins, ["qunit"]);
