@@ -217,6 +217,10 @@
                 "quotes": "off",
                 "space-before-function-paren": "off"
             }
+        },
+        {
+            "files": ["tests/**/*.js"],
+            "extends": ["plugin:mocha/recommended"]
         }
     ]
 }
