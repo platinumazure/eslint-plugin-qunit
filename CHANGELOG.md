@@ -1,3 +1,8 @@
+### 6.1.1
+* Upgrade: devDependencies (Kevin Partington)
+* Fix: fix global equal() check in no-assert-equal rule (#183) (Bryan Mishkin)
+* Chore: add eslint-plugin-mocha (#184) (Bryan Mishkin)
+
 ### 6.1.0
 * Update: add checkBooleanAssertions option to no-ok-equality rule (#173) (Bryan Mishkin)
 * Chore: Add eslint-plugin-unicorn (#180) (Bryan Mishkin)
