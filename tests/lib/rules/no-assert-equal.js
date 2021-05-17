@@ -32,8 +32,14 @@ ruleTester.run("no-assert-equal", rule, {
         "QUnit.test('Name', function () { deepEqual(a, b); });",
         "QUnit.test('Name', function () { propEqual(a, b); });",
 
-        // equal is not within test context
-        "equal(a, b);"
+        // global `equal` but not within test context
+        {
+            code: "equal(a, b);",
+            globals: { equal: true }
+        },
+
+        // `equal` but not the global
+        "function equal(a,b) {}; QUnit.test('Name', function () { equal(a, b); });"
     ],
 
     invalid: [
@@ -97,7 +103,8 @@ ruleTester.run("no-assert-equal", rule, {
                         output: "QUnit.test('Name', function (assert) { strictEqual(a, b); });"
                     }
                 ]
-            }]
+            }],
+            globals: { equal: true }
         },
         {
             code: "QUnit.test('Name', function () { equal(a, b); });",
@@ -117,7 +124,8 @@ ruleTester.run("no-assert-equal", rule, {
                         output: "QUnit.test('Name', function () { strictEqual(a, b); });"
                     }
                 ]
-            }]
+            }],
+            globals: { equal: true }
         }
     ]
 });
