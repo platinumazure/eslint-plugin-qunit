@@ -19,18 +19,10 @@ const rulesTableContent = Object.keys(rules)
         // Check which emojis to show for this rule.
         const isRecommended = Object.prototype.hasOwnProperty.call(configs.recommended.rules, `qunit/${ruleName}`);
         const isFixable = rules[ruleName].meta.fixable;
-
-        const emojis = [
-            isRecommended ? EMOJI_RECOMMENDED : "",
-            isFixable ? EMOJI_FIXABLE : ""
-        ].join("");
-
         const url = `./docs/rules/${ruleName}.md`;
         const link = `[${ruleName}](${url})`;
-
         const description = rules[ruleName].meta.docs.description;
-
-        return `| ${emojis} | ${link} | ${description}|`;
+        return `| ${link} | ${description} | ${isRecommended ? EMOJI_RECOMMENDED : ""} | ${isFixable ? EMOJI_FIXABLE : ""} |`;
     })
     .join("\n");
 
@@ -38,6 +30,6 @@ fs.writeFileSync(
     pathReadme,
     readmeContent.replace(
         tablePlaceholder,
-        `<!--RULES_TABLE_START-->\n\n|    | Name | Description |\n|:---|:--------|:--------|\n${rulesTableContent}\n\n<!--RULES_TABLE_END-->`
+        `<!--RULES_TABLE_START-->\n\n| Name | Description | ${EMOJI_RECOMMENDED} | ${EMOJI_FIXABLE} |\n|:--------|:--------|:---|:---|\n${rulesTableContent}\n\n<!--RULES_TABLE_END-->`
     )
 );
