@@ -2,7 +2,7 @@
     "extends": [
         "plugin:node/recommended",
         "plugin:eslint-comments/recommended",
-        "plugin:eslint-plugin/recommended",
+        "plugin:eslint-plugin/all",
         "plugin:unicorn/recommended"
     ],
 
@@ -167,22 +167,13 @@
         "wrap-iife": "error",
         "yoda": ["error", "never"],
 
-        "eslint-plugin/consistent-output": "error",
+        // eslint-plugin-eslint-plugin
         "eslint-plugin/meta-property-ordering": ["error", [
             "type", "docs", "fixable", "messages", "schema", "deprecated", "replacedBy"
         ]],
-        "eslint-plugin/no-deprecated-context-methods": "error",
-        "eslint-plugin/prefer-output-null": "error",
-        "eslint-plugin/prefer-placeholders": "error",
-        "eslint-plugin/report-message-format": ["error", "^[A-Z].*\\.$"],
-        "eslint-plugin/require-meta-docs-description": "error",
         "eslint-plugin/require-meta-docs-url": ["error", {
             "pattern": "https://github.com/platinumazure/eslint-plugin-qunit/blob/master/docs/rules/{{name}}.md"
         }],
-        "eslint-plugin/require-meta-schema": "error",
-        "eslint-plugin/require-meta-type": "error",
-        "eslint-plugin/test-case-property-ordering": "error",
-        "eslint-plugin/test-case-shorthand-strings": "error",
 
         // eslint-plugin-unicorn
         "unicorn/consistent-function-scoping": "off",
