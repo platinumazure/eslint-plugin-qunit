@@ -28,7 +28,6 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run update && git diff --exit-code
-    - run: npm install --save-dev eslint@6 --save-dev eslint-plugin-unicorn@19 --save-dev eslint-plugin-mocha@6 && npm run unit-test
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
