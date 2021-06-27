@@ -111,12 +111,6 @@ ruleTester.run("no-negated-ok", rule, {
             options: [{ checkBooleanAssertions: true }]
         },
 
-        // Boolean assertions, negation, checkBooleanAssertions = false (implicitly)
-        wrap("assert.true(!foo)"),
-        wrap("assert.true(!foo, 'message')"),
-        wrap("assert.false(!foo)"),
-        wrap("assert.false(!foo, 'message')"),
-
         // Boolean assertions, negation, checkBooleanAssertions = false (explicitly)
         {
             code: wrap("assert.true(!foo)"),
@@ -240,11 +234,21 @@ ruleTester.run("no-negated-ok", rule, {
         {
             code: wrap("assert.true(!foo)"),
             output: wrap("assert.false(foo)"),
+            errors: [createError("assert.true")]
+        },
+        {
+            code: wrap("assert.true(!foo)"),
+            output: wrap("assert.false(foo)"),
             options: [{ checkBooleanAssertions: true }],
             errors: [createError("assert.true")]
         },
 
         // false
+        {
+            code: wrap("assert.false(!foo)"),
+            output: wrap("assert.true(foo)"),
+            errors: [createError("assert.false")]
+        },
         {
             code: wrap("assert.false(!foo)"),
             output: wrap("assert.true(foo)"),
