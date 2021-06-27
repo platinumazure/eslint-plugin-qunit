@@ -64,11 +64,11 @@ ruleTester.run("no-global-expect", rule, {
     invalid: [
         {
             code: wrap("expect(1)"),
+            globals: { expect: true },
             errors: [{
                 messageId: "unexpectedGlobalExpect",
                 type: "CallExpression"
-            }],
-            globals: { expect: true }
+            }]
         }
     ]
 });
