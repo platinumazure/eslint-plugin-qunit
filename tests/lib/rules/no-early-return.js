@@ -35,7 +35,7 @@ ruleTester.run("no-early-return", rule, {
             parserOptions: { ecmaVersion: 6 }
         },
 
-        // Conditially run tests are okay
+        // Conditionally run tests are okay
         "QUnit[shouldRunTest() ? 'test' : 'skip']('a test', function (assert) { assert.ok(true); });",
         "if (shouldRunTest()) { QUnit.test('a test', function (assert) { assert.ok(true); }); }",
 

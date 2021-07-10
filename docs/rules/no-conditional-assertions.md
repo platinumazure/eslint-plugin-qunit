@@ -26,7 +26,7 @@ The following patterns are not warnings:
 
 ```js
 
-if (conditon) {
+if (condition) {
     QUnit.test("some test", function (assert) {
         assert.ok(true);
     });
