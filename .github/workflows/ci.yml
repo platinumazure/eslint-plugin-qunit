@@ -16,7 +16,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu, windows ]
-        node-version: [10.x, 12.x, 14.x, 15.x, 16.x]
+        node-version: [12.x, 14.x, 16.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -28,7 +28,6 @@ jobs:
     - run: npm ci
     - run: npm test
     - run: npm run update && git diff --exit-code
-    - run: npm install --save-dev eslint@6 --save-dev eslint-plugin-unicorn@19 --save-dev eslint-plugin-mocha@6 && npm run unit-test
 
     - name: Coveralls
       uses: coverallsapp/github-action@master

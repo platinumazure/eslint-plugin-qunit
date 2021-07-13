@@ -87,6 +87,7 @@ ruleTester.run("no-assert-equal", rule, {
         },
         {
             code: "QUnit.test('Name', function (assert) { equal(a, b); });",
+            globals: { equal: true },
             errors: [{
                 messageId: "unexpectedGlobalEqual",
                 suggestions: [
@@ -103,11 +104,11 @@ ruleTester.run("no-assert-equal", rule, {
                         output: "QUnit.test('Name', function (assert) { strictEqual(a, b); });"
                     }
                 ]
-            }],
-            globals: { equal: true }
+            }]
         },
         {
             code: "QUnit.test('Name', function () { equal(a, b); });",
+            globals: { equal: true },
             errors: [{
                 messageId: "unexpectedGlobalEqual",
                 suggestions: [
@@ -124,8 +125,7 @@ ruleTester.run("no-assert-equal", rule, {
                         output: "QUnit.test('Name', function () { strictEqual(a, b); });"
                     }
                 ]
-            }],
-            globals: { equal: true }
+            }]
         }
     ]
 });

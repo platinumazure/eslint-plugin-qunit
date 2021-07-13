@@ -35,25 +35,25 @@ ruleTester.run("no-global-stop-start", rule, {
     invalid: [
         {
             code: "stop();",
+            globals: { stop: true },
             errors: [{
                 messageId: "unexpectedGlobalStopStart",
                 data: {
                     callee: "stop"
                 },
                 type: "CallExpression"
-            }],
-            globals: { stop: true }
+            }]
         },
         {
             code: "start();",
+            globals: { start: true },
             errors: [{
                 messageId: "unexpectedGlobalStopStart",
                 data: {
                     callee: "start"
                 },
                 type: "CallExpression"
-            }],
-            globals: { start: true }
+            }]
         }
     ]
 });

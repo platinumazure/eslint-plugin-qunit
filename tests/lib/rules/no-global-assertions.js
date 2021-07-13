@@ -65,58 +65,58 @@ ruleTester.run("no-global-assertions", rule, {
     invalid: [
         {
             code: wrap("ok(true);"),
-            errors: [createError("ok")],
-            globals: { ok: true }
+            globals: { ok: true },
+            errors: [createError("ok")]
         },
         {
             code: wrap("equal(a, b);"),
-            errors: [createError("equal")],
-            globals: { equal: true }
+            globals: { equal: true },
+            errors: [createError("equal")]
         },
         {
             code: wrap("strictEqual(a, b);"),
-            errors: [createError("strictEqual")],
-            globals: { strictEqual: true }
+            globals: { strictEqual: true },
+            errors: [createError("strictEqual")]
         },
         {
             code: wrap("deepEqual(a, b);"),
-            errors: [createError("deepEqual")],
-            globals: { deepEqual: true }
+            globals: { deepEqual: true },
+            errors: [createError("deepEqual")]
         },
         {
             code: wrap("propEqual(a, b);"),
-            errors: [createError("propEqual")],
-            globals: { propEqual: true }
+            globals: { propEqual: true },
+            errors: [createError("propEqual")]
         },
         {
             code: wrap("notEqual(a, b);"),
-            errors: [createError("notEqual")],
-            globals: { notEqual: true }
+            globals: { notEqual: true },
+            errors: [createError("notEqual")]
         },
         {
             code: wrap("notStrictEqual(a, b);"),
-            errors: [createError("notStrictEqual")],
-            globals: { notStrictEqual: true }
+            globals: { notStrictEqual: true },
+            errors: [createError("notStrictEqual")]
         },
         {
             code: wrap("notDeepEqual(a, b);"),
-            errors: [createError("notDeepEqual")],
-            globals: { notDeepEqual: true }
+            globals: { notDeepEqual: true },
+            errors: [createError("notDeepEqual")]
         },
         {
             code: wrap("notPropEqual(a, b);"),
-            errors: [createError("notPropEqual")],
-            globals: { notPropEqual: true }
+            globals: { notPropEqual: true },
+            errors: [createError("notPropEqual")]
         },
         {
             code: wrap("raises(function () {}, TypeError);"),
-            errors: [createError("raises")],
-            globals: { raises: true }
+            globals: { raises: true },
+            errors: [createError("raises")]
         },
         {
             code: wrap("throws(function () {}, TypeError);"),
-            errors: [createError("throws")],
-            globals: { throws: true }
+            globals: { throws: true },
+            errors: [createError("throws")]
         }
     ]
 });
