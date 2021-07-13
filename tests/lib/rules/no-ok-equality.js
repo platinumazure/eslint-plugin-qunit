@@ -82,36 +82,10 @@ ruleTester.run("no-ok-equality", rule, {
         },
 
         // Boolean assertions with no equality checks:
-        {
-            code: "test('Name', function (assert) { assert.true(x); });",
-            options: [{ checkBooleanAssertions: true }]
-        },
-        {
-            code: "test('Name', function (assert) { assert.true(x, 'message'); });",
-            options: [{ checkBooleanAssertions: true }]
-        },
-        {
-            code: "test('Name', function (assert) { assert.false(x); });",
-            options: [{ checkBooleanAssertions: true }]
-        },
-        {
-            code: "test('Name', function (assert) { assert.false(x, 'message'); });",
-            options: [{ checkBooleanAssertions: true }]
-        },
-
-        // Boolean assertions with equality checks (checkBooleanAssertions = false, implicitly)
-        "test('Name', function (assert) { assert.true(x === 1); });",
-        "test('Name', function (assert) { assert.false(x === 1); });",
-
-        // Boolean assertions with equality checks (checkBooleanAssertions = false, explicitly)
-        {
-            code: "test('Name', function (assert) { assert.true(x === 1); });",
-            options: [{ checkBooleanAssertions: false }]
-        },
-        {
-            code: "test('Name', function (assert) { assert.false(x === 1); });",
-            options: [{ checkBooleanAssertions: false }]
-        }
+        "test('Name', function (assert) { assert.true(x); });",
+        "test('Name', function (assert) { assert.true(x, 'message'); });",
+        "test('Name', function (assert) { assert.false(x); });",
+        "test('Name', function (assert) { assert.false(x, 'message'); });"
     ],
 
     invalid: [
@@ -244,12 +218,11 @@ ruleTester.run("no-ok-equality", rule, {
             ]
         },
 
-        // Boolean assertions with equality checks (checkBooleanAssertions = true, explicitly)
+        // Boolean assertions with equality checks
         {
             // true
             code: "test('Name', function (assert) { assert.true(x === 1); });",
             output: "test('Name', function (assert) { assert.strictEqual(x, 1); });",
-            options: [{ checkBooleanAssertions: true }],
             errors: [
                 createError("assert.true", "assert.strictEqual", "x", "1")
             ]
@@ -258,7 +231,6 @@ ruleTester.run("no-ok-equality", rule, {
             // true, with message
             code: "test('Name', function (assert) { assert.true(x === 1, 'message'); });",
             output: "test('Name', function (assert) { assert.strictEqual(x, 1, 'message'); });",
-            options: [{ checkBooleanAssertions: true }],
             errors: [
                 createError("assert.true", "assert.strictEqual", "x", "1")
             ]
@@ -267,7 +239,6 @@ ruleTester.run("no-ok-equality", rule, {
             // false
             code: "test('Name', function (assert) { assert.false(x === 1); });",
             output: "test('Name', function (assert) { assert.notStrictEqual(x, 1); });",
-            options: [{ checkBooleanAssertions: true }],
             errors: [
                 createError("assert.false", "assert.notStrictEqual", "x", "1")
             ]
@@ -276,7 +247,6 @@ ruleTester.run("no-ok-equality", rule, {
             // false, with message
             code: "test('Name', function (assert) { assert.false(x === 1, 'message'); });",
             output: "test('Name', function (assert) { assert.notStrictEqual(x, 1, 'message'); });",
-            options: [{ checkBooleanAssertions: true }],
             errors: [
                 createError("assert.false", "assert.notStrictEqual", "x", "1")
             ]

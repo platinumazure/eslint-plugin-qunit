@@ -69,19 +69,7 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.equal(a === b, false);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
-        },
-        {
-            // fixToNotOk = true (implicit since this is the option's default)
-            code: "assert.equal(a === b, false);",
-            output: "assert.notOk(a === b);"
-        },
-        {
-            // No autofix when rule option `fixToNotOk` is off explicitly.
-            code: "assert.equal(a === b, false);",
-            options: [{ fixToNotOk: false }],
-            output: null
         },
 
         {
@@ -90,7 +78,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.equal(a === b, false, 'message');", // With message
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b, 'message');"
         },
 
@@ -100,7 +87,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.strictEqual(a === b, false);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
 
@@ -110,7 +96,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.deepEqual(a === b, false);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
 
@@ -120,13 +105,11 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.propEqual(a === b, false);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
 
         {
             code: "assert.notEqual(a === b, true);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
         {
@@ -136,7 +119,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
 
         {
             code: "assert.notStrictEqual(a === b, true);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
         {
@@ -146,7 +128,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
 
         {
             code: "assert.notDeepEqual(a === b, true);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
         {
@@ -156,7 +137,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
 
         {
             code: "assert.notPropEqual(a === b, true);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
         {
@@ -171,7 +151,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.equal(false, a === b);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
 
@@ -181,7 +160,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.equal(false, a === b, 'message');", // With message
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b, 'message');"
         },
 
@@ -191,7 +169,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.strictEqual(false, a === b);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
 
@@ -201,7 +178,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.deepEqual(false, a === b);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
 
@@ -211,13 +187,11 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         },
         {
             code: "assert.propEqual(false, a === b);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
 
         {
             code: "assert.notEqual(true, a === b);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
         {
@@ -227,7 +201,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
 
         {
             code: "assert.notStrictEqual(true, a === b);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
         {
@@ -237,7 +210,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
 
         {
             code: "assert.notDeepEqual(true, a === b);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
         {
@@ -247,7 +219,6 @@ ruleTester.run("no-compare-relation-boolean", rule, {
 
         {
             code: "assert.notPropEqual(true, a === b);",
-            options: [{ fixToNotOk: true }],
             output: "assert.notOk(a === b);"
         },
         {
