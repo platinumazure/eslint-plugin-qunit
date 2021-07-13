@@ -99,10 +99,6 @@ ruleTester.run("no-ok-equality", rule, {
             options: [{ checkBooleanAssertions: true }]
         },
 
-        // Boolean assertions with equality checks (checkBooleanAssertions = false, implicitly)
-        "test('Name', function (assert) { assert.true(x === 1); });",
-        "test('Name', function (assert) { assert.false(x === 1); });",
-
         // Boolean assertions with equality checks (checkBooleanAssertions = false, explicitly)
         {
             code: "test('Name', function (assert) { assert.true(x === 1); });",
@@ -241,6 +237,22 @@ ruleTester.run("no-ok-equality", rule, {
             options: [{ allowGlobal: true }],
             errors: [
                 createError("notOk", "equal", "x", "1")
+            ]
+        },
+
+        // Boolean assertions with equality checks (checkBooleanAssertions = true, implicitly)
+        {
+            code: "test('Name', function (assert) { assert.true(x === 1); });",
+            output: "test('Name', function (assert) { assert.strictEqual(x, 1); });",
+            errors: [
+                createError("assert.true", "assert.strictEqual", "x", "1")
+            ]
+        },
+        {
+            code: "test('Name', function (assert) { assert.false(x === 1); });",
+            output: "test('Name', function (assert) { assert.notStrictEqual(x, 1); });",
+            errors: [
+                createError("assert.false", "assert.notStrictEqual", "x", "1")
             ]
         },
 
