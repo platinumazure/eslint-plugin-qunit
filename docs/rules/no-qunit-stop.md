@@ -1,6 +1,6 @@
 # Disallow QUnit.stop (no-qunit-stop)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 QUnit's handling of asynchronous tests used to be via tracking a global
 semaphore and not starting a test until the previous test had decremented the

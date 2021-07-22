@@ -1,6 +1,6 @@
 # Disallow the use of hooks from ancestor modules (no-hooks-from-ancestor-modules)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 When a QUnit `module` is used with a nested callback, the callback provides a `hooks`
 object as its first argument. This allows calling `hooks.beforeEach` and `hooks.afterEach`

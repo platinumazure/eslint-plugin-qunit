@@ -1,6 +1,6 @@
 # Disallow QUnit.only (no-only)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 `QUnit.only` is useful for restricting a test run to just one test while developing, but committing a test file using this function to a repository is dangerous because it will ensure that the rest of the test suite is not run.
 

@@ -1,6 +1,6 @@
 # Enforce that `expect` is called (require-expect)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 QUnit's `assert.expect(...)` helps developers create tests that correctly fail
 when their expected number of assertions are not called. QUnit will throw an
