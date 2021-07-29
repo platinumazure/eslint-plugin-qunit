@@ -1,6 +1,6 @@
 # Disallow the expect argument in QUnit.test (no-test-expect-argument)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 QUnit 2.0 is deprecating expect counts as the second argument of `QUnit.test`. Users are expected to use `assert.expect()` instead.
 

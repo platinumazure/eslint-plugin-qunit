@@ -1,6 +1,6 @@
 # Disallow global expect (no-global-expect)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 QUnit 2.0 is deprecating and removing the global `expect` function. This rule will warn when the global `expect` function is used.
 

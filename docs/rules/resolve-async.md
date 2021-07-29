@@ -1,6 +1,6 @@
 # Require that async calls are resolved (resolve-async)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 Asynchronous operations on QUnit tests should be resolved within the scope of
 the test to maximize readability and maintainability. Also, if there are more

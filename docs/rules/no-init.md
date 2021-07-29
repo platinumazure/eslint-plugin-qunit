@@ -1,6 +1,6 @@
 # Disallow use of QUnit.init (no-init)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 Early versions of QUnit exposed the `QUnit.init()` function, which allowed
 consumers to reinitialize the QUnit test runner. This has been discouraged for
