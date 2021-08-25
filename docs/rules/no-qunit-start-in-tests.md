@@ -1,6 +1,6 @@
 # Disallow QUnit.start() within tests or test hooks (no-qunit-start-in-tests)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 The purpose of this rule is to ensure that `QUnit.start()` is not used within tests or test hooks.
 

@@ -1,6 +1,6 @@
 # Disallow the use of asyncTest or QUnit.asyncTest (no-async-test)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 QUnit 2.0 is deprecating `QUnit.asyncTest()` in favor of `assert.async()` within tests. This rule will flag `asyncTest` and `QUnit.asyncTest` calls and recommend that you use `assert.async()` instead.
 

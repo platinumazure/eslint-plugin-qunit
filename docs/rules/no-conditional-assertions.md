@@ -1,6 +1,6 @@
 # Disallow assertions within if statements or conditional expressions (no-conditional-assertions)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 This rule aims to detect non-deterministic unit testing by looking for assertions in an if statement or conditional expression.
 
@@ -26,7 +26,7 @@ The following patterns are not warnings:
 
 ```js
 
-if (conditon) {
+if (condition) {
     QUnit.test("some test", function (assert) {
         assert.ok(true);
     });

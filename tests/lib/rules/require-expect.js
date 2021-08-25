@@ -292,14 +292,14 @@ ruleTester.run("require-expect", rule, {
             errors: [Object.assign(exceptSimpleErrorMessage("assert.expect"), { column: 1 })]
         },
 
-        // "always" configration - simple case
+        // "always" configuration - simple case
         {
             code: "test('name', function(assert) { assert.ok(true) })",
             options: ["always"],
             errors: [alwaysErrorMessage("assert.expect")]
         },
 
-        // "always" configration - global assertion
+        // "always" configuration - global assertion
         {
             code: "test('name', function() { equal(1, 1) })",
             options: ["always"],

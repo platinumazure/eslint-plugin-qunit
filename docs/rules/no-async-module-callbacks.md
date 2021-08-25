@@ -1,6 +1,6 @@
 # Disallow async module callbacks (no-async-module-callbacks)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 QUnit does not support async module callbacks. Only test and hook callbacks
 will work as expected when using `async` and `await`. Code after an `await`

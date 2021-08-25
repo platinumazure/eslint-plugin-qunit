@@ -1,3 +1,9 @@
+### 6.2.0
+* Chore: enable all eslint-plugin-eslint-plugin rules (#187) (Bryan Mishkin)
+* Docs: Indicate which rules provide automated suggestions in README rules table (#188) (Bryan Mishkin)
+* Update: Use meta.hasSuggestions for suggestable rules to prepare for ESLint 8 (#186) (Bryan Mishkin)
+* Docs: split emojis into separate columns in README rules table (#185) (Bryan Mishkin)
+
 ### 6.1.1
 * Upgrade: devDependencies (Kevin Partington)
 * Fix: fix global equal() check in no-assert-equal rule (#183) (Bryan Mishkin)
@@ -306,7 +312,7 @@
 * New: Adding rule no-only (fixes #11) (Kevin Partington)
 * Fix: no-async-in-loops uses correct assert var in message (fixes #13) (Kevin Partington)
 * New: no-assert-equal (fixes #8) (Kevin Partington)
-* Update: Specifying eslint@>=1.3.0 as peerDepencency (Kevin Partington)
+* Update: Specifying eslint@>=1.3.0 as peerDependency (Kevin Partington)
 
 ### 0.2.0
 

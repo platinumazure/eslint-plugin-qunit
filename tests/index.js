@@ -18,8 +18,8 @@ const assert = require("chai").assert,
 //------------------------------------------------------------------------------
 
 const MESSAGES = {
-    fixable: ":wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.",
-    configRecommended: ":white_check_mark: The `\"extends\": \"plugin:qunit/recommended\"` property in a configuration file enables this rule.",
+    fixable: "🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.",
+    configRecommended: "✅ The `\"extends\": \"plugin:qunit/recommended\"` property in a configuration file enables this rule.",
     hasSuggestions: "💡 Some problems reported by this rule are manually fixable by editor [suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions)."
 };
 

@@ -1,6 +1,6 @@
 # Disallow commented tests (no-commented-tests)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 When developing non-trivial projects, it is unfortunately realistic that unit
 tests may need to be temporarily prevented from running until an upstream

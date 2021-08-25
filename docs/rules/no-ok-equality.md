@@ -1,8 +1,8 @@
 # Disallow equality comparisons in assert.ok/assert.notOk (no-ok-equality)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
-:wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 Equality comparisons in `assert.ok` or `assert.notOk` calls are not valuable
 because if the assertion fails, QUnit cannot reveal any comparison information.

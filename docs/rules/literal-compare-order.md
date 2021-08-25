@@ -1,8 +1,8 @@
 # Enforce comparison assertions have arguments in the right order (literal-compare-order)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
-:wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 QUnit's many comparison assertions (`equal`, `strictEqual`, etc.) distinguish
 between an expected value and an actual value, and report incorrect assertions

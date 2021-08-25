@@ -1,8 +1,8 @@
 # Disallow setup/teardown module hooks (no-setup-teardown)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
-:wrench: The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
 
 QUnit supports two hooks at the module level: `beforeEach` and `afterEach`.
 These hooks are run before and after each test, respectively. Before QUnit

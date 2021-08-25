@@ -1,6 +1,6 @@
 # Enforce that `expect` is called (require-expect)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 QUnit's `assert.expect(...)` helps developers create tests that correctly fail
 when their expected number of assertions are not called. QUnit will throw an
@@ -20,8 +20,8 @@ or callbacks, developers are at risk of creating tests that incorrectly pass
 by skipping assertions.
 
 The "never" option disallows any `expect` calls in tests. With improved
-resiliancy in QUnit 2.0 for tracking asynchronous activity, projects may
-prefer to discourage use of redundannt `assert.expect` calls in tests. This
+resilience in QUnit 2.0 for tracking asynchronous activity, projects may
+prefer to discourage use of redundant `assert.expect` calls in tests. This
 option codifies such convention.
 
 The "never-except-zero" option disallows `except` calls, except when used to

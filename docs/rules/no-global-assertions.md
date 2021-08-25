@@ -1,6 +1,6 @@
 # Disallow global QUnit assertions (no-global-assertions)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 QUnit 2.0 is deprecating and removing global QUnit assertions such as `ok()`, requiring consumers to instead use scoped assertions provided on the test callback argument.
 

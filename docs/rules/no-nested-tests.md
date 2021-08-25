@@ -1,6 +1,6 @@
 # Disallow nested QUnit.test() calls (no-nested-tests)
 
-:white_check_mark: The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
 
 This rule prevents from incorrect usage of [Nested Scope](https://github.com/qunitjs/qunit/blob/master/docs/QUnit/module.md#nested-scope). Developer can write nested test instead of nested module by mistake. In this case test will still be executed, but effects may be unexpected.
 
