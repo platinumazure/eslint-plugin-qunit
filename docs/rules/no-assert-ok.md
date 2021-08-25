@@ -1,5 +1,7 @@
 # Disallow the use of assert.ok/assert.notOk (no-assert-ok)
 
+**This rule has been deprecated.** Please see the project README for information about replacement rules.
+
 `assert.ok` and `assert.notOk` pass for any truthy/falsy argument. As [many expressions evaluate to true/false in JavaScript](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) the usage of `assert.ok` is potentially error prone. In general, it should be advisable to always test for exact values in tests which makes tests a lot more solid.
 
 An example when using `assert.ok` can involuntarily go wrong:

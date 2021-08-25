@@ -169,7 +169,8 @@
 
         // eslint-plugin-eslint-plugin
         "eslint-plugin/meta-property-ordering": ["error", [
-            "type", "docs", "fixable", "messages", "schema", "deprecated", "replacedBy"
+            "type", "docs", "fixable", "hasSuggestions", "messages", "schema",
+            "deprecated", "replacedBy"
         ]],
         "eslint-plugin/require-meta-docs-url": ["error", {
             "pattern": "https://github.com/platinumazure/eslint-plugin-qunit/blob/master/docs/rules/{{name}}.md"

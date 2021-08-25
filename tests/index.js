@@ -18,6 +18,7 @@ const assert = require("chai").assert,
 //------------------------------------------------------------------------------
 
 const MESSAGES = {
+    deprecated: "**This rule has been deprecated.** Please see the project README for information about replacement rules.",
     fixable: "🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.",
     configRecommended: "✅ The `\"extends\": \"plugin:qunit/recommended\"` property in a configuration file enables this rule.",
     hasSuggestions: "💡 Some problems reported by this rule are manually fixable by editor [suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions)."
@@ -73,16 +74,25 @@ describe("index.js", function () {
                     // Decide which notices should be shown at the top of the doc.
                     const expectedNotices = [];
                     const unexpectedNotices = [];
+
+                    if (rules[ruleName].meta.deprecated) {
+                        expectedNotices.push("deprecated");
+                    } else {
+                        unexpectedNotices.push("deprecated");
+                    }
+
                     if (configs.recommended.rules[`qunit/${ruleName}`]) {
                         expectedNotices.push("configRecommended");
                     } else {
                         unexpectedNotices.push("configRecommended");
                     }
+
                     if (rules[ruleName].meta.fixable) {
                         expectedNotices.push("fixable");
                     } else {
                         unexpectedNotices.push("fixable");
                     }
+
                     if (rules[ruleName].meta.hasSuggestions) {
                         expectedNotices.push("hasSuggestions");
                     } else {

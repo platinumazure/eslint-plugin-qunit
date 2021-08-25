@@ -33,10 +33,8 @@ Each rule has emojis denoting:
 | [assert-args](./docs/rules/assert-args.md) | enforce that the correct number of assert arguments are used | ✅ |  |  |
 | [literal-compare-order](./docs/rules/literal-compare-order.md) | enforce comparison assertions have arguments in the right order | ✅ | 🔧 |  |
 | [no-arrow-tests](./docs/rules/no-arrow-tests.md) | disallow arrow functions as QUnit test/module callbacks | ✅ | 🔧 |  |
-| [no-assert-equal](./docs/rules/no-assert-equal.md) | disallow the use of assert.equal |  |  | 💡 |
 | [no-assert-equal-boolean](./docs/rules/no-assert-equal-boolean.md) | require use of boolean assertions | ✅ | 🔧 |  |
 | [no-assert-logical-expression](./docs/rules/no-assert-logical-expression.md) | disallow binary logical expressions in assert arguments | ✅ |  |  |
-| [no-assert-ok](./docs/rules/no-assert-ok.md) | disallow the use of assert.ok/assert.notOk |  |  |  |
 | [no-async-in-loops](./docs/rules/no-async-in-loops.md) | disallow async calls in loops | ✅ |  |  |
 | [no-async-module-callbacks](./docs/rules/no-async-module-callbacks.md) | disallow async module callbacks | ✅ |  |  |
 | [no-async-test](./docs/rules/no-async-test.md) | disallow the use of asyncTest or QUnit.asyncTest | ✅ |  |  |
@@ -71,6 +69,19 @@ Each rule has emojis denoting:
 | [resolve-async](./docs/rules/resolve-async.md) | require that async calls are resolved | ✅ |  |  |
 
 <!--RULES_TABLE_END-->
+
+### Deprecated Rules
+
+The following rules are deprecated:
+
+<!--DEPRECATED_RULES_TABLE_START-->
+
+| Name | Replaced By |
+|:-----|:------------|
+| [no-assert-equal](./docs/rules/no-assert-equal.md) | [no-loose-assertions](./docs/rules/no-loose-assertions.md)
+| [no-assert-ok](./docs/rules/no-assert-ok.md) | [no-loose-assertions](./docs/rules/no-loose-assertions.md)
+
+<!--DEPRECATED_RULES_TABLE_END-->
 
 ## Contributors
 
