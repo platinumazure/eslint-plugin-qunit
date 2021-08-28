@@ -217,13 +217,13 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
                     });
                 });
             `,
+            parser: require.resolve("@typescript-eslint/parser"),
             errors: [
                 createError({
                     invokedMethodName: "afterEach",
                     usedHooksIdentifierName: "hooks"
                 })
-            ],
-            parser: require.resolve("@typescript-eslint/parser")
+            ]
         }
     ]
 });
