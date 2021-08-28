@@ -50,13 +50,6 @@ QUnit.test('test', function (assert) {
 
 ```
 
-## Configuration
-
-This rule takes an optional object containing:
-
-* `checkBooleanAssertions` (boolean, default: false): Whether the rule should check the [true](https://api.qunitjs.com/assert/true/) and [false](https://api.qunitjs.com/assert/false/) boolean assertions
-* `fixToNotOk` (boolean, default: true): Whether the rule should autofix `assert.ok(!foo)` to `assert.notOk(foo)` ([notOk](https://api.qunitjs.com/assert/notOk/) was added in QUnit 1.18)
-
 ## When Not to Use It
 
 Since `assert.notOk()` was only introduced in QUnit 1.18.0, this rule can be
