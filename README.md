@@ -33,7 +33,7 @@ Each rule has emojis denoting:
 | [assert-args](./docs/rules/assert-args.md) | enforce that the correct number of assert arguments are used | ✅ |  |  |
 | [literal-compare-order](./docs/rules/literal-compare-order.md) | enforce comparison assertions have arguments in the right order | ✅ | 🔧 |  |
 | [no-arrow-tests](./docs/rules/no-arrow-tests.md) | disallow arrow functions as QUnit test/module callbacks |  | 🔧 |  |
-| [no-assert-equal](./docs/rules/no-assert-equal.md) | disallow the use of assert.equal |  |  | 💡 |
+| [no-assert-equal](./docs/rules/no-assert-equal.md) | disallow the use of assert.equal | ✅ |  | 💡 |
 | [no-assert-equal-boolean](./docs/rules/no-assert-equal-boolean.md) | require use of boolean assertions | ✅ | 🔧 |  |
 | [no-assert-logical-expression](./docs/rules/no-assert-logical-expression.md) | disallow binary logical expressions in assert arguments | ✅ |  |  |
 | [no-assert-ok](./docs/rules/no-assert-ok.md) | disallow the use of assert.ok/assert.notOk |  |  |  |

@@ -19,6 +19,7 @@ module.exports = {
             rules: {
                 "qunit/assert-args": "error",
                 "qunit/literal-compare-order": "error",
+                "qunit/no-assert-equal": "error",
                 "qunit/no-assert-equal-boolean": "error",
                 "qunit/no-assert-logical-expression": "error",
                 "qunit/no-async-in-loops": "error",
