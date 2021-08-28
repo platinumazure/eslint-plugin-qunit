@@ -36,36 +36,36 @@ ruleTester.run("no-global-module-test", rule, {
     invalid: [
         {
             code: "module();",
+            globals: { module: true },
             errors: [{
                 messageId: "unexpectedGlobalModuleTest",
                 data: {
                     callee: "module"
                 },
                 type: "CallExpression"
-            }],
-            globals: { module: true }
+            }]
         },
         {
             code: "test();",
+            globals: { test: true },
             errors: [{
                 messageId: "unexpectedGlobalModuleTest",
                 data: {
                     callee: "test"
                 },
                 type: "CallExpression"
-            }],
-            globals: { test: true }
+            }]
         },
         {
             code: "asyncTest();",
+            globals: { asyncTest: true },
             errors: [{
                 messageId: "unexpectedGlobalModuleTest",
                 data: {
                     callee: "asyncTest"
                 },
                 type: "CallExpression"
-            }],
-            globals: { asyncTest: true }
+            }]
         }
     ]
 });
