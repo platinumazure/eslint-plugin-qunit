@@ -1,3 +1,11 @@
+### 7.0.0-rc.0
+* Breaking: Remove `fixToNotOk` and `checkBooleanAssertions` rule options (#197) (Bryan Mishkin)
+* Breaking: Add `no-assert-equal` to `recommended` config (#194) (Bryan Mishkin)
+* Breaking: Drop support for old Node and ESLint versions (#189) (Kevin Partington)
+* Breaking: Remove no-arrow-tests from recommended config (#200) (Kevin Partington)
+* Docs: switch from github emojis to standard emojis (#198) (Bryan Mishkin)
+* Docs: fix typos (#196) (Bryan Mishkin)
+
 ### 6.2.0
 * Chore: enable all eslint-plugin-eslint-plugin rules (#187) (Bryan Mishkin)
 * Docs: Indicate which rules provide automated suggestions in README rules table (#188) (Bryan Mishkin)
