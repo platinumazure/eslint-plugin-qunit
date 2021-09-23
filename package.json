@@ -53,7 +53,8 @@
   },
   "keywords": [
     "eslint",
-    "eslintplugin"
+    "eslintplugin",
+    "eslint-plugin"
   ],
   "nyc": {
     "check-coverage": true,
