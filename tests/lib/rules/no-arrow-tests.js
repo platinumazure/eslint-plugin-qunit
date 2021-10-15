@@ -47,12 +47,12 @@ ruleTester.run("no-arrow-tests", rule, {
 
         // not actually module hooks
         outdent`
-            var a = {
-                setup: () => {},
-                teardown: () => {},
-                beforeEach: () => {},
-                afterEach: () => {}
-            };
+          var a = {
+              setup: () => {},
+              teardown: () => {},
+              beforeEach: () => {},
+              afterEach: () => {}
+          };
         `
     ],
 
