@@ -1,3 +1,11 @@
+### 7.0.0
+* Chore: Add npm upgrade step to CI workflow (Kevin Partington)
+* Upgrade: Most devDependencies (Kevin Partington)
+* Upgrade: update eslint-plugin-eslint-plugin to v4 (#211) (Bryan Mishkin)
+* Upgrade: eslint-plugin-unicorn to v37 (#210) (Bryan Mishkin)
+* Update: support ESLint v8 (#209) (Bryan Mishkin)
+* Chore: Add `eslint-plugin` keyword in package.json (#204) (Bryan Mishkin)
+
 ### 7.0.0-rc.0
 * Breaking: Remove `fixToNotOk` and `checkBooleanAssertions` rule options (#197) (Bryan Mishkin)
 * Breaking: Add `no-assert-equal` to `recommended` config (#194) (Bryan Mishkin)
