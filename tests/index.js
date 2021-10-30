@@ -32,6 +32,31 @@ function toSentenceCase(str) {
     );
 }
 
+/**
+ * Get list of named options from a JSON schema (used for rule schemas).
+ * @param {Object|Array} jsonSchema - the JSON schema to check
+ * @returns {String[]} list of named options
+ */
+function getAllNamedOptions(jsonSchema) {
+    if (!jsonSchema) {
+        return [];
+    }
+
+    if (Array.isArray(jsonSchema)) {
+        return jsonSchema.flatMap(item => getAllNamedOptions(item));
+    }
+
+    if (jsonSchema.items) {
+        return getAllNamedOptions(jsonSchema.items);
+    }
+
+    if (jsonSchema.properties) {
+        return Object.keys(jsonSchema.properties);
+    }
+
+    return [];
+}
+
 const ruleNames = fs.readdirSync("./lib/rules").map(rawFileName => path.basename(rawFileName, ".js"));
 
 describe("index.js", function () {
@@ -60,13 +85,15 @@ describe("index.js", function () {
                     });
                 });
 
+                // eslint-disable-next-line complexity
                 it("should have the right doc contents", function () {
                     const path = `./docs/rules/${ruleName}.md`;
                     const fileContents = fs.readFileSync(path, "utf8");
                     const lines = fileContents.split("\n");
+                    const rule = rules[ruleName];
 
                     // First content should be title.
-                    const description = rules[ruleName].meta.docs.description;
+                    const description = rule.meta.docs.description;
                     const expectedTitle = `# ${toSentenceCase(description)} (${ruleName})`;
                     assert.equal(lines[0], expectedTitle, "includes the rule description and name in title");
 
@@ -78,12 +105,12 @@ describe("index.js", function () {
                     } else {
                         unexpectedNotices.push("configRecommended");
                     }
-                    if (rules[ruleName].meta.fixable) {
+                    if (rule.meta.fixable) {
                         expectedNotices.push("fixable");
                     } else {
                         unexpectedNotices.push("fixable");
                     }
-                    if (rules[ruleName].meta.hasSuggestions) {
+                    if (rule.meta.hasSuggestions) {
                         expectedNotices.push("hasSuggestions");
                     } else {
                         unexpectedNotices.push("hasSuggestions");
@@ -103,6 +130,24 @@ describe("index.js", function () {
                             !fileContents.includes(MESSAGES[unexpectedNotice]),
                             `does not include unexpected ${unexpectedNotice} notice`
                         );
+                    }
+
+                    // Check if the rule has configuration options.
+                    if (
+                        Array.isArray(rule.meta.schema) && rule.meta.schema.length > 0 ||
+                        typeof rule.meta.schema === "object" && Object.keys(rule.meta.schema).length > 0
+                    ) {
+                        // Should have a configuration section header:
+                        assert.ok(fileContents.includes("## Options"), "Should have an \"## Options\" section");
+
+                        // Ensure all configuration options are mentioned.
+                        for (const namedOption of getAllNamedOptions(rule.meta.schema)) {
+                            assert.ok(fileContents.includes(namedOption), `Should mention the \`${namedOption}\` option`);
+                        }
+                    } else {
+                        // Should NOT have any options/config section headers:
+                        assert.notOk(fileContents.includes("# Options"), "Should not have an \"Options\" section");
+                        assert.notOk(fileContents.includes("# Config"), "Should not have a \"Config\" section");
                     }
                 });
             });

@@ -62,7 +62,7 @@ QUnit.test("Name", function (assert) { assert.ok(x instanceof Number); });
 
 ```
 
-## Configuration
+## Options
 
 This rule takes an optional object containing:
 
