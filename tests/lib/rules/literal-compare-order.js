@@ -19,6 +19,10 @@ function wrap(assertionCode, testName = "Name") {
     return `QUnit.test('${testName}', function (assert) { ${assertionCode} });`;
 }
 
+function wrapArrow(assertionCode, testName = "Name") {
+    return `QUnit.test('${testName}', (assert) => { ${assertionCode} });`;
+}
+
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -107,6 +111,18 @@ ruleTester.run("literal-compare-order", rule, {
         {
             code: wrap("assert.equal('Literal', variable);"),
             output: wrap("assert.equal(variable, 'Literal');"),
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
+        },
+        {
+            code: wrapArrow("assert.equal('Literal', variable);"),
+            output: wrapArrow("assert.equal(variable, 'Literal');"),
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 messageId: "actualFirst",
                 data: {

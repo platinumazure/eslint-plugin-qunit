@@ -63,6 +63,12 @@ ruleTester.run("no-assert-equal-boolean", rule, {
             errors: [{ messageId: "useAssertTrueOrFalse" }]
         },
         {
+            code: "QUnit.test('Name', (assert) => { assert.equal(a, true); });",
+            output: "QUnit.test('Name', (assert) => { assert.true(a); });",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{ messageId: "useAssertTrueOrFalse" }]
+        },
+        {
             code: "QUnit.test('Name', function (assert) { assert.equal(a, false); });",
             output: "QUnit.test('Name', function (assert) { assert.false(a); });",
             errors: [{ messageId: "useAssertTrueOrFalse" }]

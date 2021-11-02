@@ -19,6 +19,10 @@ function wrap(code) {
     return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
+function wrapArrow(code) {
+    return `QUnit.test('test', (assert) => { ${code} });`;
+}
+
 function createError(callee) {
     return {
         messageId: "noNegationInOk",
@@ -105,6 +109,12 @@ ruleTester.run("no-negated-ok", rule, {
         {
             code: wrap("assert.ok(!foo)"),
             output: wrap("assert.notOk(foo)"),
+            errors: [createError("assert.ok")]
+        },
+        {
+            code: wrapArrow("assert.ok(!foo)"),
+            output: wrapArrow("assert.notOk(foo)"),
+            parserOptions: { ecmaVersion: 6 },
             errors: [createError("assert.ok")]
         },
 

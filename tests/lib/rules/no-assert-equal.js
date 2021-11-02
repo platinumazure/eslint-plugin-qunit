@@ -65,6 +65,28 @@ ruleTester.run("no-assert-equal", rule, {
             }]
         },
         {
+            code: "QUnit.test('Name', (assert) => { assert.equal(a, b); });",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{
+                messageId: "unexpectedAssertEqual",
+                data: { assertVar: "assert" },
+                suggestions: [
+                    {
+                        messageId: "switchToDeepEqual",
+                        output: "QUnit.test('Name', (assert) => { assert.deepEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToPropEqual",
+                        output: "QUnit.test('Name', (assert) => { assert.propEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToStrictEqual",
+                        output: "QUnit.test('Name', (assert) => { assert.strictEqual(a, b); });"
+                    }
+                ]
+            }]
+        },
+        {
             code: "QUnit.test('Name', function (foo) { foo.equal(a, b); });",
             errors: [{
                 messageId: "unexpectedAssertEqual",

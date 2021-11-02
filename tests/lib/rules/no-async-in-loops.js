@@ -499,6 +499,18 @@ ruleTester.run("no-async-in-loops", rule, {
             }]
         },
         {
+            code: "test('name', (assert) => { while (false) assert.async(); });",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{
+                messageId: "unexpectedAsyncInLoop",
+                data: {
+                    call: "assert.async()",
+                    loopTypeText: "while loop"
+                },
+                type: "CallExpression"
+            }]
+        },
+        {
             code: "test('name', function (assert) { while (false) { assert.async(); } });",
             errors: [{
                 messageId: "unexpectedAsyncInLoop",

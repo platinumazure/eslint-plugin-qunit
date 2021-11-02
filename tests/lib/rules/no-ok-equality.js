@@ -97,6 +97,14 @@ ruleTester.run("no-ok-equality", rule, {
             ]
         },
         {
+            code: "test('Name', (assert) => { assert.ok(x === 1); });",
+            output: "test('Name', (assert) => { assert.strictEqual(x, 1); });",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [
+                createError("assert.ok", "assert.strictEqual", "x", "1")
+            ]
+        },
+        {
             // With message:
             code: "test('Name', function (assert) { assert.ok(x === 1, 'my message'); });",
             output: "test('Name', function (assert) { assert.strictEqual(x, 1, 'my message'); });",

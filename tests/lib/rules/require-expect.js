@@ -143,6 +143,12 @@ ruleTester.run("require-expect", rule, {
             options: ["always"],
             errors: [alwaysErrorMessage("assert.expect")]
         },
+        {
+            code: "test('name', (assert) => { other.assert.expect(0) });",
+            options: ["always"],
+            parserOptions: { ecmaVersion: 6 },
+            errors: [alwaysErrorMessage("assert.expect")]
+        },
 
         // assert in loop block
         {

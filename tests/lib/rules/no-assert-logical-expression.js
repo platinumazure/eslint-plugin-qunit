@@ -19,6 +19,10 @@ function wrap(code) {
     return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
+function wrapArrow(code) {
+    return `QUnit.test('test', (assert) => { ${code} });`;
+}
+
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -66,6 +70,19 @@ ruleTester.run("no-assert-logical-expression", rule, {
                 type: "LogicalExpression",
                 line: 1,
                 column: 50
+            }]
+        },
+        {
+            code: wrapArrow("assert.ok(foo && bar);"),
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
+                type: "LogicalExpression",
+                line: 1,
+                column: 44
             }]
         },
         {

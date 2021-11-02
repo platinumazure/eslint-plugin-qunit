@@ -52,6 +52,15 @@ ruleTester.run("no-early-return", rule, {
             }]
         },
 
+        {
+            code: "QUnit.test('a test', (assert) => { if (true) return; assert.ok(true); });",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{
+                messageId: "noEarlyReturn",
+                type: "ReturnStatement"
+            }]
+        },
+
         // Return in nested function before assertion is considered early return
         {
             code: "QUnit.test('a test', function (assert) { setTimeout(function () { if (true) return; assert.ok(true); }, 0); });",
