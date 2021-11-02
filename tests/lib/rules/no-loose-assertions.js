@@ -48,6 +48,17 @@ ruleTester.run("no-loose-assertions", rule, {
             }]
         },
         {
+            code: "QUnit.test('Name', (assert) => { assert.ok(a); });",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{
+                messageId: "unexpectedLocalLooseAssertion",
+                data: {
+                    assertVar: "assert",
+                    assertion: "ok"
+                }
+            }]
+        },
+        {
             code: "QUnit.test('Name', function (foo) { foo.ok(a); });",
             errors: [{
                 messageId: "unexpectedLocalLooseAssertion",
