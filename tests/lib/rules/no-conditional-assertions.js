@@ -9,19 +9,12 @@
 //------------------------------------------------------------------------------
 
 const rule = require("../../../lib/rules/no-conditional-assertions"),
-    RuleTester = require("eslint").RuleTester;
+    RuleTester = require("eslint").RuleTester,
+    testUtils = require("../../testUtils");
 
 //------------------------------------------------------------------------------
 // Helpers
 //------------------------------------------------------------------------------
-
-function wrap(code) {
-    return `QUnit.test('test', function (assert) { ${code} });`;
-}
-
-function wrapArrow(code) {
-    return `QUnit.test('test', (assert) => { ${code} });`;
-}
 
 function wrapInInvalidTestObject(code) {
     return {
@@ -66,20 +59,20 @@ ruleTester.run("no-conditional-assertions", rule, {
             "if (foo) doSomething();",
             "foo ? doSomething() : false;",
             "foo ? false : doSomething();"
-        ].map(code => wrap(code)),
+        ].map(code => testUtils.wrap(code)),
 
         // Conditional tests are okay
         "if (foo) QUnit.test('test', function (assert) { assert.ok(true); });"
     ],
 
     invalid: [
-        wrap("if (foo) assert.ok(true);"),
-        wrapArrow("if (foo) assert.ok(true);"),
-        wrap("if (foo) { assert.ok(true); }"),
-        wrap("if (foo) { assert.true(true); }"),
-        wrap("if (foo) {} else if (bar) assert.ok(true);"),
-        wrap("if (foo) {} else assert.ok(true);"),
-        wrap("foo ? assert.ok(true) : false"),
-        wrap("foo ? false : assert.ok(true)")
+        testUtils.wrap("if (foo) assert.ok(true);"),
+        testUtils.wrapArrow("if (foo) assert.ok(true);"),
+        testUtils.wrap("if (foo) { assert.ok(true); }"),
+        testUtils.wrap("if (foo) { assert.true(true); }"),
+        testUtils.wrap("if (foo) {} else if (bar) assert.ok(true);"),
+        testUtils.wrap("if (foo) {} else assert.ok(true);"),
+        testUtils.wrap("foo ? assert.ok(true) : false"),
+        testUtils.wrap("foo ? false : assert.ok(true)")
     ].map(code => wrapInInvalidTestObject(code))
 });

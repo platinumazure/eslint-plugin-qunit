@@ -9,19 +9,8 @@
 //------------------------------------------------------------------------------
 
 const rule = require("../../../lib/rules/no-assert-logical-expression"),
-    RuleTester = require("eslint").RuleTester;
-
-//------------------------------------------------------------------------------
-// Helpers
-//------------------------------------------------------------------------------
-
-function wrap(code) {
-    return `QUnit.test('test', function (assert) { ${code} });`;
-}
-
-function wrapArrow(code) {
-    return `QUnit.test('test', (assert) => { ${code} });`;
-}
+    RuleTester = require("eslint").RuleTester,
+    testUtils = require("../../testUtils");
 
 //------------------------------------------------------------------------------
 // Tests
@@ -32,28 +21,28 @@ ruleTester.run("no-assert-logical-expression", rule, {
 
     valid: [
         // Simple assertions
-        wrap("assert.ok(foo);"),
-        wrap("assert.equal(foo, bar);"),
-        wrap("assert.false(foo);"),
-        wrap("assert.strictEqual(foo, bar);"),
-        wrap("assert.deepEqual(foo, bar);"),
-        wrap("assert.propEqual(foo, bar);"),
-        wrap("assert.notOk(foo);"),
-        wrap("assert.notEqual(foo, bar);"),
-        wrap("assert.notStrictEqual(foo, bar);"),
-        wrap("assert.notDeepEqual(foo, bar);"),
-        wrap("assert.notPropEqual(foo, bar);"),
-        wrap("assert.raises(function () {}, /Message/);"),
-        wrap("assert.throws(function () {}, /Message/);"),
-        wrap("assert.true(foo);"),
+        testUtils.wrap("assert.ok(foo);"),
+        testUtils.wrap("assert.equal(foo, bar);"),
+        testUtils.wrap("assert.false(foo);"),
+        testUtils.wrap("assert.strictEqual(foo, bar);"),
+        testUtils.wrap("assert.deepEqual(foo, bar);"),
+        testUtils.wrap("assert.propEqual(foo, bar);"),
+        testUtils.wrap("assert.notOk(foo);"),
+        testUtils.wrap("assert.notEqual(foo, bar);"),
+        testUtils.wrap("assert.notStrictEqual(foo, bar);"),
+        testUtils.wrap("assert.notDeepEqual(foo, bar);"),
+        testUtils.wrap("assert.notPropEqual(foo, bar);"),
+        testUtils.wrap("assert.raises(function () {}, /Message/);"),
+        testUtils.wrap("assert.throws(function () {}, /Message/);"),
+        testUtils.wrap("assert.true(foo);"),
 
         // Logical expressions inside raises/throw blocks are fine
-        wrap("assert.raises(function () { throw (foo || bar); });"),
-        wrap("assert.throws(function () { throw (foo || bar); });"),
+        testUtils.wrap("assert.raises(function () { throw (foo || bar); });"),
+        testUtils.wrap("assert.throws(function () { throw (foo || bar); });"),
 
         // Messages can have logical expressions.
-        wrap("assert.ok(foo, message || 'alternative message');"),
-        wrap("assert.equal(foo, bar, message || 'alternative message');"),
+        testUtils.wrap("assert.ok(foo, message || 'alternative message');"),
+        testUtils.wrap("assert.equal(foo, bar, message || 'alternative message');"),
 
         // Not an assertion, not in a test
         "doSomething(foo && bar);"
@@ -61,7 +50,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
 
     invalid: [
         {
-            code: wrap("assert.ok(foo && bar);"),
+            code: testUtils.wrap("assert.ok(foo && bar);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -73,7 +62,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrapArrow("assert.ok(foo && bar);"),
+            code: testUtils.wrapArrow("assert.ok(foo && bar);"),
             parserOptions: { ecmaVersion: 6 },
             errors: [{
                 messageId: "noLogicalOperator",
@@ -86,7 +75,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.ok(foo || bar);"),
+            code: testUtils.wrap("assert.ok(foo || bar);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -98,7 +87,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notOk(foo && bar);"),
+            code: testUtils.wrap("assert.notOk(foo && bar);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -110,7 +99,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notOk(foo || bar);"),
+            code: testUtils.wrap("assert.notOk(foo || bar);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -122,7 +111,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.equal(foo && bar, baz && lol);"),
+            code: testUtils.wrap("assert.equal(foo && bar, baz && lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -142,7 +131,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.equal(foo || bar, baz || lol);"),
+            code: testUtils.wrap("assert.equal(foo || bar, baz || lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -162,7 +151,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.strictEqual(foo && bar, baz && lol);"),
+            code: testUtils.wrap("assert.strictEqual(foo && bar, baz && lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -182,7 +171,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.strictEqual(foo || bar, baz || lol);"),
+            code: testUtils.wrap("assert.strictEqual(foo || bar, baz || lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -202,7 +191,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.deepEqual(foo && bar, baz && lol);"),
+            code: testUtils.wrap("assert.deepEqual(foo && bar, baz && lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -222,7 +211,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.deepEqual(foo || bar, baz || lol);"),
+            code: testUtils.wrap("assert.deepEqual(foo || bar, baz || lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -242,7 +231,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.propEqual(foo && bar, baz && lol);"),
+            code: testUtils.wrap("assert.propEqual(foo && bar, baz && lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -262,7 +251,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.propEqual(foo || bar, baz || lol);"),
+            code: testUtils.wrap("assert.propEqual(foo || bar, baz || lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -282,7 +271,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notEqual(foo && bar, baz && lol);"),
+            code: testUtils.wrap("assert.notEqual(foo && bar, baz && lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -302,7 +291,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notEqual(foo || bar, baz || lol);"),
+            code: testUtils.wrap("assert.notEqual(foo || bar, baz || lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -322,7 +311,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notStrictEqual(foo && bar, baz && lol);"),
+            code: testUtils.wrap("assert.notStrictEqual(foo && bar, baz && lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -342,7 +331,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notStrictEqual(foo || bar, baz || lol);"),
+            code: testUtils.wrap("assert.notStrictEqual(foo || bar, baz || lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -362,7 +351,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notDeepEqual(foo && bar, baz && lol);"),
+            code: testUtils.wrap("assert.notDeepEqual(foo && bar, baz && lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -382,7 +371,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notDeepEqual(foo || bar, baz || lol);"),
+            code: testUtils.wrap("assert.notDeepEqual(foo || bar, baz || lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -402,7 +391,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notPropEqual(foo && bar, baz && lol);"),
+            code: testUtils.wrap("assert.notPropEqual(foo && bar, baz && lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -422,7 +411,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.notPropEqual(foo || bar, baz || lol);"),
+            code: testUtils.wrap("assert.notPropEqual(foo || bar, baz || lol);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -444,7 +433,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
 
         // Boolean assertions
         {
-            code: wrap("assert.true(foo && bar);"),
+            code: testUtils.wrap("assert.true(foo && bar);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
@@ -456,7 +445,7 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
-            code: wrap("assert.false(foo && bar);"),
+            code: testUtils.wrap("assert.false(foo && bar);"),
             errors: [{
                 messageId: "noLogicalOperator",
                 data: {
