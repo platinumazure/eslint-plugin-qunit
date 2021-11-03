@@ -54,6 +54,17 @@ ruleTester.run("no-throws-string", rule, {
             }]
         },
         {
+            code: "QUnit.test('a test', (assert) => { assert.throws(function () { }, 'Error message', 'Error should have been thrown'); });",
+            parserOptions: { ecmaVersion: 6 },
+            errors: [{
+                messageId: "noThrowsWithString",
+                data: {
+                    callee: "assert.throws"
+                },
+                type: "CallExpression"
+            }]
+        },
+        {
             code: "QUnit.test('a test', function (assert) { assert.raises(function () { }, 'Error message', 'Error should have been thrown'); });",
             errors: [{
                 messageId: "noThrowsWithString",

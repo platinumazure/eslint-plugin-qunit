@@ -19,6 +19,10 @@ function wrap(assertionCode, testName = "Name") {
     return `QUnit.test('${testName}', function (assert) { ${assertionCode} });`;
 }
 
+function wrapArrow(assertionCode, testName = "Name") {
+    return `QUnit.test('${testName}', (assert) => { ${assertionCode} });`;
+}
+
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -369,6 +373,17 @@ ruleTester.run("assert-args", rule, {
         },
         {
             code: wrap("assert.strictEqual();"),
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.strictEqual",
+                    argCount: 0
+                }
+            }]
+        },
+        {
+            code: wrapArrow("assert.strictEqual();"),
+            parserOptions: { ecmaVersion: 6 },
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {

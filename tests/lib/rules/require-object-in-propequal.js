@@ -19,6 +19,10 @@ function wrap(assertionCode, testName = "Name") {
     return `QUnit.test('${testName}', function (assert) { ${assertionCode} });`;
 }
 
+function wrapArrow(assertionCode, testName = "Name") {
+    return `QUnit.test('${testName}', (assert) => { ${assertionCode} });`;
+}
+
 function createInvalid(assertionCode, invalidValue) {
     return {
         code: wrap(assertionCode),
@@ -83,19 +87,20 @@ ruleTester.run("require-object-in-propequal", rule, {
     ],
 
     invalid: [
-        createInvalid("assert.propEqual(actual, 0);", "0"),
-        createInvalid("assert.propEqual(actual, -1);", "-1"),
-        createInvalid("assert.propEqual(actual, 'string');", "'string'"),
-        createInvalid("assert.propEqual(actual, `template`);", "`template`"),
-        createInvalid("assert.propEqual(actual, true);", "true"),
-        createInvalid("assert.propEqual(actual, false);", "false"),
-        createInvalid("assert.propEqual(actual, null);", "null"),
-        createInvalid("assert.propEqual(actual, /regex/);", "/regex/"),
-        createInvalid("assert.propEqual(actual, ++foo);", "++foo"),
-        createInvalid("assert.propEqual(actual, foo++);", "foo++"),
-        createInvalid("assert.propEqual(actual, --foo);", "--foo"),
-        createInvalid("assert.propEqual(actual, foo--);", "foo--"),
-        createInvalid("assert.propEqual(actual, <JSX />)", "<JSX />"),
-        createInvalid("assert.propEqual(actual, 0n);", "0n")
+        createInvalid(wrap("assert.propEqual(actual, 0);"), "0"),
+        createInvalid(wrapArrow("assert.propEqual(actual, 0);"), "0"),
+        createInvalid(wrap("assert.propEqual(actual, -1);"), "-1"),
+        createInvalid(wrap("assert.propEqual(actual, 'string');"), "'string'"),
+        createInvalid(wrap("assert.propEqual(actual, `template`);"), "`template`"),
+        createInvalid(wrap("assert.propEqual(actual, true);"), "true"),
+        createInvalid(wrap("assert.propEqual(actual, false);"), "false"),
+        createInvalid(wrap("assert.propEqual(actual, null);"), "null"),
+        createInvalid(wrap("assert.propEqual(actual, /regex/);"), "/regex/"),
+        createInvalid(wrap("assert.propEqual(actual, ++foo);"), "++foo"),
+        createInvalid(wrap("assert.propEqual(actual, foo++);"), "foo++"),
+        createInvalid(wrap("assert.propEqual(actual, --foo);"), "--foo"),
+        createInvalid(wrap("assert.propEqual(actual, foo--);"), "foo--"),
+        createInvalid(wrap("assert.propEqual(actual, <JSX />)"), "<JSX />"),
+        createInvalid(wrap("assert.propEqual(actual, 0n);"), "0n")
     ]
 });

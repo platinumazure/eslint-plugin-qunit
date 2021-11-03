@@ -15,20 +15,17 @@ const rule = require("../../../lib/rules/no-conditional-assertions"),
 // Helpers
 //------------------------------------------------------------------------------
 
-function wrapInQUnitTest(code) {
+function wrap(code) {
     return `QUnit.test('test', function (assert) { ${code} });`;
 }
 
-function wrapInValidTestObject(code) {
-    return {
-        code: wrapInQUnitTest(code),
-        parserOptions: { ecmaVersion: 6 }
-    };
+function wrapArrow(code) {
+    return `QUnit.test('test', (assert) => { ${code} });`;
 }
 
 function wrapInInvalidTestObject(code) {
     return {
-        code: wrapInQUnitTest(code),
+        code: code,
         errors: [{
             messageId: "noAssertionInsideConditional",
             type: "CallExpression"
@@ -40,7 +37,7 @@ function wrapInInvalidTestObject(code) {
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 6 } });
 ruleTester.run("no-conditional-assertions", rule, {
 
     valid: [
@@ -69,19 +66,20 @@ ruleTester.run("no-conditional-assertions", rule, {
             "if (foo) doSomething();",
             "foo ? doSomething() : false;",
             "foo ? false : doSomething();"
-        ].map(code => wrapInValidTestObject(code)),
+        ].map(code => wrap(code)),
 
         // Conditional tests are okay
         "if (foo) QUnit.test('test', function (assert) { assert.ok(true); });"
     ],
 
     invalid: [
-        "if (foo) assert.ok(true);",
-        "if (foo) { assert.ok(true); }",
-        "if (foo) { assert.true(true); }",
-        "if (foo) {} else if (bar) assert.ok(true);",
-        "if (foo) {} else assert.ok(true);",
-        "foo ? assert.ok(true) : false",
-        "foo ? false : assert.ok(true)"
+        wrap("if (foo) assert.ok(true);"),
+        wrapArrow("if (foo) assert.ok(true);"),
+        wrap("if (foo) { assert.ok(true); }"),
+        wrap("if (foo) { assert.true(true); }"),
+        wrap("if (foo) {} else if (bar) assert.ok(true);"),
+        wrap("if (foo) {} else assert.ok(true);"),
+        wrap("foo ? assert.ok(true) : false"),
+        wrap("foo ? false : assert.ok(true)")
     ].map(code => wrapInInvalidTestObject(code))
 });
