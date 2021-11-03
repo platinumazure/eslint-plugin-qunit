@@ -188,6 +188,18 @@ ruleTester.run("assert-args", rule, {
                 }
             }]
         },
+        {
+            // TypeScript: test callback is adding a type to `this`
+            code: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.ok(); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{
+                messageId: "unexpectedArgCountNoMessage",
+                data: {
+                    callee: "assert.ok",
+                    argCount: 0
+                }
+            }]
+        },
         /* Allowed for now.
         {
             code: testUtils.wrapInTest("assert.ok(a, b);"),

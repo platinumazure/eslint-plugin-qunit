@@ -31,6 +31,7 @@ ruleTester.run("no-assert-equal", rule, {
         "QUnit.test('Name', function () { strictEqual(a, b); });",
         "QUnit.test('Name', function () { deepEqual(a, b); });",
         "QUnit.test('Name', function () { propEqual(a, b); });",
+        "QUnit.test('Name', notAFunction);",
 
         // global `equal` but not within test context
         {
@@ -145,6 +146,29 @@ ruleTester.run("no-assert-equal", rule, {
                     {
                         messageId: "switchToStrictEqual",
                         output: "QUnit.test('Name', function () { strictEqual(a, b); });"
+                    }
+                ]
+            }]
+        },
+        {
+            // TypeScript: test callback is adding a type to `this`
+            code: "QUnit.test('Name', function (this: LocalTestContext, assert) { assert.equal(a, b); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{
+                messageId: "unexpectedAssertEqual",
+                data: { assertVar: "assert" },
+                suggestions: [
+                    {
+                        messageId: "switchToDeepEqual",
+                        output: "QUnit.test('Name', function (this: LocalTestContext, assert) { assert.deepEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToPropEqual",
+                        output: "QUnit.test('Name', function (this: LocalTestContext, assert) { assert.propEqual(a, b); });"
+                    },
+                    {
+                        messageId: "switchToStrictEqual",
+                        output: "QUnit.test('Name', function (this: LocalTestContext, assert) { assert.strictEqual(a, b); });"
                     }
                 ]
             }]

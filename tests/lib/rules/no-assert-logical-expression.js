@@ -62,6 +62,20 @@ ruleTester.run("no-assert-logical-expression", rule, {
             }]
         },
         {
+            // TypeScript: test callback is adding a type to `this`
+            code: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.ok(foo && bar); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{
+                messageId: "noLogicalOperator",
+                data: {
+                    operator: "&&"
+                },
+                type: "LogicalExpression",
+                line: 1,
+                column: 68
+            }]
+        },
+        {
             code: testUtils.wrapInArrowTest("assert.ok(foo && bar);"),
             parserOptions: { ecmaVersion: 6 },
             errors: [{

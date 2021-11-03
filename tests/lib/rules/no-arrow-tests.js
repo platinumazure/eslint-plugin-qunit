@@ -67,6 +67,16 @@ ruleTester.run("no-arrow-tests", rule, {
             }]
         },
         {
+            // TypeScript: test callback is adding a type to `this`
+            code: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.ok(true); });",
+            output: "QUnit.test('test', function(this: LocalTestContext, assert) { assert.ok(true); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{
+                messageId: "noArrowFunction",
+                type: "ArrowFunctionExpression"
+            }]
+        },
+        {
             code: "QUnit.test('test', () => { ok(true); });",
             output: "QUnit.test('test', function() { ok(true); });",
             errors: [{

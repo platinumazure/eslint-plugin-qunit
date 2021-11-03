@@ -61,6 +61,14 @@ ruleTester.run("require-expect", rule, {
             options: [] // Defaults to except-simple
         },
 
+        // default, using global expect, TS
+        {
+            // TypeScript: test callback is adding a type to `this`
+            code: "test('name', function(this: LocalTestContext) { expect(0) });",
+            options: [], // Defaults to except-simple
+            parser: require.resolve("@typescript-eslint/parser")
+        },
+
         // CallExpression without parent object throws no errors
         {
             code: "test('name', function(assert) { assert.expect(0); noParentObject() });",
@@ -147,6 +155,13 @@ ruleTester.run("require-expect", rule, {
             code: "test('name', (assert) => { other.assert.expect(0) });",
             options: ["always"],
             parserOptions: { ecmaVersion: 6 },
+            errors: [alwaysErrorMessage("assert.expect")]
+        },
+        {
+            // TypeScript: test callback is adding a type to `this`
+            code: "test('name', function(this: LocalTestContext, assert) { other.assert.expect(0) });",
+            options: ["always"],
+            parser: require.resolve("@typescript-eslint/parser"),
             errors: [alwaysErrorMessage("assert.expect")]
         },
 
