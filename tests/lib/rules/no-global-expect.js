@@ -26,38 +26,38 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("no-global-expect", rule, {
     valid: [
-        testUtils.wrap("assert.expect(1);"),
+        testUtils.wrapInTest("assert.expect(1);"),
         {
-            code: testUtils.wrap("assert.expect(1);"),
+            code: testUtils.wrapInTest("assert.expect(1);"),
             globals: { expect: true }
         },
 
         // Global overridden by local import/declaration.
         {
-            code: `import expect from 'foo'; ${testUtils.wrap("expect(1);")}`,
+            code: `import expect from 'foo'; ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         },
         {
-            code: `import { expect } from 'foo'; ${testUtils.wrap("expect(1);")}`,
+            code: `import { expect } from 'foo'; ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         },
         {
-            code: `var expect = require('foo'); ${testUtils.wrap("expect(1);")}`,
+            code: `var expect = require('foo'); ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         },
         {
-            code: `var expect = () => {}; ${testUtils.wrap("expect(1);")}`,
+            code: `var expect = () => {}; ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         },
         {
-            code: `function expect() {}; ${testUtils.wrap("expect(1);")}`,
+            code: `function expect() {}; ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         }
     ],
 
     invalid: [
         {
-            code: testUtils.wrap("expect(1)"),
+            code: testUtils.wrapInTest("expect(1)"),
             globals: { expect: true },
             errors: [{
                 messageId: "unexpectedGlobalExpect",

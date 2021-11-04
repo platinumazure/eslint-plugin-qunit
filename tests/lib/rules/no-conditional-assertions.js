@@ -59,20 +59,20 @@ ruleTester.run("no-conditional-assertions", rule, {
             "if (foo) doSomething();",
             "foo ? doSomething() : false;",
             "foo ? false : doSomething();"
-        ].map(code => testUtils.wrap(code)),
+        ].map(code => testUtils.wrapInTest(code)),
 
         // Conditional tests are okay
         "if (foo) QUnit.test('test', function (assert) { assert.ok(true); });"
     ],
 
     invalid: [
-        testUtils.wrap("if (foo) assert.ok(true);"),
-        testUtils.wrapArrow("if (foo) assert.ok(true);"),
-        testUtils.wrap("if (foo) { assert.ok(true); }"),
-        testUtils.wrap("if (foo) { assert.true(true); }"),
-        testUtils.wrap("if (foo) {} else if (bar) assert.ok(true);"),
-        testUtils.wrap("if (foo) {} else assert.ok(true);"),
-        testUtils.wrap("foo ? assert.ok(true) : false"),
-        testUtils.wrap("foo ? false : assert.ok(true)")
+        testUtils.wrapInTest("if (foo) assert.ok(true);"),
+        testUtils.wrapInArrowTest("if (foo) assert.ok(true);"),
+        testUtils.wrapInTest("if (foo) { assert.ok(true); }"),
+        testUtils.wrapInTest("if (foo) { assert.true(true); }"),
+        testUtils.wrapInTest("if (foo) {} else if (bar) assert.ok(true);"),
+        testUtils.wrapInTest("if (foo) {} else assert.ok(true);"),
+        testUtils.wrapInTest("foo ? assert.ok(true) : false"),
+        testUtils.wrapInTest("foo ? false : assert.ok(true)")
     ].map(code => wrapInInvalidTestObject(code))
 });

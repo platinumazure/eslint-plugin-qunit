@@ -21,130 +21,130 @@ const ruleTester = new RuleTester();
 ruleTester.run("assert-args", rule, {
     valid: [
         // ok
-        testUtils.wrap("ok(result);"),
-        testUtils.wrap("ok(result, 'Result is true');"),
-        testUtils.wrap("ok(obj[key], key + ' value is true');"),
-        testUtils.wrap("assert.ok(result);"),
-        testUtils.wrap("assert.ok(result, 'Result is true');"),
-        testUtils.wrap("assert.ok(obj[key], key + ' value is true');"),
+        testUtils.wrapInTest("ok(result);"),
+        testUtils.wrapInTest("ok(result, 'Result is true');"),
+        testUtils.wrapInTest("ok(obj[key], key + ' value is true');"),
+        testUtils.wrapInTest("assert.ok(result);"),
+        testUtils.wrapInTest("assert.ok(result, 'Result is true');"),
+        testUtils.wrapInTest("assert.ok(obj[key], key + ' value is true');"),
 
         // equal
-        testUtils.wrap("equal(result, expected);"),
-        testUtils.wrap("equal(result, expected, 'Message');"),
-        testUtils.wrap("equal(obj[key], expected, key + ' value is true');"),
-        testUtils.wrap("assert.equal(result, expected);"),
-        testUtils.wrap("assert.equal(result, expected, 'Message');"),
-        testUtils.wrap("assert.equal(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("equal(result, expected);"),
+        testUtils.wrapInTest("equal(result, expected, 'Message');"),
+        testUtils.wrapInTest("equal(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("assert.equal(result, expected);"),
+        testUtils.wrapInTest("assert.equal(result, expected, 'Message');"),
+        testUtils.wrapInTest("assert.equal(obj[key], expected, key + ' value is true');"),
 
         // false
-        testUtils.wrap("assert.false(result);"),
-        testUtils.wrap("assert.false(result, 'Message');"),
+        testUtils.wrapInTest("assert.false(result);"),
+        testUtils.wrapInTest("assert.false(result, 'Message');"),
 
         // strictEqual
-        testUtils.wrap("strictEqual(result, expected);"),
-        testUtils.wrap("strictEqual(result, expected, 'Message');"),
-        testUtils.wrap("strictEqual(obj[key], expected, key + ' value is true');"),
-        testUtils.wrap("assert.strictEqual(result, expected);"),
-        testUtils.wrap("assert.strictEqual(result, expected, 'Message');"),
-        testUtils.wrap("assert.strictEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("strictEqual(result, expected);"),
+        testUtils.wrapInTest("strictEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("strictEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("assert.strictEqual(result, expected);"),
+        testUtils.wrapInTest("assert.strictEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("assert.strictEqual(obj[key], expected, key + ' value is true');"),
 
         // deepEqual
-        testUtils.wrap("deepEqual(result, expected);"),
-        testUtils.wrap("deepEqual(result, expected, 'Message');"),
-        testUtils.wrap("deepEqual(obj[key], expected, key + ' value is true');"),
-        testUtils.wrap("assert.deepEqual(result, expected);"),
-        testUtils.wrap("assert.deepEqual(result, expected, 'Message');"),
-        testUtils.wrap("assert.deepEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("deepEqual(result, expected);"),
+        testUtils.wrapInTest("deepEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("deepEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("assert.deepEqual(result, expected);"),
+        testUtils.wrapInTest("assert.deepEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("assert.deepEqual(obj[key], expected, key + ' value is true');"),
 
         // propEqual
-        testUtils.wrap("propEqual(result, expected);"),
-        testUtils.wrap("propEqual(result, expected, 'Message');"),
-        testUtils.wrap("propEqual(obj[key], expected, key + ' value is true');"),
-        testUtils.wrap("assert.propEqual(result, expected);"),
-        testUtils.wrap("assert.propEqual(result, expected, 'Message');"),
-        testUtils.wrap("assert.propEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("propEqual(result, expected);"),
+        testUtils.wrapInTest("propEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("propEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("assert.propEqual(result, expected);"),
+        testUtils.wrapInTest("assert.propEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("assert.propEqual(obj[key], expected, key + ' value is true');"),
 
         // raises
-        testUtils.wrap("raises(function () {});"),
-        testUtils.wrap("raises(function () {}, 'Message');"),
-        testUtils.wrap("raises(function () {}, expectedMessage);"),
-        testUtils.wrap("raises(function () {}, TypeError, 'Message');"),
-        testUtils.wrap("raises(function () {}, /error/, 'Message');"),
-        testUtils.wrap("raises(function () {}, 'Error', 'Message');"),
-        testUtils.wrap("raises(function () {}, TypeError, expectedMessage);"),
-        testUtils.wrap("assert.raises(function () {}, 'Message');"),
-        testUtils.wrap("assert.raises(function () {}, TypeError, 'Message');"),
-        testUtils.wrap("assert.raises(function () {}, expectedMessage);"),
-        testUtils.wrap("assert.raises(function () {}, /error/, 'Message');"),
-        testUtils.wrap("assert.raises(function () {}, 'Error', 'Message');"),
-        testUtils.wrap("assert.raises(function () {}, TypeError, expectedMessage);"),
+        testUtils.wrapInTest("raises(function () {});"),
+        testUtils.wrapInTest("raises(function () {}, 'Message');"),
+        testUtils.wrapInTest("raises(function () {}, expectedMessage);"),
+        testUtils.wrapInTest("raises(function () {}, TypeError, 'Message');"),
+        testUtils.wrapInTest("raises(function () {}, /error/, 'Message');"),
+        testUtils.wrapInTest("raises(function () {}, 'Error', 'Message');"),
+        testUtils.wrapInTest("raises(function () {}, TypeError, expectedMessage);"),
+        testUtils.wrapInTest("assert.raises(function () {}, 'Message');"),
+        testUtils.wrapInTest("assert.raises(function () {}, TypeError, 'Message');"),
+        testUtils.wrapInTest("assert.raises(function () {}, expectedMessage);"),
+        testUtils.wrapInTest("assert.raises(function () {}, /error/, 'Message');"),
+        testUtils.wrapInTest("assert.raises(function () {}, 'Error', 'Message');"),
+        testUtils.wrapInTest("assert.raises(function () {}, TypeError, expectedMessage);"),
 
         // throws
-        testUtils.wrap("throws(function () {});"),
-        testUtils.wrap("throws(function () {}, 'Message');"),
-        testUtils.wrap("throws(function () {}, expectedMessage);"),
-        testUtils.wrap("throws(function () {}, TypeError, 'Message');"),
-        testUtils.wrap("throws(function () {}, /error/, 'Message');"),
-        testUtils.wrap("throws(function () {}, 'Error', 'Message');"),
-        testUtils.wrap("throws(function () {}, TypeError, expectedMessage);"),
-        testUtils.wrap("assert.throws(function () {}, 'Message');"),
-        testUtils.wrap("assert.throws(function () {}, TypeError, 'Message');"),
-        testUtils.wrap("assert.throws(function () {}, expectedMessage);"),
-        testUtils.wrap("assert.throws(function () {}, /error/, 'Message');"),
-        testUtils.wrap("assert.throws(function () {}, 'Error', 'Message');"),
-        testUtils.wrap("assert.throws(function () {}, TypeError, expectedMessage);"),
+        testUtils.wrapInTest("throws(function () {});"),
+        testUtils.wrapInTest("throws(function () {}, 'Message');"),
+        testUtils.wrapInTest("throws(function () {}, expectedMessage);"),
+        testUtils.wrapInTest("throws(function () {}, TypeError, 'Message');"),
+        testUtils.wrapInTest("throws(function () {}, /error/, 'Message');"),
+        testUtils.wrapInTest("throws(function () {}, 'Error', 'Message');"),
+        testUtils.wrapInTest("throws(function () {}, TypeError, expectedMessage);"),
+        testUtils.wrapInTest("assert.throws(function () {}, 'Message');"),
+        testUtils.wrapInTest("assert.throws(function () {}, TypeError, 'Message');"),
+        testUtils.wrapInTest("assert.throws(function () {}, expectedMessage);"),
+        testUtils.wrapInTest("assert.throws(function () {}, /error/, 'Message');"),
+        testUtils.wrapInTest("assert.throws(function () {}, 'Error', 'Message');"),
+        testUtils.wrapInTest("assert.throws(function () {}, TypeError, expectedMessage);"),
 
         // true
-        testUtils.wrap("assert.true(result);"),
-        testUtils.wrap("assert.true(result, 'Message');"),
+        testUtils.wrapInTest("assert.true(result);"),
+        testUtils.wrapInTest("assert.true(result, 'Message');"),
 
         // notOk
-        testUtils.wrap("notOk(result);"),
-        testUtils.wrap("notOk(result, 'Result is true');"),
-        testUtils.wrap("notOk(obj[key], key + ' value is true');"),
-        testUtils.wrap("assert.notOk(result);"),
-        testUtils.wrap("assert.notOk(result, 'Result is true');"),
-        testUtils.wrap("assert.notOk(obj[key], key + ' value is true');"),
+        testUtils.wrapInTest("notOk(result);"),
+        testUtils.wrapInTest("notOk(result, 'Result is true');"),
+        testUtils.wrapInTest("notOk(obj[key], key + ' value is true');"),
+        testUtils.wrapInTest("assert.notOk(result);"),
+        testUtils.wrapInTest("assert.notOk(result, 'Result is true');"),
+        testUtils.wrapInTest("assert.notOk(obj[key], key + ' value is true');"),
 
         // notEqual
-        testUtils.wrap("notEqual(result, expected);"),
-        testUtils.wrap("notEqual(result, expected, 'Message');"),
-        testUtils.wrap("notEqual(obj[key], expected, key + ' value is true');"),
-        testUtils.wrap("assert.notEqual(result, expected);"),
-        testUtils.wrap("assert.notEqual(result, expected, 'Message');"),
-        testUtils.wrap("assert.notEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("notEqual(result, expected);"),
+        testUtils.wrapInTest("notEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("notEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("assert.notEqual(result, expected);"),
+        testUtils.wrapInTest("assert.notEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("assert.notEqual(obj[key], expected, key + ' value is true');"),
 
         // notStrictEqual
-        testUtils.wrap("notStrictEqual(result, expected);"),
-        testUtils.wrap("notStrictEqual(result, expected, 'Message');"),
-        testUtils.wrap("notStrictEqual(obj[key], expected, key + ' value is true');"),
-        testUtils.wrap("assert.notStrictEqual(result, expected);"),
-        testUtils.wrap("assert.notStrictEqual(result, expected, 'Message');"),
-        testUtils.wrap("assert.notStrictEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("notStrictEqual(result, expected);"),
+        testUtils.wrapInTest("notStrictEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("notStrictEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("assert.notStrictEqual(result, expected);"),
+        testUtils.wrapInTest("assert.notStrictEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("assert.notStrictEqual(obj[key], expected, key + ' value is true');"),
 
         // notDeepEqual
-        testUtils.wrap("notDeepEqual(result, expected);"),
-        testUtils.wrap("notDeepEqual(result, expected, 'Message');"),
-        testUtils.wrap("notDeepEqual(obj[key], expected, key + ' value is true');"),
-        testUtils.wrap("assert.notDeepEqual(result, expected);"),
-        testUtils.wrap("assert.notDeepEqual(result, expected, 'Message');"),
-        testUtils.wrap("assert.notDeepEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("notDeepEqual(result, expected);"),
+        testUtils.wrapInTest("notDeepEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("notDeepEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("assert.notDeepEqual(result, expected);"),
+        testUtils.wrapInTest("assert.notDeepEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("assert.notDeepEqual(obj[key], expected, key + ' value is true');"),
 
         // notPropEqual
-        testUtils.wrap("notPropEqual(result, expected);"),
-        testUtils.wrap("notPropEqual(result, expected, 'Message');"),
-        testUtils.wrap("notPropEqual(obj[key], expected, key + ' value is true');"),
-        testUtils.wrap("assert.notPropEqual(result, expected);"),
-        testUtils.wrap("assert.notPropEqual(result, expected, 'Message');"),
-        testUtils.wrap("assert.notPropEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("notPropEqual(result, expected);"),
+        testUtils.wrapInTest("notPropEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("notPropEqual(obj[key], expected, key + ' value is true');"),
+        testUtils.wrapInTest("assert.notPropEqual(result, expected);"),
+        testUtils.wrapInTest("assert.notPropEqual(result, expected, 'Message');"),
+        testUtils.wrapInTest("assert.notPropEqual(obj[key], expected, key + ' value is true');"),
 
         // not actually assertions
-        testUtils.wrap("notAnAssertion(result, expected);"),
-        testUtils.wrap("getAssertion()(result, expected);"),
+        testUtils.wrapInTest("notAnAssertion(result, expected);"),
+        testUtils.wrapInTest("getAssertion()(result, expected);"),
 
         // Object prototype properties (also not actually assertions)
-        testUtils.wrap("hasOwnProperty('prop');"),
-        testUtils.wrap("assert.hasOwnProperty('prop');"),
+        testUtils.wrapInTest("hasOwnProperty('prop');"),
+        testUtils.wrapInTest("assert.hasOwnProperty('prop');"),
 
         // unwrapped
         "notAnAssertion(result, expected);"
@@ -153,7 +153,7 @@ ruleTester.run("assert-args", rule, {
     invalid: [
         // ok
         {
-            code: testUtils.wrap("ok();"),
+            code: testUtils.wrapInTest("ok();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -164,12 +164,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("ok(a, b);"),
+            code: testUtils.wrapInTest("ok(a, b);"),
             errors: ["Unexpected call to ok with 2 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("ok(a, b, 'Message');"),
+            code: testUtils.wrapInTest("ok(a, b, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -179,7 +179,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.ok();"),
+            code: testUtils.wrapInTest("assert.ok();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -190,12 +190,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.ok(a, b);"),
+            code: testUtils.wrapInTest("assert.ok(a, b);"),
             errors: ["Unexpected call to assert.ok with 2 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.ok(a, b, 'Message');"),
+            code: testUtils.wrapInTest("assert.ok(a, b, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -207,7 +207,7 @@ ruleTester.run("assert-args", rule, {
 
         // equal
         {
-            code: testUtils.wrap("equal();"),
+            code: testUtils.wrapInTest("equal();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -217,7 +217,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("equal(a);"),
+            code: testUtils.wrapInTest("equal(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -228,12 +228,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("equal(a, b, c);"),
+            code: testUtils.wrapInTest("equal(a, b, c);"),
             errors: ["Unexpected call to equal with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("equal(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("equal(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -243,7 +243,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.equal();"),
+            code: testUtils.wrapInTest("assert.equal();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -253,7 +253,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.equal(a);"),
+            code: testUtils.wrapInTest("assert.equal(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -264,12 +264,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.equal(a, b, c);"),
+            code: testUtils.wrapInTest("assert.equal(a, b, c);"),
             errors: ["Unexpected call to assert.equal with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.equal(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("assert.equal(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -281,7 +281,7 @@ ruleTester.run("assert-args", rule, {
 
         // false
         {
-            code: testUtils.wrap("assert.false();"),
+            code: testUtils.wrapInTest("assert.false();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -291,7 +291,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.false(a, b, 'Message');"),
+            code: testUtils.wrapInTest("assert.false(a, b, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -303,7 +303,7 @@ ruleTester.run("assert-args", rule, {
 
         // true
         {
-            code: testUtils.wrap("assert.true();"),
+            code: testUtils.wrapInTest("assert.true();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -313,7 +313,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.true(a, b, 'Message');"),
+            code: testUtils.wrapInTest("assert.true(a, b, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -325,7 +325,7 @@ ruleTester.run("assert-args", rule, {
 
         // strictEqual
         {
-            code: testUtils.wrap("strictEqual();"),
+            code: testUtils.wrapInTest("strictEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -335,7 +335,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("strictEqual(a);"),
+            code: testUtils.wrapInTest("strictEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -346,12 +346,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("strictEqual(a, b, c);"),
+            code: testUtils.wrapInTest("strictEqual(a, b, c);"),
             errors: ["Unexpected call to strictEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("strictEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("strictEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -361,7 +361,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.strictEqual();"),
+            code: testUtils.wrapInTest("assert.strictEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -371,7 +371,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrapArrow("assert.strictEqual();"),
+            code: testUtils.wrapInArrowTest("assert.strictEqual();"),
             parserOptions: { ecmaVersion: 6 },
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
@@ -382,7 +382,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.strictEqual(a);"),
+            code: testUtils.wrapInTest("assert.strictEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -393,12 +393,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.strictEqual(a, b, c);"),
+            code: testUtils.wrapInTest("assert.strictEqual(a, b, c);"),
             errors: ["Unexpected call to assert.strictEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.strictEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("assert.strictEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -410,7 +410,7 @@ ruleTester.run("assert-args", rule, {
 
         // deepEqual
         {
-            code: testUtils.wrap("deepEqual();"),
+            code: testUtils.wrapInTest("deepEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -420,7 +420,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("deepEqual(a);"),
+            code: testUtils.wrapInTest("deepEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -431,12 +431,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("deepEqual(a, b, c);"),
+            code: testUtils.wrapInTest("deepEqual(a, b, c);"),
             errors: ["Unexpected call to deepEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("deepEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("deepEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -446,7 +446,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.deepEqual();"),
+            code: testUtils.wrapInTest("assert.deepEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -456,7 +456,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.deepEqual(a);"),
+            code: testUtils.wrapInTest("assert.deepEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -467,12 +467,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.deepEqual(a, b, c);"),
+            code: testUtils.wrapInTest("assert.deepEqual(a, b, c);"),
             errors: ["Unexpected call to assert.deepEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.deepEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("assert.deepEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -484,7 +484,7 @@ ruleTester.run("assert-args", rule, {
 
         // propEqual
         {
-            code: testUtils.wrap("propEqual();"),
+            code: testUtils.wrapInTest("propEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -494,7 +494,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("propEqual(a);"),
+            code: testUtils.wrapInTest("propEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -505,12 +505,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("propEqual(a, b, c);"),
+            code: testUtils.wrapInTest("propEqual(a, b, c);"),
             errors: ["Unexpected call to propEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("propEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("propEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -520,7 +520,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.propEqual();"),
+            code: testUtils.wrapInTest("assert.propEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -530,7 +530,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.propEqual(a);"),
+            code: testUtils.wrapInTest("assert.propEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -541,12 +541,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.propEqual(a, b, c);"),
+            code: testUtils.wrapInTest("assert.propEqual(a, b, c);"),
             errors: ["Unexpected call to assert.propEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.propEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("assert.propEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -558,7 +558,7 @@ ruleTester.run("assert-args", rule, {
 
         // raises
         {
-            code: testUtils.wrap("raises();"),
+            code: testUtils.wrapInTest("raises();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -569,12 +569,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("raises(function () {}, TypeError, blah);"),
+            code: testUtils.wrapInTest("raises(function () {}, TypeError, blah);"),
             errors: ["Unexpected call to raises with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("raises(function () {}, TypeError, blah, 'Message');"),
+            code: testUtils.wrapInTest("raises(function () {}, TypeError, blah, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -584,7 +584,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.raises();"),
+            code: testUtils.wrapInTest("assert.raises();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -595,12 +595,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.raises(function () {}, TypeError, blah);"),
+            code: testUtils.wrapInTest("assert.raises(function () {}, TypeError, blah);"),
             errors: ["Unexpected call to assert.raises with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.raises(function () {}, TypeError, blah, 'Message');"),
+            code: testUtils.wrapInTest("assert.raises(function () {}, TypeError, blah, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -612,7 +612,7 @@ ruleTester.run("assert-args", rule, {
 
         // throws
         {
-            code: testUtils.wrap("throws();"),
+            code: testUtils.wrapInTest("throws();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -623,12 +623,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("throws(function () {}, TypeError, blah);"),
+            code: testUtils.wrapInTest("throws(function () {}, TypeError, blah);"),
             errors: ["Unexpected call to throws with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("throws(function () {}, TypeError, blah, 'Message');"),
+            code: testUtils.wrapInTest("throws(function () {}, TypeError, blah, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -638,7 +638,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.throws();"),
+            code: testUtils.wrapInTest("assert.throws();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -649,12 +649,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.throws(function () {}, TypeError, blah);"),
+            code: testUtils.wrapInTest("assert.throws(function () {}, TypeError, blah);"),
             errors: ["Unexpected call to assert.throws with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.throws(function () {}, TypeError, blah, 'Message');"),
+            code: testUtils.wrapInTest("assert.throws(function () {}, TypeError, blah, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -666,7 +666,7 @@ ruleTester.run("assert-args", rule, {
 
         // notOk
         {
-            code: testUtils.wrap("notOk();"),
+            code: testUtils.wrapInTest("notOk();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -677,12 +677,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("notOk(a, b);"),
+            code: testUtils.wrapInTest("notOk(a, b);"),
             errors: ["Unexpected call to notOk with 2 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("notOk(a, b, 'Message');"),
+            code: testUtils.wrapInTest("notOk(a, b, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -692,7 +692,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notOk();"),
+            code: testUtils.wrapInTest("assert.notOk();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -703,12 +703,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.notOk(a, b);"),
+            code: testUtils.wrapInTest("assert.notOk(a, b);"),
             errors: ["Unexpected call to assert.notOk with 2 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.notOk(a, b, 'Message');"),
+            code: testUtils.wrapInTest("assert.notOk(a, b, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -720,7 +720,7 @@ ruleTester.run("assert-args", rule, {
 
         // notEqual
         {
-            code: testUtils.wrap("notEqual();"),
+            code: testUtils.wrapInTest("notEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -730,7 +730,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("notEqual(a);"),
+            code: testUtils.wrapInTest("notEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -741,12 +741,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("notEqual(a, b, c);"),
+            code: testUtils.wrapInTest("notEqual(a, b, c);"),
             errors: ["Unexpected call to notEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("notEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("notEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -756,7 +756,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notEqual();"),
+            code: testUtils.wrapInTest("assert.notEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -766,7 +766,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notEqual(a);"),
+            code: testUtils.wrapInTest("assert.notEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -777,12 +777,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.notEqual(a, b, c);"),
+            code: testUtils.wrapInTest("assert.notEqual(a, b, c);"),
             errors: ["Unexpected call to assert.notEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.notEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("assert.notEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -794,7 +794,7 @@ ruleTester.run("assert-args", rule, {
 
         // notStrictEqual
         {
-            code: testUtils.wrap("notStrictEqual();"),
+            code: testUtils.wrapInTest("notStrictEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -804,7 +804,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("notStrictEqual(a);"),
+            code: testUtils.wrapInTest("notStrictEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -815,12 +815,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("notStrictEqual(a, b, c);"),
+            code: testUtils.wrapInTest("notStrictEqual(a, b, c);"),
             errors: ["Unexpected call to notStrictEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("notStrictEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("notStrictEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -830,7 +830,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notStrictEqual();"),
+            code: testUtils.wrapInTest("assert.notStrictEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -840,7 +840,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notStrictEqual(a);"),
+            code: testUtils.wrapInTest("assert.notStrictEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -851,12 +851,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.notStrictEqual(a, b, c);"),
+            code: testUtils.wrapInTest("assert.notStrictEqual(a, b, c);"),
             errors: ["Unexpected call to assert.notStrictEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.notStrictEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("assert.notStrictEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -868,7 +868,7 @@ ruleTester.run("assert-args", rule, {
 
         // notDeepEqual
         {
-            code: testUtils.wrap("notDeepEqual();"),
+            code: testUtils.wrapInTest("notDeepEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -878,7 +878,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("notDeepEqual(a);"),
+            code: testUtils.wrapInTest("notDeepEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -889,12 +889,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("notDeepEqual(a, b, c);"),
+            code: testUtils.wrapInTest("notDeepEqual(a, b, c);"),
             errors: ["Unexpected call to notDeepEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("notDeepEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("notDeepEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -904,7 +904,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notDeepEqual();"),
+            code: testUtils.wrapInTest("assert.notDeepEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -914,7 +914,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notDeepEqual(a);"),
+            code: testUtils.wrapInTest("assert.notDeepEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -925,12 +925,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.notDeepEqual(a, b, c);"),
+            code: testUtils.wrapInTest("assert.notDeepEqual(a, b, c);"),
             errors: ["Unexpected call to assert.notDeepEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.notDeepEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("assert.notDeepEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -942,7 +942,7 @@ ruleTester.run("assert-args", rule, {
 
         // notPropEqual
         {
-            code: testUtils.wrap("notPropEqual();"),
+            code: testUtils.wrapInTest("notPropEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -952,7 +952,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("notPropEqual(a);"),
+            code: testUtils.wrapInTest("notPropEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -963,12 +963,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("notPropEqual(a, b, c);"),
+            code: testUtils.wrapInTest("notPropEqual(a, b, c);"),
             errors: ["Unexpected call to notPropEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("notPropEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("notPropEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {
@@ -978,7 +978,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notPropEqual();"),
+            code: testUtils.wrapInTest("assert.notPropEqual();"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -988,7 +988,7 @@ ruleTester.run("assert-args", rule, {
             }]
         },
         {
-            code: testUtils.wrap("assert.notPropEqual(a);"),
+            code: testUtils.wrapInTest("assert.notPropEqual(a);"),
             errors: [{
                 messageId: "unexpectedArgCountNoMessage",
                 data: {
@@ -999,12 +999,12 @@ ruleTester.run("assert-args", rule, {
         },
         /* Allowed for now.
         {
-            code: testUtils.wrap("assert.notPropEqual(a, b, c);"),
+            code: testUtils.wrapInTest("assert.notPropEqual(a, b, c);"),
             errors: ["Unexpected call to assert.notPropEqual with 3 arguments and no error message."]
         },
         */
         {
-            code: testUtils.wrap("assert.notPropEqual(a, b, c, 'Message');"),
+            code: testUtils.wrapInTest("assert.notPropEqual(a, b, c, 'Message');"),
             errors: [{
                 messageId: "unexpectedArgCount",
                 data: {

@@ -4,10 +4,10 @@
  */
 "use strict";
 
-exports.wrap = function (assertionCode) {
+exports.wrapInTest = function (assertionCode) {
     return `QUnit.test('test', function (assert) { ${assertionCode} });`;
 };
 
-exports.wrapArrow = function (assertionCode) {
+exports.wrapInArrowTest = function (assertionCode) {
     return `QUnit.test('test', (assert) => { ${assertionCode} });`;
 };
