@@ -146,7 +146,7 @@ ruleTester.run("assert-args", rule, {
         testUtils.wrap("hasOwnProperty('prop');"),
         testUtils.wrap("assert.hasOwnProperty('prop');"),
 
-        // untestUtils.wrapped
+        // unwrapped
         "notAnAssertion(result, expected);"
     ],
 
