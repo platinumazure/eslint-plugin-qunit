@@ -9,15 +9,9 @@
 //------------------------------------------------------------------------------
 
 const rule = require("../../../lib/rules/no-global-expect"),
-    RuleTester = require("eslint").RuleTester;
+    RuleTester = require("eslint").RuleTester,
+    testUtils = require("../../testUtils");
 
-//------------------------------------------------------------------------------
-// Helpers
-//------------------------------------------------------------------------------
-
-function wrap(code) {
-    return `QUnit.test('a test', function (assert) { ${code} });`;
-}
 
 //------------------------------------------------------------------------------
 // Tests
@@ -32,38 +26,38 @@ const ruleTester = new RuleTester({
 
 ruleTester.run("no-global-expect", rule, {
     valid: [
-        wrap("assert.expect(1);"),
+        testUtils.wrapInTest("assert.expect(1);"),
         {
-            code: wrap("assert.expect(1);"),
+            code: testUtils.wrapInTest("assert.expect(1);"),
             globals: { expect: true }
         },
 
         // Global overridden by local import/declaration.
         {
-            code: `import expect from 'foo'; ${wrap("expect(1);")}`,
+            code: `import expect from 'foo'; ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         },
         {
-            code: `import { expect } from 'foo'; ${wrap("expect(1);")}`,
+            code: `import { expect } from 'foo'; ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         },
         {
-            code: `var expect = require('foo'); ${wrap("expect(1);")}`,
+            code: `var expect = require('foo'); ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         },
         {
-            code: `var expect = () => {}; ${wrap("expect(1);")}`,
+            code: `var expect = () => {}; ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         },
         {
-            code: `function expect() {}; ${wrap("expect(1);")}`,
+            code: `function expect() {}; ${testUtils.wrapInTest("expect(1);")}`,
             globals: { expect: true }
         }
     ],
 
     invalid: [
         {
-            code: wrap("expect(1)"),
+            code: testUtils.wrapInTest("expect(1)"),
             globals: { expect: true },
             errors: [{
                 messageId: "unexpectedGlobalExpect",
