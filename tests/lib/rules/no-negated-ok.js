@@ -105,6 +105,13 @@ ruleTester.run("no-negated-ok", rule, {
             errors: [createError("assert.ok")]
         },
         {
+            // TypeScript: test callback is adding a type to `this`
+            code: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.ok(!foo); });",
+            output: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.notOk(foo); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [createError("assert.ok")]
+        },
+        {
             code: testUtils.wrapInArrowTest("assert.ok(!foo)"),
             output: testUtils.wrapInArrowTest("assert.notOk(foo)"),
             parserOptions: { ecmaVersion: 6 },

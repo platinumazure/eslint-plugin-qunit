@@ -499,6 +499,19 @@ ruleTester.run("no-async-in-loops", rule, {
             }]
         },
         {
+            // TypeScript: test callback is adding a type to `this`
+            code: "test('name', function (this: LocalTestContext, assert) { while (false) assert.async(); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{
+                messageId: "unexpectedAsyncInLoop",
+                data: {
+                    call: "assert.async()",
+                    loopTypeText: "while loop"
+                },
+                type: "CallExpression"
+            }]
+        },
+        {
             code: "test('name', (assert) => { while (false) assert.async(); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{

@@ -53,6 +53,16 @@ ruleTester.run("no-early-return", rule, {
         },
 
         {
+            // TypeScript: test callback is adding a type to `this`
+            code: "QUnit.test('a test', function (this: LocalTestContext, assert) { if (true) return; assert.ok(true); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{
+                messageId: "noEarlyReturn",
+                type: "ReturnStatement"
+            }]
+        },
+
+        {
             code: "QUnit.test('a test', (assert) => { if (true) return; assert.ok(true); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{

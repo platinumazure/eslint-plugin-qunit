@@ -54,6 +54,12 @@ ruleTester.run("no-compare-relation-boolean", rule, {
             output: testUtils.wrapInTest("assert.ok(a === b);")
         },
         {
+            // TypeScript: test callback is adding a type to `this`
+            code: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.equal(a === b, true); });",
+            output: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.ok(a === b); });",
+            parser: require.resolve("@typescript-eslint/parser")
+        },
+        {
             code: testUtils.wrapInArrowTest("assert.equal(a === b, true);"),
             output: testUtils.wrapInArrowTest("assert.ok(a === b);"),
             parserOptions: { ecmaVersion: 6 }

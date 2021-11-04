@@ -54,6 +54,18 @@ ruleTester.run("no-throws-string", rule, {
             }]
         },
         {
+            // TypeScript: test callback is adding a type to `this`
+            code: "QUnit.test('a test', function (this: LocalTestContext, assert) { assert.throws(function () { }, 'Error message', 'Error should have been thrown'); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{
+                messageId: "noThrowsWithString",
+                data: {
+                    callee: "assert.throws"
+                },
+                type: "CallExpression"
+            }]
+        },
+        {
             code: "QUnit.test('a test', (assert) => { assert.throws(function () { }, 'Error message', 'Error should have been thrown'); });",
             parserOptions: { ecmaVersion: 6 },
             errors: [{

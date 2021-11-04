@@ -148,6 +148,14 @@ ruleTester.run("no-assert-equal-boolean", rule, {
             code: "QUnit.test('Name', function () { equal(a, true); });",
             output: "QUnit.test('Name', function () { true(a); });",
             errors: [{ messageId: "useAssertTrueOrFalse" }]
+        },
+
+        // TypeScript: test callback is adding a type to `this`
+        {
+            code: "QUnit.test('Name', function (this: LocalTestContext, assert) { assert.equal(a, true); });",
+            output: "QUnit.test('Name', function (this: LocalTestContext, assert) { assert.true(a); });",
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{ messageId: "useAssertTrueOrFalse" }]
         }
     ]
 });

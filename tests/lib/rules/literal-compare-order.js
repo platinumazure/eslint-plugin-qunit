@@ -87,6 +87,19 @@ ruleTester.run("literal-compare-order", rule, {
             }]
         },
         {
+            // TypeScript: test callback is adding a type to `this`
+            code: testUtils.wrapInTest("QUnit.test('test', (this: LocalTestContext) => { equal('Literal', variable); });"),
+            output: testUtils.wrapInTest("QUnit.test('test', (this: LocalTestContext) => { equal(variable, 'Literal'); });"),
+            parser: require.resolve("@typescript-eslint/parser"),
+            errors: [{
+                messageId: "actualFirst",
+                data: {
+                    expected: "'Literal'",
+                    actual: "variable"
+                }
+            }]
+        },
+        {
             code: testUtils.wrapInTest("equal('Literal', variable, 'message');"),
             output: testUtils.wrapInTest("equal(variable, 'Literal', 'message');"),
             errors: [{
