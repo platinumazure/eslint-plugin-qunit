@@ -85,6 +85,16 @@ describe("index.js", function () {
                     });
                 });
 
+                it("should have the right rule contents", function () {
+                    const path = `./lib/rules/${ruleName}.js`;
+                    const fileContents = fs.readFileSync(path, "utf8");
+
+                    assert.ok(
+                        fileContents.includes("/** @type {import('eslint').Rule.RuleModule} */"),
+                        "includes jsdoc comment for rule type"
+                    );
+                });
+
                 // eslint-disable-next-line complexity
                 it("should have the right doc contents", function () {
                     const path = `./docs/rules/${ruleName}.md`;
