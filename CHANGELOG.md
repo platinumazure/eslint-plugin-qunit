@@ -1,3 +1,10 @@
+### 7.1.0
+* Chore: Add jsdoc `type` annotation to rules (#219) (Bryan Mishkin)
+* Update: handle adding TypeScript type to `this` parameter in `test` hook in many rules (#217) (Bryan Mishkin)
+* Build: Move wrap/unwrap helpers to testUtils (#216) (Ed S)
+* Fix: Check for arrow functions in utils.getAssertContextNameForTest (#214) (Ed S)
+* Docs: ensure rule docs mention all rule options (#212) (Bryan Mishkin)
+
 ### 7.0.0
 * Chore: Add npm upgrade step to CI workflow (Kevin Partington)
 * Upgrade: Most devDependencies (Kevin Partington)
