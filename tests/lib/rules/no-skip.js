@@ -50,6 +50,10 @@ ruleTester.run("no-skip", rule, {
         {
             code: "skip('Name', function() { });",
             errors: [createError("skip")]
+        },
+        {
+            code: "test.skip('Name', function() { });",
+            errors: [createError("test.skip")]
         }
     ]
 });
