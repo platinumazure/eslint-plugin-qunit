@@ -16,6 +16,8 @@ module.skip('Name', function() { });
 
 skip('Name', function() { });
 
+test.skip('Name', function() { });
+
 ```
 
 The following patterns are not considered warnings:

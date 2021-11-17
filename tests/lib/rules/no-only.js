@@ -49,6 +49,12 @@ ruleTester.run("no-only", rule, {
             errors: [{
                 messageId: "noQUnitOnly"
             }]
+        },
+        {
+            code: "test.only('Name', function() { });",
+            errors: [{
+                messageId: "noQUnitOnly"
+            }]
         }
     ]
 });

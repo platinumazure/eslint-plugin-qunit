@@ -18,6 +18,8 @@ module.only('Name', function() { });
 
 only('Name', function() { });
 
+test.only('Name', function() { });
+
 ```
 
 The following patterns are not considered warnings:
