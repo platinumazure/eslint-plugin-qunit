@@ -42,4 +42,4 @@ If your development pipeline would make running this rule annoying, it could be 
 
 ## Further Reading
 
-* [QUnit.todo](https://api.qunitjs.com/QUnit.todo/)
+* [QUnit.todo](https://api.qunitjs.com/QUnit/test.todo/)
