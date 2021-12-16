@@ -1,3 +1,7 @@
+### 7.2.0
+* Upgrade: devDependencies (Kevin Partington)
+* Update: isQunitMethod utils function detects test.only/test.skip (#221) (Baptiste Doucerain)
+
 ### 7.1.0
 * Chore: Add jsdoc `type` annotation to rules (#219) (Bryan Mishkin)
 * Update: handle adding TypeScript type to `this` parameter in `test` hook in many rules (#217) (Bryan Mishkin)
