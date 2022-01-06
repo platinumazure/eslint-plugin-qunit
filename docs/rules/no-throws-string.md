@@ -50,4 +50,4 @@ This rule can be safely disabled if you are not using QUnit 2.0.
 
 ## Further Reading
 
-* [Replace assert.throws(block, string, message) with assert.throws(block, regexp, message)](http://qunitjs.com/upgrade-guide-2.x/#replace-assert-throws-block-string-message-with-assert-throws-block-regexp-message)
+* [Replace assert.throws(block, string, message) with assert.throws(block, regexp, message)](https://qunitjs.com/upgrade-guide-2.x/#replace-assert-throws-block-string-message-with-assert-throws-block-regexp-message)

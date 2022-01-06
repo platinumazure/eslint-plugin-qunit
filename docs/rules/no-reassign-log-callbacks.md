@@ -71,4 +71,4 @@ others' logging callbacks.
 
 ## Further Reading
 
-* [QUnit 2.0 Migration Guide: Logging Callbacks](http://qunitjs.com/upgrade-guide-2.x/#replace-qunit-log-callback-with-qunit-log-callback-for-all-reporting-callbacks)
+* [QUnit 2.0 Migration Guide: Logging Callbacks](https://qunitjs.com/upgrade-guide-2.x/#replace-qunit-log-callback-with-qunit-log-callback-for-all-reporting-callbacks)

@@ -42,4 +42,4 @@ This rule can be safely disabled if you want to tolerate asynchronous test decla
 
 ## Further Reading
 
-* [QUnit 2.x Migration Guide (Replace asyncTest)](http://qunitjs.com/upgrade-guide-2.x/#replace-asynctest-with-qunit-test-and-assert-async)
+* [QUnit 2.x Migration Guide (Replace asyncTest)](https://qunitjs.com/upgrade-guide-2.x/#replace-asynctest-with-qunit-test-and-assert-async)

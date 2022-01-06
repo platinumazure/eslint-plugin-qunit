@@ -49,4 +49,4 @@ This rule can be safely disabled if you want to tolerate global module/test decl
 
 ## Further Reading
 
-* [QUnit 2.x Migration Guide (Globals)](http://qunitjs.com/upgrade-guide-2.x/#removed-globals)
+* [QUnit 2.x Migration Guide (Globals)](https://qunitjs.com/upgrade-guide-2.x/#removed-globals)

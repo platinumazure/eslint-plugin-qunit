@@ -45,4 +45,4 @@ APIs, this rule can be safely disabled.
 
 ## Further Reading
 
-* [QUnit 2.0 upgrade guide: Module hooks](http://qunitjs.com/upgrade-guide-2.x/#rename-module-hooks)
+* [QUnit 2.0 upgrade guide: Module hooks](https://qunitjs.com/upgrade-guide-2.x/#rename-module-hooks)

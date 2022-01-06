@@ -37,4 +37,4 @@ safely disabled.
 
 ## Further Reading
 
-* [QUnit 2.0 Migration Guide: Stop using stop/start](http://qunitjs.com/upgrade-guide-2.x/#replace-stop-and-start-with-assert-async)
+* [QUnit 2.0 Migration Guide: Stop using stop/start](https://qunitjs.com/upgrade-guide-2.x/#replace-stop-and-start-with-assert-async)

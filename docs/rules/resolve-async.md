@@ -75,5 +75,5 @@ unnecessarily and can be disabled.
 ## Further Reading
 
 * [QUnit.stop()](https://api.qunitjs.com/QUnit.stop/)
-* [QUnit.start()](https://api.qunitjs.com/QUnit.start/)
+* [QUnit.start()](https://api.qunitjs.com/QUnit/start/)
 * [assert.async()](https://api.qunitjs.com/async/)
