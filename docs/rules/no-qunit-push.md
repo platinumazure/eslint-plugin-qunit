@@ -38,4 +38,4 @@ will not be migrated to QUnit 2.0.
 
 ## Further Reading
 
-* [QUnit.push()](http://api.qunitjs.com/QUnit.push/)
+* [QUnit.push()](https://api.qunitjs.com/extension/QUnit.push/)

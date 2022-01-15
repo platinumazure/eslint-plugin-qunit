@@ -37,4 +37,4 @@ rule can be safely disabled.
 
 ## Further Reading
 
-[QUnit 2.x Upgrade Guide: Replace QUnit.jsDump() with QUnit.dump()](http://qunitjs.com/upgrade-guide-2.x/#replace-qunit-jsdump-with-qunit-dump)
+[QUnit 2.x Upgrade Guide: Replace QUnit.jsDump() with QUnit.dump()](https://qunitjs.com/upgrade-guide-2.x/#replace-qunit-jsdump-with-qunit-dump)

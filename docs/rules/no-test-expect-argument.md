@@ -50,4 +50,4 @@ This rule can be safely disabled if you want to tolerate an expect argument in `
 
 ## Further Reading
 
-* [QUnit 2.x Migration Guide (Replace expect argument in QUnit.test)](http://qunitjs.com/upgrade-guide-2.x/#replace-expected-argument-in-qunit-test)
+* [QUnit 2.x Migration Guide (Replace expect argument in QUnit.test)](https://qunitjs.com/upgrade-guide-2.x/#replace-expected-argument-in-qunit-test)

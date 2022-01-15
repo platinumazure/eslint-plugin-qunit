@@ -115,4 +115,4 @@ If you are not upgrading to QUnit 2.x anytime soon, this rule can be safely disa
 
 ## Further Reading
 
-* [`QUnit.start()`](http://api.qunitjs.com/QUnit.start/)
+* [`QUnit.start()`](https://api.qunitjs.com/QUnit/start/)

@@ -70,4 +70,4 @@ This rule can be safely disabled if you want to tolerate global assertions, espe
 
 ## Further Reading
 
-* [QUnit 2.x Migration Guide (Assertions)](http://qunitjs.com/upgrade-guide-2.x/#replace-global-assertions-with-assert-arguments)
+* [QUnit 2.x Migration Guide (Assertions)](https://qunitjs.com/upgrade-guide-2.x/#replace-global-assertions-with-assert-arguments)

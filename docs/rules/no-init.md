@@ -35,4 +35,4 @@ use of this rule is *highly* recommended.
 
 ## Further Reading
 
-* [QUnit Upgrade Guide: Stop using `QUnit.init`](http://qunitjs.com/upgrade-guide-2.x/#stop-using-qunit-init-no-replacement)
+* [QUnit Upgrade Guide: Stop using `QUnit.init`](https://qunitjs.com/upgrade-guide-2.x/#stop-using-qunit-init-no-replacement)

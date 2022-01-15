@@ -35,4 +35,4 @@ will not migrate to QUnit 2.0.
 
 ## Further Reading
 
-* [QUnit.stop()](http://api.qunitjs.com/QUnit.stop/)
+* [QUnit.stop()](https://api.qunitjs.com/QUnit.stop/)

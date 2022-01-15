@@ -45,5 +45,5 @@ not support nested modules yet.
 
 ## Further Reading
 
-* [QUnit.test()](http://api.qunitjs.com/QUnit.test/)
-* [QUnit.module()](http://api.qunitjs.com/QUnit.module/)
+* [QUnit.test()](https://api.qunitjs.com/QUnit.test/)
+* [QUnit.module()](https://api.qunitjs.com/QUnit.module/)

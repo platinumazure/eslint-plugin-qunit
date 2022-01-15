@@ -36,4 +36,4 @@ use of this rule is *highly* recommended.
 
 ## Further Reading
 
-* [QUnit Upgrade Guide: Stop using `QUnit.reset`](http://qunitjs.com/upgrade-guide-2.x/#stop-using-qunit-reset-split-one-test-into-multiple-tests)
+* [QUnit Upgrade Guide: Stop using `QUnit.reset`](https://qunitjs.com/upgrade-guide-2.x/#stop-using-qunit-reset-split-one-test-into-multiple-tests)
