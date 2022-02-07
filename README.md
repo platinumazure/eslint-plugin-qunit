@@ -9,6 +9,8 @@ ESLint plugin containing rules useful for QUnit tests.
 
 ## Configurations
 
+testing
+
 You can extend from a configuration in order to simplify manual configuration of plugin rules in your project.
 
 For more details on how to extend your configuration from a plugin configuration, please see the [ESLint plugin configuration documentation](https://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin).
