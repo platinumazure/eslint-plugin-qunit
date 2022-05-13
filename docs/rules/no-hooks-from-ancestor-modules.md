@@ -33,6 +33,12 @@ The following patterns are not warnings:
 QUnit.module("example module", function(hooks) {
     hooks.beforeEach(function() {});
 });
+
+QUnit.module("outer module", function() {
+    QUnit.module("inner module", function(hooks) {
+        hooks.beforeEach(function() {});
+    });
+});
 ```
 
 ## When Not To Use It

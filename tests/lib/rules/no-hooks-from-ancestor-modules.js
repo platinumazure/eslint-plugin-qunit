@@ -48,6 +48,12 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
         QUnit.module("module", function(hooks) { hooks.afterEach(function() {}); });
         `,
         `
+        QUnit.module("module", {}, function(hooks) { hooks.beforeEach(function() {}); });
+        `,
+        `
+        QUnit.module("module", makeOptions(), function(hooks) { hooks.beforeEach(function() {}); });
+        `,
+        `
         QUnit.module("module-a", function() {
             QUnit.module("module-b", function(hooks) {
                 hooks.beforeEach(function() {});
@@ -129,6 +135,36 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             code: `
                 QUnit.module("module-a", function (hooks) {
                     QUnit.module("module-b", function () {
+                        hooks.beforeEach(function () {});
+                    });
+                });
+            `,
+            errors: [
+                createError({
+                    invokedMethodName: "beforeEach",
+                    usedHooksIdentifierName: "hooks"
+                })
+            ]
+        },
+        {
+            code: `
+                QUnit.module("module-a", {}, function (hooks) {
+                    QUnit.module("module-b", {}, function () {
+                        hooks.beforeEach(function () {});
+                    });
+                });
+            `,
+            errors: [
+                createError({
+                    invokedMethodName: "beforeEach",
+                    usedHooksIdentifierName: "hooks"
+                })
+            ]
+        },
+        {
+            code: `
+                QUnit.module("module-a", makeOptions(), function (hooks) {
+                    QUnit.module("module-b", makeOptions(), function () {
                         hooks.beforeEach(function () {});
                     });
                 });
