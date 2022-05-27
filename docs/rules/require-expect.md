@@ -11,6 +11,18 @@ test. This rule checks for `expect` at linting time.
 
 ## Options
 
+This rule is configurable by  the `Check Type` and the `Config Options`
+
+### Check Type
+
+Example:
+
+```js
+rules: {
+  'qunit/require-expect': ['error', 'except-simple'],
+},
+```
+
 The "always" option requires that `expect` is called in each test.
 
 The "except-simple" (**default**) option only requires an `expect` call when an assertion is
@@ -27,6 +39,28 @@ option codifies such convention.
 The "never-except-zero" option disallows `except` calls, except when used to
 explicitly assert that a test performs no assertions, which would otherwise
 be considered an error.
+
+### Config Options
+
+This rule allows exactly one config option: `allowFunctions`
+
+#### allowFunctions
+
+If you are using the Check Type `except-simple` whenever you pass `assert` into
+another function you will cause an error. If you have some functions that you
+are passing `assert` to that don't add to the number of asserts (and maybe just
+extract the test name from the assert context) then you can mark those functions
+to be ok with the `allowFunctions` config option.
+
+Here is an example:
+
+```js
+rules: {
+  'qunit/require-expect': ['error', 'except-simple', {
+    allowFunctions: [ 'percySnapshot' ]
+  }],
+},
+```
 
 ## Rule Details
 

@@ -141,6 +141,16 @@ ruleTester.run("require-expect", rule, {
         {
             code: "test('name', function(assert) { assert.expect(0) });",
             options: ["never-except-zero"]
+        },
+
+        // Sending assert to a function with a valid allowFunctions
+        {
+            code: [
+                "function myAssertion(a, assert, c) { assert.ok(true); }",
+                "test('name', function(assert) { myAssertion(null, assert, null); });"
+            ].join(returnAndIndent),
+            options: ["except-simple", { allowFunctions: ["myAssertion"] }],
+            errors: [exceptSimpleErrorMessage("assert.expect")]
         }
     ],
 
