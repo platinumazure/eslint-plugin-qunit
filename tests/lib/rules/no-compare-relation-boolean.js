@@ -45,7 +45,10 @@ ruleTester.run("no-compare-relation-boolean", rule, {
 
         // Comparing against something that isn't a boolean literal is fine
         "assert.equal(a > b, 1);",
-        "assert.equal(a > b, c);"
+        "assert.equal(a > b, c);",
+
+        // Not enough arguments
+        "assert.strictEqual();"
     ].map(code => testUtils.wrapInTest(code)),
 
     invalid: [
