@@ -48,7 +48,8 @@ ruleTester.run("no-compare-relation-boolean", rule, {
         "assert.equal(a > b, c);",
 
         // Not enough arguments
-        "assert.strictEqual();"
+        "assert.strictEqual();",
+        "assert.strictEqual(a);"
     ].map(code => testUtils.wrapInTest(code)),
 
     invalid: [
