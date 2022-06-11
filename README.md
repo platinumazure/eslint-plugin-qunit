@@ -101,11 +101,16 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
     <td align="center"><a href="https://www.linkedin.com/in/bmish"><img src="https://avatars3.githubusercontent.com/u/698306?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bryan Mishkin</b></sub></a><br /><a href="https://github.com/platinumazure/eslint-plugin-qunit/issues?q=author%3Abmish" title="Bug reports">🐛</a> <a href="https://github.com/platinumazure/eslint-plugin-qunit/commits?author=bmish" title="Code">💻</a> <a href="https://github.com/platinumazure/eslint-plugin-qunit/commits?author=bmish" title="Documentation">📖</a> <a href="#ideas-bmish" title="Ideas, Planning, & Feedback">🤔</a></td>
     <td align="center"><a href="https://xhmikosr.io/"><img src="https://avatars2.githubusercontent.com/u/349621?v=4?s=100" width="100px;" alt=""/><br /><sub><b>XhmikosR</b></sub></a><br /><a href="https://github.com/platinumazure/eslint-plugin-qunit/issues?q=author%3AXhmikosR" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/andreyfel"><img src="https://avatars2.githubusercontent.com/u/9370878?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Andrey Fel</b></sub></a><br /><a href="https://github.com/platinumazure/eslint-plugin-qunit/issues?q=author%3Aandreyfel" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/raycohen"><img src="https://avatars.githubusercontent.com/u/20404?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Ray Cohen</b></sub></a><br /><a href="https://github.com/platinumazure/eslint-plugin-qunit/issues?q=author%3Araycohen" title="Bug reports">🐛</a> <a href="https://github.com/platinumazure/eslint-plugin-qunit/commits?author=raycohen" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/DBattou"><img src="https://avatars.githubusercontent.com/u/16645938?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Baptiste Doucerain</b></sub></a><br /><a href="https://github.com/platinumazure/eslint-plugin-qunit/commits?author=DBattou" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ddzz"><img src="https://avatars.githubusercontent.com/u/3535749?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Darius Dzien</b></sub></a><br /><a href="#maintenance-ddzz" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/dwickern"><img src="https://avatars.githubusercontent.com/u/752885?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Derek Wickern</b></sub></a><br /><a href="https://github.com/platinumazure/eslint-plugin-qunit/issues?q=author%3Adwickern" title="Bug reports">🐛</a> <a href="https://github.com/platinumazure/eslint-plugin-qunit/commits?author=dwickern" title="Code">💻</a></td>
   </tr>
 </table>
 
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
+
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
 <!-- markdownlint-disable line-length -->

@@ -177,6 +177,44 @@
       "contributions": [
         "bug"
       ]
+    },
+    {
+      "login": "raycohen",
+      "name": "Ray Cohen",
+      "avatar_url": "https://avatars.githubusercontent.com/u/20404?v=4",
+      "profile": "https://github.com/raycohen",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "DBattou",
+      "name": "Baptiste Doucerain",
+      "avatar_url": "https://avatars.githubusercontent.com/u/16645938?v=4",
+      "profile": "https://github.com/DBattou",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "ddzz",
+      "name": "Darius Dzien",
+      "avatar_url": "https://avatars.githubusercontent.com/u/3535749?v=4",
+      "profile": "https://github.com/ddzz",
+      "contributions": [
+        "maintenance"
+      ]
+    },
+    {
+      "login": "dwickern",
+      "name": "Derek Wickern",
+      "avatar_url": "https://avatars.githubusercontent.com/u/752885?v=4",
+      "profile": "https://github.com/dwickern",
+      "contributions": [
+        "bug",
+        "code"
+      ]
     }
   ],
   "repoType": "github",
