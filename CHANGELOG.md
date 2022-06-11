@@ -1,3 +1,15 @@
+### 7.3.0
+* Docs: Update contributors list (Kevin Partington)
+* Upgrade: devDependencies (Kevin Partington)
+* Fix: no-compare-relation-boolean crash when passing <2 args (#234) (Derek Wickern)
+* Build: Add Node 18 to CI (#232) (Darius Dzien)
+* Fix: Allow for third parameter in no-hooks-from-ancestor-modules (#231) (Timo Tijhof)
+* Upgrade: Bump node-fetch from 2.6.1 to 2.6.7 (#229) (dependabot[bot])
+* Upgrade: Bump async from 3.2.0 to 3.2.3 (#228) (dependabot[bot])
+* Upgrade: Bump minimist from 1.2.5 to 1.2.6 (#227) (dependabot[bot])
+* Upgrade: Bump shelljs from 0.8.4 to 0.8.5 (#224) (dependabot[bot])
+* Docs: fix markdown links (#223) (Bryan Mishkin)
+
 ### 7.2.0
 * Upgrade: devDependencies (Kevin Partington)
 * Update: isQunitMethod utils function detects test.only/test.skip (#221) (Baptiste Doucerain)
