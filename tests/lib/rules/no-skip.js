@@ -15,15 +15,6 @@ const rule = require("../../../lib/rules/no-skip"),
 // Tests
 //------------------------------------------------------------------------------
 
-function createError(callee) {
-    return {
-        messageId: "noQUnitSkip",
-        data: {
-            callee
-        }
-    };
-}
-
 const ruleTester = new RuleTester();
 
 ruleTester.run("no-skip", rule, {
@@ -37,23 +28,23 @@ ruleTester.run("no-skip", rule, {
     invalid: [
         {
             code: "QUnit.module.skip('Name', function() { });",
-            errors: [createError("QUnit.module.skip")]
+            errors: [{ messageId: "noQUnitSkip" }]
         },
         {
             code: "QUnit.skip('Name', function() { });",
-            errors: [createError("QUnit.skip")]
+            errors: [{ messageId: "noQUnitSkip" }]
         },
         {
             code: "module.skip('Name', function() { });",
-            errors: [createError("module.skip")]
+            errors: [{ messageId: "noQUnitSkip" }]
         },
         {
             code: "skip('Name', function() { });",
-            errors: [createError("skip")]
+            errors: [{ messageId: "noQUnitSkip" }]
         },
         {
             code: "test.skip('Name', function() { });",
-            errors: [createError("test.skip")]
+            errors: [{ messageId: "noQUnitSkip" }]
         }
     ]
 });
