@@ -1,3 +1,9 @@
+### 7.3.1
+* Upgrade: Outdated devDependencies (Kevin Partington)
+* Build: Add caching to ESLint (#225) (Darius Dzien)
+* Fix: incorrectly-used messageId placeholders (#236) (Bryan Mishkin)
+* Upgrade: Bump shell-quote from 1.7.2 to 1.7.3 (#235) (dependabot[bot])
+
 ### 7.3.0
 * Docs: Update contributors list (Kevin Partington)
 * Upgrade: devDependencies (Kevin Partington)
