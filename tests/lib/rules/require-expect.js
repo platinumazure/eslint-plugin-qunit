@@ -130,7 +130,7 @@ ruleTester.run("require-expect", rule, {
             options: ["except-simple"]
         },
 
-        // When the test body itself is using an arrow function, make sure we still correctly-detect top-level expect.
+        // "except-simple" (with arrow function)
         {
             code: "test('name', assert => { assert.expect(2); assert.ok(true); assert.ok(true); });",
             options: ["except-simple"]
@@ -220,6 +220,18 @@ ruleTester.run("require-expect", rule, {
         },
         {
             code: "test('name', function(assert) { maybe(() => assert.ok(true)); });",
+            options: ["except-simple"],
+            errors: [exceptSimpleErrorMessage("assert.expect")]
+        },
+
+        // "except-simple" with arrow function and assert used in callback
+        {
+            code: "test('name', assert => { maybe(() => { assert.ok(true) }); });",
+            options: ["except-simple"],
+            errors: [exceptSimpleErrorMessage("assert.expect")]
+        },
+        {
+            code: "test('name', assert => { maybe(() => { maybe(() => { assert.ok(true) }); }); });",
             options: ["except-simple"],
             errors: [exceptSimpleErrorMessage("assert.expect")]
         },
