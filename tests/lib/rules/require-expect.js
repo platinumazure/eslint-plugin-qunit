@@ -78,6 +78,11 @@ ruleTester.run("require-expect", rule, {
             code: "test('name', function(assert) { assert.expect(0); noParentObject() });",
             options: ["always"]
         },
+        {
+            // With arrow function
+            code: "test('name', assert => { assert.expect(0); noParentObject() });",
+            options: ["always"]
+        },
 
         // assert at top of test context is ok
         {
@@ -125,9 +130,21 @@ ruleTester.run("require-expect", rule, {
             options: ["except-simple"]
         },
 
+        // "except-simple" (with arrow function)
+        {
+            code: "test('name', assert => { assert.expect(2); assert.ok(true); assert.ok(true); });",
+            options: ["except-simple"]
+        },
+
         // "never" - assert without expect is fine
         {
             code: "test('name', function(assert) { assert.ok(true) });",
+            options: ["never"]
+        },
+
+        // "never" - assert without expect is fine (with arrow function)
+        {
+            code: "test('name', assert => { assert.ok(true) });",
             options: ["never"]
         },
 
@@ -140,6 +157,12 @@ ruleTester.run("require-expect", rule, {
         // "never-except-zero" - expect zero is fine
         {
             code: "test('name', function(assert) { assert.expect(0) });",
+            options: ["never-except-zero"]
+        },
+
+        // "never-except-zero" - expect zero is fine (with arrow function)
+        {
+            code: "test('name', assert => { assert.expect(0) });",
             options: ["never-except-zero"]
         }
     ],
@@ -197,6 +220,18 @@ ruleTester.run("require-expect", rule, {
         },
         {
             code: "test('name', function(assert) { maybe(() => assert.ok(true)); });",
+            options: ["except-simple"],
+            errors: [exceptSimpleErrorMessage("assert.expect")]
+        },
+
+        // "except-simple" with arrow function and assert used in callback
+        {
+            code: "test('name', assert => { maybe(() => { assert.ok(true) }); });",
+            options: ["except-simple"],
+            errors: [exceptSimpleErrorMessage("assert.expect")]
+        },
+        {
+            code: "test('name', assert => { maybe(() => { maybe(() => { assert.ok(true) }); }); });",
             options: ["except-simple"],
             errors: [exceptSimpleErrorMessage("assert.expect")]
         },
