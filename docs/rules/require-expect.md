@@ -1,6 +1,8 @@
-# Enforce that `expect` is called (require-expect)
+# Enforce that `expect` is called (`qunit/require-expect`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 QUnit's `assert.expect(...)` helps developers create tests that correctly fail
 when their expected number of assertions are not called. QUnit will throw an

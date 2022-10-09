@@ -1,6 +1,8 @@
-# Disallow overwriting of QUnit logging callbacks (no-reassign-log-callbacks)
+# Disallow overwriting of QUnit logging callbacks (`qunit/no-reassign-log-callbacks`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 In early versions of QUnit, it was possible to create logging functions that
 would be invoked as QUnit processed tests and modules by assigning to specific

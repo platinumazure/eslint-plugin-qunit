@@ -1,6 +1,8 @@
-# Disallow use of QUnit.jsDump (no-jsdump)
+# Disallow use of QUnit.jsDump (`qunit/no-jsdump`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 When QUnit was first developed, it used the `jsDump` library for serializing
 objects as strings. Since then, QUnit has forked and evolved the library. To

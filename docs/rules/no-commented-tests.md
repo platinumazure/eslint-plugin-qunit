@@ -1,6 +1,8 @@
-# Disallow commented tests (no-commented-tests)
+# Disallow commented tests (`qunit/no-commented-tests`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 When developing non-trivial projects, it is unfortunately realistic that unit
 tests may need to be temporarily prevented from running until an upstream

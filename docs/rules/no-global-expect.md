@@ -1,6 +1,8 @@
-# Disallow global expect (no-global-expect)
+# Disallow global expect (`qunit/no-global-expect`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 QUnit 2.0 is deprecating and removing the global `expect` function. This rule will warn when the global `expect` function is used.
 
