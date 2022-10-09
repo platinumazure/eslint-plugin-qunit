@@ -1,6 +1,8 @@
-# Disallow global stop/start (no-global-stop-start)
+# Disallow global stop/start (`qunit/no-global-stop-start`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 QUnit 2.0 is deprecating and removing all of its global exports, including
 `stop()` and `start()`.

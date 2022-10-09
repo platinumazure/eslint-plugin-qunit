@@ -31,7 +31,6 @@ jobs:
 
     - run: npm ci
     - run: npm test
-    - run: npm run update && git diff --exit-code
     - run: npm install --save-dev eslint@7 && npm run unit-test
 
     - name: Coveralls

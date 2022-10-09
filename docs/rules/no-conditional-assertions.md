@@ -1,6 +1,8 @@
-# Disallow assertions within if statements or conditional expressions (no-conditional-assertions)
+# Disallow assertions within if statements or conditional expressions (`qunit/no-conditional-assertions`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 This rule aims to detect non-deterministic unit testing by looking for assertions in an if statement or conditional expression.
 

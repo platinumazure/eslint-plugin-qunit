@@ -1,6 +1,8 @@
-# Disallow the use of hooks from ancestor modules (no-hooks-from-ancestor-modules)
+# Disallow the use of hooks from ancestor modules (`qunit/no-hooks-from-ancestor-modules`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 When a QUnit `module` is used with a nested callback, the callback provides a `hooks`
 object as its first argument. This allows calling `hooks.beforeEach` and `hooks.afterEach`

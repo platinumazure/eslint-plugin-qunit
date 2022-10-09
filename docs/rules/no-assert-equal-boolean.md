@@ -1,8 +1,10 @@
-# Require use of boolean assertions (no-assert-equal-boolean)
+# Require use of boolean assertions (`qunit/no-assert-equal-boolean`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
 
-🔧 The `--fix` option on the [command line](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) can automatically fix some of the problems reported by this rule.
+🔧 This rule is automatically fixable using the `--fix` [option](https://eslint.org/docs/latest/user-guide/command-line-interface#--fix) on the command line.
+
+<!-- end rule header -->
 
 The boolean assertion functions `assert.true()` and `assert.false()` are available as of QUnit 2.11. These assertions can be stricter and clearer about intent when compared to using other assertion functions for boolean comparisons.
 

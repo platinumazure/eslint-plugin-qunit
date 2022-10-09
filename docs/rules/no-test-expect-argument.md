@@ -1,6 +1,8 @@
-# Disallow the expect argument in QUnit.test (no-test-expect-argument)
+# Disallow the expect argument in QUnit.test (`qunit/no-test-expect-argument`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 QUnit 2.0 is deprecating expect counts as the second argument of `QUnit.test`. Users are expected to use `assert.expect()` instead.
 

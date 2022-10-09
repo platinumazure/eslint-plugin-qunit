@@ -1,6 +1,8 @@
-# Disallow QUnit.push (no-qunit-push)
+# Disallow QUnit.push (`qunit/no-qunit-push`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 When writing custom assertions, the proper way to log an assertion result
 used to be calling `QUnit.push()` with the assertion result data. However, in

@@ -1,6 +1,8 @@
-# Disallow QUnit.stop (no-qunit-stop)
+# Disallow QUnit.stop (`qunit/no-qunit-stop`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 QUnit's handling of asynchronous tests used to be via tracking a global
 semaphore and not starting a test until the previous test had decremented the

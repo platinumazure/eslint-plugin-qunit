@@ -1,6 +1,8 @@
-# Disallow early return in tests (no-early-return)
+# Disallow early return in tests (`qunit/no-early-return`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 This rule aims to prevent early returns in a QUnit test. Unit tests which can return early are usually indications that a test is nondeterministic or too dependent on environmental factors. On the rare occasion that a test should be run conditionally, the whole test should be run or skipped, rather than having a test that can return early (which is harder to maintain).
 

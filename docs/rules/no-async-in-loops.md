@@ -1,6 +1,8 @@
-# Disallow async calls in loops (no-async-in-loops)
+# Disallow async calls in loops (`qunit/no-async-in-loops`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 Asynchronous operations are much harder to reason about in loops. To increase
 maintainability, asynchronous operations should not be placed within loops.

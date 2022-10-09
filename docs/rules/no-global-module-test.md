@@ -1,6 +1,8 @@
-# Disallow global module/test/asyncTest (no-global-module-test)
+# Disallow global module/test/asyncTest (`qunit/no-global-module-test`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 QUnit 2.0 is deprecating and removing global functions related to declaring tests and modules. This rule will warn when the global functions are used.
 

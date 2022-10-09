@@ -1,6 +1,8 @@
-# Disallow QUnit.start() within tests or test hooks (no-qunit-start-in-tests)
+# Disallow QUnit.start() within tests or test hooks (`qunit/no-qunit-start-in-tests`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 The purpose of this rule is to ensure that `QUnit.start()` is not used within tests or test hooks.
 

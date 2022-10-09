@@ -1,6 +1,8 @@
-# Disallow async module callbacks (no-async-module-callbacks)
+# Disallow async module callbacks (`qunit/no-async-module-callbacks`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 QUnit does not support async module callbacks. Only test and hook callbacks
 will work as expected when using `async` and `await`. Code after an `await`

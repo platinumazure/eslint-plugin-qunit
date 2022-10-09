@@ -1,6 +1,8 @@
-# Disallow global QUnit assertions (no-global-assertions)
+# Disallow global QUnit assertions (`qunit/no-global-assertions`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 QUnit 2.0 is deprecating and removing global QUnit assertions such as `ok()`, requiring consumers to instead use scoped assertions provided on the test callback argument.
 

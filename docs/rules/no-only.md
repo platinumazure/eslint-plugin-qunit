@@ -1,6 +1,8 @@
-# Disallow QUnit.only (no-only)
+# Disallow QUnit.only (`qunit/no-only`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 `QUnit.only` is useful for restricting a test run to just one test while developing, but committing a test file using this function to a repository is dangerous because it will ensure that the rest of the test suite is not run.
 

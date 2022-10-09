@@ -1,6 +1,8 @@
-# Disallow use of QUnit.init (no-init)
+# Disallow use of QUnit.init (`qunit/no-init`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end rule header -->
 
 Early versions of QUnit exposed the `QUnit.init()` function, which allowed
 consumers to reinitialize the QUnit test runner. This has been discouraged for
