@@ -1,6 +1,8 @@
-# Disallow QUnit.reset (no-reset)
+# Disallow QUnit.reset (`qunit/no-reset`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 Early versions of QUnit exposed the `QUnit.reset()` function, which allowed
 consumers to invoke the internal QUnit fixture reset logic. This has been

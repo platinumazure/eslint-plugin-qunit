@@ -1,8 +1,10 @@
-# Disallow the use of assert.equal (no-assert-equal)
+# Disallow the use of assert.equal (`qunit/no-assert-equal`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
 
-💡 Some problems reported by this rule are manually fixable by editor [suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions).
+💡 This rule is manually fixable by [editor suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions).
+
+<!-- end auto-generated rule header -->
 
 The `assert.equal` assertion method in QUnit uses loose equality comparison. In a project which favors strict equality comparison, it is better to use `assert.strictEqual` for scalar values and either `assert.deepEqual` or `assert.propEqual` for more complex objects.
 

@@ -1,6 +1,8 @@
-# Require that async calls are resolved (resolve-async)
+# Require that async calls are resolved (`qunit/resolve-async`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 Asynchronous operations on QUnit tests should be resolved within the scope of
 the test to maximize readability and maintainability. Also, if there are more

@@ -1,6 +1,8 @@
-# Disallow assert.throws() with block, string, and message args (no-throws-string)
+# Disallow assert.throws() with block, string, and message args (`qunit/no-throws-string`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 QUnit 2.0 has deprecated the `assert.throws(block, string, message)` form of
 `assert.throws()`. This rule can be used to flag uses of the deprecated form

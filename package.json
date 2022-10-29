@@ -4,14 +4,15 @@
   "description": "ESLint plugin containing rules useful for QUnit tests.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run lint && npm run unit-test",
     "lint": "npm-run-all --continue-on-error --aggregate-output --parallel lint:*",
     "lint:docs": "markdownlint \"**/*.md\"",
+    "lint:eslint-docs": "npm-run-all \"update:eslint-docs -- --check\"",
     "lint:js": "eslint --cache --report-unused-disable-directives .",
-    "unit-test": "nyc mocha tests/**/*.js",
-    "report-coverage-html": "nyc report --reporter=html --report-dir build/coverage",
     "preversion": "npm test",
-    "update": "node ./scripts/update-rules.js",
+    "report-coverage-html": "nyc report --reporter=html --report-dir build/coverage",
+    "test": "npm-run-all lint test:unit",
+    "test:unit": "nyc mocha tests/**/*.js",
+    "update:eslint-docs": "eslint-doc-generator --url-configs \"https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations\"",
     "version": "node build/generate-release-changelog.js"
   },
   "files": [
@@ -28,6 +29,7 @@
     "chai": "^4.3.6",
     "coveralls": "^3.1.1",
     "eslint": "^8.19.0",
+    "eslint-doc-generator": "^0.16.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-eslint-plugin": "^4.4.0",
     "eslint-plugin-markdown": "^2.2.1",

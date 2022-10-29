@@ -1,6 +1,8 @@
-# Enforce that the correct number of assert arguments are used (assert-args)
+# Enforce that the correct number of assert arguments are used (`qunit/assert-args`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 QUnit's assertions expect a certain number of arguments based on what sort of
 condition is being evaluated.

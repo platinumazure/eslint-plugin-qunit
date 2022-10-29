@@ -1,4 +1,6 @@
-# Disallow the use of assert.equal/assert.ok/assert.notEqual/assert.notOk (no-loose-assertions)
+# Disallow the use of assert.equal/assert.ok/assert.notEqual/assert.notOk (`qunit/no-loose-assertions`)
+
+<!-- end auto-generated rule header -->
 
 The `assert.equal`/`assert.notEqual` assertion methods in QUnit use loose equality comparison. In a project which favors strict equality comparison, it is better to use `assert.strictEqual`/`assert.notStrictEqual` for scalar values and either `assert.deepEqual` or `assert.propEqual` for more complex objects.
 

@@ -1,6 +1,8 @@
-# Enforce use of objects as expected value in `assert.propEqual` (require-object-in-propequal)
+# Enforce use of objects as expected value in `assert.propEqual` (`qunit/require-object-in-propequal`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 The `assert.propEqual` assertion is for the strict-equality comparison of own-properties
 of two objects. If the expected value is a string or other non-object, the assertion

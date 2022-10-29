@@ -1,6 +1,8 @@
-# Disallow binary logical expressions in assert arguments (no-assert-logical-expression)
+# Disallow binary logical expressions in assert arguments (`qunit/no-assert-logical-expression`)
 
-✅ The `"extends": "plugin:qunit/recommended"` property in a configuration file enables this rule.
+✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+
+<!-- end auto-generated rule header -->
 
 Generally, it is not a good idea to use logical expressions as assertion arguments. Logical-and assertions can be broken down into multiple assertions, while logical-or assertions may be indicative of uncertainty or nondeterminism in a test.
 

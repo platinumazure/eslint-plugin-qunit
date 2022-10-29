@@ -19,10 +19,10 @@ jobs:
         node-version: [12.x, 14.x, 16.x, 18.x]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
 
@@ -30,12 +30,21 @@ jobs:
       run: npm install -g npm
 
     - run: npm ci
-    - run: npm test
-    - run: npm run update && git diff --exit-code
-    - run: npm install --save-dev eslint@7 && npm run unit-test
+    - run: npm run test:unit
+    - run: npm install --save-dev eslint@7 && npm run test:unit
 
     - name: Coveralls
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: ./build/coverage/lcov.info
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      - run: npm ci
+      - run: npm run lint
