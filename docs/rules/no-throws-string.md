@@ -1,6 +1,6 @@
 # Disallow assert.throws() with block, string, and message args (`qunit/no-throws-string`)
 
-✅ This rule is enabled in the `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
 
 <!-- end auto-generated rule header -->
 
