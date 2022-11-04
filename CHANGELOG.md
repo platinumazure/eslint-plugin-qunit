@@ -1,3 +1,7 @@
+### 7.3.2
+* docs: add eslint-doc-generator (#243) (Bryan Mishkin)
+* Fix: Handle arrow function test with `except-simple` configuration of the `require-expect` rule (#239) (Bryan Mishkin)
+
 ### 7.3.1
 * Upgrade: Outdated devDependencies (Kevin Partington)
 * Build: Add caching to ESLint (#225) (Darius Dzien)
