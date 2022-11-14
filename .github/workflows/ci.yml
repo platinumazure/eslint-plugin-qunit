@@ -26,9 +26,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Upgrade npm
-      run: npm install -g npm
-
     - run: npm ci
     - run: npm run test:unit
     - run: npm install --save-dev eslint@7 && npm run test:unit
