@@ -12,7 +12,7 @@ test('test myFunc returns a truthy value', (assert) => {
 });
 ```
 
-Here by mistake a developer just passed to `assert.ok` a pointer to `myFunc` instead of explicitly calling it. This test is going pass no matter how `myFunc` changes. Using `assert.strictEqual(myFunc, theReturnValue)` solves the problem as this becomes an explicit check for equality.
+Here by mistake a developer just passed to `assert.ok` a pointer to `myFunc` instead of explicitly calling it. This test is going to pass no matter how `myFunc` changes. Using `assert.strictEqual(myFunc, theReturnValue)` solves the problem as this becomes an explicit check for equality.
 
 ## Rule Details
 
