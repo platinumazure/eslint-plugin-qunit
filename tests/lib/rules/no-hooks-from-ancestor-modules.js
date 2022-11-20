@@ -30,7 +30,7 @@ function createError({ invokedMethodName, usedHooksIdentifierName }) {
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: "latest" } });
 ruleTester.run("no-hooks-from-ancestor-modules", rule, {
 
     valid: [
@@ -240,6 +240,38 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
                 createError({
                     invokedMethodName: "beforeEach",
                     usedHooksIdentifierName: "firstHooks"
+                })
+            ]
+        },
+
+        // https://github.com/platinumazure/eslint-plugin-qunit/issues/246
+        {
+            code: `
+                QUnit.module("module-a", function (hooks) {
+                    QUnit.module("module-b", () => {
+                        hooks.beforeEach(function () {});
+                    });
+                });
+            `,
+            errors: [
+                createError({
+                    invokedMethodName: "beforeEach",
+                    usedHooksIdentifierName: "hooks"
+                })
+            ]
+        },
+        {
+            code: `
+                QUnit.module("module-a", (hooks) => {
+                    QUnit.module("module-b", () => {
+                        hooks.beforeEach(() => {});
+                    });
+                });
+            `,
+            errors: [
+                createError({
+                    invokedMethodName: "beforeEach",
+                    usedHooksIdentifierName: "hooks"
                 })
             ]
         },
