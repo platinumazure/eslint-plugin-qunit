@@ -24,6 +24,7 @@
     "requireindex": "^1.2.0"
   },
   "devDependencies": {
+    "@release-it/conventional-changelog": "^5.1.1",
     "@typescript-eslint/parser": "^5.30.5",
     "all-contributors-cli": "^6.20.0",
     "chai": "^4.3.6",
@@ -87,6 +88,12 @@
   "release-it": {
     "github": {
       "release": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "eslint",
+        "infile": "CHANGELOG.md"
+      }
     }
   }
 }
