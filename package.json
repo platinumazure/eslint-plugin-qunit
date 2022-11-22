@@ -10,10 +10,10 @@
     "lint:js": "eslint --cache --report-unused-disable-directives .",
     "preversion": "npm test",
     "report-coverage-html": "nyc report --reporter=html --report-dir build/coverage",
+    "release": "release-it",
     "test": "npm-run-all lint test:unit",
     "test:unit": "nyc mocha tests/**/*.js",
-    "update:eslint-docs": "eslint-doc-generator --url-configs \"https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations\"",
-    "version": "node build/generate-release-changelog.js"
+    "update:eslint-docs": "eslint-doc-generator --url-configs \"https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations\""
   },
   "files": [
     "index.js",
@@ -42,8 +42,8 @@
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
     "outdent": "^0.8.0",
+    "release-it": "^15.5.0",
     "semver": "^7.3.7",
-    "shelljs": "^0.8.4",
     "typescript": "^4.7.4"
   },
   "peerDepencencies": {
@@ -83,5 +83,13 @@
   "homepage": "https://github.com/platinumazure/eslint-plugin-qunit",
   "engines": {
     "node": "12.x || 14.x || >=16.0.0"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release v${version}"
+    },
+    "github": {
+      "release": true
+    }
   }
 }
