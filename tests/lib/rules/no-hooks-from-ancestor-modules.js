@@ -45,6 +45,12 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
         QUnit.module("module", function(hooks) { hooks.beforeEach(function() {}); });
         `,
         `
+        QUnit.module("module", (hooks) => { hooks.beforeEach(() => {}); });
+        `,
+        `
+        QUnit.module("module", (hooks) => { QUnit.module("module", (hooks) => { hooks.beforeEach(() => {}); }) });
+        `,
+        `
         QUnit.module("module", function(hooks) { hooks.afterEach(function() {}); });
         `,
         `
