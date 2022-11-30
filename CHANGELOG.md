@@ -1,3 +1,27 @@
+
+
+## [7.3.4](https://github.com/platinumazure/eslint-plugin-qunit/compare/v7.3.3...v7.3.4) (2022-11-30)
+
+
+### Chore
+
+* Add @release-it/conventional-changelog ([4e2f397](https://github.com/platinumazure/eslint-plugin-qunit/commit/4e2f39707cb5606d53d1395fd58c4b5d908ab2ea))
+* Add CodeQL (#276) ([908ed50](https://github.com/platinumazure/eslint-plugin-qunit/commit/908ed507639d0a3a1f07ef6fb017c405d906982e)), closes [#276](https://github.com/platinumazure/eslint-plugin-qunit/issues/276)
+
+### Docs
+
+* Add missing changelog entry ([3369a75](https://github.com/platinumazure/eslint-plugin-qunit/commit/3369a75219fd929bd0d88bf7af8829efca7ae743))
+
+### Fix
+
+* false positives with arrow functions in no-hooks-from-ancestor-modules rule (#275) ([abcb81e](https://github.com/platinumazure/eslint-plugin-qunit/commit/abcb81e59aba57a0df265ecbe461ee09a6af4dc7)), closes [#275](https://github.com/platinumazure/eslint-plugin-qunit/issues/275)
+
+### Upgrade
+
+* Bump @typescript-eslint/parser from 5.43.0 to 5.44.0 (#274) ([b9c283c](https://github.com/platinumazure/eslint-plugin-qunit/commit/b9c283c17ae6a88440be2749523a03151f615d21)), closes [#274](https://github.com/platinumazure/eslint-plugin-qunit/issues/274)
+* Bump eslint-doc-generator from 0.25.0 to 0.28.0 (#272) ([98572d5](https://github.com/platinumazure/eslint-plugin-qunit/commit/98572d599ab0c44f6935f7390b75d409e7d49282)), closes [#272](https://github.com/platinumazure/eslint-plugin-qunit/issues/272)
+* Bump eslint-plugin-unicorn from 45.0.0 to 45.0.1 (#273) ([672dfb5](https://github.com/platinumazure/eslint-plugin-qunit/commit/672dfb5902d1b39a9cc8d5b7ff54a175c27cf8c6)), closes [#273](https://github.com/platinumazure/eslint-plugin-qunit/issues/273)
+
 ### 7.3.3
 
 * Chore: Add dependabot (#247) (d791740)

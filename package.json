@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-qunit",
-  "version": "7.3.3",
+  "version": "7.3.4",
   "description": "ESLint plugin containing rules useful for QUnit tests.",
   "main": "index.js",
   "scripts": {
