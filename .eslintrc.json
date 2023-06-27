@@ -182,6 +182,7 @@
         "unicorn/filename-case": "off",
         "unicorn/no-array-reduce": "off",
         "unicorn/no-null": "off",
+        "unicorn/prefer-at": "off", // TODO: enable once we raise Node requirement to v16.6.0
         "unicorn/prefer-module": "off",
         "unicorn/prefer-node-protocol": "off", // TODO: enable once we raise Node requirement to v16.0.0, v14.18.0.
         "unicorn/prevent-abbreviations": "off"
