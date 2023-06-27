@@ -83,7 +83,7 @@
   },
   "homepage": "https://github.com/platinumazure/eslint-plugin-qunit",
   "engines": {
-    "node": "12.x || 14.x || >=16.0.0"
+    "node": "^16.0.0 || ^18.0.0 || >=20.0.0"
   },
   "release-it": {
     "github": {
