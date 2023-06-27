@@ -10,8 +10,8 @@
 
 const assert = require("chai").assert,
     { rules, configs } = require("../index"),
-    fs = require("fs"),
-    path = require("path");
+    fs = require("node:fs"),
+    path = require("node:path");
 
 //------------------------------------------------------------------------------
 // Tests
