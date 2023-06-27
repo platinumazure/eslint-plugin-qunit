@@ -52,27 +52,27 @@ ruleTester.run("require-expect", rule, {
         // default, calling expect is valid
         {
             code: "test('name', function(assert) { assert.expect(0) });",
-            options: [] // Defaults to except-simple
+            options: [] // Defaults to never-except-zero
         },
 
         // default, using global expect
         {
             code: "test('name', function() { expect(0) });",
-            options: [] // Defaults to except-simple
+            options: [] // Defaults to never-except-zero
         },
 
         // default, using global expect, TS
         {
             // TypeScript: test callback is adding a type to `this`
             code: "test('name', function(this: LocalTestContext) { expect(0) });",
-            options: [], // Defaults to except-simple
+            options: [], // Defaults to never-except-zero
             parser: require.resolve("@typescript-eslint/parser")
         },
 
         // CallExpression without parent object throws no errors
         {
             code: "test('name', function(assert) { assert.expect(0); noParentObject() });",
-            options: [] // Defaults to except-simple
+            options: [] // Defaults to never-except-zero
         },
         {
             code: "test('name', function(assert) { assert.expect(0); noParentObject() });",
@@ -91,7 +91,7 @@ ruleTester.run("require-expect", rule, {
         },
         {
             code: "test('name', function(assert) { assert.ok(true) });",
-            options: [] // Defaults to except-simple
+            options: [] // Defaults to never-except-zero
         },
 
         // global assertion at top of test context is ok
@@ -192,11 +192,6 @@ ruleTester.run("require-expect", rule, {
         {
             code: "test('name', function(assert) { while (false) { assert.ok(true) } });",
             options: ["except-simple"],
-            errors: [exceptSimpleErrorMessage("assert.expect")]
-        },
-        {
-            code: "test('name', function(assert) { while (false) { assert.ok(true) } });",
-            options: [], // Defaults to except-simple
             errors: [exceptSimpleErrorMessage("assert.expect")]
         },
 
@@ -409,6 +404,11 @@ ruleTester.run("require-expect", rule, {
         {
             code: "test('name', function(assert) { assert.expect(1); assert.ok(true); });",
             options: ["never-except-zero"],
+            errors: [neverErrorMessage("assert.expect")]
+        },
+        {
+            code: "test('name', function(assert) { assert.expect(1); assert.ok(true); });",
+            options: [], // defaults to never-except-zero
             errors: [neverErrorMessage("assert.expect")]
         }
     ]
