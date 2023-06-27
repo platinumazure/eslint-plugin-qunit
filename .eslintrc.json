@@ -12,7 +12,7 @@
 
     "parserOptions": {
         "sourceType": "script",
-        "ecmaVersion": 2019
+        "ecmaVersion": "latest"
     },
 
     "plugins": ["node", "eslint-plugin"],
