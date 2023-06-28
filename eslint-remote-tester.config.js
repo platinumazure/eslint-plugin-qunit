@@ -1,13 +1,16 @@
 "use strict";
 
-const fs = require("fs");
+const fs = require("node:fs");
 
 /** @type {import('eslint-remote-tester').Config} */
 module.exports = {
     /** Repositories to scan */
     repositories: [
         // A few dozen top repositories using QUnit or this plugin.
+        "DevExpress/DevExtreme",
+        "adopted-ember-addons/ember-data-model-fragments",
         "balanced/balanced-dashboard",
+        "ember-intl/ember-intl",
         "emberjs/ember.js",
         "getsentry/sentry-javascript",
         "glimmerjs/glimmer-vm",
@@ -17,7 +20,6 @@ module.exports = {
         "jquery/jquery",
         "js-cookie/js-cookie",
         "l10n-tw/canvas-lms",
-        "mrdoob/three.js",
         "rust-lang/crates.io",
         "simonihmig/ember-responsive-image",
         "videojs/video.js"
