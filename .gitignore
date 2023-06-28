@@ -5,4 +5,4 @@ npm-debug.log
 .eslintcache
 
 # eslint-remote-tester
-eslint-remote-tester-results
+/eslint-remote-tester-results/
