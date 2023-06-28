@@ -1,5 +1,36 @@
 
 
+## [8.0.0](https://github.com/platinumazure/eslint-plugin-qunit/compare/v7.3.4...v8.0.0) (2023-06-28)
+
+
+### ⚠ BREAKING CHANGES
+
+* Require eslint@^8.38, drop support for eslint@7.x (#376)
+* change require-expect rule default option to never-except-zero (#375)
+* strictly define node API (#374)
+* drop support for Node 12, 14, 17, 19 (#373)
+
+### Features
+
+* change require-expect rule default option to never-except-zero ([#375](https://github.com/platinumazure/eslint-plugin-qunit/issues/375)) ([1c5935b](https://github.com/platinumazure/eslint-plugin-qunit/commit/1c5935b7559212875de7b26b417028bb98f61659))
+* drop support for Node 12, 14, 17, 19 ([#373](https://github.com/platinumazure/eslint-plugin-qunit/issues/373)) ([2009a54](https://github.com/platinumazure/eslint-plugin-qunit/commit/2009a545a9f4bb2940531f0dd70bd140eeba9aec))
+* Require eslint@^8.38, drop support for eslint@7.x ([#376](https://github.com/platinumazure/eslint-plugin-qunit/issues/376)) ([9b30134](https://github.com/platinumazure/eslint-plugin-qunit/commit/9b30134971793fa6c7ac9a7f2212b4374c7b1002))
+* strictly define node API ([#374](https://github.com/platinumazure/eslint-plugin-qunit/issues/374)) ([391647e](https://github.com/platinumazure/eslint-plugin-qunit/commit/391647e0f81f303bd668b2080ba8d64ca52c3542))
+
+
+### Documentation
+
+* Correct GitHub access token variable name for releases ([#277](https://github.com/platinumazure/eslint-plugin-qunit/issues/277)) ([7a10cb4](https://github.com/platinumazure/eslint-plugin-qunit/commit/7a10cb422549ff312aa1446c052ffa83456269c7))
+
+
+### Chores
+
+* Add object-curly-newline to ESLint config ([0f88ebe](https://github.com/platinumazure/eslint-plugin-qunit/commit/0f88ebebe8efcfb2138c9f6093601577608b2f83))
+* tweak release-it ([#380](https://github.com/platinumazure/eslint-plugin-qunit/issues/380)) ([85f2d53](https://github.com/platinumazure/eslint-plugin-qunit/commit/85f2d5323276bfb6bce1a1dce1df8e1fb30594f4))
+* Update caniuse in lockfile to suppress warnings in npm test ([a29c17e](https://github.com/platinumazure/eslint-plugin-qunit/commit/a29c17e0e7a0d70e597a1b9da6ea660af34841c9))
+* use ecmaVersion latest for eslint ([#379](https://github.com/platinumazure/eslint-plugin-qunit/issues/379)) ([e2c206e](https://github.com/platinumazure/eslint-plugin-qunit/commit/e2c206e67d5a5a977818bb0bee96934231a99058))
+* use node protocol for imports ([#378](https://github.com/platinumazure/eslint-plugin-qunit/issues/378)) ([4177030](https://github.com/platinumazure/eslint-plugin-qunit/commit/41770309d5bb047c92b9e805c3fcd5f5639e4961))
+
 ## [7.3.4](https://github.com/platinumazure/eslint-plugin-qunit/compare/v7.3.3...v7.3.4) (2022-11-30)
 
 

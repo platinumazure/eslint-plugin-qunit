@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-qunit",
-  "version": "7.3.4",
+  "version": "8.0.0",
   "description": "ESLint plugin containing rules useful for QUnit tests.",
   "exports": "./index.js",
   "main": "./index.js",
@@ -95,13 +95,34 @@
         "preset": {
           "name": "conventionalcommits",
           "types": [
-            { "type": "feat", "section": "Features" },
-            { "type": "fix", "section": "Bug Fixes" },
-            { "type": "perf", "section": "Performance" },
-            { "type": "docs", "section": "Documentation" },
-            { "type": "chore", "section": "Chores" },
-            { "type": "refactor", "section": "Chores" },
-            { "type": "test", "section": "Chores" }
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "perf",
+              "section": "Performance"
+            },
+            {
+              "type": "docs",
+              "section": "Documentation"
+            },
+            {
+              "type": "chore",
+              "section": "Chores"
+            },
+            {
+              "type": "refactor",
+              "section": "Chores"
+            },
+            {
+              "type": "test",
+              "section": "Chores"
+            }
           ]
         },
         "infile": "CHANGELOG.md"
