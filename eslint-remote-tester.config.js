@@ -1,6 +1,7 @@
 "use strict";
 
 const fs = require("node:fs");
+const { basename, extname } = require("node:path");
 
 /** @type {import('eslint-remote-tester').Config} */
 module.exports = {
@@ -39,7 +40,7 @@ module.exports = {
         rules: Object.fromEntries(
             fs
                 .readdirSync(`${__dirname}/lib/rules`)
-                .map((filename) => `qunit/${filename.replace(/\.js$/, "")}`)
+                .map((filename) => `qunit/${basename(filename, extname(filename))}`)
                 .map((ruleName) => [ruleName, "error"])
         ),
 
