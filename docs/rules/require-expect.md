@@ -59,7 +59,7 @@ test('name', function() {
 
 ### except-simple
 
-When using the **default** "except-simple" option, the following patterns are considered
+When using the "except-simple" option, the following patterns are considered
 warnings.
 
 ```js
@@ -158,7 +158,7 @@ test('name', function(assert) {
 
 ### never-except-zero
 
-The following would warn.
+When using the **default** "never-except-zero" option, the following would warn.
 
 ```js
 test('name', function(assert) {
