@@ -1,5 +1,26 @@
 
 
+## [8.0.1](https://github.com/platinumazure/eslint-plugin-qunit/compare/v8.0.0...v8.0.1) (2023-10-07)
+
+
+### Bug Fixes
+
+* loosen regex in no-commented-tests (fixes [#61](https://github.com/platinumazure/eslint-plugin-qunit/issues/61)) ([#415](https://github.com/platinumazure/eslint-plugin-qunit/issues/415)) ([497c27f](https://github.com/platinumazure/eslint-plugin-qunit/commit/497c27fa542c3083517dc953f7b5c580b305bf4c))
+
+
+### Documentation
+
+* fix default in doc for require-expect ([#383](https://github.com/platinumazure/eslint-plugin-qunit/issues/383)) ([a70ea57](https://github.com/platinumazure/eslint-plugin-qunit/commit/a70ea57cddfc5452183114f46616786413fd7565))
+
+
+### Chores
+
+* add eslint-remote-tester ([#299](https://github.com/platinumazure/eslint-plugin-qunit/issues/299)) ([b893cb0](https://github.com/platinumazure/eslint-plugin-qunit/commit/b893cb03bdd6e075da287d713d454e66e449d6ea))
+* devDependencies upgrades ([f11823d](https://github.com/platinumazure/eslint-plugin-qunit/commit/f11823d75a065893e41da8805b291aeb1b7b11d8)), closes [#413](https://github.com/platinumazure/eslint-plugin-qunit/issues/413) [#412](https://github.com/platinumazure/eslint-plugin-qunit/issues/412) [#395](https://github.com/platinumazure/eslint-plugin-qunit/issues/395) [#394](https://github.com/platinumazure/eslint-plugin-qunit/issues/394) [#387](https://github.com/platinumazure/eslint-plugin-qunit/issues/387) [#385](https://github.com/platinumazure/eslint-plugin-qunit/issues/385)
+* Update typescript and @typescript-eslint/parser ([7782b6d](https://github.com/platinumazure/eslint-plugin-qunit/commit/7782b6dedc3821c1b671138fead0b2104c421357)), closes [#414](https://github.com/platinumazure/eslint-plugin-qunit/issues/414)
+* Upgrade eslint-plugin-unicorn and markdownlint-cli ([a492622](https://github.com/platinumazure/eslint-plugin-qunit/commit/a4926224c90b514fc7d93a34252f379591428a4b)), closes [#396](https://github.com/platinumazure/eslint-plugin-qunit/issues/396)
+* Upgrade release-it and plugins ([a07bef3](https://github.com/platinumazure/eslint-plugin-qunit/commit/a07bef3227385bb2e3d326f06219e3f3fb31020c)), closes [#388](https://github.com/platinumazure/eslint-plugin-qunit/issues/388)
+
 ## [8.0.0](https://github.com/platinumazure/eslint-plugin-qunit/compare/v7.3.4...v8.0.0) (2023-06-28)
 
 
