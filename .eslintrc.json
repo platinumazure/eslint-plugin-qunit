@@ -176,6 +176,11 @@
             "pattern": "https://github.com/platinumazure/eslint-plugin-qunit/blob/master/docs/rules/{{name}}.md"
         }],
 
+	// eslint-plugin-node
+	"node/no-missing-require": ["error", {
+	    "allowModules": ["@typescript-eslint/parser"]
+	}],
+
         // eslint-plugin-unicorn
         "unicorn/consistent-function-scoping": "off",
         "unicorn/empty-brace-spaces": "off",
