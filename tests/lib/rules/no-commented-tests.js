@@ -23,7 +23,11 @@ ruleTester.run("no-commented-tests", rule, {
         "QUnit.skip('Name', function () { ok(true); });",
 
         // shebang comments
-        "#!/some-test()"
+        "#!/some-test()",
+
+        // Allow test, parentheses, no quote (https://github.com/platinumazure/eslint-plugin-qunit/issues/61)
+        "// TODO: refactor with a Component test (instead of an Acceptance test)",
+        "// Run actual test (without context)."
     ],
 
     invalid: [
