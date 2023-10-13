@@ -13,9 +13,13 @@ You can extend from a configuration in order to simplify manual configuration of
 
 For more details on how to extend your configuration from a plugin configuration, please see the [ESLint plugin configuration documentation](https://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin).
 
-|     | Name | Description |
-| :-- | :--- | :---------- |
-| ✅ | recommended | This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you. You can use this configuration by extending from `"plugin:qunit/recommended"` in your configuration file. |
+<!-- begin auto-generated configs list -->
+
+|    | Name          | Description                                                                                                                                                                                                                                                                                                                                        |
+| :- | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅  | `recommended` | This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you. You can use this configuration by extending from `"plugin:qunit/recommended"` in your configuration file. |
+
+<!-- end auto-generated configs list -->
 
 ## Rules
 
