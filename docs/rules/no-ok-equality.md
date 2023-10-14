@@ -66,9 +66,13 @@ QUnit.test("Name", function (assert) { assert.ok(x instanceof Number); });
 
 ## Options
 
-This rule takes an optional object containing:
+<!-- begin auto-generated rule options list -->
 
-* `allowGlobals` (boolean, default: true): Whether the rule should check global assertions
+| Name          | Description                                      | Type    | Default |
+| :------------ | :----------------------------------------------- | :------ | :------ |
+| `allowGlobal` | Whether the rule should check global assertions. | Boolean | `true`  |
+
+<!-- end auto-generated rule options list -->
 
 ## When Not to Use It
 
