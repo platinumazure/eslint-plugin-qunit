@@ -20,9 +20,9 @@ function createError({ invokedMethodName, usedHooksIdentifierName }) {
         messageId: "noHooksFromAncestorModules",
         data: {
             invokedMethodName,
-            usedHooksIdentifierName
+            usedHooksIdentifierName,
         },
-        type: "MemberExpression"
+        type: "MemberExpression",
     };
 }
 
@@ -32,7 +32,6 @@ function createError({ invokedMethodName, usedHooksIdentifierName }) {
 
 const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: "latest" } });
 ruleTester.run("no-hooks-from-ancestor-modules", rule, {
-
     valid: [
         "QUnit.testDone(function() {});",
         `
@@ -131,9 +130,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
 
         {
             // TypeScript: module callback is adding a type to `this`
-            code: "QUnit.module(\"module\", function(this: LocalTestContext, hooks) { hooks.afterEach(function() {}); });",
-            parser: require.resolve("@typescript-eslint/parser")
-        }
+            code: 'QUnit.module("module", function(this: LocalTestContext, hooks) { hooks.afterEach(function() {}); });',
+            parser: require.resolve("@typescript-eslint/parser"),
+        },
     ],
 
     invalid: [
@@ -148,9 +147,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "beforeEach",
-                    usedHooksIdentifierName: "hooks"
-                })
-            ]
+                    usedHooksIdentifierName: "hooks",
+                }),
+            ],
         },
         {
             code: `
@@ -163,9 +162,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "beforeEach",
-                    usedHooksIdentifierName: "hooks"
-                })
-            ]
+                    usedHooksIdentifierName: "hooks",
+                }),
+            ],
         },
         {
             code: `
@@ -178,9 +177,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "beforeEach",
-                    usedHooksIdentifierName: "hooks"
-                })
-            ]
+                    usedHooksIdentifierName: "hooks",
+                }),
+            ],
         },
         {
             code: `
@@ -193,9 +192,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "afterEach",
-                    usedHooksIdentifierName: "firstHooks"
-                })
-            ]
+                    usedHooksIdentifierName: "firstHooks",
+                }),
+            ],
         },
         {
             code: `
@@ -208,9 +207,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "afterEach",
-                    usedHooksIdentifierName: "hooks"
-                })
-            ]
+                    usedHooksIdentifierName: "hooks",
+                }),
+            ],
         },
         {
             code: `
@@ -223,9 +222,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "afterEach",
-                    usedHooksIdentifierName: "hooks"
-                })
-            ]
+                    usedHooksIdentifierName: "hooks",
+                }),
+            ],
         },
         {
             code: `
@@ -245,9 +244,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "beforeEach",
-                    usedHooksIdentifierName: "firstHooks"
-                })
-            ]
+                    usedHooksIdentifierName: "firstHooks",
+                }),
+            ],
         },
 
         // https://github.com/platinumazure/eslint-plugin-qunit/issues/246
@@ -262,9 +261,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "beforeEach",
-                    usedHooksIdentifierName: "hooks"
-                })
-            ]
+                    usedHooksIdentifierName: "hooks",
+                }),
+            ],
         },
         {
             code: `
@@ -277,9 +276,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "beforeEach",
-                    usedHooksIdentifierName: "hooks"
-                })
-            ]
+                    usedHooksIdentifierName: "hooks",
+                }),
+            ],
         },
 
         {
@@ -295,9 +294,9 @@ ruleTester.run("no-hooks-from-ancestor-modules", rule, {
             errors: [
                 createError({
                     invokedMethodName: "afterEach",
-                    usedHooksIdentifierName: "hooks"
-                })
-            ]
-        }
-    ]
+                    usedHooksIdentifierName: "hooks",
+                }),
+            ],
+        },
+    ],
 });

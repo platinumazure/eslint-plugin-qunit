@@ -23,7 +23,7 @@ module.exports = {
         "l10n-tw/canvas-lms",
         "rust-lang/crates.io",
         "simonihmig/ember-responsive-image",
-        "videojs/video.js"
+        "videojs/video.js",
     ],
 
     /** Extensions of files under scanning */
@@ -40,15 +40,18 @@ module.exports = {
         rules: Object.fromEntries(
             fs
                 .readdirSync(`${__dirname}/lib/rules`)
-                .map((filename) => `qunit/${basename(filename, extname(filename))}`)
-                .map((ruleName) => [ruleName, "error"])
+                .map(
+                    (filename) =>
+                        `qunit/${basename(filename, extname(filename))}`,
+                )
+                .map((ruleName) => [ruleName, "error"]),
         ),
 
         overrides: [
             {
                 files: ["*.ts", "*.mts", "*.cts"],
-                parser: "@typescript-eslint/parser"
-            }
-        ]
-    }
+                parser: "@typescript-eslint/parser",
+            },
+        ],
+    },
 };

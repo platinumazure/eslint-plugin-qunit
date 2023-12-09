@@ -11,7 +11,6 @@
 const rule = require("../../../lib/rules/no-throws-string"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -39,62 +38,72 @@ ruleTester.run("no-throws-string", rule, {
         "QUnit.test('a test', function (assert) { assert.foo(function () { }, 'string', 'Error should have been thrown'); });",
 
         // Not inside a test
-        "someFunction();"
+        "someFunction();",
     ],
 
     invalid: [
         {
             code: "QUnit.test('a test', function (assert) { assert.throws(function () { }, 'Error message', 'Error should have been thrown'); });",
-            errors: [{
-                messageId: "noThrowsWithString",
-                data: {
-                    callee: "assert.throws"
+            errors: [
+                {
+                    messageId: "noThrowsWithString",
+                    data: {
+                        callee: "assert.throws",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             // TypeScript: test callback is adding a type to `this`
             code: "QUnit.test('a test', function (this: LocalTestContext, assert) { assert.throws(function () { }, 'Error message', 'Error should have been thrown'); });",
             parser: require.resolve("@typescript-eslint/parser"),
-            errors: [{
-                messageId: "noThrowsWithString",
-                data: {
-                    callee: "assert.throws"
+            errors: [
+                {
+                    messageId: "noThrowsWithString",
+                    data: {
+                        callee: "assert.throws",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "QUnit.test('a test', (assert) => { assert.throws(function () { }, 'Error message', 'Error should have been thrown'); });",
             parserOptions: { ecmaVersion: 6 },
-            errors: [{
-                messageId: "noThrowsWithString",
-                data: {
-                    callee: "assert.throws"
+            errors: [
+                {
+                    messageId: "noThrowsWithString",
+                    data: {
+                        callee: "assert.throws",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "QUnit.test('a test', function (assert) { assert.raises(function () { }, 'Error message', 'Error should have been thrown'); });",
-            errors: [{
-                messageId: "noThrowsWithString",
-                data: {
-                    callee: "assert.raises"
+            errors: [
+                {
+                    messageId: "noThrowsWithString",
+                    data: {
+                        callee: "assert.raises",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "QUnit.test('a test', function () { throws(function () { }, 'Error message', 'Error should have been thrown'); });",
-            errors: [{
-                messageId: "noThrowsWithString",
-                data: {
-                    callee: "throws"
+            errors: [
+                {
+                    messageId: "noThrowsWithString",
+                    data: {
+                        callee: "throws",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
-        }
-    ]
+            ],
+        },
+    ],
 });

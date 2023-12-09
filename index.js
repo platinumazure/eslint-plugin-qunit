@@ -15,7 +15,8 @@ module.exports = {
     // eslint-disable-next-line sort-keys
     configs: {
         recommended: {
-            description: "This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you. You can use this configuration by extending from `\"plugin:qunit/recommended\"` in your configuration file.",
+            description:
+                'This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you. You can use this configuration by extending from `"plugin:qunit/recommended"` in your configuration file.',
             plugins: ["qunit"],
             rules: {
                 "qunit/assert-args": "error",
@@ -52,8 +53,8 @@ module.exports = {
                 "qunit/no-throws-string": "error",
                 "qunit/require-expect": "error",
                 "qunit/require-object-in-propequal": "error",
-                "qunit/resolve-async": "error"
-            }
-        }
-    }
+                "qunit/resolve-async": "error",
+            },
+        },
+    },
 };

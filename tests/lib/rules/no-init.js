@@ -13,29 +13,29 @@
 const rule = require("../../../lib/rules/no-init"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
 ruleTester.run("no-init", rule, {
-
     valid: [
         // Only invocations are reported
         "QUnit.init",
 
         // Only QUnit.init() is reported
-        "QUnit.reset()"
+        "QUnit.reset()",
     ],
 
     invalid: [
         {
             code: "QUnit.init();",
-            errors: [{
-                messageId: "noInit",
-                type: "CallExpression"
-            }]
-        }
-    ]
+            errors: [
+                {
+                    messageId: "noInit",
+                    type: "CallExpression",
+                },
+            ],
+        },
+    ],
 });

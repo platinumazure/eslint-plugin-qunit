@@ -12,7 +12,6 @@ const rule = require("../../../lib/rules/no-global-assertions"),
     RuleTester = require("eslint").RuleTester,
     testUtils = require("../../testUtils");
 
-
 //------------------------------------------------------------------------------
 // Helpers
 //------------------------------------------------------------------------------
@@ -21,8 +20,8 @@ function createError(assertion) {
     return {
         messageId: "unexpectedGlobalAssertion",
         data: {
-            assertion
-        }
+            assertion,
+        },
     };
 }
 
@@ -52,68 +51,68 @@ ruleTester.run("no-global-assertions", rule, {
         // Global overridden by local import/declaration.
         {
             code: "var strictEqual = require('foo'); strictEqual();",
-            globals: { strictEqual: true }
+            globals: { strictEqual: true },
         },
 
         // Intentionally not covered by this rule
-        testUtils.wrapInTest("expect(1);")
+        testUtils.wrapInTest("expect(1);"),
     ],
 
     invalid: [
         {
             code: testUtils.wrapInTest("ok(true);"),
             globals: { ok: true },
-            errors: [createError("ok")]
+            errors: [createError("ok")],
         },
         {
             code: testUtils.wrapInTest("equal(a, b);"),
             globals: { equal: true },
-            errors: [createError("equal")]
+            errors: [createError("equal")],
         },
         {
             code: testUtils.wrapInTest("strictEqual(a, b);"),
             globals: { strictEqual: true },
-            errors: [createError("strictEqual")]
+            errors: [createError("strictEqual")],
         },
         {
             code: testUtils.wrapInTest("deepEqual(a, b);"),
             globals: { deepEqual: true },
-            errors: [createError("deepEqual")]
+            errors: [createError("deepEqual")],
         },
         {
             code: testUtils.wrapInTest("propEqual(a, b);"),
             globals: { propEqual: true },
-            errors: [createError("propEqual")]
+            errors: [createError("propEqual")],
         },
         {
             code: testUtils.wrapInTest("notEqual(a, b);"),
             globals: { notEqual: true },
-            errors: [createError("notEqual")]
+            errors: [createError("notEqual")],
         },
         {
             code: testUtils.wrapInTest("notStrictEqual(a, b);"),
             globals: { notStrictEqual: true },
-            errors: [createError("notStrictEqual")]
+            errors: [createError("notStrictEqual")],
         },
         {
             code: testUtils.wrapInTest("notDeepEqual(a, b);"),
             globals: { notDeepEqual: true },
-            errors: [createError("notDeepEqual")]
+            errors: [createError("notDeepEqual")],
         },
         {
             code: testUtils.wrapInTest("notPropEqual(a, b);"),
             globals: { notPropEqual: true },
-            errors: [createError("notPropEqual")]
+            errors: [createError("notPropEqual")],
         },
         {
             code: testUtils.wrapInTest("raises(function () {}, TypeError);"),
             globals: { raises: true },
-            errors: [createError("raises")]
+            errors: [createError("raises")],
         },
         {
             code: testUtils.wrapInTest("throws(function () {}, TypeError);"),
             globals: { throws: true },
-            errors: [createError("throws")]
-        }
-    ]
+            errors: [createError("throws")],
+        },
+    ],
 });

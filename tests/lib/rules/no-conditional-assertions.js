@@ -19,10 +19,12 @@ const rule = require("../../../lib/rules/no-conditional-assertions"),
 function wrapInInvalidTestObject(code) {
     return {
         code: code,
-        errors: [{
-            messageId: "noAssertionInsideConditional",
-            type: "CallExpression"
-        }]
+        errors: [
+            {
+                messageId: "noAssertionInsideConditional",
+                type: "CallExpression",
+            },
+        ],
     };
 }
 
@@ -32,7 +34,6 @@ function wrapInInvalidTestObject(code) {
 
 const ruleTester = new RuleTester({ parserOptions: { ecmaVersion: 6 } });
 ruleTester.run("no-conditional-assertions", rule, {
-
     valid: [
         ...[
             // Unconditional assertions are good
@@ -58,11 +59,11 @@ ruleTester.run("no-conditional-assertions", rule, {
             // Conditions around non-assertions are okay
             "if (foo) doSomething();",
             "foo ? doSomething() : false;",
-            "foo ? false : doSomething();"
-        ].map(code => testUtils.wrapInTest(code)),
+            "foo ? false : doSomething();",
+        ].map((code) => testUtils.wrapInTest(code)),
 
         // Conditional tests are okay
-        "if (foo) QUnit.test('test', function (assert) { assert.ok(true); });"
+        "if (foo) QUnit.test('test', function (assert) { assert.ok(true); });",
     ],
 
     invalid: [
@@ -73,6 +74,6 @@ ruleTester.run("no-conditional-assertions", rule, {
         testUtils.wrapInTest("if (foo) {} else if (bar) assert.ok(true);"),
         testUtils.wrapInTest("if (foo) {} else assert.ok(true);"),
         testUtils.wrapInTest("foo ? assert.ok(true) : false"),
-        testUtils.wrapInTest("foo ? false : assert.ok(true)")
-    ].map(code => wrapInInvalidTestObject(code))
+        testUtils.wrapInTest("foo ? false : assert.ok(true)"),
+    ].map((code) => wrapInInvalidTestObject(code)),
 });

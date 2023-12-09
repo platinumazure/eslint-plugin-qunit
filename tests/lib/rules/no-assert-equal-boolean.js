@@ -52,7 +52,7 @@ ruleTester.run("no-assert-equal-boolean", rule, {
         "QUnit.test('Name', function (assert) { assert.propEqual(a, true); });",
 
         // not within test context
-        "equal(a, true);"
+        "equal(a, true);",
     ],
 
     invalid: [
@@ -60,94 +60,94 @@ ruleTester.run("no-assert-equal-boolean", rule, {
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(a, true); });",
             output: "QUnit.test('Name', function (assert) { assert.true(a); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
         {
             code: "QUnit.test('Name', (assert) => { assert.equal(a, true); });",
             output: "QUnit.test('Name', (assert) => { assert.true(a); });",
             parserOptions: { ecmaVersion: 6 },
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(a, false); });",
             output: "QUnit.test('Name', function (assert) { assert.false(a); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // deepEqual
         {
             code: "QUnit.test('Name', function (assert) { assert.deepEqual(a, true); });",
             output: "QUnit.test('Name', function (assert) { assert.true(a); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // strictEqual
         {
             code: "QUnit.test('Name', function (assert) { assert.strictEqual(a, true); });",
             output: "QUnit.test('Name', function (assert) { assert.true(a); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // with message param
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(a, true, 'msg'); });",
             output: "QUnit.test('Name', function (assert) { assert.true(a, 'msg'); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // Boolean as first parameter
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(true, b); });",
             output: "QUnit.test('Name', function (assert) { assert.true(b); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(false, b); });",
             output: "QUnit.test('Name', function (assert) { assert.false(b); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // multiple booleans
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(true, true); });",
             output: "QUnit.test('Name', function (assert) { assert.true(true); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(false, true); });",
             output: "QUnit.test('Name', function (assert) { assert.false(true); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(true, false); });",
             output: "QUnit.test('Name', function (assert) { assert.true(false); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(false, false); });",
             output: "QUnit.test('Name', function (assert) { assert.false(false); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // non-standard assert param
         {
             code: "QUnit.test('Name', function (foo) { foo.equal(true, b); });",
             output: "QUnit.test('Name', function (foo) { foo.true(b); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // assert param but using global assert
         {
             code: "QUnit.test('Name', function (assert) { equal(a, true); });",
             output: "QUnit.test('Name', function (assert) { true(a); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // using global assert
         {
             code: "QUnit.test('Name', function () { equal(a, true); });",
             output: "QUnit.test('Name', function () { true(a); });",
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
         },
 
         // TypeScript: test callback is adding a type to `this`
@@ -155,7 +155,7 @@ ruleTester.run("no-assert-equal-boolean", rule, {
             code: "QUnit.test('Name', function (this: LocalTestContext, assert) { assert.equal(a, true); });",
             output: "QUnit.test('Name', function (this: LocalTestContext, assert) { assert.true(a); });",
             parser: require.resolve("@typescript-eslint/parser"),
-            errors: [{ messageId: "useAssertTrueOrFalse" }]
-        }
-    ]
+            errors: [{ messageId: "useAssertTrueOrFalse" }],
+        },
+    ],
 });

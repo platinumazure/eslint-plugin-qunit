@@ -19,22 +19,23 @@ const rule = require("../../../lib/rules/no-reset"),
 
 const ruleTester = new RuleTester();
 ruleTester.run("no-reset", rule, {
-
     valid: [
         // Only invocations are reported
         "QUnit.reset",
 
         // Only QUnit.reset() is reported
-        "QUnit.init()"
+        "QUnit.init()",
     ],
 
     invalid: [
         {
             code: "QUnit.reset();",
-            errors: [{
-                messageId: "noReset",
-                type: "CallExpression"
-            }]
-        }
-    ]
+            errors: [
+                {
+                    messageId: "noReset",
+                    type: "CallExpression",
+                },
+            ],
+        },
+    ],
 });

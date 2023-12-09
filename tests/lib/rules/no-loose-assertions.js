@@ -33,115 +33,139 @@ ruleTester.run("no-loose-assertions", rule, {
         "QUnit.test('Name', function () { propEqual(a, b); });",
 
         // equal is not within test context
-        "equal(a, b);"
+        "equal(a, b);",
     ],
 
     invalid: [
         {
             code: "QUnit.test('Name', function (assert) { assert.ok(a); });",
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "ok"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "ok",
+                    },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', (assert) => { assert.ok(a); });",
             parserOptions: { ecmaVersion: 6 },
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "ok"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "ok",
+                    },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function (foo) { foo.ok(a); });",
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "ok"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "foo",
+                        assertion: "ok",
+                    },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function (assert) { assert.notOk(a); });",
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "notOk"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "notOk",
+                    },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function (foo) { foo.notOk(a); });",
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "notOk"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "foo",
+                        assertion: "notOk",
+                    },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function (assert) { ok(a, b); });",
-            errors: [{
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "ok" }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "ok" },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function (assert) { notOk(a, b); });",
-            errors: [{
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "notOk" }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "notOk" },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function () { ok(a, b); });",
-            errors: [{
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "ok" }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "ok" },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function () { notOk(a, b); });",
-            errors: [{
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "notOk" }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "notOk" },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function (assert) { assert.equal(a, b); });",
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "equal"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "equal",
+                    },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function (foo) { foo.equal(a, b); });",
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "equal"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "foo",
+                        assertion: "equal",
+                    },
+                },
+            ],
         },
         {
             code: "QUnit.test('Name', function (assert) { equal(a, b); });",
-            errors: [{
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "equal" }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "equal" },
+                },
+            ],
         },
         {
             code: `
@@ -152,31 +176,36 @@ ruleTester.run("no-loose-assertions", rule, {
                           assert.notEqual(a, b);
                       });
                   `,
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "ok"
-                }
-            }, {
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "notOk"
-                }
-            }, {
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "equal"
-                }
-            }, {
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "notEqual"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "ok",
+                    },
+                },
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "notOk",
+                    },
+                },
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "equal",
+                    },
+                },
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "notEqual",
+                    },
+                },
+            ],
         },
         {
             code: `
@@ -187,31 +216,36 @@ ruleTester.run("no-loose-assertions", rule, {
                           foo.notEqual(a, b);
                       });
                   `,
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "ok"
-                }
-            }, {
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "notOk"
-                }
-            }, {
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "equal"
-                }
-            }, {
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "notEqual"
-                }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "foo",
+                        assertion: "ok",
+                    },
+                },
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "foo",
+                        assertion: "notOk",
+                    },
+                },
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "foo",
+                        assertion: "equal",
+                    },
+                },
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "foo",
+                        assertion: "notEqual",
+                    },
+                },
+            ],
         },
         {
             code: `
@@ -222,19 +256,24 @@ ruleTester.run("no-loose-assertions", rule, {
                           notEqual(a, b);
                       });
                   `,
-            errors: [{
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "ok" }
-            }, {
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "notOk" }
-            }, {
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "equal" }
-            }, {
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "notEqual" }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "ok" },
+                },
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "notOk" },
+                },
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "equal" },
+                },
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "notEqual" },
+                },
+            ],
         },
         {
             code: `
@@ -244,17 +283,19 @@ ruleTester.run("no-loose-assertions", rule, {
                           assert.equal(a, b);
                       });
                   `,
-            options: [["ok", { disallowed: "equal",
-                recommended: ["ab"] }]],
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "assert",
-                    assertion: "ok"
-                }
-            }, {
-                message: "Unexpected assert.equal. Use assert.ab."
-            }]
+            options: [["ok", { disallowed: "equal", recommended: ["ab"] }]],
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "assert",
+                        assertion: "ok",
+                    },
+                },
+                {
+                    message: "Unexpected assert.equal. Use assert.ab.",
+                },
+            ],
         },
         {
             code: `
@@ -264,17 +305,19 @@ ruleTester.run("no-loose-assertions", rule, {
                           foo.equal(a, b);
                       });
                   `,
-            options: [["ok", { disallowed: "equal",
-                recommended: ["ab"] }]],
-            errors: [{
-                messageId: "unexpectedLocalLooseAssertion",
-                data: {
-                    assertVar: "foo",
-                    assertion: "ok"
-                }
-            }, {
-                message: "Unexpected foo.equal. Use foo.ab."
-            }]
+            options: [["ok", { disallowed: "equal", recommended: ["ab"] }]],
+            errors: [
+                {
+                    messageId: "unexpectedLocalLooseAssertion",
+                    data: {
+                        assertVar: "foo",
+                        assertion: "ok",
+                    },
+                },
+                {
+                    message: "Unexpected foo.equal. Use foo.ab.",
+                },
+            ],
         },
         {
             code: `
@@ -285,13 +328,16 @@ ruleTester.run("no-loose-assertions", rule, {
                       });
                   `,
             options: [["ok", "equal"]],
-            errors: [{
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "ok" }
-            }, {
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "equal" }
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "ok" },
+                },
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "equal" },
+                },
+            ],
         },
         {
             code: `
@@ -303,15 +349,23 @@ ruleTester.run("no-loose-assertions", rule, {
                   `,
 
             // Extra "equal" and "ok" definitions to make sure they are properly ignored while parsing options
-            options: [["ok", { disallowed: "equal",
-                recommended: ["ab"] }, "equal", { disallowed: "ok",
-                recommended: ["ab"] }]],
-            errors: [{
-                messageId: "unexpectedGlobalLooseAssertion",
-                data: { assertion: "ok" }
-            }, {
-                message: "Unexpected equal. Use ab."
-            }]
-        }
-    ]
+            options: [
+                [
+                    "ok",
+                    { disallowed: "equal", recommended: ["ab"] },
+                    "equal",
+                    { disallowed: "ok", recommended: ["ab"] },
+                ],
+            ],
+            errors: [
+                {
+                    messageId: "unexpectedGlobalLooseAssertion",
+                    data: { assertion: "ok" },
+                },
+                {
+                    message: "Unexpected equal. Use ab.",
+                },
+            ],
+        },
+    ],
 });
