@@ -2,7 +2,10 @@
   "name": "eslint-plugin-qunit",
   "version": "8.0.1",
   "description": "ESLint plugin containing rules useful for QUnit tests.",
-  "exports": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./configs/*": "./lib/configs/*.js"
+  },
   "main": "./index.js",
   "scripts": {
     "lint": "npm-run-all --continue-on-error --aggregate-output --parallel lint:*",
