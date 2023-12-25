@@ -41,7 +41,7 @@
     "eslint-plugin-mocha": "^10.2.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-qunit": "file:./",
-    "eslint-plugin-unicorn": "^49.0.0",
+    "eslint-plugin-unicorn": "^50.0.1",
     "eslint-remote-tester": "^3.0.1",
     "globals": "^13.23.0",
     "markdownlint-cli": "^0.37.0",
