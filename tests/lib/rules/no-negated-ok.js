@@ -20,8 +20,8 @@ function createError(callee) {
     return {
         messageId: "noNegationInOk",
         data: {
-            callee
-        }
+            callee,
+        },
     };
 }
 
@@ -32,7 +32,6 @@ function createError(callee) {
 const ruleTester = new RuleTester();
 
 ruleTester.run("no-negated-ok", rule, {
-
     valid: [
         // ok
         testUtils.wrapInTest("ok(foo)"),
@@ -94,7 +93,7 @@ ruleTester.run("no-negated-ok", rule, {
         testUtils.wrapInTest("assert.true(foo)"),
         testUtils.wrapInTest("assert.true(foo, 'message')"),
         testUtils.wrapInTest("assert.false(foo)"),
-        testUtils.wrapInTest("assert.false(foo, 'message')")
+        testUtils.wrapInTest("assert.false(foo, 'message')"),
     ],
 
     invalid: [
@@ -102,75 +101,74 @@ ruleTester.run("no-negated-ok", rule, {
         {
             code: testUtils.wrapInTest("assert.ok(!foo)"),
             output: testUtils.wrapInTest("assert.notOk(foo)"),
-            errors: [createError("assert.ok")]
+            errors: [createError("assert.ok")],
         },
         {
             // TypeScript: test callback is adding a type to `this`
             code: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.ok(!foo); });",
             output: "QUnit.test('test', (this: LocalTestContext, assert) => { assert.notOk(foo); });",
             parser: require.resolve("@typescript-eslint/parser"),
-            errors: [createError("assert.ok")]
+            errors: [createError("assert.ok")],
         },
         {
             code: testUtils.wrapInArrowTest("assert.ok(!foo)"),
             output: testUtils.wrapInArrowTest("assert.notOk(foo)"),
             parserOptions: { ecmaVersion: 6 },
-            errors: [createError("assert.ok")]
+            errors: [createError("assert.ok")],
         },
 
         // ok (with message)
         {
             code: testUtils.wrapInTest("assert.ok(!foo, 'message')"),
             output: testUtils.wrapInTest("assert.notOk(foo, 'message')"),
-            errors: [createError("assert.ok")]
+            errors: [createError("assert.ok")],
         },
 
         // notOk
         {
             code: testUtils.wrapInTest("assert.notOk(!foo)"),
             output: testUtils.wrapInTest("assert.ok(foo)"),
-            errors: [createError("assert.notOk")]
+            errors: [createError("assert.notOk")],
         },
         {
             code: testUtils.wrapInTest("assert.notOk(!foo, 'message')"),
             output: testUtils.wrapInTest("assert.ok(foo, 'message')"),
-            errors: [createError("assert.notOk")]
+            errors: [createError("assert.notOk")],
         },
 
         // triple negation is not allowed
         {
             code: testUtils.wrapInTest("assert.ok(!!!foo)"),
             output: testUtils.wrapInTest("assert.notOk(foo)"),
-            errors: [createError("assert.ok")]
+            errors: [createError("assert.ok")],
         },
 
         // triple negation is not allowed (with message)
         {
             code: testUtils.wrapInTest("assert.notOk(!!!foo)"),
             output: testUtils.wrapInTest("assert.ok(foo)"),
-            errors: [createError("assert.notOk")]
+            errors: [createError("assert.notOk")],
         },
 
         // triple negation is not allowed (with notOk)
         {
             code: testUtils.wrapInTest("assert.notOk(!!!foo, 'message')"),
             output: testUtils.wrapInTest("assert.ok(foo, 'message')"),
-            errors: [createError("assert.notOk")]
+            errors: [createError("assert.notOk")],
         },
 
         // true
         {
             code: testUtils.wrapInTest("assert.true(!foo)"),
             output: testUtils.wrapInTest("assert.false(foo)"),
-            errors: [createError("assert.true")]
+            errors: [createError("assert.true")],
         },
 
         // false
         {
             code: testUtils.wrapInTest("assert.false(!foo)"),
             output: testUtils.wrapInTest("assert.true(foo)"),
-            errors: [createError("assert.false")]
-        }
-    ]
-
+            errors: [createError("assert.false")],
+        },
+    ],
 });

@@ -11,7 +11,6 @@
 const rule = require("../../../lib/rules/no-early-return"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -24,7 +23,7 @@ ruleTester.run("no-early-return", rule, {
         "QUnit.test('a test', function (assert) { (function () { return; })(); assert.ok(true); });",
         {
             code: "QUnit.test('a test', function (assert) { () => { return; }; assert.ok(true); });",
-            parserOptions: { ecmaVersion: 6 }
+            parserOptions: { ecmaVersion: 6 },
         },
 
         // Inside nested function (assertions inside nested function before return)
@@ -32,7 +31,7 @@ ruleTester.run("no-early-return", rule, {
         "QUnit.test('a test', function (assert) { (function () { assert.ok(true); return; })(); });",
         {
             code: "QUnit.test('a test', function (assert) { () => { assert.ok(true); return; }; });",
-            parserOptions: { ecmaVersion: 6 }
+            parserOptions: { ecmaVersion: 6 },
         },
 
         // Conditionally run tests are okay
@@ -40,67 +39,80 @@ ruleTester.run("no-early-return", rule, {
         "if (shouldRunTest()) { QUnit.test('a test', function (assert) { assert.ok(true); }); }",
 
         // Return statement outside of test is fine
-        "(function () { return true; }());"
+        "(function () { return true; }());",
     ],
 
     invalid: [
         {
             code: "QUnit.test('a test', function (assert) { if (true) return; assert.ok(true); });",
-            errors: [{
-                messageId: "noEarlyReturn",
-                type: "ReturnStatement"
-            }]
+            errors: [
+                {
+                    messageId: "noEarlyReturn",
+                    type: "ReturnStatement",
+                },
+            ],
         },
 
         {
             // TypeScript: test callback is adding a type to `this`
             code: "QUnit.test('a test', function (this: LocalTestContext, assert) { if (true) return; assert.ok(true); });",
             parser: require.resolve("@typescript-eslint/parser"),
-            errors: [{
-                messageId: "noEarlyReturn",
-                type: "ReturnStatement"
-            }]
+            errors: [
+                {
+                    messageId: "noEarlyReturn",
+                    type: "ReturnStatement",
+                },
+            ],
         },
 
         {
             code: "QUnit.test('a test', (assert) => { if (true) return; assert.ok(true); });",
             parserOptions: { ecmaVersion: 6 },
-            errors: [{
-                messageId: "noEarlyReturn",
-                type: "ReturnStatement"
-            }]
+            errors: [
+                {
+                    messageId: "noEarlyReturn",
+                    type: "ReturnStatement",
+                },
+            ],
         },
 
         // Return in nested function before assertion is considered early return
         {
             code: "QUnit.test('a test', function (assert) { setTimeout(function () { if (true) return; assert.ok(true); }, 0); });",
-            errors: [{
-                messageId: "noEarlyReturn",
-                type: "ReturnStatement"
-            }]
+            errors: [
+                {
+                    messageId: "noEarlyReturn",
+                    type: "ReturnStatement",
+                },
+            ],
         },
         {
             code: "QUnit.test('a test', function (assert) { setTimeout(function () { assert.ok(true); if (true) return; assert.ok(true); }, 0); });",
-            errors: [{
-                messageId: "noEarlyReturn",
-                type: "ReturnStatement"
-            }]
+            errors: [
+                {
+                    messageId: "noEarlyReturn",
+                    type: "ReturnStatement",
+                },
+            ],
         },
 
         // Report errors in multiple scopes with assertions
         {
             code: "QUnit.test('a test', function (assert) { setTimeout(function () { return; assert.ok(true); }, 0); return; assert.ok(true); });",
-            errors: [{
-                messageId: "noEarlyReturn",
-                type: "ReturnStatement",
-                line: 1,
-                column: 67
-            }, {
-                messageId: "noEarlyReturn",
-                type: "ReturnStatement",
-                line: 1,
-                column: 99
-            }]
-        }
-    ]
+            errors: [
+                {
+                    messageId: "noEarlyReturn",
+                    type: "ReturnStatement",
+                    line: 1,
+                    column: 67,
+                },
+                {
+                    messageId: "noEarlyReturn",
+                    type: "ReturnStatement",
+                    line: 1,
+                    column: 99,
+                },
+            ],
+        },
+    ],
 });

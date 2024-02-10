@@ -13,14 +13,12 @@
 const rule = require("../../../lib/rules/no-global-stop-start"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
 ruleTester.run("no-global-stop-start", rule, {
-
     valid: [
         "QUnit.stop();",
         "QUnit.start();",
@@ -28,32 +26,36 @@ ruleTester.run("no-global-stop-start", rule, {
         // Global overridden by local import/declaration.
         {
             code: "var start = require('foo'); start();",
-            globals: { start: true }
-        }
+            globals: { start: true },
+        },
     ],
 
     invalid: [
         {
             code: "stop();",
             globals: { stop: true },
-            errors: [{
-                messageId: "unexpectedGlobalStopStart",
-                data: {
-                    callee: "stop"
+            errors: [
+                {
+                    messageId: "unexpectedGlobalStopStart",
+                    data: {
+                        callee: "stop",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "start();",
             globals: { start: true },
-            errors: [{
-                messageId: "unexpectedGlobalStopStart",
-                data: {
-                    callee: "start"
+            errors: [
+                {
+                    messageId: "unexpectedGlobalStopStart",
+                    data: {
+                        callee: "start",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
-        }
-    ]
+            ],
+        },
+    ],
 });

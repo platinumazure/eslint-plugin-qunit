@@ -15,7 +15,6 @@ const rule = require("../../../lib/rules/no-identical-names"),
 const ruleTester = new RuleTester();
 
 ruleTester.run("no-identical-title", rule, {
-
     valid: [
         outdent`
           module("module");
@@ -83,13 +82,13 @@ ruleTester.run("no-identical-title", rule, {
           });
         `,
         {
-            code: outdent `
+            code: outdent`
               test(\`it$\{n\}\`, function() {});
               test(\`it$\{n\}\`, function() {});
             `,
             parserOptions: {
-                ecmaVersion: 6
-            }
+                ecmaVersion: 6,
+            },
         },
 
         // Tests with identical names are allowed if they are in different modules.
@@ -139,86 +138,96 @@ ruleTester.run("no-identical-title", rule, {
                   });
               });
           });
-        `
+        `,
     ],
 
     invalid: [
         {
-            code: outdent `
+            code: outdent`
               module("module1");
               test("it1", function() {});
               test("it1", function() {});
             `,
-            errors: [{
-                messageId: "duplicateTest",
-                data: {
-                    line: 2
+            errors: [
+                {
+                    messageId: "duplicateTest",
+                    data: {
+                        line: 2,
+                    },
+                    column: 6,
+                    line: 3,
                 },
-                column: 6,
-                line: 3
-            }]
+            ],
         },
         {
-            code: outdent `
+            code: outdent`
               test("it1", function() {});
               test("it1", function() {});
             `,
-            errors: [{
-                messageId: "duplicateTest",
-                data: {
-                    line: 1
+            errors: [
+                {
+                    messageId: "duplicateTest",
+                    data: {
+                        line: 1,
+                    },
+                    column: 6,
+                    line: 2,
                 },
-                column: 6,
-                line: 2
-            }]
+            ],
         },
         {
-            code: outdent `
+            code: outdent`
               module("module1", function() {
                 test("it1", function() {});
                 test("it1", function() {});
               });
             `,
-            errors: [{
-                messageId: "duplicateTest",
-                data: {
-                    line: 2
+            errors: [
+                {
+                    messageId: "duplicateTest",
+                    data: {
+                        line: 2,
+                    },
+                    column: 8,
+                    line: 3,
                 },
-                column: 8,
-                line: 3
-            }]
+            ],
         },
         {
-            code: outdent `
+            code: outdent`
               module("module1");
               module("module1");
             `,
-            errors: [{
-                messageId: "duplicateModule",
-                data: {
-                    line: 1
+            errors: [
+                {
+                    messageId: "duplicateModule",
+                    data: {
+                        line: 1,
+                    },
+                    column: 8,
+                    line: 2,
                 },
-                column: 8,
-                line: 2
-            }]
+            ],
         },
         {
-            code: outdent `
+            code: outdent`
               module("module1");
               test("it", function() {});
               module("module1");
             `,
-            errors: [{
-                messageId: "duplicateModule",
-                data: {
-                    line: 1
+            errors: [
+                {
+                    messageId: "duplicateModule",
+                    data: {
+                        line: 1,
+                    },
+                    column: 8,
+                    line: 3,
                 },
-                column: 8,
-                line: 3
-            }]
+            ],
         },
         {
-            code: outdent `
+            code: outdent`
               module("module1", function() {
                   module("module2", function() {
                       test("it", function() {});
@@ -226,15 +235,17 @@ ruleTester.run("no-identical-title", rule, {
                   });
               });
             `,
-            errors: [{
-                messageId: "duplicateTest",
-                data: { line: 3 },
-                column: 14,
-                line: 4
-            }]
+            errors: [
+                {
+                    messageId: "duplicateTest",
+                    data: { line: 3 },
+                    column: 14,
+                    line: 4,
+                },
+            ],
         },
         {
-            code: outdent `
+            code: outdent`
               test("it", function() {});
 
               // Module with test deep inside it.
@@ -246,26 +257,30 @@ ruleTester.run("no-identical-title", rule, {
 
               test("it", function() {});
             `,
-            errors: [{
-                messageId: "duplicateTest",
-                data: { line: 1 },
-                column: 6,
-                line: 10
-            }]
+            errors: [
+                {
+                    messageId: "duplicateTest",
+                    data: { line: 1 },
+                    column: 6,
+                    line: 10,
+                },
+            ],
         },
         {
-            code: outdent `
+            code: outdent`
               module("module1", function() {
                   module("submodule1", function() {});
                   module("submodule1", function() {});
               });
             `,
-            errors: [{
-                messageId: "duplicateModule",
-                data: { line: 2 },
-                column: 12,
-                line: 3
-            }]
+            errors: [
+                {
+                    messageId: "duplicateModule",
+                    data: { line: 2 },
+                    column: 12,
+                    line: 3,
+                },
+            ],
         },
         {
             code: outdent`
@@ -273,12 +288,14 @@ ruleTester.run("no-identical-title", rule, {
                   module("name1", function() {});
               });
             `,
-            errors: [{
-                messageId: "duplicateModuleAncestor",
-                data: { line: 1 },
-                column: 12,
-                line: 2
-            }]
-        }
-    ]
+            errors: [
+                {
+                    messageId: "duplicateModuleAncestor",
+                    data: { line: 1 },
+                    column: 12,
+                    line: 2,
+                },
+            ],
+        },
+    ],
 });

@@ -19,21 +19,30 @@ const assert = require("chai").assert,
 // Tests
 //------------------------------------------------------------------------------
 
-const ruleNames = fs.readdirSync("./lib/rules").map(rawFileName => path.basename(rawFileName, ".js"));
+const ruleNames = fs
+    .readdirSync("./lib/rules")
+    .map((rawFileName) => path.basename(rawFileName, ".js"));
 
 describe("index.js", function () {
     describe("rules", function () {
         for (const ruleName of ruleNames) {
             describe(ruleName, function () {
                 it("should appear in rule exports", function () {
-                    assert.property(rules, ruleName, `Rule export for ${ruleName} not present`);
+                    assert.property(
+                        rules,
+                        ruleName,
+                        `Rule export for ${ruleName} not present`,
+                    );
                 });
 
                 it("should appear in tests", function (done) {
                     const path = `./tests/lib/rules/${ruleName}.js`;
 
                     fs.access(path, function (err) {
-                        assert.notOk(err, `tests/lib/rules/${ruleName}.js should exist`);
+                        assert.notOk(
+                            err,
+                            `tests/lib/rules/${ruleName}.js should exist`,
+                        );
                         done();
                     });
                 });
@@ -42,7 +51,10 @@ describe("index.js", function () {
                     const path = `./docs/rules/${ruleName}.md`;
 
                     fs.access(path, function (err) {
-                        assert.notOk(err, `docs/rules/${ruleName}.md should exist`);
+                        assert.notOk(
+                            err,
+                            `docs/rules/${ruleName}.md should exist`,
+                        );
                         done();
                     });
                 });
@@ -52,8 +64,10 @@ describe("index.js", function () {
                     const fileContents = fs.readFileSync(path, "utf8");
 
                     assert.ok(
-                        fileContents.includes("/** @type {import('eslint').Rule.RuleModule} */"),
-                        "includes jsdoc comment for rule type"
+                        fileContents.includes(
+                            "/** @type {import('eslint').Rule.RuleModule} */",
+                        ),
+                        "includes jsdoc comment for rule type",
                     );
                 });
             });
@@ -74,10 +88,15 @@ describe("index.js", function () {
 
         describe("flat", function () {
             // eslint-disable-next-line mocha/no-setup-in-describe -- rule doesn't like function calls like `Object.entries()`
-            for (const [configName, config] of Object.entries(requireIndex(`${__dirname}/../lib/configs`))) {
+            for (const [configName, config] of Object.entries(
+                // eslint-disable-next-line mocha/no-setup-in-describe -- rule doesn't like function calls like `Object.entries()`
+                requireIndex(`${__dirname}/../lib/configs`),
+            )) {
                 describe(configName, function () {
                     it("has the right plugins", function () {
-                        assert.deepStrictEqual(config.plugins, { qunit: plugin });
+                        assert.deepStrictEqual(config.plugins, {
+                            qunit: plugin,
+                        });
                     });
                 });
             }

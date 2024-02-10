@@ -20,23 +20,27 @@ const ruleTester = new RuleTester();
 ruleTester.run("no-async-test", rule, {
     valid: [
         "QUnit.test('a test', function () { });",
-        "QUnit.test('a test', function () { var done = assert.async(); done(); });"
+        "QUnit.test('a test', function () { var done = assert.async(); done(); });",
     ],
 
     invalid: [
         {
             code: "asyncTest('a test', function () { });",
-            errors: [{
-                messageId: "unexpectedAsyncTest",
-                type: "CallExpression"
-            }]
+            errors: [
+                {
+                    messageId: "unexpectedAsyncTest",
+                    type: "CallExpression",
+                },
+            ],
         },
         {
             code: "QUnit.asyncTest('a test', function () { });",
-            errors: [{
-                messageId: "unexpectedAsyncTest",
-                type: "CallExpression"
-            }]
-        }
-    ]
+            errors: [
+                {
+                    messageId: "unexpectedAsyncTest",
+                    type: "CallExpression",
+                },
+            ],
+        },
+    ],
 });

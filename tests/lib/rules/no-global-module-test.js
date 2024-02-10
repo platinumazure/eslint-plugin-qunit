@@ -29,43 +29,49 @@ ruleTester.run("no-global-module-test", rule, {
         // Global overridden by local import/declaration.
         {
             code: "var module = require('foo'); module();",
-            globals: { module: true }
-        }
+            globals: { module: true },
+        },
     ],
 
     invalid: [
         {
             code: "module();",
             globals: { module: true },
-            errors: [{
-                messageId: "unexpectedGlobalModuleTest",
-                data: {
-                    callee: "module"
+            errors: [
+                {
+                    messageId: "unexpectedGlobalModuleTest",
+                    data: {
+                        callee: "module",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "test();",
             globals: { test: true },
-            errors: [{
-                messageId: "unexpectedGlobalModuleTest",
-                data: {
-                    callee: "test"
+            errors: [
+                {
+                    messageId: "unexpectedGlobalModuleTest",
+                    data: {
+                        callee: "test",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "asyncTest();",
             globals: { asyncTest: true },
-            errors: [{
-                messageId: "unexpectedGlobalModuleTest",
-                data: {
-                    callee: "asyncTest"
+            errors: [
+                {
+                    messageId: "unexpectedGlobalModuleTest",
+                    data: {
+                        callee: "asyncTest",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
-        }
-    ]
+            ],
+        },
+    ],
 });

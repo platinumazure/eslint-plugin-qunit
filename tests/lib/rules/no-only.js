@@ -22,39 +22,49 @@ ruleTester.run("no-only", rule, {
         "QUnit.module.test('Name', function() { });",
         "QUnit.test('Name', function() { });",
         "module.test('Name', function() { });",
-        "test('Name', function() { });"
+        "test('Name', function() { });",
     ],
 
     invalid: [
         {
             code: "QUnit.module.only('Name', function() { });",
-            errors: [{
-                messageId: "noQUnitOnly"
-            }]
+            errors: [
+                {
+                    messageId: "noQUnitOnly",
+                },
+            ],
         },
         {
             code: "QUnit.only('Name', function() { });",
-            errors: [{
-                messageId: "noQUnitOnly"
-            }]
+            errors: [
+                {
+                    messageId: "noQUnitOnly",
+                },
+            ],
         },
         {
             code: "module.only('Name', function() { });",
-            errors: [{
-                messageId: "noQUnitOnly"
-            }]
+            errors: [
+                {
+                    messageId: "noQUnitOnly",
+                },
+            ],
         },
         {
             code: "only('Name', function() { });",
-            errors: [{
-                messageId: "noQUnitOnly"
-            }]
+            errors: [
+                {
+                    messageId: "noQUnitOnly",
+                },
+            ],
         },
         {
             code: "test.only('Name', function() { });",
-            errors: [{
-                messageId: "noQUnitOnly"
-            }]
-        }
-    ]
+            errors: [
+                {
+                    messageId: "noQUnitOnly",
+                },
+            ],
+        },
+    ],
 });
