@@ -165,7 +165,7 @@ module.exports = [
                 "error",
                 {
                     pattern:
-                        "https://github.com/platinumazure/eslint-plugin-qunit/blob/master/docs/rules/{{name}}.md",
+                        "https://github.com/platinumazure/eslint-plugin-qunit/blob/main/docs/rules/{{name}}.md",
                 },
             ],
 
