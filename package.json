@@ -34,7 +34,7 @@
     "@release-it/conventional-changelog": "^7.0.2",
     "@typescript-eslint/parser": "^6.7.4",
     "all-contributors-cli": "^6.26.1",
-    "chai": "^4.3.10",
+    "chai": "^5.0.3",
     "coveralls": "^3.1.1",
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
