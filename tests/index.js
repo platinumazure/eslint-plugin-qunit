@@ -89,6 +89,7 @@ describe("index.js", function () {
         describe("flat", function () {
             // eslint-disable-next-line mocha/no-setup-in-describe -- rule doesn't like function calls like `Object.entries()`
             for (const [configName, config] of Object.entries(
+                // eslint-disable-next-line mocha/no-setup-in-describe -- rule doesn't like function calls like `Object.entries()`
                 requireIndex(`${__dirname}/../lib/configs`),
             )) {
                 describe(configName, function () {
