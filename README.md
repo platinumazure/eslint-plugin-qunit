@@ -53,6 +53,7 @@ For more details on how to extend your configuration from a plugin configuration
 | [no-hooks-from-ancestor-modules](docs/rules/no-hooks-from-ancestor-modules.md) | disallow the use of hooks from ancestor modules                         | ✅  |    |    |
 | [no-identical-names](docs/rules/no-identical-names.md)                         | disallow identical test and module names                                | ✅  |    |    |
 | [no-init](docs/rules/no-init.md)                                               | disallow use of QUnit.init                                              | ✅  |    |    |
+| [no-invalid-names](docs/rules/no-invalid-names.md)                             | disallow invalid and missing test names                                 |    | 🔧 |    |
 | [no-jsdump](docs/rules/no-jsdump.md)                                           | disallow use of QUnit.jsDump                                            | ✅  |    |    |
 | [no-loose-assertions](docs/rules/no-loose-assertions.md)                       | disallow the use of assert.equal/assert.ok/assert.notEqual/assert.notOk |    |    |    |
 | [no-negated-ok](docs/rules/no-negated-ok.md)                                   | disallow negation in assert.ok/assert.notOk                             | ✅  | 🔧 |    |
