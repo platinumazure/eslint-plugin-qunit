@@ -1,5 +1,24 @@
 
 
+## [8.1.0](https://github.com/platinumazure/eslint-plugin-qunit/compare/v8.0.1...v8.1.0) (2024-02-11)
+
+
+### Features
+
+* support eslint flat config ([#443](https://github.com/platinumazure/eslint-plugin-qunit/issues/443)) ([87890a3](https://github.com/platinumazure/eslint-plugin-qunit/commit/87890a3f94d44cb84d8ee1acfc4e882745782671))
+
+
+### Documentation
+
+* auto-generate configs list and some rule options lists with eslint-doc-generator ([#416](https://github.com/platinumazure/eslint-plugin-qunit/issues/416)) ([6fa0bdd](https://github.com/platinumazure/eslint-plugin-qunit/commit/6fa0bdd67ad95803087a901c3bd9114c19f98d4b))
+
+
+### Chores
+
+* add prettier ([#442](https://github.com/platinumazure/eslint-plugin-qunit/issues/442)) ([71d03e5](https://github.com/platinumazure/eslint-plugin-qunit/commit/71d03e5d419383efb022d7440e77bd3c1e0a48f4))
+* Change master branch references to main ([#474](https://github.com/platinumazure/eslint-plugin-qunit/issues/474)) ([9782e5e](https://github.com/platinumazure/eslint-plugin-qunit/commit/9782e5e6ccaaee3ea70fd6dd9eeec01ba92e7355))
+* convert to eslint flat config internally ([#440](https://github.com/platinumazure/eslint-plugin-qunit/issues/440)) ([bc854b0](https://github.com/platinumazure/eslint-plugin-qunit/commit/bc854b020fb1d95ce804230d07fe201c58022e15))
+
 ## [8.0.1](https://github.com/platinumazure/eslint-plugin-qunit/compare/v8.0.0...v8.0.1) (2023-10-07)
 
 
