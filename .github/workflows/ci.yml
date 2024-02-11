@@ -28,6 +28,7 @@ jobs:
 
     - run: npm ci
     - run: npm run test:unit
+    - run: npm install --save-dev eslint@v9.0.0-beta.0 && npm run test:unit
 
     - name: Coveralls
       uses: coverallsapp/github-action@v2
