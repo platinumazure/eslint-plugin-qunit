@@ -8,13 +8,24 @@
 "use strict";
 
 const requireIndex = require("requireindex");
+const pkg = require("./package.json");
 
 module.exports = {
+    meta: {
+        name: pkg.name,
+        version: pkg.version,
+    },
+
     rules: requireIndex(`${__dirname}/lib/rules`),
 
     // eslint-disable-next-line sort-keys
     configs: {
         recommended: {
+            description: [
+                "This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you.",
+                'For ESLint `.eslintrc.js` legacy config, extend from `"plugin:qunit/recommended"`.',
+                "For ESLint `eslint.config.js` flat config, load from `require('eslint-plugin-qunit/configs/recommended')`.",
+            ].join(" "),
             plugins: ["qunit"],
             rules: {
                 "qunit/assert-args": "error",
@@ -51,8 +62,8 @@ module.exports = {
                 "qunit/no-throws-string": "error",
                 "qunit/require-expect": "error",
                 "qunit/require-object-in-propequal": "error",
-                "qunit/resolve-async": "error"
-            }
-        }
-    }
+                "qunit/resolve-async": "error",
+            },
+        },
+    },
 };

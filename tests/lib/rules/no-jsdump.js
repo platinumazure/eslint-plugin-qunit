@@ -17,18 +17,17 @@ const rule = require("../../../lib/rules/no-jsdump"),
 
 const ruleTester = new RuleTester();
 ruleTester.run("no-jsdump", rule, {
-
-    valid: [
-        "QUnit.dump(obj);"
-    ],
+    valid: ["QUnit.dump(obj);"],
 
     invalid: [
         {
             code: "QUnit.jsDump(obj);",
-            errors: [{
-                messageId: "noJsDump",
-                type: "CallExpression"
-            }]
-        }
-    ]
+            errors: [
+                {
+                    messageId: "noJsDump",
+                    type: "CallExpression",
+                },
+            ],
+        },
+    ],
 });

@@ -1,6 +1,6 @@
 # Require that async calls are resolved (`qunit/resolve-async`)
 
-💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/main/README.md#configurations).
 
 <!-- end auto-generated rule header -->
 

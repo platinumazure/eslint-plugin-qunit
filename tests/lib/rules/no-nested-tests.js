@@ -28,7 +28,7 @@ ruleTester.run("no-nested-tests", rule, {
         "QUnit.module('ParentModule', function () {\n QUnit.test('Name', function() {});\n QUnit.module('ChildModule', function () {\n QUnit.test('ChildTest', function () {});\n });\n })\n",
         "QUnit.module('ParentModule', function () {\n test('Name', function() {});\n module('ChildModule', function () {\n QUnit.test('ChildTest', function () {});\n });\n })\n",
         "module('ParentModule', function () {\n QUnit.test('Name', function() {});\n QUnit.module('ChildModule', function () {\n test('ChildTest', function () {});\n });\n })\n",
-        "module('ParentModule', function () {\n test('Name', function() {});\n module('ChildModule', function () {\n test('ChildTest', function () {});\n });\n })\n"
+        "module('ParentModule', function () {\n test('Name', function() {});\n module('ChildModule', function () {\n test('ChildTest', function () {});\n });\n })\n",
     ],
 
     invalid: [
@@ -39,14 +39,13 @@ ruleTester.run("no-nested-tests", rule, {
         "QUnit.test('ParentTest', function () {\n QUnit.module('ChildModule', function () {\n QUnit.test('ChildTest', function () {});\n });\n });",
         "test('ParentTest', function () {\n module('ChildModule', function () {\n test('ChildTest', function () {});\n });\n });",
         "QUnit.test('ParentTest', function () {\n module('ChildModule', function () {\n test('ChildTest', function () {});\n });\n });",
-        "test('ParentTest', function () {\n QUnit.module('ChildModule', function () {\n QUnit.test('ChildTest', function () {});\n });\n });"
-    ]
-        .map(code => ({
-            code,
-            errors: [
-                {
-                    messageId: "noNestedTests"
-                }
-            ]
-        }))
+        "test('ParentTest', function () {\n QUnit.module('ChildModule', function () {\n QUnit.test('ChildTest', function () {});\n });\n });",
+    ].map((code) => ({
+        code,
+        errors: [
+            {
+                messageId: "noNestedTests",
+            },
+        ],
+    })),
 });

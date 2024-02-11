@@ -11,32 +11,32 @@
 const rule = require("../../../lib/rules/no-qunit-stop"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
 
 const ruleTester = new RuleTester();
 ruleTester.run("no-qunit-stop", rule, {
-
-    valid: [
-        "var done = assert.async();"
-    ],
+    valid: ["var done = assert.async();"],
 
     invalid: [
         {
             code: "QUnit.stop();",
-            errors: [{
-                messageId: "noQUnitStop",
-                type: "CallExpression"
-            }]
+            errors: [
+                {
+                    messageId: "noQUnitStop",
+                    type: "CallExpression",
+                },
+            ],
         },
         {
             code: "QUnit.stop(2);",
-            errors: [{
-                messageId: "noQUnitStop",
-                type: "CallExpression"
-            }]
-        }
-    ]
+            errors: [
+                {
+                    messageId: "noQUnitStop",
+                    type: "CallExpression",
+                },
+            ],
+        },
+    ],
 });

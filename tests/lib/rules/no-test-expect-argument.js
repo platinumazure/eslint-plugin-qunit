@@ -11,7 +11,6 @@
 const rule = require("../../../lib/rules/no-test-expect-argument"),
     RuleTester = require("eslint").RuleTester;
 
-
 //------------------------------------------------------------------------------
 // Tests
 //------------------------------------------------------------------------------
@@ -35,49 +34,57 @@ ruleTester.run("no-test-expect-argument", rule, {
         "test('test name', function (assert) { assert.expect(0); });",
         "QUnit.test('test name', function (assert) { assert.expect(0); });",
         "asyncTest('test name', function (assert) { assert.expect(0); });",
-        "QUnit.asyncTest('test name', function (assert) { assert.expect(0); });"
+        "QUnit.asyncTest('test name', function (assert) { assert.expect(0); });",
     ],
 
     invalid: [
         {
             code: "test('test name', 0, function () { });",
-            errors: [{
-                messageId: "noExpectArgument",
-                data: {
-                    callee: "test"
+            errors: [
+                {
+                    messageId: "noExpectArgument",
+                    data: {
+                        callee: "test",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "QUnit.test('test name', 0, function () { });",
-            errors: [{
-                messageId: "noExpectArgument",
-                data: {
-                    callee: "QUnit.test"
+            errors: [
+                {
+                    messageId: "noExpectArgument",
+                    data: {
+                        callee: "QUnit.test",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "asyncTest('test name', 0, function () { });",
-            errors: [{
-                messageId: "noExpectArgument",
-                data: {
-                    callee: "asyncTest"
+            errors: [
+                {
+                    messageId: "noExpectArgument",
+                    data: {
+                        callee: "asyncTest",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
+            ],
         },
         {
             code: "QUnit.asyncTest('test name', 0, function () { });",
-            errors: [{
-                messageId: "noExpectArgument",
-                data: {
-                    callee: "QUnit.asyncTest"
+            errors: [
+                {
+                    messageId: "noExpectArgument",
+                    data: {
+                        callee: "QUnit.asyncTest",
+                    },
+                    type: "CallExpression",
                 },
-                type: "CallExpression"
-            }]
-        }
-    ]
+            ],
+        },
+    ],
 });

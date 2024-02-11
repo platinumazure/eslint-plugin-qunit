@@ -1,6 +1,6 @@
 # Enforce that `expect` is called (`qunit/require-expect`)
 
-💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/main/README.md#configurations).
 
 <!-- end auto-generated rule header -->
 
@@ -15,7 +15,7 @@ test. This rule checks for `expect` at linting time.
 
 The "always" option requires that `expect` is called in each test.
 
-The "except-simple" (**default**) option only requires an `expect` call when an assertion is
+The "except-simple" option only requires an `expect` call when an assertion is
 called inside of a block or when `assert` is passed to another function. The
 rationale here is that by wrapping `assert` statements in conditional blocks
 or callbacks, developers are at risk of creating tests that incorrectly pass
@@ -26,7 +26,7 @@ resilience in QUnit 2.0 for tracking asynchronous activity, projects may
 prefer to discourage use of redundant `assert.expect` calls in tests. This
 option codifies such convention.
 
-The "never-except-zero" option disallows `except` calls, except when used to
+The "never-except-zero" option (**default**) disallows `except` calls, except when used to
 explicitly assert that a test performs no assertions, which would otherwise
 be considered an error.
 
@@ -59,7 +59,7 @@ test('name', function() {
 
 ### except-simple
 
-When using the **default** "except-simple" option, the following patterns are considered
+When using the "except-simple" option, the following patterns are considered
 warnings.
 
 ```js
@@ -158,7 +158,7 @@ test('name', function(assert) {
 
 ### never-except-zero
 
-The following would warn.
+When using the **default** "never-except-zero" option, the following would warn.
 
 ```js
 test('name', function(assert) {

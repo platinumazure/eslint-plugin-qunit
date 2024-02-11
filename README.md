@@ -2,7 +2,7 @@
 
 [![NPM version](https://img.shields.io/npm/v/eslint-plugin-qunit.svg?style=flat)](https://npmjs.org/package/eslint-plugin-qunit)
 ![CI](https://github.com/platinumazure/eslint-plugin-qunit/workflows/CI/badge.svg)
-[![Coverage Status](https://coveralls.io/repos/platinumazure/eslint-plugin-qunit/badge.svg?branch=master&service=github)](https://coveralls.io/github/platinumazure/eslint-plugin-qunit?branch=master)
+[![Coverage Status](https://coveralls.io/repos/platinumazure/eslint-plugin-qunit/badge.svg?branch=main&service=github)](https://coveralls.io/github/platinumazure/eslint-plugin-qunit?branch=main)
 [![Join the chat at https://gitter.im/platinumazure/eslint-plugin-qunit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/platinumazure/eslint-plugin-qunit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ESLint plugin containing rules useful for QUnit tests.
@@ -13,16 +13,20 @@ You can extend from a configuration in order to simplify manual configuration of
 
 For more details on how to extend your configuration from a plugin configuration, please see the [ESLint plugin configuration documentation](https://eslint.org/docs/user-guide/configuring#using-the-configuration-from-a-plugin).
 
-|     | Name | Description |
-| :-- | :--- | :---------- |
-| ✅ | recommended | This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you. You can use this configuration by extending from `"plugin:qunit/recommended"` in your configuration file. |
+<!-- begin auto-generated configs list -->
+
+|    | Name          | Description                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| :- | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅  | `recommended` | This configuration includes rules which I recommend to avoid QUnit runtime errors or incorrect behavior, some of which can be difficult to debug. Some of these rules also encourage best practices that help QUnit work better for you. For ESLint `.eslintrc.js` legacy config, extend from `"plugin:qunit/recommended"`. For ESLint `eslint.config.js` flat config, load from `require('eslint-plugin-qunit/configs/recommended')`. |
+
+<!-- end auto-generated configs list -->
 
 ## Rules
 
 <!-- begin auto-generated rules list -->
 
-💼 [Configurations](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations) enabled in.\
-✅ Set in the `recommended` [configuration](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).\
+💼 [Configurations](https://github.com/platinumazure/eslint-plugin-qunit/blob/main/README.md#configurations) enabled in.\
+✅ Set in the `recommended` [configuration](https://github.com/platinumazure/eslint-plugin-qunit/blob/main/README.md#configurations).\
 🔧 Automatically fixable by the [`--fix` CLI option](https://eslint.org/docs/user-guide/command-line-interface#--fix).\
 💡 Manually fixable by [editor suggestions](https://eslint.org/docs/developer-guide/working-with-rules#providing-suggestions).
 

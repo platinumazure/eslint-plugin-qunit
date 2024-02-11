@@ -1,6 +1,6 @@
 # Disallow async module callbacks (`qunit/no-async-module-callbacks`)
 
-💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/master/README.md#configurations).
+💼 This rule is enabled in the ✅ `recommended` [config](https://github.com/platinumazure/eslint-plugin-qunit/blob/main/README.md#configurations).
 
 <!-- end auto-generated rule header -->
 
