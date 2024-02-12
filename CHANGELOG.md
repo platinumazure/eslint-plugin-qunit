@@ -1,5 +1,12 @@
 
 
+## [8.1.1](https://github.com/platinumazure/eslint-plugin-qunit/compare/v8.1.0...v8.1.1) (2024-02-12)
+
+
+### Bug Fixes
+
+* remove disallowed description property from config ([#476](https://github.com/platinumazure/eslint-plugin-qunit/issues/476)) ([28804af](https://github.com/platinumazure/eslint-plugin-qunit/commit/28804afd3a6285feb15fe3d441723a7764c2088c))
+
 ## [8.1.0](https://github.com/platinumazure/eslint-plugin-qunit/compare/v8.0.1...v8.1.0) (2024-02-11)
 
 
