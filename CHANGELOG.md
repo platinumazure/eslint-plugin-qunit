@@ -1,4 +1,9 @@
+## [8.1.2](https://github.com/platinumazure/eslint-plugin-qunit/compare/v8.1.1...v8.1.2) (2024-08-22)
 
+
+### Bug Fixes
+
+* eslint v9 compatibility issues ([#532](https://github.com/platinumazure/eslint-plugin-qunit/issues/532)) ([02b4c8e](https://github.com/platinumazure/eslint-plugin-qunit/commit/02b4c8eac55e04bbb947415e88e61cce124621c9))
 
 ## [8.1.1](https://github.com/platinumazure/eslint-plugin-qunit/compare/v8.1.0...v8.1.1) (2024-02-12)
 
